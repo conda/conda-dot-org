@@ -29,7 +29,7 @@ The whole team meets every two weeks and has a Slack channel for chat.  We use G
 
 * Join the [conda Slack Workspace](https://join.slack.com/t/conda/shared_invite/zt-1gbwyn1nk-rfDNaR8wFkAq4s812Rs0tg)
     * and then the [conda-dot-org-content channel](https://conda.slack.com/archives/C03V5NSRNH5)
-* [Content Team Root HackMD page]() - links to every design document in HackMD.
+* [Content Team Root HackMD page](https://hackmd.io/V6mHdS7iSuSHchEVjVjcKQ) - links to every design document in HackMD.
 * We meet every two weeks on Tuesday at 9am US Central time / 16:00 Central European Time. Please join the Slack Channel and we will invite you.
 
 ### Join the Technology & Implementation Team
