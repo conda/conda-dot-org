@@ -14,26 +14,26 @@ We have formed several teams to help us move this project forward (see below).  
 
 The whole team meets every two weeks and has a Slack channel for chat.  We use GitHub and HackMD for tracking information and decisions.
 
-* Join the [conda Slack Workspace](https://join.slack.com/t/conda/shared_invite/zt-1gbwyn1nk-rfDNaR8wFkAq4s812Rs0tg)
+* Join the [conda Slack Workspace](https://join.slack.com/t/conda/shared_invite/zt-1ik6vglro-AdmjqKxjTbD7D0eRBfMr6A)
     * and then the [conda-dot-org channel](https://conda.slack.com/archives/C03Q9KCJPH8)
 * [Root HackMD page](https://hackmd.io/DGtozSlsSjSokpYAK5-9hw) - links to everything in HackMD.
 * We meet every two weeks on Monday at 9am US Central time / 16:00 Central European Time. Please join the Slack Channel and we will invite you.
 
 ### Join the Design Team
 
-* Join the [conda Slack Workspace](https://join.slack.com/t/conda/shared_invite/zt-1gbwyn1nk-rfDNaR8wFkAq4s812Rs0tg)
+* Join the [conda Slack Workspace](https://join.slack.com/t/conda/shared_invite/zt-1ik6vglro-AdmjqKxjTbD7D0eRBfMr6A)
     * and then the [conda-dot-org-design channel](https://conda.slack.com/archives/C0408NMPJ5S)
 * [Design Team Root HackMD page](https://hackmd.io/XxHGKH33TRqKJaWKGUNppw) - links to every design document in HackMD.
 
 ### Join the Content Team
 
-* Join the [conda Slack Workspace](https://join.slack.com/t/conda/shared_invite/zt-1gbwyn1nk-rfDNaR8wFkAq4s812Rs0tg)
+* Join the [conda Slack Workspace](https://join.slack.com/t/conda/shared_invite/zt-1ik6vglro-AdmjqKxjTbD7D0eRBfMr6A)
     * and then the [conda-dot-org-content channel](https://conda.slack.com/archives/C03V5NSRNH5)
 * [Content Team Root HackMD page](https://hackmd.io/V6mHdS7iSuSHchEVjVjcKQ) - links to every design document in HackMD.
 * We meet every two weeks on Tuesday at 9am US Central time / 16:00 Central European Time. Please join the Slack Channel and we will invite you.
 
-### Join the Technology & Implementation Team
+### Join the Implementation Team
 
-* Join the [conda Slack Workspace](https://join.slack.com/t/conda/shared_invite/zt-1gbwyn1nk-rfDNaR8wFkAq4s812Rs0tg)
-    * and then the [conda-dot-org-tech-impl channel](https://conda.slack.com/archives/C03V5P9KSQ7)
-* [Technology & Implementation Team Root HackMD page](https://hackmd.io/e8Y26n9gQWeUeSojkqlv5w) - links to every Tech+Impl document in HackMD.
+* Join the [conda Slack Workspace](https://join.slack.com/t/conda/shared_invite/zt-1ik6vglro-AdmjqKxjTbD7D0eRBfMr6A)
+    * and then the [conda-dot-org-implementation channel](https://conda.slack.com/archives/C03V5P9KSQ7)
+* [Implementation Team Root HackMD page](https://hackmd.io/e8Y26n9gQWeUeSojkqlv5w) - links to every Implementation document in HackMD.
