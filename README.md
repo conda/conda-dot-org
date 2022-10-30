@@ -1,39 +1,36 @@
-# Conda Community Website
+# conda-dot-org
 
-This repository will define the conda community website, which will reside at conda.org.  Our aim is for this website to be a gathering place for the conda community, and the default place people go when they have questions or are looking for information.
+This is the repository for the conda.org community website. 
 
-We mean "community" in the broadest possible sense, including users of conda and other tools in the ecosystem, package and tool writers, and infrastucure and channel managers.  "Other tools" includes anything written by anyone that ties into the conda ecosystem.
+It is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator. The
+contents are structured like this:
 
-## Get Involved!
+- `.github/`: Workflows for deployment.
+- `blog/`: Blog posts. Can use `.md` (Markdown), `.mdx` (Markdown with react) or `.js` extensions.
+   Complex posts can use its own directory.
+- `docs/`: Documentation with navigation and sidebars.
+- `src/`: Resources (React components, custom CSS)  and logic for standalone pages
+   - `src/pages`: Standalone pages. This directory contains the homepage (`index.js`) and other simpler pages (`community.md`).
+- `static/`: Static resources like images and icons.
+- `babel.config.js`: Configuration to install `docusaurus`.
+- `docusaurus.config.js`: Configuration for `docusaurus`. Includes variables like title and description, navigation menu items, etc.
+- `package.json`: More configuration to install `docusaurus`.
+- `sidebars.js`: Support for sidebars. We use in automatic mode now.
 
-This is very much a work in progress.  Work originally started on this in 2021, but then went on hiatus and did not start again in earnest until August 2022.
+> Non listed directories or files are generated automatically are not relevant for modifications.
 
-We have formed several teams to help us move this project forward (see below).  If you are interested in any (or all!) of these areas then please join the relevant teams.
+## Local Development
 
-### Join the Team!
+```bash
+$ git clone
+$ cd conda-dot-org
+$ npm install
+$ npm run start
+```
 
-The whole team meets every two weeks and has a Slack channel for chat.  We use GitHub and HackMD for tracking information and decisions.
+This command starts a local development server and opens up a browser window. 
+Most changes are reflected live without having to restart the server.
 
-* Join the [conda Slack Workspace](https://join.slack.com/t/conda/shared_invite/zt-1gbwyn1nk-rfDNaR8wFkAq4s812Rs0tg)
-    * and then the [conda-dot-org channel](https://conda.slack.com/archives/C03Q9KCJPH8)
-* [Root HackMD page](https://hackmd.io/DGtozSlsSjSokpYAK5-9hw) - links to everything in HackMD.
-* We meet every two weeks on Monday at 9am US Central time / 16:00 Central European Time. Please join the Slack Channel and we will invite you.
+## Deployment
 
-### Join the Design Team
-
-* Join the [conda Slack Workspace](https://join.slack.com/t/conda/shared_invite/zt-1gbwyn1nk-rfDNaR8wFkAq4s812Rs0tg)
-    * and then the [conda-dot-org-design channel](https://conda.slack.com/archives/C0408NMPJ5S)
-* [Design Team Root HackMD page](https://hackmd.io/XxHGKH33TRqKJaWKGUNppw) - links to every design document in HackMD.
-
-### Join the Content Team
-
-* Join the [conda Slack Workspace](https://join.slack.com/t/conda/shared_invite/zt-1gbwyn1nk-rfDNaR8wFkAq4s812Rs0tg)
-    * and then the [conda-dot-org-content channel](https://conda.slack.com/archives/C03V5NSRNH5)
-* [Content Team Root HackMD page](https://hackmd.io/V6mHdS7iSuSHchEVjVjcKQ) - links to every design document in HackMD.
-* We meet every two weeks on Tuesday at 9am US Central time / 16:00 Central European Time. Please join the Slack Channel and we will invite you.
-
-### Join the Technology & Implementation Team
-
-* Join the [conda Slack Workspace](https://join.slack.com/t/conda/shared_invite/zt-1gbwyn1nk-rfDNaR8wFkAq4s812Rs0tg)
-    * and then the [conda-dot-org-tech-impl channel](https://conda.slack.com/archives/C03V5P9KSQ7)
-* [Technology & Implementation Team Root HackMD page](https://hackmd.io/e8Y26n9gQWeUeSojkqlv5w) - links to every Tech+Impl document in HackMD.
+WIP.
