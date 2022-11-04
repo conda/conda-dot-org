@@ -121,12 +121,21 @@ locally:
 npm run start
 ```
 
-That is it! Every time you make edits, the website will dynamically reload showing your
-new updates/additions.
+That's it! Every time you make edits, the website will dynamically reload showing your
+new updates/additions. See something that does not quite look right or is not showing
+up how you expect? Be sure to check the error log at the terminal for any information 
+that can help you.
 
 ## Content contributors
+
+### Creating a news post
+
+
+### Creating a blog post
+
+*Coming soon! We are still figuring out exactly how this will look*
 
 
 ## Technical contributors
 
-TBD
+*Coming soon! We are still figuring out exactly how this will look*
