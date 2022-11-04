@@ -5,19 +5,18 @@
 
 # Contributing
 
-Welcome to our contributing guide. In this guide, you will find everything you need
+Welcome to the conda.org contributing guide! In this guide, you will find everything you need
 to get up and running as a contributor to conda.org. This is a contributing guide
-for individuals contributing content and for those who wish to contribute code.
-A more detailed breakdown of these two personas is shown below:
+for two kinds of contributors:
 
 - **Content contributors**
-    - Contributors writing content for the website which can include news and blog posts
+    - Contributors writing content for the website, which can include news and blog posts.
 - **Technical contributors**
-    - Contributors writing code for the website which somehow modifies the way it looks
-      or behaves by using HTML, CSS or Javascript.
+    - Contributors writing HTML, CSS, or Javascript for the website that modifies the way 
+      it looks or behaves.
 
 In this guide, we start off by explaining contribution steps that apply
-to both personas and then branch off to explain specifics for each.
+to both kinds of contributors. Then, the guide branches off to explain specifics for each.
 
 ## Github flow
 
@@ -28,7 +27,7 @@ To follow this guide, you will need to have these programs installed on your com
 - git: [installation link][installing-git]
 
 It is also highly encouraged that you at least have a basic understanding of how to use
-git at the command line. If you do not, please read check out the book [Pro Git][pro-git]
+git at the command line. If you do not, please check out the book [Pro Git][pro-git],
 available for free from the official git website.
 
 ### Github flow
@@ -41,9 +40,9 @@ the [Fork a repo][github-forking-how-to] guide from GitHub first.
 
 #### 2. Clone your repository
 
-After you have done that, you are ready to clone this repository to your local computer
-where you can begin making edits. The commands for doing so will be different depending
-on your user name, but a typical example is shown below:
+After you have created your fork, you are ready to clone this repository to your 
+local computer, where you can begin making edits. The commands for doing so will 
+be different depending on your user name, but a typical example is shown below:
 
 ```
 $ git clone git@github.com:username/conda-dot-org.git
@@ -58,11 +57,23 @@ work you are planning to contribute. You can do that with the following command:
 $ git checkout -b my-new-contribution
 ```
 
+Name the branch something related to the work you are doing. If you're working from
+an issue on our issue board, consider adding the issue number to the branch name.
+This can make it easier to find your work again later.
+
+```
+$ git checkout -b 112-home-page-improvements
+```
+
 #### 4. Making edits and committing your changes
 
-At this point, you are ready to start editing files. Once you have made the necessary edits,
-you can commit these edits by running the following commands. Here, we assume that I have
-added a new file called "article.md" to the repository:
+Running the clone command (see step two) creates a copy of the repo in your file system. 
+You can then use a code editor of your choice (such as VSCode, SublimeText, or Atom) 
+to make changes to the files.
+
+Once you have made the necessary edits, you can commit these edits by running the 
+following commands. Here, we assume that I have added a new file called "article.md" 
+to the repository:
 
 ```
 $ git add article.md 
@@ -100,8 +111,8 @@ steps necessary to do just that.
 
 NPM (Node Package Manager) is a program used for installing Javascript dependencies on your
 computer. To follow this guide, it is not necessary that you know Javascript, but you will 
-need to be comfortable with running a couple different commands in the terminal that will 
-install these dependencies and then run the server locally.
+need to be comfortable with running a couple different commands in your command line 
+interface that will install these dependencies and then run the server locally.
 
 ### Installing NPM dependencies
 
@@ -119,8 +130,8 @@ locally:
 npm run start
 ```
 
-That's it! Every time you make edits, the website will dynamically reload showing your
-new updates/additions. See something that does not quite look right or is not showing
+That's it! Every time you make edits, the website will dynamically reload, showing your
+new updates/additions. See something that doesn't quite look right or is not showing
 up how you expect? Be sure to check the error log at the terminal for any information 
 that can help you.
 
