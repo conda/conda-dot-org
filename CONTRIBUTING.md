@@ -11,15 +11,13 @@ for individuals contributing content and for those who wish to contribute code.
 A more detailed breakdown of these two personas is shown below:
 
 - **Content contributors**
-    - These individuals wishing to help contribute content for the actual website
-      which can include news and blog posts
+    - Contributors writing content for the website which can include news and blog posts
 - **Technical contributors**
-    - These are individuals who want to contribute to the actual code of the website
-      or somehow modify the way it looks by using HTML, CSS or Javascript.
+    - Contributors writing code for the website which somehow modifies the way it looks
+      or behaves by using HTML, CSS or Javascript.
 
-In this guide, we will start off by explaining contribution steps that apply
+In this guide, we start off by explaining contribution steps that apply
 to both personas and then branch off to explain specifics for each.
-
 
 ## Github flow
 
@@ -86,7 +84,7 @@ be sure that the "base" branch is the "main" branch for conda-dot-org.
 
 That completes the entire workflow for submitting new changes. After you submit your pull
 request, we will try our best to review it in a timely manner. If you need to make any more
-edits or changes based on this review, you will just need to repeat steps four and five.
+edits or changes based on these reviews, you will just need to repeat steps four and five.
 
 ## Setting up a local version of the site
 
@@ -107,7 +105,7 @@ install these dependencies and then run the server locally.
 
 ### Installing NPM dependencies
 
-Provide that you have already forked and cloned the repository (see above), the first step 
+Provided that you have already forked and cloned the repository (see above), the first step 
 is running the following command to install all dependencies:
 
 ```
