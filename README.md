@@ -59,4 +59,5 @@ Most changes are reflected live without having to restart the server.
 
 ## Deployment
 
-WIP.
+<a href="https://www.netlify.com"> <img src="https://www.netlify.com/v3/img/components/netlify-color-accent.svg" alt="Deploys by Netlify" /> </a>
+
