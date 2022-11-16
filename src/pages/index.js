@@ -1,30 +1,8 @@
 import React from 'react';
-import clsx from 'clsx';
-import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
-
+import condac from '@site/static/img/conda_c.png'
 import styles from './index.module.css';
-
-function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
-  return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className="container">
-        <h1 className="hero__title">{siteConfig.title}</h1>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/intro">
-            What is conda?
-          </Link>
-        </div>
-      </div>
-    </header>
-  );
-}
 
 export default function Home() {
   const {siteConfig} = useDocusaurusContext();
@@ -32,9 +10,21 @@ export default function Home() {
     <Layout
       title={`${siteConfig.title}`}
       description="The place for everything regarding the conda packaging ecosystem">
-      <HomepageHeader />
       <main>
-        <HomepageFeatures />
+      <div className={ [styles.header, styles.section_padding].join(' ') }>
+      <div className={ [styles.header_content, styles.header_content_image].join(' ') }>
+        <h1 className={styles.gradient_text}>Package, dependency and environment management for any language</h1>
+        <p>Conda is an open source package management system and environment management system that runs on Windows, macOS, Linux and z/OS. Conda quickly installs, runs and updates packages and their dependencies.</p>
+      
+        <div className={styles.header_content_input}>
+          <a href='/docs/intro'>Get Started</a>
+        </div>
+      
+      </div>
+      <div className={styles.header_image}>
+          <img src={condac} alt="conda logo" />
+      </div>
+      </div>
       </main>
     </Layout>
   );

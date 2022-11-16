@@ -3,21 +3,139 @@
  * and scoped locally.
  */
 
-.heroBanner {
-  padding: 4rem 0;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+.header {
+  display: flex;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
+.section_padding {
+  padding: 4rem 6rem;
 }
 
-.buttons {
+.gradient_text {
+  background: var(--gradient-text);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header_content {
+  flex: 1.9;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-right: 5rem;
+}
+
+.header_content_image {
+  background-image: url(@site/static/img/inverted_c.png);
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.header_content h1 {
+  font-weight: 750;
+  font-size: 55px;
+  line-height: 75px;
+  letter-spacing: -0.04em;
+}
+
+.header_content p {
+  font-size: 20px;
+  line-height: 27px;
+  color: var(--color-text);
+  margin-top: 1.5em;
+}
+
+.header_content_input {
+  width: 100%;
+  margin: 2rem 0 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.header_content_input a {
+  text-decoration: none;
+  flex: 0.3;
+  text-align: center;
+  width: 100%;
+  min-height: 50px;
+  font-family: var(--font-family);
+  font-size: 20px;
+  line-height: 27px;
+  background: var(--conda-green1);
+  border-radius: 5px;
+  color: #FFFFFF;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+  padding: 0.5rem;
+  border: none;
+}
+
+.header_image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header_image img {
+  width: 100vh;
+}
+
+@media screen and (max-width: 1050px) {
+  .header {
+      flex-direction: column;
+  }
+
+  .header_content {
+      margin: 0 0 3rem;
+  }
+
+  .header_image img {
+    width: 40vh;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .header h1 {
+      font-size: 48px;
+      line-height: 60px;
+  }
+
+  .header p {
+      font-size: 16px;
+      line-height: 24px;
+  }
+
+  .gpt3_header_content_input a {
+      font-size: 16px;
+      line-height: 24px;
+  }
+
+  .header_image img {
+    display: none;
+  }
+
+  .section_padding {
+    padding: 4rem;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .header h1 {
+      font-size: 36px;
+      line-height: 48px;
+  }
+
+  .gpt3_header_content_input a {
+      font-size: 12px;
+      line-height: 16px;
+  }
+
+  .section_padding {
+    padding: 3rem;
+  }
 }
