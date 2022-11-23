@@ -148,10 +148,12 @@ is installing all the necessary dependencies.
 If you aren't in the conda-dot-org repository folder, use the `cd` command to change your
 directory. Consider the following directory structure:
 
+```
 ├── Users
-│   ├── jdoe **I am here**
+│   ├── jdoe *You are here
 │   │   ├── repos
 │   │   │   ├── conda-dot-org
+```
 
 When you first open a CLI, it usually opens in your home directory. You
 can use `cd`, followed by a file path, to properly change your directory.
