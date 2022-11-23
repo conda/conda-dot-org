@@ -8,6 +8,7 @@
 [atom-download]: https://atom.io/
 [docusaurus]: https://docusaurus.io/
 [markdown-guide]: https://www.markdownguide.org/
+[issue-board]: https://github.com/orgs/conda-incubator/projects/3
 
 # Contributing
 
@@ -24,11 +25,17 @@ for two kinds of contributors:
 In this guide, we start off by explaining contribution steps that apply
 to both kinds of contributors. Then, the guide branches off to explain specifics for each.
 
-### Documentation tools
+## Documentation tools
 
 conda.org is built with [Docusaurus 2][docusaurus], a modern static website generator that 
 uses a friendly Markdown format to create the website copy. If you are not familiar with 
 Markdown, check out the [Markdown Guide project][markdown-guide].
+
+## Working on issues
+
+The conda.org project has an [issue board][issue-board] from which technical contributors can choose issues. If there is an aspect of the website that you feel needs work, please create a new issue using the **Add item** button.
+
+To be assigned to an existing issue, comment on it and one of the maintainers will ensure you are assigned.
 
 ## Github flow
 
