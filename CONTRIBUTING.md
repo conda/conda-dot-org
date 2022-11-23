@@ -33,7 +33,7 @@ Markdown, check out the [Markdown Guide project][markdown-guide].
 
 ## Working on issues
 
-The conda.org project has an [issue board][issue-board] from which technical contributors can choose issues. If there is an aspect of the website that you feel needs work, please create a new issue using the **Add item** button.
+The conda.org project has an [issue board][issue-board] from which technical contributors can choose issues. If there is an aspect of the website that you feel needs work, please create a new issue using the **Add item** button at the bottom of the appropriate column.
 
 To be assigned to an existing issue, comment on it and one of the maintainers will ensure you are assigned.
 
@@ -68,6 +68,23 @@ be different depending on your user name, but a typical example is shown below:
 $ git clone git@github.com:username/conda-dot-org.git
 ```
 
+#### 3. Move to your newly-cloned directory
+
+Use the `cd` command to change your directory. Consider the following directory structure:
+
+```
+├── Users
+│   ├── jdoe *You are here
+│   │   ├── conda-dot-org
+```
+
+When you first open a CLI, it usually opens in your home directory. You
+can use `cd`, followed by a file path, to properly change your directory.
+
+```
+$ cd conda-dot-org
+```
+
 #### 3. Creating a new branch
 
 Once you have cloned this repository, you now need to create a branch that will hold the
@@ -91,6 +108,8 @@ Running the clone command (see step two) creates a copy of the repo in your file
 You can then use a code editor of your choice (such as [VSCode][vscode-download], 
 [SublimeText][sublimetext-download], or [Atom][atom-download]) to make changes to the files.
 
+As you're working, you can view your changes locally using the instructions in the [Setting up a local version of the site](#setting-up-a-local-version-of-the-site) section.
+
 Once you have made the necessary edits, you can commit these edits by running the 
 following commands. Here, we assume that I have added a new file called "article.md" 
 to the repository:
@@ -111,7 +130,7 @@ by running the following command:
 git push -set-upstream my-new-constribution
 ```
 > **Note**
-> Any further push commands will only need to be ```git push``.
+> Any further push commands will only need to be `git push`.
 
 The output of your first push command always includes a link you can use to open a 
 pull request. Click this link to open a pull request against the main 
@@ -145,21 +164,10 @@ interface (CLI) that will install these dependencies and then run the server loc
 Provided that you have already forked and cloned the repository (see above), the first step 
 is installing all the necessary dependencies.
 
-If you aren't in the conda-dot-org repository folder, use the `cd` command to change your
-directory. Consider the following directory structure:
+If you aren't in the conda-dot-org repository folder, use the `cd` command to change your directory.
 
 ```
-├── Users
-│   ├── jdoe *You are here
-│   │   ├── repos
-│   │   │   ├── conda-dot-org
-```
-
-When you first open a CLI, it usually opens in your home directory. You
-can use `cd`, followed by a file path, to properly change your directory.
-
-```
-cd repos/conda-dot-org
+cd conda-dot-org
 ```
 
 Then, use the following command to install your dependencies:
