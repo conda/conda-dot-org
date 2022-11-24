@@ -26,17 +26,23 @@ const FeatureList = [
     // Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        The conda ecosystem includes tools and projects from many organizations, like <a href="https://github.com/conda-forge" target="_blank">conda-forge</a> or <a href="https://github.com/conda-incubator" target="_blank">conda-incubator</a>.
+        The conda ecosystem includes tools and projects from many organizations, like
+        {' '}
+        <a href="https://github.com/conda-forge" target="_blank" rel="noreferrer">conda-forge</a>
+        {' '}
+        or
+        {' '}
+        <a href="https://github.com/conda-incubator" target="_blank" rel="noreferrer">conda-incubator</a>
+        .
       </>
     ),
   },
 ];
 
-function Feature({Svg, title, description}) {
+function Feature({ Svg, title, description }) {
   return (
     <div className={clsx('col col--4')}>
-      <div className="text--center">
-      </div>
+      <div className="text--center" />
       <div className="text--center padding-horiz--md">
         <h3>{title}</h3>
         <p>{description}</p>
