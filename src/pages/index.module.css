@@ -14,7 +14,6 @@
 .gradient_text {
   background: var(--gradient-text);
   background-clip: text;
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -28,7 +27,7 @@
 }
 
 .header_content_image {
-  background-image: url(@site/static/img/inverted_c.png);
+  background-image: url("@site/static/img/inverted_c.png");
   background-repeat: no-repeat;
   background-position: top;
 }
@@ -66,7 +65,7 @@
   line-height: 27px;
   background: var(--conda-green1);
   border-radius: 5px;
-  color: #FFFFFF;
+  color: #fff;
   font-weight: 700;
   cursor: pointer;
   outline: none;
@@ -87,11 +86,11 @@
 
 @media screen and (max-width: 1050px) {
   .header {
-      flex-direction: column;
+    flex-direction: column;
   }
 
   .header_content {
-      margin: 0 0 3rem;
+    margin: 0 0 3rem;
   }
 
   .header_image img {
@@ -101,18 +100,18 @@
 
 @media screen and (max-width: 650px) {
   .header h1 {
-      font-size: 48px;
-      line-height: 60px;
+    font-size: 48px;
+    line-height: 60px;
   }
 
   .header p {
-      font-size: 16px;
-      line-height: 24px;
+    font-size: 16px;
+    line-height: 24px;
   }
 
   .gpt3_header_content_input a {
-      font-size: 16px;
-      line-height: 24px;
+    font-size: 16px;
+    line-height: 24px;
   }
 
   .header_image img {
@@ -126,13 +125,13 @@
 
 @media screen and (max-width: 490px) {
   .header h1 {
-      font-size: 36px;
-      line-height: 48px;
+    font-size: 36px;
+    line-height: 48px;
   }
 
   .gpt3_header_content_input a {
-      font-size: 12px;
-      line-height: 16px;
+    font-size: 12px;
+    line-height: 16px;
   }
 
   .section_padding {
