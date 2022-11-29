@@ -1,40 +1,40 @@
 .features {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
 }
 
 .section_padding {
-    padding: 4rem 6rem;
+  padding: 4rem 6rem;
 }
 
 .feature_card {
-    width: 350px;
-    display: flex;
-    flex-direction: column;
-    flex: 0 0 auto;
-    align-items: center;
-    padding: 2rem;
-    border-radius: 10px;
-    background: var(--theme-features-card);
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  align-items: center;
+  padding: 2rem;
+  border-radius: 10px;
+  background: var(--theme-features-card);
 }
 
 .feature_card div {
-    width: 38px;
-    height: 3px;
-    background: var(--gradient-bar);
-    margin-bottom: 0.5rem;
+  width: 38px;
+  height: 3px;
+  background: var(--gradient-bar);
+  margin-bottom: 0.5rem;
 }
 
 .illustration {
-    height: auto;
-    margin-bottom: 1.5rem;
+  height: auto;
+  margin-bottom: 1.5rem;
 }
 
 .info {
-    margin: 0 0 1rem 0;
-    padding: 0;
-    width: 100%;
-    gap: 0.3rem;
+  margin: 0 0 1rem;
+  padding: 0;
+  width: 100%;
+  gap: 0.3rem;
 }

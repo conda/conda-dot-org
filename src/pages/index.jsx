@@ -9,7 +9,8 @@ export default function Home() {
   return (
     <Layout
       title={`${siteConfig.title}`}
-      description="The place for everything regarding the conda packaging ecosystem">
+      description="The place for everything regarding the conda packaging ecosystem"
+    >
       <main>
         <Header />
         <Features />
