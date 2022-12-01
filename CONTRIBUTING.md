@@ -9,6 +9,8 @@
 [docusaurus]: https://docusaurus.io/
 [markdown-guide]: https://www.markdownguide.org/
 [issue-board]: https://github.com/orgs/conda-incubator/projects/3
+[ssh-key-instructions]: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+[adding-ssh-key]: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
 
 # Contributing
 
@@ -67,6 +69,11 @@ be different depending on your user name, but a typical example is shown below:
 ```
 $ git clone git@github.com:username/conda-dot-org.git
 ```
+
+> **Note**
+> If you have not configured your GitHub account to authenticate your computer via
+> SSH key, make sure to [generate an SSH key][ssh-key-instructions] and then
+> [add it to your GitHub account][adding-ssh-key] before running the command above.
 
 #### 3. Move to your newly-cloned directory
 
@@ -127,7 +134,7 @@ The first time you push your changes, you will need to specify your upstream bra
 by running the following command:
 
 ```
-git push -set-upstream my-new-constribution
+git push --set-upstream origin my-new-contribution
 ```
 > **Note**
 > Any further push commands will only need to be `git push`.
@@ -158,6 +165,9 @@ NPM (Node Package Manager) is a program used for installing Javascript dependenc
 computer. To follow this guide, it is not necessary that you know Javascript, but you will 
 need to be comfortable with running a couple different commands in your command line 
 interface (CLI) that will install these dependencies and then run the server locally.
+
+> **Note**
+> After installing `npm`, you will need to restart your terminal.
 
 ### Installing NPM dependencies
 
