@@ -190,15 +190,40 @@ that can help you.
 
 ## Content contributors
 
+### Creating a blog post
+
+Blog posts must be created in the ``conda-dot-org/blog`` directory with a file naming convention of ``YYYY-MM-DD-title.md``. 
+
+Let's say you're announcing a cool new project you've recently released. Your file would be named something like ``2023-04-22-cool-project-v1-release.md``.
+
+conda.org blog posts support the following metadata:
+
+```
+title: The title of your blog.
+slug: The name of your blog page within the conda.org url.
+tags: Tags to group your blog with others and enable better filtering and browsing (e.g. conda, release, package, announcement).
+tease: (Optional) A short summary of or exceprt from your blog. If this is not supplied, conda.org will use the first 20 words of your blog post.
+```
+
+Consider the Cool Project example. Its file will begin with the following metadata, set off with three dashes, followed by the actual blog text.
+
+```
+---
+title: Cool Project V1 Released!
+slug: cool-project-v1-release
+tags: [release, announcement]
+tease: Cool Project Version 1 has been released and contains a bunch of cool things.
+---
+
+We are pleased to announce the release of Cool Project Version 1.
+
+The project contains the following cool things:
+...
+``` 
+
 ### Creating a news post
 
 *Coming soon! We are still figuring out exactly how this will look*
-
-
-### Creating a blog post
-
-*Coming soon! We are still figuring out exactly how this will look*
-
 
 ## Technical contributors
 
