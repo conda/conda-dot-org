@@ -11,6 +11,8 @@
 [issue-board]: https://github.com/orgs/conda-incubator/projects/3
 [ssh-key-instructions]: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 [adding-ssh-key]: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
+[github-cli]: https://cli.github.com/
+[github-desktop]: https://desktop.github.com/
 
 # Contributing
 
@@ -49,7 +51,12 @@ To follow this guide, you will need to have these programs installed on your com
 
 It is also highly encouraged that you at least have a basic understanding of how to use
 git at the command line. If you do not, please check out the book [Pro Git][pro-git],
-available for free from the official git website.
+available for free from the official git website. [GitHub CLI][github-cli] can also be
+a very useful tool, especially for contributors utilizing Windows machines for development work.
+
+> **Note**
+> For contributors who would prefer to use GitHub wrapped in a UI, [GitHub Desktop][github-desktop]
+> is recommended.
 
 ### Github flow
 
