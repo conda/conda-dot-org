@@ -28,6 +28,7 @@ sidebar_position: 1
 <!-- Chat services -->
 [conda-element]: http://bit.ly/conda-chat-room
 [conda-forge-element]: http://bit.ly/cf-chat-space
+[mamba-gitter]: https://gitter.im/mamba-org/Lobby
 
 <!-- Misc. -->
 [conda-discourse]: https://conda.discourse.group/
@@ -78,7 +79,7 @@ Many projects also use chat platforms such as Element to organize development ef
 
 - [conda on Element][conda-element]
 - [conda-forge on Element][conda-forge-element]
-- [mamba on Element][mamba-element]
+- [mamba on Gitter][mamba-gitter]
 
 ### Discourse
 
