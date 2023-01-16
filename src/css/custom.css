@@ -17,6 +17,7 @@
   --docusaurus-highlighted-code-line-bg: rgb(0 0 0 / 10%);
   --gradient-text: linear-gradient(94.57deg, #43b02a 2.23%, #1eb59a 66.08%);
   --gradient-bar: linear-gradient(94.57deg, #43b02a 2.23%, #1eb59a 66.08%);
+  --gradient-card: linear-gradient(112deg, #43b02a 0%, #1eb59a 90%);
   --conda-green1: #43b02a;
   --theme-features-card: #f5f5f5;
 }
