@@ -2,42 +2,102 @@
 sidebar_position: 1
 ---
 
+<!-- Project websites -->
+[conda-forge]: https://conda-forge.org/
+[bioconda]: https://bioconda.github.io/
+[mamba]: https://mamba.readthedocs.io/en/latest/installation.html
+
+<!-- Github Links -->
+[mamba-org]: https://github.com/mamba-org
+[mamba-gh]: https://github.com/mamba-org/mamba
+[mamba-gh]: https://github.com/mamba-org/boa
+[conda-org]: https://github.com/conda
+[conda-incubator]: https://github.com/conda-incubator/ 
+[setup-miniconda]: https://github.com/conda-incubator/setup-miniconda
+[conda-lock]: https://github.com/conda-incubator/conda-lock
+[conda-tree]: https://github.com/conda-incubator/conda-tree
+[anaconda-recipes]: https://github.com/AnacondaRecipes/
+[anaconda-distribution]: https://github.com/anaconda-distribution
+[continuum-io]: https://github.com/ContinuumIO/
+[conda-forge-gh]: https://github.com/conda-forge
+[regro-gh]: https://github.com/regro/
+[conda-tools]: https://github.com/conda-tools/
+[conda]: https://github.com/conda/conda
+[conda-build]: https://github.com/conda/conda-build
+
+<!-- Chat services -->
+[conda-element]: http://bit.ly/conda-chat-room
+[conda-forge-element]: http://bit.ly/cf-chat-space
+
+<!-- Misc. -->
+[conda-discourse]: https://conda.discourse.group/
+
 # Conda community
 
-The 'conda' community is made of its millions of users, the packaging maintainers and, last but not least, the tool developers.
-It's not a single organization, but a consorted effort of its many components, all devoted to the mission of providing easy to access to all kinds of free software no matter the operating system or language.
+The "conda" community is made of its millions of users, packaging maintainers and, last but not least, tool developers.
+It isn't a single organization, but rather a concerted effort of many different organizations, all devoted to 
+the mission of providing easy to access to all kinds of free software no matter the operating system or language.
 
-We firmly believe that everyone belongs in open-source and we want to start by thanking you for taking the time to read this page.
+We firmly believe that everyone belongs in open-source, and we want to start by thanking you for taking the time for
+reading this page. What follows is a our best effort attempt at describing all the different components of
+the greater conda ecosystem.
 
 
-## The many meanings of 'conda'
+## The many meanings of "conda"
 
-Traditionally associated with the Anaconda distribution, nowadays the term ‘conda’ refers to more than just a package manager or a software repository. Its many definitions also encompass community packaging efforts like conda-forge or bioconda, as well as new tools developed in the Mamba and conda-incubator organizations, and prove that the conda ecosystem is no longer defined by a single actor.
+Traditionally associated with the Anaconda distribution, nowadays the term "conda" refers to more than just a package manager or a software repository. Its many definitions also encompass community packaging efforts like [conda-forge][conda-forge] and [bioconda][bioconda], as well as new tools developed in the [Mamba][mamba-org] and [conda-incubator][conda-incubator] organizations. All these efforts prove that the conda ecosystem is no longer defined by a single actor and continues to grow and thrive.
 
-Organizations include:
-- @conda, plus Anaconda, Inc. efforsts like @AnacondaRecipes, @anaconda-distribution, @ContinuumIO
-- @conda-forge, @regro
-- @conda-incubator & conda-tools
-- @mamba-org 
-- @bioconda 
+Organizations on GitHub include:
+
+- [@conda][conda-org], plus Anaconda, Inc. efforts like [@AnacondaRecipes][anaconda-recipes], [@anaconda-distribution][anaconda-distribution], [@ContinuumIO][continuum-io]
+- [@conda-forge][conda-forge-gh], [@regro][regro-gh]
+- [@conda-incubator][conda-incubator] & [@conda-tools][conda-tools]
+- [@mamba-org][mamba-org]
+- [@bioconda][bioconda]
 
 > More info: https://jaimergp.github.io/scientific-packaging-glossary/orgs/
 
-Some tools you might be familiar with are `conda` or `conda-build` themselves, but also community efforts like `mamba`, `boa`, `setup-miniconda`, `conda-lock` or `conda-tree`, among many more!
+Some tools you might be familiar with are [conda][conda] or [conda-build][conda-build] themselves but also community efforts like [mamba][mamba-gh], [boa][boa], [setup-miniconda][setup-miniconda], [conda-lock][conda-lock] or [conda-tree][conda-tree], among many more!
 
 > Something about distribution channels and installers
 
 ## How to reach us
 
+Below are the various places where you will be able connect with the conda community.
+
 <!-- See https://github.com/kubernetes/community/tree/master/communication for inspiration -->
 <!-- Mention communication etiquette, and where different topics are dealt with and how -->
 
-- Github organizations (see above for now)
-- Element rooms
-- Discourse instance
-- Community meetings (link to meeting notes too)
+### GitHub projects and organizations
 
-[ EMBEDDED CALENDAR HERE ]
+Nearly of the projects and organizations above use GitHub to manage the development. Therefore, if you are looking to file a bug or feature request, this is your go to place. If you are also interested in being a part of active development effort or want to submit your own pull request, this is where you will able to do that too.
+
+### Interactive chat
+
+Many projects also use chat platforms such as Element to organize development efforts or to enable the community to provide better support. Below are some of the known chat servers within the conda community:
+
+- [conda on Element][conda-element]
+- [conda-forge on Element][conda-forge-element]
+- [mamba on Element][mamba-element]
+
+### Discourse
+
+The conda community also has a Discourse instance where all are invited to discuss issues relevant to conda in various message boards organized along themes.
+
+[Visit conda on Discourse][conda-discourse]
+
+### Community meetings
+
+Several organizations in the conda community regularly hold community meetings where all encourage to participate. See below for exact details and calendar of all conda community events.
+
+- conda-forge community
+    - TODO: add meeting time, place and link
+    - TODO: link to meeting notes
+- conda community meeting
+    - TODO: add meeting time, place and link
+    - TODO: link to meeting notes
+
+TODO:[ EMBEDDED CALENDAR HERE ]
 
 ## Contribution guidelines
 
