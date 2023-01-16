@@ -35,17 +35,15 @@ sidebar_position: 1
 # Conda community
 
 The "conda" community is made of its millions of users, packaging maintainers and, last but not least, tool developers.
-It isn't a single organization, but rather a concerted effort of many different organizations, all devoted to 
-the mission of providing easy to access to all kinds of free software no matter the operating system or language.
+It is not a single organization, but rather a concerted effort of many different organizations, all devoted to 
+the mission of providing easy to access to various types of free software regardless of the operating system or programming language.
 
-We firmly believe that everyone belongs in open-source, and we want to start by thanking you for taking the time for
-reading this page. What follows is a our best effort attempt at describing all the different components of
-the greater conda ecosystem.
-
+We firmly believe that everyone belongs in open-source, and we want to start by thanking you for taking the time to
+read this page. What follows is a high level summary of all the projects and organizations which make up the conda community with links provided where you can learn more or get involved yourself.
 
 ## The many meanings of "conda"
 
-Traditionally associated with the Anaconda distribution, nowadays the term "conda" refers to more than just a package manager or a software repository. Its many definitions also encompass community packaging efforts like [conda-forge][conda-forge] and [bioconda][bioconda], as well as new tools developed in the [Mamba][mamba-org] and [conda-incubator][conda-incubator] organizations. All these efforts prove that the conda ecosystem is no longer defined by a single actor and continues to grow and thrive.
+Traditionally associated with the Anaconda distribution, nowadays the term "conda" refers to more than just a package manager or a software repository. Its many definitions also encompass community packaging efforts like [conda-forge][conda-forge] and [bioconda][bioconda], as well as new tools developed in the [Mamba][mamba-org] and [conda-incubator][conda-incubator] organizations. All these efforts show that the conda ecosystem is no longer defined by a single actor and continues to grow and thrive.
 
 Organizations on GitHub include:
 
@@ -63,16 +61,18 @@ Some tools you might be familiar with are [conda][conda] or [conda-build][conda-
 
 ## How to reach us
 
-Below are the various places where you will be able connect with the conda community.
+Below are the various places where you will be able to connect with the conda community.
 
 <!-- See https://github.com/kubernetes/community/tree/master/communication for inspiration -->
 <!-- Mention communication etiquette, and where different topics are dealt with and how -->
 
-### GitHub projects and organizations
+### GitHub
 
 Nearly of the projects and organizations above use GitHub to manage the development. Therefore, if you are looking to file a bug or feature request, this is your go to place. If you are also interested in being a part of active development effort or want to submit your own pull request, this is where you will able to do that too.
 
-### Interactive chat
+See above for a list of GitHub organizations.
+
+### Chat
 
 Many projects also use chat platforms such as Element to organize development efforts or to enable the community to provide better support. Below are some of the known chat servers within the conda community:
 
@@ -86,14 +86,14 @@ The conda community also has a Discourse instance where all are invited to discu
 
 [Visit conda on Discourse][conda-discourse]
 
-### Community meetings
+### Meetings
 
-Several organizations in the conda community regularly hold community meetings where all encourage to participate. See below for exact details and calendar of all conda community events.
+Several organizations in the conda community regularly hold community meetings where all are encouraged to participate. See below for exact details and a calendar of all conda community events.
 
-- conda-forge community
+- **conda-forge community meeting**
     - TODO: add meeting time, place and link
     - TODO: link to meeting notes
-- conda community meeting
+- **conda community meeting**
     - TODO: add meeting time, place and link
     - TODO: link to meeting notes
 
