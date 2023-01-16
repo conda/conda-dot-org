@@ -10,13 +10,13 @@
 .news_heading {
     width: 100%;
     text-align: left;
-    margin-bottom: 5rem;
+    margin-bottom: 4rem;
 }
 
 .news_heading h1 {
     font-weight: 700;
     font-size: 50px;
-    line-height: 75px;
+    line-height: 70px;
     letter-spacing: -0.04em;
 }
 
