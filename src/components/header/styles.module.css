@@ -59,12 +59,11 @@
   text-align: center;
   width: 100%;
   min-height: 50px;
-  font-family: var(--font-family);
   font-size: 20px;
   line-height: 27px;
   background: var(--conda-green1);
   border-radius: 5px;
-  color: #fff;
+  color: #FFFFFF;
   font-weight: 700;
   cursor: pointer;
   outline: none;

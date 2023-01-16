@@ -43,6 +43,32 @@
     grid-gap: 2rem;
 }
 
+.new_read_more {
+    width: 100%;
+    margin: 3rem 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.new_read_more a {
+    text-decoration: none;
+    flex: 0.2;
+    text-align: center;
+    width: 100%;
+    min-height: 50px;
+    font-size: 20px;
+    line-height: 27px;
+    background: var(--conda-green1);
+    border-radius: 5px;
+    color: #FFFFFF;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    padding: 0.5rem;
+    border: none;
+}
+
 @media screen and (max-width: 990px) {
     .news_container {
         flex-direction: column;

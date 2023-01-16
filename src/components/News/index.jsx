@@ -32,6 +32,11 @@ export default function News() {
           {card[4]}
         </div>
       </div>
+
+      <div className={styles.new_read_more}>
+          <a href="/blog">Read More</a>
+      </div>
+
     </div>
   )
 }
