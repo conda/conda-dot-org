@@ -9,6 +9,7 @@
 [docusaurus]: https://docusaurus.io/
 [markdown-guide]: https://www.markdownguide.org/
 [issue-board]: https://github.com/orgs/conda-incubator/projects/3
+[docusaurus-blog-docs]: https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-blog#markdown-front-matter
 
 # Contributing
 
@@ -33,9 +34,12 @@ Markdown, check out the [Markdown Guide project][markdown-guide].
 
 ## Working on issues
 
-The conda.org project has an [issue board][issue-board] from which technical contributors can choose issues. If there is an aspect of the website that you feel needs work, please create a new issue using the **Add item** button at the bottom of the appropriate column.
+The conda.org project has an [issue board][issue-board] from which technical contributors 
+can choose issues. If there is an aspect of the website that you feel needs work, please 
+create a new issue using the **Add item** button at the bottom of the appropriate column.
 
-To be assigned to an existing issue, comment on it and one of the maintainers will ensure you are assigned.
+To be assigned to an existing issue, comment on it and one of the maintainers will 
+ensure you are assigned.
 
 ## Github flow
 
@@ -108,7 +112,8 @@ Running the clone command (see step two) creates a copy of the repo in your file
 You can then use a code editor of your choice (such as [VSCode][vscode-download], 
 [SublimeText][sublimetext-download], or [Atom][atom-download]) to make changes to the files.
 
-As you're working, you can view your changes locally using the instructions in the [Setting up a local version of the site](#setting-up-a-local-version-of-the-site) section.
+As you're working, you can view your changes locally using the instructions in the 
+[Setting up a local version of the site](#setting-up-a-local-version-of-the-site) section.
 
 Once you have made the necessary edits, you can commit these edits by running the 
 following commands. Here, we assume that I have added a new file called "article.md" 
@@ -192,25 +197,36 @@ that can help you.
 
 ### Creating a blog post
 
-Blog posts must be created in the ``conda-dot-org/blog`` directory with a file naming convention of ``YYYY-MM-DD-title.md``. 
+Blog posts must be created in the `blog` directory with a file naming convention 
+of `YYYY-MM-DD-title.md`. 
 
-Let's say you're announcing a cool new project you've recently released. Your file would be named something like ``2023-04-22-cool-project-v1-release.md``.
+Let's say you're announcing a cool new project you've recently released. Your file would be 
+named something like `2023-04-22-cool-project-v1-release.md`.
 
 conda.org blog posts support the following metadata:
 
 ```
 title: The title of your blog.
+description: A brief description of your blog's topic.
 slug: The name of your blog page within the conda.org url.
+authors: The author(s) of the blog, including their name(s), title(s), website link(s), and author image(s)
 tags: Tags to group your blog with others and enable better filtering and browsing (e.g. conda, release, package, announcement).
 tease: (Optional) A short summary of or exceprt from your blog. If this is not supplied, conda.org will use the first 20 words of your blog post.
 ```
 
-Consider the Cool Project example. Its file will begin with the following metadata, set off with three dashes, followed by the actual blog text.
+Consider the following "Cool Project" example. Its file will begin with the following metadata, set off 
+with three dashes, followed by the actual blog text.
 
 ```
 ---
 title: Cool Project V1 Released!
+description: The release of Cool Project version 1
 slug: cool-project-v1-release
+authors:
+  - name: John Doe
+    title: Creator of Cool Project
+    url: https://github.com/JohnDoe
+    image_url: https://github.com/JohnDoe.png
 tags: [release, announcement]
 tease: Cool Project Version 1 has been released and contains a bunch of cool things.
 ---
@@ -219,7 +235,10 @@ We are pleased to announce the release of Cool Project Version 1.
 
 The project contains the following cool things:
 ...
-``` 
+```
+
+See [the Docusaurus blog frontmatter documentation](docusaurus-blog-docs) for more information 
+on your blog creation options.
 
 ### Creating a news post
 
