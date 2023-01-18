@@ -212,6 +212,7 @@ slug: The name of your blog page within the conda.org url.
 authors: The author(s) of the blog, including their name(s), title(s), website link(s), and author image(s)
 tags: Tags to group your blog with others and enable better filtering and browsing (e.g. conda, release, package, announcement).
 tease: (Optional) A short summary of or exceprt from your blog. If this is not supplied, conda.org will use the first 20 words of your blog post.
+image: Cover or thumbnail image for your blog display.
 ```
 
 Consider the following "Cool Project" example. Its file will begin with the following metadata, set off 
@@ -229,6 +230,7 @@ authors:
     image_url: https://github.com/JohnDoe.png
 tags: [release, announcement]
 tease: Cool Project Version 1 has been released and contains a bunch of cool things.
+image: https://github.com/blog-image.png
 ---
 
 We are pleased to announce the release of Cool Project Version 1.
