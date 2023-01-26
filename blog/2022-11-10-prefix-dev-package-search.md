@@ -1,7 +1,7 @@
 ---
 title: "prefix.dev - a fast package search website"
 slug: "prefix-div-package-search"
-tags: prefix
+tags: [prefix]
 authors: [baszalmstra]
 ---
 
