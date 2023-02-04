@@ -13,4 +13,4 @@ You will see the term `conda` thrown around in different contexts:
 
 WIP
 
-[FAQ](faq)
+[FAQ](faq.md)
