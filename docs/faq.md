@@ -18,14 +18,6 @@ There are many ways to search for packages, either in your browser or in the com
 
 If you want to use conda to search for packages, use the command `conda search`. Enter `conda search -h` for more information.
 
-## Why can't conda find this package that I know exists?
-
-<!-- TO DO: Write this answer -->
-
-## How do I create a package?
-
-<!-- TO DO: Write this answer -->
-
 ## What is the difference between `conda create` and `conda env create`?
 
 `conda create` is a command that creates a conda environment with a custom name (listed after the `-n` flag) or full path to environment location, also known as the prefix (indicated by the `-p` flag). This command can also specify packages to install into that environment at the same time as creating it. Below is an example of this command being used to create an environment named `new-env`, installing Python 3.9 along with `package_name1` and `package_name2`:
@@ -34,7 +26,7 @@ If you want to use conda to search for packages, use the command `conda search`.
 $ conda create -n new-env python==3.9 package_name1 package_name2
 ```
 
-`conda env create` is a command that [creates a conda environment based on an environment definition file](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-from-an-environment-yml-file). Typically the environment name is stated in the first line of the `environment.yml` file (this is the default name of an environment definition file), but it can be named other things as long as you specify the file name in the command using the `-f` flag. For example, the following command will enable you to create a conda environment that is defined in a file called `my-exported-env.yml`:
+`conda env create` is a command that [creates a conda environment based on an environment definition file](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-from-an-environment-yml-file). Typically, the environment name is stated in the first line of the `environment.yml` file (this is the default name of an environment definition file), but it can be named other things as long as you specify the file name in the command using the `-f` flag. For example, the following command will enable you to create a conda environment that is defined in a file called `my-exported-env.yml`:
 
 ```
 $ conda env create -f my-exported-env.yml
@@ -44,8 +36,7 @@ $ conda env create -f my-exported-env.yml
 
 Pip can only install Python packages and (unlike conda) cannot account for the dependency graphs connected to each package that it installs, which can break global system dependencies and/or the user's dependency stacks. Even when using pip with a tool like virtualenv, which creates isolated Python environments, it can still inadvertently install Python packages to the wrong places.
 
-On the other hand, conda is a powerful package and environment manager that can install much more than just Python libraries. With conda, users can install entire software stacks (while resting assured that all dependencies are accounted for and resolved), as well as R programs and libraries, Node.js, Java programs, C++ programs and libraries, Perl programs, and more. Conda has an environment management system that allows users to have all of these installed across multiple different environments; it also enables installation of complex software stacks on a system without needing root privileges due to it being able to do all of these software and package installations in an isolated, userspace manner.
-
+On the other hand, conda is a powerful package and environment manager that can install much more than just Python libraries. With conda, users can install entire software stacks (while remaining assured that all dependencies are accounted for and resolved), as well as R programs and libraries, Node.js, Java programs, C++ programs and libraries, Perl programs, and more. Conda has an environment management system that allows users to have all of these installed across multiple different environments; it also enables installation of complex software stacks on a system without needing root privileges, due to it being able to do all of these software and package installations in an isolated, userspace manner.
 
 ## Why is it not recommended to install everything into the `base` environment?
 
