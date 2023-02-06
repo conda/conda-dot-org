@@ -107,11 +107,6 @@
     line-height: 24px;
   }
 
-  .gpt3_header_content_input a {
-    font-size: 16px;
-    line-height: 24px;
-  }
-
   .header_image img {
     display: none;
   }
@@ -125,11 +120,6 @@
   .header h1 {
     font-size: 36px;
     line-height: 48px;
-  }
-
-  .gpt3_header_content_input a {
-    font-size: 12px;
-    line-height: 16px;
   }
 
   .section_padding {

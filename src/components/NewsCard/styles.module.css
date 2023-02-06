@@ -3,7 +3,6 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    background: var(--gradient-card);
     border-radius: 25px;
 }
 
