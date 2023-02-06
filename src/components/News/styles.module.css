@@ -49,6 +49,7 @@
 
 .news_container_groupB>div {
     background: var(--normal-news-card);
+    border: 2px solid var(--conda-green1);
 }
 
 .new_read_more {
