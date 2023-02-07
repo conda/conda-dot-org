@@ -2,26 +2,31 @@
     {
         "title": "What is Conda?",
         "date": "15 January, 2023",
-        "url": "https://conda-dot-org-previews.netlify.app/"
+        "url": "https://conda-dot-org-previews.netlify.app/",
+        "description": "Learn about what Conda is, what does it do!"
     },
     {
         "title": "Conda CLI",
         "date": "26 December, 2022",
-        "url": "https://conda-dot-org-previews.netlify.app/"
+        "url": "https://conda-dot-org-previews.netlify.app/",
+        "description": "Learn about what Conda CLI is, what does it do!"
     },
     {
         "title": "Conda Community",
         "date": "25 October, 2022",
-        "url": "https://conda-dot-org-previews.netlify.app/"
+        "url": "https://conda-dot-org-previews.netlify.app/",
+        "description": "Indulge in Conda Community today!"
     },
     {
         "title": "Conda tools",
         "date": "26 September, 2022",
-        "url": "https://conda-dot-org-previews.netlify.app/"
+        "url": "https://conda-dot-org-previews.netlify.app/",
+        "description": "Learn more about wide variety of Conda Tools"
     },
     {
         "title": "Conda forge",
         "date": "12 August, 2022",
-        "url": "https://conda-dot-org-previews.netlify.app/"
+        "url": "https://conda-dot-org-previews.netlify.app/",
+        "description": "Learn more about Conda forge"
     }
 ]

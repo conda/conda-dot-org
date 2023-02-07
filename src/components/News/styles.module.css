@@ -38,6 +38,11 @@
 
 .news_container_groupA>div {
     background: var(--gradient-news-card);
+    color: #FFFFFF;
+}
+
+.news_container_groupA>div>div>a {
+    color: #FFFFFF;
 }
 
 .news_container_groupB {
@@ -48,7 +53,7 @@
 }
 
 .news_container_groupB>div {
-    background: var(--normal-news-card);
+    background: var(--theme-features-card);
     border: 2px solid var(--conda-green1);
 }
 

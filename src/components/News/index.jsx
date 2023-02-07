@@ -8,10 +8,11 @@ export default function News() {
   const card = NewsData.map((item, index) => {
     return (
       <NewsCard
-          key = {index}
-          title={item.title}
-          date={item.date}
-          url={item.url}
+        key={index}
+        title={item.title}
+        date={item.date}
+        url={item.url}
+        description={item.description}
       />
     )
   })
@@ -34,7 +35,7 @@ export default function News() {
       </div>
 
       <div className={styles.new_read_more}>
-          <a href="/blog">Read More</a>
+        <a href="/blog">Read More</a>
       </div>
 
     </div>
