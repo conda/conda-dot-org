@@ -4,6 +4,10 @@ sidebar_position: 2
 
 # Frequently asked questions
 
+## What is conda?
+
+[Conda](https://docs.conda.io/) is an [open-source](https://github.com/conda/conda#readme) package manager and environment management system that helps you find and install packages as well as their dependencies. Though conda is written in Python, it can handle software written in any language. It runs on Windows, Linux, and macOS, as well as various platforms and architectures.
+
 ## What is conda-forge?
 
 [Conda-forge](https://conda-forge.org/) is a [community-led GitHub organization](https://github.com/conda-forge) that provides access to thousands of conda package recipes. All of these recipes are open source and can be installed with the conda package manager by specifying conda-forge as the channel.
