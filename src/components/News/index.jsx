@@ -5,7 +5,8 @@ import NewsData from '../../../news/news'
 
 export default function News() {
 
-  const card = NewsData.map((item, index) => {
+  const cards = NewsData.map((item, index) => {
+
     return (
       <NewsCard
         key={index}
