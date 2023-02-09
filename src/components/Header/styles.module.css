@@ -59,12 +59,11 @@
   text-align: center;
   width: 100%;
   min-height: 50px;
-  font-family: var(--font-family);
   font-size: 20px;
   line-height: 27px;
   background: var(--conda-green1);
   border-radius: 5px;
-  color: #fff;
+  color: #FFFFFF;
   font-weight: 700;
   cursor: pointer;
   outline: none;
@@ -108,11 +107,6 @@
     line-height: 24px;
   }
 
-  .gpt3_header_content_input a {
-    font-size: 16px;
-    line-height: 24px;
-  }
-
   .header_image img {
     display: none;
   }
@@ -126,11 +120,6 @@
   .header h1 {
     font-size: 36px;
     line-height: 48px;
-  }
-
-  .gpt3_header_content_input a {
-    font-size: 12px;
-    line-height: 16px;
   }
 
   .section_padding {
