@@ -3,7 +3,8 @@
         "title": "What is Conda?",
         "date": "15 January, 2023",
         "url": "https://conda-dot-org-previews.netlify.app/",
-        "description": "Learn about what Conda is, what does it do!"
+        "description": "Learn about what Conda is, what it does!"
+
     },
     {
         "title": "Conda CLI",
