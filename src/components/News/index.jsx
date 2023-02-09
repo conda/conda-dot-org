@@ -24,10 +24,10 @@ export default function News() {
         <h1 className={styles.gradient_text}>Discover the latest trends with our Conda blog updates</h1>
       </div>
       <div className={styles.news_container}>
-        <div className={styles.news_container_groupA}>
-          {card[0]}
+        <div className={styles.news_container_group_highlighted}>
+          {cards[0]}
         </div>
-        <div className={styles.news_container_groupB}>
+        <div className={styles.news_container_group_not_highlighted}>
           {cards[1]}
           {cards[2]}
           {cards[3]}
