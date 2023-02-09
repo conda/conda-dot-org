@@ -28,10 +28,10 @@ export default function News() {
           {card[0]}
         </div>
         <div className={styles.news_container_groupB}>
-          {card[1]}
-          {card[2]}
-          {card[3]}
-          {card[4]}
+          {cards[1]}
+          {cards[2]}
+          {cards[3]}
+          {cards[4]}
         </div>
       </div>
 
