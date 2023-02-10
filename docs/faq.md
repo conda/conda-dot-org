@@ -50,9 +50,9 @@ For this reason, it is highly recommended to utilize separate conda environments
 
 ## What is a dependency graph?
 
-A [dependency graph](https://en.wikipedia.org/wiki/Dependency_graph) is a flowchart- or tree-like data structure that contain specific items/nodes and all of the things that they depend on, as well as all of the things each of those dependencies depend on, and so on. It is usually represented as a directed graph that represents dependencies of several objects towards each other.
+A [dependency graph](https://en.wikipedia.org/wiki/Dependency_graph) is a flowchart- or tree-like data structure where each node points to all of the things that they depend on, and each of those dependency nodes point at all of their particular dependencies, and so on. Simply put, it's a directed graph that represents dependencies of several objects towards each other.
 
-In the context of conda, the items in a dependency graph would be the packages that conda manages and what each of those packages require as a prerequisite to function/execute properly. Each separate conda environment would have its own dependency graph.
+In the context of conda, the items in a dependency graph would be the packages that conda manages and what each of those packages require as a prerequisite to function properly. Each separate conda environment would have its own dependency graph.
 
 ## How do I submit a blog post to conda.org?
 
