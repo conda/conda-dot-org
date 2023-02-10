@@ -38,3 +38,15 @@
   width: 100%;
   gap: 0.3rem;
 }
+
+@media screen and (max-width: 650px) {
+  .section_padding {
+    padding: 4rem;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .section_padding {
+    padding: 3rem;
+  }
+}
