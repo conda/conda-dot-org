@@ -16,6 +16,7 @@ sidebar_position: 1
 [setup-miniconda]: https://github.com/conda-incubator/setup-miniconda
 [conda-lock]: https://github.com/conda-incubator/conda-lock
 [conda-tree]: https://github.com/conda-incubator/conda-tree
+[conda-dot-org]: https://github.com/conda-incubator/conda-dot-org
 [anaconda-recipes]: https://github.com/AnacondaRecipes/
 [anaconda-distribution]: https://github.com/anaconda-distribution
 [continuum-io]: https://github.com/ContinuumIO/
@@ -24,6 +25,7 @@ sidebar_position: 1
 [conda-tools]: https://github.com/conda-tools/
 [conda]: https://github.com/conda/conda
 [conda-build]: https://github.com/conda/conda-build
+[conda-governance]: https://github.com/conda-incubator/governance
 
 <!-- Chat services -->
 [conda-element]: http://bit.ly/conda-chat-room
@@ -35,9 +37,10 @@ sidebar_position: 1
 
 # Conda community
 
-The "conda" community is made of its millions of users, packaging maintainers and, last but not least, tool developers.
-It is not a single organization, but rather a concerted effort of many different organizations, all devoted to 
-the mission of providing easy to access to various types of free software regardless of the operating system or programming language.
+The "conda" community is made up of millions of users, packaging maintainers and tool developers.
+Conda is not a single organization but rather a concerted effort of many different organizations,
+all devoted to the mission of providing easy access to various types of free software regardless of the
+operating system or programming language.
 
 We firmly believe that everyone belongs in open-source, and we want to start by thanking you for taking the time to
 read this page. What follows is a high level summary of all the projects and organizations which make up the conda community with links provided where you can learn more or get involved yourself.
@@ -64,9 +67,6 @@ Some tools you might be familiar with are [conda][conda] or [conda-build][conda-
 
 Below are the various places where you will be able to connect with the conda community.
 
-<!-- See https://github.com/kubernetes/community/tree/master/communication for inspiration -->
-<!-- Mention communication etiquette, and where different topics are dealt with and how -->
-
 ### GitHub
 
 Nearly of the projects and organizations above use GitHub to manage the development. Therefore, if you are looking to file a bug or feature request, this is your go to place. If you are also interested in being a part of active development effort or want to submit your own pull request, this is where you will able to do that too.
@@ -87,31 +87,23 @@ The conda community also has a Discourse instance where all are invited to discu
 
 [Visit conda on Discourse][conda-discourse]
 
-### Meetings
+## Contributing
 
-Several organizations in the conda community regularly hold community meetings where all are encouraged to participate. See below for exact details and a calendar of all conda community events.
+The various projects associated with the conda community are always open to contributions
+and contributors wishing to make a positive impact. To see the exact guidelines for each
+project, we encourage you to visit their respective project websites (see above).
 
-- **conda-forge community meeting**
-    - TODO: add meeting time, place and link
-    - TODO: link to meeting notes
-- **conda community meeting**
-    - TODO: add meeting time, place and link
-    - TODO: link to meeting notes
+Contributing to this website, either in the form of a blog post or feature addition can be
+done via our [GitHub project page][conda-dot-page]. Please also feel free to reach out to
+us via our [Element chat room][conda-element]. 
 
-TODO:[ EMBEDDED CALENDAR HERE ]
+We look forward to hearing from you and your contributions!
 
-## Contribution guidelines
+## Code of conduct and governance
 
-<!-- FIX: QUOTED FROM NEBARI -->
-<!-- Also see https://numpy.org/devdocs/dev/reviewer_guidelines.html -->
+In order to ensure that everyone in our community treats each other with respect and decency,
+we have carefully crafted a code of conduct. In addition to this, we have also created a 
+governance document which establishes clear rules and expectations surrounding the management
+of conda community projects and standards.
 
-All questions and contributions are welcome. Contributions can include issues, contributing code, new docs as well as updates and tweaks, blog posts, helping out people, organizing community events, working on accessibility and design items, and more. Continue reading to learn what the community can do for you and what you can do for the community. By contributing to open source projects, you can connect with people, learn new skills, become a subject-matter expert, and apply all learnings to your projects. We look forward to hearing from you!
-
-## Code of conduct & governance
-
-<!-- INTRODUCE & LINK TO GOVERNANCE PAGE -->
-
-
-## Assets and other resources
-
-<!-- LOGOS, SOURCE GRAPHICS, COLOR PALETTE... -->
+Please read more about our [code of conduct and governance here][conda-governance].
