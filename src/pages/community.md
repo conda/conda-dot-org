@@ -10,7 +10,7 @@ sidebar_position: 1
 <!-- Github Links -->
 [mamba-org]: https://github.com/mamba-org
 [mamba-gh]: https://github.com/mamba-org/mamba
-[mamba-gh]: https://github.com/mamba-org/boa
+[boa]: https://github.com/mamba-org/boa
 [conda-org]: https://github.com/conda
 [conda-incubator]: https://github.com/conda-incubator/ 
 [setup-miniconda]: https://github.com/conda-incubator/setup-miniconda
@@ -57,11 +57,7 @@ Organizations on GitHub include:
 - [@mamba-org][mamba-org]
 - [@bioconda][bioconda]
 
-> More info: https://jaimergp.github.io/scientific-packaging-glossary/orgs/
-
 Some tools you might be familiar with are [conda][conda] or [conda-build][conda-build] themselves but also community efforts like [mamba][mamba-gh], [boa][boa], [setup-miniconda][setup-miniconda], [conda-lock][conda-lock] or [conda-tree][conda-tree], among many more!
-
-> Something about distribution channels and installers
 
 ## How to reach us
 
