@@ -8,6 +8,16 @@ sidebar_position: 2
 
 [Conda](https://docs.conda.io/) is an [open-source](https://github.com/conda/conda#readme) package manager and environment management system that helps you find and install packages as well as their dependencies. Though conda is written in Python, it can handle software written in any language. It runs on Windows, Linux, and macOS, as well as various platforms and architectures.
 
+## What is a conda channel?
+
+Conda channels are the locations where conda packages are stored. By default, packages are automatically downloaded and updated from the default channel, but other channels (i.e., [conda-forge](https://conda-forge.org/)) can be specified using the `--channel` flag, as shown in the example below:
+
+```
+conda install rust --channel conda-forge
+```
+
+For more information, please check out the [conda documentation page on channels](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html).
+
 ## What is conda-forge?
 
 [Conda-forge](https://conda-forge.org/) is a [community-led GitHub organization](https://github.com/conda-forge) that provides access to thousands of conda package recipes. All of these recipes are open source and can be installed with the conda package manager by specifying conda-forge as the channel.
