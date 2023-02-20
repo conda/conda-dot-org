@@ -35,8 +35,8 @@ export default function News() {
         </div>
       </div>
 
-      <div className={styles.new_read_more}>
-        <a href="/blog">Read More</a>
+      <div class="col col--3 margin--auto padding--xl margin-top-sm">
+        <a class="button button--primary button--lg col" href="/blog">Read More</a>
       </div>
 
     </div>
