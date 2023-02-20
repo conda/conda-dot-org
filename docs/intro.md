@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
 # What is conda?
@@ -12,3 +12,5 @@ You will see the term `conda` thrown around in different contexts:
 * conda packages ...
 
 WIP
+
+[FAQ](faq.md)

@@ -1,8 +1,9 @@
 import React from 'react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
-import Header from '../components/header';
-import Features from '../components/features';
+import Header from '../components/Header';
+import Features from '../components/Features';
+import News from '../components/News'; 
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
@@ -14,6 +15,7 @@ export default function Home() {
       <main>
         <Header />
         <Features />
+        <News />
       </main>
     </Layout>
   );
