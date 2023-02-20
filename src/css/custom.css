@@ -20,8 +20,8 @@
   --gradient-news-card: linear-gradient(112deg, #43b02a 0%, #1eb59a 90%);
   --conda-green1: #43b02a;
   --theme-features-card: #f5f5f5;
-  --ifm-font-family-base: "open-sans", sans-serif;
-  --ifm-heading-font-family: "lato", sans-serif;
+  --ifm-font-family-base: open-sans, sans-serif;
+  --ifm-heading-font-family: lato, sans-serif;
   --ifm-heading-font-weight: normal;
 }
 
