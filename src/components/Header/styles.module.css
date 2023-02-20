@@ -33,16 +33,14 @@
 } */
 
 .header_content h1 {
-  font-weight: 750;
-  font-size: 55px;
-  line-height: 75px;
-  letter-spacing: -0.04em;
+  font-size: 3rem;
+  max-width: 55ch;
+  font-weight: bold;
 }
 
 .header_content p {
-  font-size: 22px;
-  line-height: 27px;
-  margin-top: 1.5em;
+  font-size: 1.3rem;
+  max-width: 60ch;
 }
 
 .header_content_input {
