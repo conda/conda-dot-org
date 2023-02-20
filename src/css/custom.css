@@ -79,7 +79,6 @@ article {
   font-style: normal;
 }
 
-
 @font-face {
   font-family: "open-sans";
   src: url("/fonts/OpenSans-BoldItalic-webfont.woff") format("woff");
@@ -108,10 +107,7 @@ article {
   font-style: normal;
 }
 
-
 /** End Custom Fonts **/
-
-
 
 /** Utility classes **/
 
