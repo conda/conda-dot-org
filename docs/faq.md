@@ -8,6 +8,16 @@ sidebar_position: 2
 
 [Conda](https://docs.conda.io/) is an [open-source](https://github.com/conda/conda#readme) package manager and environment management system that helps you find and install packages as well as their dependencies. Though conda is written in Python, it can handle software written in any language. It runs on Windows, Linux, and macOS, as well as various platforms and architectures.
 
+## What is a conda channel?
+
+Conda channels are the locations where conda packages are stored. By default, packages are automatically downloaded and updated from the `default` channel, but other channels (i.e., [conda-forge](https://conda-forge.org/)) can be specified using the `--channel` flag, as shown in the example below:
+
+```
+conda install rust --channel conda-forge
+```
+
+For more information, please check out the [conda documentation page on channels](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html).
+
 ## What is conda-forge?
 
 [Conda-forge](https://conda-forge.org/) is a [community-led GitHub organization](https://github.com/conda-forge) that provides access to thousands of conda package recipes. All of these recipes are open source and can be installed with the conda package manager by specifying conda-forge as the channel.
@@ -47,6 +57,12 @@ On the other hand, conda is a powerful package and environment manager that can 
 The Python packaging system is prone to develop incompatibilities over time; the more packages you install into one conda environment, the more complex the dependency graph gets, which makes the default `base` environment prone to problems and breakage each time another package is installed.
 
 For this reason, it is highly recommended to utilize separate conda environments for each project/purpose in order to mitigate the dependency management issues of the Python packaging system and to keep project dependencies as separate and simple as possible.
+
+## What is a dependency graph?
+
+A [dependency graph](https://en.wikipedia.org/wiki/Dependency_graph) is a tree-like data structure where each node points to all of the things that it depends on. Then, each of those dependency nodes point at all of their particular dependencies, and so on. Simply put, it's a graph that represents how objects depend on each other.
+
+Each separate conda environment would have its own dependency graph. The items in a dependency graph would be the packages that conda manages and what each of those packages require as a prerequisite to function properly.
 
 ## How do I submit a blog post to conda.org?
 
