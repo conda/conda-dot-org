@@ -10,7 +10,7 @@ sidebar_position: 2
 
 ## What is a conda channel?
 
-Conda channels are the locations where conda packages are stored. By default, packages are automatically downloaded and updated from the default channel, but other channels (i.e., [conda-forge](https://conda-forge.org/)) can be specified using the `--channel` flag, as shown in the example below:
+Conda channels are the locations where conda packages are stored. By default, packages are automatically downloaded and updated from the `default` channel, but other channels (i.e., [conda-forge](https://conda-forge.org/)) can be specified using the `--channel` flag, as shown in the example below:
 
 ```
 conda install rust --channel conda-forge
