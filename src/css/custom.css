@@ -20,8 +20,8 @@
   --gradient-news-card: linear-gradient(112deg, #43b02a 0%, #1eb59a 90%);
   --conda-green1: #43b02a;
   --theme-features-card: #f5f5f5;
-  --ifm-font-family-base: "source-sans-pro", sans-serif;
-  --ifm-heading-font-family: "oswald", sans-serif;
+  --ifm-font-family-base: source-sans-pro, sans-serif;
+  --ifm-heading-font-family: oswald, sans-serif;
   --ifm-heading-font-weight: normal;
   --ifm-font-size-base: 1.1rem;
 }
@@ -49,7 +49,7 @@ article {
 /** Custom Fonts **/
 
 @font-face {
-  font-family: "oswald";
+  font-family: oswald;
   src: url("/fonts/oswald-bolditalic-webfont.woff2") format("woff2");
   src: url("/fonts/oswald-bolditalic-webfont.woff") format("woff");
   font-weight: bold;
@@ -57,7 +57,7 @@ article {
 }
 
 @font-face {
-  font-family: "oswald";
+  font-family: oswald;
   src: url("/fonts/oswald-regularitalic-webfont.woff2") format("woff2");
   src: url("/fonts/oswald-regularitalic-webfont.woff") format("woff");
   font-weight: normal;
@@ -65,7 +65,7 @@ article {
 }
 
 @font-face {
-  font-family: "oswald";
+  font-family: oswald;
   src: url("/fonts/oswald-regular-webfont.woff2") format("woff2");
   src: url("/fonts/oswald-regular-webfont.woff") format("woff");
   font-weight: normal;
@@ -73,7 +73,7 @@ article {
 }
 
 @font-face {
-  font-family: "oswald";
+  font-family: oswald;
   src: url("/fonts/oswald-bold-webfont.woff2") format("woff2");
   src: url("/fonts/oswald-bold-webfont.woff") format("woff");
   font-weight: bold;
@@ -81,7 +81,7 @@ article {
 }
 
 @font-face {
-  font-family: "source-sans-pro";
+  font-family: source-sans-pro;
   src: url("/fonts/sourcesanspro-bolditalic-webfont.woff2") format("woff2");
   src: url("/fonts/sourcesanspro-bolditalic-webfont.woff") format("woff");
   font-weight: bold;
@@ -89,7 +89,7 @@ article {
 }
 
 @font-face {
-  font-family: "source-sans-pro";
+  font-family: source-sans-pro;
   src: url("/fonts/sourcesanspro-italic-webfont.woff2") format("woff2");
   src: url("/fonts/sourcesanspro-italic-webfont.woff") format("woff");
   font-weight: normal;
@@ -97,7 +97,7 @@ article {
 }
 
 @font-face {
-  font-family: "source-sans-pro";
+  font-family: source-sans-pro;
   src: url("/fonts/sourcesanspro-regular-webfont.woff2") format("woff2");
   src: url("/fonts/sourcesanspro-regular-webfont.woff") format("woff");
   font-weight: normal;
@@ -105,17 +105,14 @@ article {
 }
 
 @font-face {
-  font-family: "source-sans-pro";
+  font-family: source-sans-pro;
   src: url("/fonts/sourcesanspro-bold-webfont.woff2") format("woff2");
   src: url("/fonts/sourcesanspro-bold-webfont.woff") format("woff");
   font-weight: bold;
   font-style: normal;
 }
 
-
 /** End Custom Fonts **/
-
-
 
 /** Utility classes **/
 
