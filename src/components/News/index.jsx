@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles.module.css';
 import NewsCard from '../NewsCard';
-import NewsData from '../../../news/news'
+import NewsData from '../../../blog/news';
 
 export default function News() {
 
