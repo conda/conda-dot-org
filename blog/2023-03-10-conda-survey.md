@@ -9,6 +9,8 @@ Anaconda [surveyed the conda community in late 2022](https://conda.discourse.gro
 
 Around the same time, the Python Software Foundation [published the results of their (much, much bigger) Python Packaging Survey](https://drive.google.com/file/d/1U5d5SiXLVkzDpS0i1dJIA4Hu5Qg704T9/view).  The two surveys asked some similar questions and some distinct ones.  We include insights from the PSF survey when they are particularly relevant to the conda community.
 
+<!-- truncate -->
+
 The conda survey had 72 responses.  That's not huge, but it's not small either. PSF received 8774 responses.
 
 The summary has several sections:
@@ -21,7 +23,7 @@ The summary has several sections:
 
 Many thanks to [Luc (Boaz) Douyon of Anaconda](https://www.linkedin.com/in/luc-douyon-b97125164/) for the conda survey, and [Shamika Mohanan of the PSF](https://pyfound.blogspot.com/2021/08/shamika-mohanan-has-joined-psf-as.html) for the Python packaging survey summary.
 
-Dave Clements, xxxx, and xxx on behalf of the Conda Communications Team
+Dave Clements, on behalf of the Conda Communications Team
 
 ---
 
