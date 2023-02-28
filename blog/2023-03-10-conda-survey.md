@@ -15,19 +15,15 @@ The conda survey had 72 responses.  That's not huge, but it's not small either. 
 
 The summary has several sections:
 
-* **How happy are people with conda?**
-* **What needs improvement?**
-* **When is conda used?**
-* **What is conda used with?**
-* **Who uses conda?**
-
-Many thanks to [Luc (Boaz) Douyon of Anaconda](https://www.linkedin.com/in/luc-douyon-b97125164/) for the conda survey, and [Shamika Mohanan of the PSF](https://pyfound.blogspot.com/2021/08/shamika-mohanan-has-joined-psf-as.html) for the Python packaging survey summary.
-
-Dave Clements, on behalf of the Conda Communications Team
+* **[How happy are people with conda?](#how-happy-are-people-with-conda)**
+* **[What needs improvement?](#what-needs-improvement)**
+* **[When is conda used?](#when-is-conda-used)**
+* **[What is conda used with?](#what-is-conda-used-with)**
+* **[Who uses conda?](#who-uses-conda)**
 
 ---
 
-# How happy are people with conda?
+## How happy are people with conda?
 
 The conda survey asked 4 questions that we'll throw into the "happiness" bucket:
 
@@ -36,43 +32,43 @@ The conda survey asked 4 questions that we'll throw into the "happiness" bucket:
 [![I can integrate conda with my workflow](/img/2023-03-10-conda-survey/i-can-integrate-conda-with-my-workflow.png)](https://docs.google.com/spreadsheets/d/1rpWN6atSEsALvStPtAVIf_WMTxXXKaDKYpKRsvMpbOo/edit#gid=1595912193)
 [![I am satisfied with conda](/img/2023-03-10-conda-survey/i-am-satisfied-with-conda.png)](https://docs.google.com/spreadsheets/d/1rpWN6atSEsALvStPtAVIf_WMTxXXKaDKYpKRsvMpbOo/edit#gid=1582523399)
 
-The news here is mostly good, but the results also highlight that things still need to be improved. For example, in "Conda is my preferred package manager" 61% had "happy" responses, but 25% were neutral, and almost 14% had "unhappy" responses.  That's 39% who can't say they are in the "happy" bucket.  For the other three questions the numbers outside the "happy" categories are 28%, 24%, and 32%.  Those are better, but still not where we want them.  See the specific feedback below for some reasons behind these numbers.
+The news here is mostly good, but the results also highlight that things still need to be improved. For example, in "Conda is my preferred package manager" 61% had "happy" responses, but 25% were neutral, and almost 14% had "unhappy" responses.  That's 39% who can't say they are in the "happy" bucket.  For the other three questions the numbers outside the "happy" categories are 28%, 24%, and 32%.  Those are better, but still not where we want them.  See the specific feedback in the next section for some reasons behind these numbers.
 
-# What needs improvement?
+## What needs improvement?
 
 The survey asked respondents what changes should be prioritized going forward.
 
 [![Desired conda changes](/img/2023-03-10-conda-survey/desired-conda-changes.png)](https://docs.google.com/spreadsheets/d/1rpWN6atSEsALvStPtAVIf_WMTxXXKaDKYpKRsvMpbOo/edit#gid=1229097249)
 
-## Speed
+### Speed
 
 The need for speed was the most prominent theme:
 
-* 71% prioritized speedups
+* 71% prioritized speedups.
 * 60% use mamba, which is known for being very fast compared to the standard conda solver.
 
 Some individual responses:
 
 * "just make libmamba the default solver already!!!!"
-* "Nearly 100% use Mamba nowadays due to speed, only fallback to Conda when something is going wrong"
+* "Nearly 100% use Mamba nowadays due to speed, only fallback to Conda when something is going wrong."
 * "*Dear Goddess make the solver faster out of the box.*"
 
-This survey was taken in November and December 2022, which we feel was an inflection point in conda's performance profile.  The [22.11.0 conda release], which came out towards the end of the survey window, implemented parallel package download and extraction, and dropped the `experimental` tag from the `conda-libmamba-solver` (the solver was added in the March 2022 release). At the time of the survey, [only 19% of respondents were using conda-libmamba-solver](https://docs.google.com/spreadsheets/d/1rpWN6atSEsALvStPtAVIf_WMTxXXKaDKYpKRsvMpbOo/edit#gid=1650032116).
+This survey was taken in November and December 2022, which we feel was an inflection point in conda's performance profile.  The [22.11.0 conda release](https://github.com/conda/conda/releases/tag/22.11.0), which came out towards the end of the survey window, implemented parallel package download and extraction, and dropped the `experimental` tag from the `conda-libmamba-solver` (the solver was added in the March 2022 release). At the time of the survey, [only 19% of respondents were using conda-libmamba-solver](https://docs.google.com/spreadsheets/d/1rpWN6atSEsALvStPtAVIf_WMTxXXKaDKYpKRsvMpbOo/edit#gid=1650032116).
 
 These changes are representative of a multi-year, and continuing effort to improve the speed of conda.  Our next survey will tell us if conda is succeeding at speeding things along...
 
-## Better error messages
+### Better error messages
 
 Close behind speed was *more helpful error messages* with 65% of respondents.
 
 Some individual feedback
 
 * "when it works, it's fantastic. when it doesn't, it's really painful to diagnose dependency resolution issues and discover what's happening, resulting in ad hoc tools like parsing json into networkx or something for exploration."
-* "Explorability of dependency resolution conflicts"
+* "Explorability of dependency resolution conflicts."
 
 The conda-libmamba-solver error messages will improve shortly [as the latest version of the solver gets integrated into conda](https://github.com/conda/conda-libmamba-solver/issues/102).
 
-## Better interoperability
+### Better interoperability
 
 *Improved interoperability with other package managers* was prioritized by 62% of respondents. This message is reinforced by how frequently people use more than one package manager.
 
@@ -91,7 +87,7 @@ In this survey conda is used less frequently than 6 "standard" (and highly overl
 
 The PSF survey asked several questions specifically related to interoperability.
 
-[![What should the packaging ecosystem do to be an "ecosystem for all"](/img/2023-03-10-conda-survey/psf-what-should-the-packaging-system-do-to-be;-an-ecosystem-for-all.png)](/img/2023-03-10-conda-survey/psf-what-should-the-packaging-system-do-to-be;-an-ecosystem-for-all.png)
+[![What should the packaging ecosystem do to be an "ecosystem for all"](/img/2023-03-10-conda-survey/psf-what-should-the-packaging-system-do-to-be-an-ecosystem-for-all.png)](/img/2023-03-10-conda-survey/psf-what-should-the-packaging-system-do-to-be-an-ecosystem-for-all.png)
 
 When PSF asked their respondents to rank these 4 priorities the highest ranked (by far) is "Support more interoperability between Python packaging tools."  At the very bottom was "Support interoperability between Python packaging and packaging tools for other languages."
 
@@ -103,13 +99,13 @@ The first question is "I prefer to have a clearly defined "official" workflow" w
 
 **What do we do with all this?**
 
-Let's start by noting that the Python community strongly prioritizes interoperability between Python packaging tool, but that support for multiple languages is at the bottom.  This is good news and bad news for conda.  Conda already works well with Pip.  The downside is that most PSF respondents don't prioritize support for multiple languages, which is one of conda's superpowers.
+Let's start by noting that the Python community strongly prioritizes interoperability between Python packaging tools, but that support for multiple languages is at the bottom.  This is good news and bad news for conda.  Conda already works well with pip.  The downside is that most PSF respondents don't prioritize support for multiple languages, which is one of conda's superpowers.
 
-PSF respondents would also clearly prefer to have a single packaging toolkit.  This is not necessarily bad news for conda, as the conda ecosystem addresses concerns that Pip does not.  The PSF survey does not ask "What toolkit would you prefer that to be." However, given the Python community's current usage of Pip/Venv our guess is that they would say "Pip/Venv", and that is a challenge we need to address.  We hope the current much wider us of Pip/Venv is merely a byproduct of the wide range of Python packages available via Pip and that this is a Python community survey, rather than a widespread preference for the capabilities of Pip/Venv over conda.  But, from these surveys we can't tell that.
+PSF respondents would also clearly prefer to have a single packaging toolkit.  This is not necessarily bad news for conda, as the conda ecosystem addresses concerns that pip does not.  The PSF survey does not ask "What toolkit would you prefer that to be." However, given the Python community's current usage of pip/venv our guess is that they would say "pip/venv", and that is a challenge we need to address.  We hope the current much wider use of pip/venv is merely a byproduct of the wide range of Python packages available via pip and that this is a Python community survey, rather than a widespread preference for the capabilities of pip/venv over conda.  But, from these surveys we can't tell that.
 
-# When is conda used?
+## When is conda used?
 
-## Industries and Ambits
+### Industries and Ambits
 
 [![Top industries](/img/2023-03-10-conda-survey/industries-top.png)](https://docs.google.com/spreadsheets/d/1rpWN6atSEsALvStPtAVIf_WMTxXXKaDKYpKRsvMpbOo/edit#gid=1700458323)
 
@@ -117,7 +113,7 @@ Just over 40% of respondents are connected to *academia*. Since the student plus
 
 When asked in [what settings participants use conda](https://docs.google.com/spreadsheets/d/1rpWN6atSEsALvStPtAVIf_WMTxXXKaDKYpKRsvMpbOo/edit#gid=720256469) 81% said *at work*, while only 18% said *school-related.*  72% use conda on *open-source* projects.  53% use if for "personal* projects.
 
-## Domains
+### Domains
 
 The survey used the [categories from the packages directory on the Anaconda Nucleus site](https://anaconda.cloud/package-categories) to ask in what application areas conda is used in
 
@@ -125,9 +121,9 @@ The survey used the [categories from the packages directory on the Anaconda Nucl
 
 Data Usage & ETL (67%, Extract, Transform and Load) and Machine Learning & AI (63%) were the most common applications.  Visualization (54%), Packaging (54%) and Scientific (53%) make up the next largest groups.
 
-# What is conda used with?
+## What is conda used with?
 
-## Packages
+### Packages
 
 The conda survey asked people to list their top 5 packages.
 
@@ -135,7 +131,7 @@ The conda survey asked people to list their top 5 packages.
 
 This question had a few clear leaders with Numpy and Pandas used by over half of respondents.  Matplotlib, Scipy, and Scikit-learn were used by 1/4 to 1/5 of respondents.
 
-## Compute Environments
+### Compute Environments
 
 Linux was the [dominant operating system](https://docs.google.com/spreadsheets/d/1rpWN6atSEsALvStPtAVIf_WMTxXXKaDKYpKRsvMpbOo/edit#gid=1402353521) with almost 70% use, but macOS and Windows weren't that far behind, both in the neighborhood of 50%. VS Code was the clearly [preferred IDE](https://docs.google.com/spreadsheets/d/1rpWN6atSEsALvStPtAVIf_WMTxXXKaDKYpKRsvMpbOo/edit#gid=1423420551) with 70% use.  The Jupyter platforms came in next, with both in the mid 40 percents.  PyCharm was used by 1/3 of paricipants.
 
@@ -145,7 +141,7 @@ Python was the most widely used programming language by far, with almost 100% us
 
 There is also data about [framework tools](https://docs.google.com/spreadsheets/d/1rpWN6atSEsALvStPtAVIf_WMTxXXKaDKYpKRsvMpbOo/edit#gid=1602748522), [CI tools](https://docs.google.com/spreadsheets/d/1rpWN6atSEsALvStPtAVIf_WMTxXXKaDKYpKRsvMpbOo/edit#gid=374176396), [machine learning frameworks](https://docs.google.com/spreadsheets/d/1rpWN6atSEsALvStPtAVIf_WMTxXXKaDKYpKRsvMpbOo/edit#gid=1065357430) and [ML operations](https://docs.google.com/spreadsheets/d/1rpWN6atSEsALvStPtAVIf_WMTxXXKaDKYpKRsvMpbOo/edit#gid=2146408368).
 
-## Data
+### Data
 
 Respondents [used open and proprietary data equally](https://docs.google.com/spreadsheets/d/1rpWN6atSEsALvStPtAVIf_WMTxXXKaDKYpKRsvMpbOo/edit#gid=937856418), with both garnering close to an 80% response rate.
 
@@ -157,7 +153,7 @@ Over 33 data formats were listed as being used. CSV and JSON were the most popul
 
 Respondents listed 13 database management systems they use.  SQLite (36%) and PostgreSQL (32%) led this group, followed by MySQL (19%).
 
-## Tools
+### Tools
 
 [![Statistical analysis tools, top](/img/2023-03-10-conda-survey/statistical-analysis-top.png)](https://docs.google.com/spreadsheets/d/1rpWN6atSEsALvStPtAVIf_WMTxXXKaDKYpKRsvMpbOo/edit#gid=1524339820)
 
@@ -168,16 +164,15 @@ Microsoft Excel (35%) and R (31%) were the two most popular tools in the statist
 
 The survey asked specific questions about ETL and data visualization tool use.  20 ETL tools had users, but only Pandas (54%), Apache Airflow (10%) and Apache Spark (10%) had more than one or two.  Jupyter (67%) was the clear leader in data visualization responses, with Plotly (35%) following.  23 other visualization tools were listed, most with only one or two users.
 
-
-# Who uses conda?
+## Who uses conda?
 
 71 of 72 responders write some code as part of their work.
 
-## Participant experience
+### Participant experience
 
 Both the conda and Python groups had similar levels of experience. [68% of conda respondents had 4+ years of experience with conda](https://docs.google.com/spreadsheets/d/1rpWN6atSEsALvStPtAVIf_WMTxXXKaDKYpKRsvMpbOo/edit#gid=1883612863), while 66% of Python respondents has 4+ years of experience with Python.  The conda survey asked participants about their job functions, industries and Project types.
 
-## Job Functions
+### Job Functions
 
 [![Job functions](/img/2023-03-10-conda-survey/job-function-top.png)](https://docs.google.com/spreadsheets/d/1rpWN6atSEsALvStPtAVIf_WMTxXXKaDKYpKRsvMpbOo/edit#gid=1839470285)
 
@@ -191,3 +186,9 @@ The most common role was *Developer*, followed closely by *Research Scientists.*
 * *Project Manager* (4.2%)
 
 People could select more than one job function.
+
+---
+
+Many thanks to all of you who took the survey, and to [Luc (Boaz) Douyon of Anaconda](https://www.linkedin.com/in/luc-douyon-b97125164/) for the conda survey, and [Shamika Mohanan of the PSF](https://pyfound.blogspot.com/2021/08/shamika-mohanan-has-joined-psf-as.html) for the Python packaging survey summary.  We will continue to run surveys of the conda community in future years.  When we do, you will see the report here.
+
+Dave Clements, on behalf of the Conda Communications Team
