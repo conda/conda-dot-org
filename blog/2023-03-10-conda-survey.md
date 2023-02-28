@@ -139,8 +139,7 @@ This question had a few clear leaders with Numpy and Pandas used by over half of
 
 Linux was the [dominant operating system](https://docs.google.com/spreadsheets/d/1rpWN6atSEsALvStPtAVIf_WMTxXXKaDKYpKRsvMpbOo/edit#gid=1402353521) with almost 70% use, but macOS and Windows weren't that far behind, both in the neighborhood of 50%. VS Code was the clearly [preferred IDE](https://docs.google.com/spreadsheets/d/1rpWN6atSEsALvStPtAVIf_WMTxXXKaDKYpKRsvMpbOo/edit#gid=1423420551) with 70% use.  The Jupyter platforms came in next, with both in the mid 40 percents.  PyCharm was used by 1/3 of paricipants.
 
-[![Programming languages, top](/img/2023-03-10-conda-survey/programming-languages-top.png)]
-(https://docs.google.com/spreadsheets/d/1rpWN6atSEsALvStPtAVIf_WMTxXXKaDKYpKRsvMpbOo/edit#gid=681062781)
+[![Programming languages, top](/img/2023-03-10-conda-survey/programming-languages-top.png)](https://docs.google.com/spreadsheets/d/1rpWN6atSEsALvStPtAVIf_WMTxXXKaDKYpKRsvMpbOo/edit#gid=681062781)
 
 Python was the most widely used programming language by far, with almost 100% use.  Shell, C/C++, R and SQL had 1/3 to 1/4 as many users as Python.
 
