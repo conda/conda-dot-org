@@ -57,7 +57,7 @@ Some individual responses:
 * "Nearly 100% use Mamba nowadays due to speed, only fallback to Conda when something is going wrong"
 * "*Dear Goddess make the solver faster out of the box.*"
 
-This survey was taken in November and December 2022, which we feel was an inflection point in conda's performance profile.  The [22.11.0 conda release], which came out towards the end of the survey window, implemented parallel package download and extraction, and dropped the `experimental` tag from the `conda-libmamba-solver` (the solver was added in the March 2022 release). At the time of the survey, [only 19% of responsdents were using conda-libmamba-solver](https://docs.google.com/spreadsheets/d/1rpWN6atSEsALvStPtAVIf_WMTxXXKaDKYpKRsvMpbOo/edit#gid=1650032116).
+This survey was taken in November and December 2022, which we feel was an inflection point in conda's performance profile.  The [22.11.0 conda release], which came out towards the end of the survey window, implemented parallel package download and extraction, and dropped the `experimental` tag from the `conda-libmamba-solver` (the solver was added in the March 2022 release). At the time of the survey, [only 19% of respondents were using conda-libmamba-solver](https://docs.google.com/spreadsheets/d/1rpWN6atSEsALvStPtAVIf_WMTxXXKaDKYpKRsvMpbOo/edit#gid=1650032116).
 
 These changes are representative of a multi-year, and continuing effort to improve the speed of conda.  Our next survey will tell us if conda is succeeding at speeding things along...
 
