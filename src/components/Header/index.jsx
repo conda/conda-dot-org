@@ -1,5 +1,5 @@
 import React from 'react';
-import condac from '@site/static/img/conda_c.png';
+import CondaCSVG from '@site/static/img/conda_c.svg';
 import styles from './styles.module.css';
 
 export default function Header() {
@@ -15,7 +15,7 @@ export default function Header() {
 
       </div>
       <div className={styles.header_image}>
-        <img src={condac} alt="conda logo" />
+        <CondaCSVG title="Conda Logo" width="100%"/>
       </div>
     </div>
   );

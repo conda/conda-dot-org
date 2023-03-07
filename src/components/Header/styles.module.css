@@ -78,10 +78,6 @@
   align-items: center;
 }
 
-.header_image img {
-  width: 100vh;
-}
-
 @media screen and (max-width: 1050px) {
   .header {
     flex-direction: column;
