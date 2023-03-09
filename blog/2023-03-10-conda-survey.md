@@ -11,7 +11,7 @@ Around the same time, the Python Software Foundation [published the results of t
 
 <!-- truncate -->
 
-The conda survey had 72 responses.  That's not huge, but it's not small either. PSF received 8774 responses.
+While the survey itself only had 72 responses and is in no way representative of the entire conda community of users, the summary statistics listed here could point to particular problem areas that we may want to follow up on with further research or user interviews. PSF received 8774 responses.
 
 The summary has several sections:
 
