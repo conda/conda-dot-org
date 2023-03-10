@@ -60,7 +60,7 @@ const config = {
         title: '',
         logo: {
           alt: 'The conda logo',
-          src: 'img/conda_logo.png',
+          src: 'img/conda_logo.svg',
         },
         items: [
           {
