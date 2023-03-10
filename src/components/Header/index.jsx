@@ -1,5 +1,6 @@
 import React from 'react';
 import condac from '@site/static/img/conda_c.png';
+import Image from '@theme/IdealImage';
 import styles from './styles.module.css';
 
 export default function Header() {
@@ -15,7 +16,7 @@ export default function Header() {
 
       </div>
       <div className={styles.header_image}>
-        <img src={condac} alt="conda logo" />
+        <Image img={condac} alt="conda logo" />
       </div>
     </div>
   );
