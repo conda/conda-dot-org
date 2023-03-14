@@ -90,7 +90,7 @@ and contributors wishing to make a positive impact. To see the exact guidelines 
 project, we encourage you to visit their respective project websites (see above).
 
 Contributing to this website, either in the form of a blog post or feature addition can be
-done via our [GitHub project page][conda-dot-page]. Please also feel free to reach out to
+done via our [GitHub project page][conda-dot-org]. Please also feel free to reach out to
 us via our [Element chat room][conda-element]. 
 
 We look forward to hearing from you and your contributions!

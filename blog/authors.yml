@@ -1,10 +1,16 @@
-jaimergp:
-  name: Jaime Rodríguez-Guerra
-  title: Steering council member
-  url: https://github.com/jaimergp
-  image_url: https://github.com/jaimergp.png
+# Alphabetical by author ID please.
 baszalmstra:
   name: "Bas Zalmstra"
   title: "prefix.dev"
   url: https://github.com/baszalmstra
   image_url: https://avatars.githubusercontent.com/u/4995967?v=4
+jaimergp:
+  name: Jaime Rodríguez-Guerra
+  title: Steering council member
+  url: https://github.com/jaimergp
+  image_url: https://github.com/jaimergp.png
+tnabtaf:
+  name: Dave Clements
+  title: Open Source Community Manager
+  url: https://github.com/tnabtaf
+  image_url: https://github.com/tnabtaf.png
