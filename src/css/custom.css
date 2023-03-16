@@ -6,19 +6,18 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #379e41;
-  --ifm-color-primary-dark: #318d3a;
-  --ifm-color-primary-darker: #1f5824;
-  --ifm-color-primary-darkest: #123516;
-  --ifm-color-primary-light: #50b85a;
-  --ifm-color-primary-lighter: #77c87f;
-  --ifm-color-primary-lightest: #9ed8a4;
+  --ifm-color-primary: #348721;
+  --ifm-color-primary-dark: #2f7a1e;
+  --ifm-color-primary-darker: #2c731c;
+  --ifm-color-primary-darkest: #245e17;
+  --ifm-color-primary-light: #399524;
+  --ifm-color-primary-lighter: #3c9b26;
+  --ifm-color-primary-lightest: #44b02b;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgb(0 0 0 / 10%);
   --gradient-text: linear-gradient(94.57deg, #43b02a 2.23%, #1eb59a 66.08%);
   --gradient-bar: linear-gradient(94.57deg, #43b02a 2.23%, #1eb59a 66.08%);
   --gradient-news-card: linear-gradient(112deg, #43b02a 0%, #1eb59a 90%);
-  --conda-green1: #43b02a;
   --theme-features-card: #f5f5f5;
   --ifm-font-family-base: open-sans, sans-serif;
   --ifm-heading-font-family: nunito, sans-serif;
@@ -27,13 +26,13 @@
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme="dark"] {
-  --ifm-color-primary: #64c06d;
-  --ifm-color-primary-dark: #50b85a;
-  --ifm-color-primary-darker: #379e41;
-  --ifm-color-primary-darkest: #318d3a;
-  --ifm-color-primary-light: #77c87f;
-  --ifm-color-primary-lighter: #8bd091;
-  --ifm-color-primary-lightest: #9ed8a4;
+  --ifm-color-primary: #43b02a;
+  --ifm-color-primary-dark: #3c9e26;
+  --ifm-color-primary-darker: #399624;
+  --ifm-color-primary-darkest: #2f7b1d;
+  --ifm-color-primary-light: #4ac22e;
+  --ifm-color-primary-lighter: #4dca30;
+  --ifm-color-primary-lightest: #62d348;
   --docusaurus-highlighted-code-line-bg: rgb(0 0 0 / 30%);
   --theme-features-card: #333;
 }
@@ -121,3 +120,23 @@ article {
 }
 
 /** End Utility classes **/
+
+/**
+ * Style guide
+ */
+.color {
+  height: 3rem;
+  margin-right: .5rem;
+  width: 3rem;
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+}
+
+.color-text {
+  padding: 5px;
+}
+
+.color-container {
+  display: inline-block;
+}
