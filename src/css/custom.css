@@ -22,10 +22,16 @@
   --ifm-font-family-base: open-sans, sans-serif;
   --ifm-heading-font-family: nunito, sans-serif;
   --ifm-heading-font-weight: normal;
+  --show-on-light-theme: block;
+  --show-on-dark-theme: none;
+  --dark-theme-bg-color: #1b1b1d;
+  --light-theme-bg-color: #ffffff;
+  --ifm-background-color: var(--light-theme-bg-color);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme="dark"] {
+  --ifm-background-color: var(--dark-theme-bg-color);
   --ifm-color-primary: #43b02a;
   --ifm-color-primary-dark: #3c9e26;
   --ifm-color-primary-darker: #399624;
@@ -35,6 +41,8 @@
   --ifm-color-primary-lightest: #62d348;
   --docusaurus-highlighted-code-line-bg: rgb(0 0 0 / 30%);
   --theme-features-card: #333;
+  --show-on-light-theme: none;
+  --show-on-dark-theme: block;
 }
 
 /** Layout overrides **/
@@ -126,7 +134,7 @@ article {
  */
 .color {
   height: 3rem;
-  margin-right: .5rem;
+  margin-right: 1.25rem;
   width: 3rem;
   border-radius: 8px;
   padding: 16px;
@@ -134,9 +142,29 @@ article {
 }
 
 .color-text {
-  padding: 5px;
+  padding: 2px;
+  font-size: 0.8rem;
 }
 
 .color-container {
   display: inline-block;
 }
+
+.color-palette-light-theme-container {
+  background: var(--light-theme-bg-color);
+  color: var(--dark-theme-bg-color);
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.color-palette-dark-theme-container {
+  background: var(--dark-theme-bg-color);
+  color: var(--light-theme-bg-color);
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+
+/**
+ * End style guide
+ */
