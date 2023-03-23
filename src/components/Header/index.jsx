@@ -6,9 +6,8 @@ export default function Header() {
   return (
     <div className={[styles.header, styles.section_padding].join(' ')}>
       <div className={[styles.header_content, styles.header_content_image].join(' ')}>
-        <h1 className={styles.gradient_text}>Package, dependency and environment management for any language</h1>
-        <p>Conda is an open source package management system and environment management system that runs on Windows, macOS, Linux and z/OS. Conda quickly installs, runs and updates packages and their dependencies.</p>
-
+        <h1 className={styles.gradient_text}><b>CONDA</b><br></br></h1>
+        <h2>Language-agnostic, multi-platform package management for projects of any size and complexity.</h2>
         <div className={styles.header_content_input}>
           <a className="button button--primary button--lg col" href="/docs/intro">Get Started</a>
         </div>
