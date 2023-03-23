@@ -36,7 +36,7 @@ Below are various typography elements. The header font for [conda.org](https://c
 ### Paragraphs
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-(_size 1rem_)
+(size 1rem)
 
 ---
 
@@ -116,13 +116,22 @@ if __name__ == "__main__":
 <div class="color-palette-light-theme-container margin-bottom--lg">
     <div class="row margin-bottom--md">
         <div class="col col--3">
-            <span class="text--bold">Primary color</span>
+            <span class="text--bold">Primary color and background color</span>
         </div>
         <div class="col">
             <div class="color-container">
                 <div class="color" style={{"background-color": "var(--ifm-color-primary)"}}></div>
                 <div class="color-text">#348721</div>
             </div>
+            <div class="color-container">
+                <div class="color" style={{"background-color": "#FFFFFF", "border": "var(--ifm-color-gray-400) solid 1px"}}></div>
+                <div class="color-text">#ffffff</div>
+            </div>
+        </div>
+        <div class="col">
+            <p>
+                This color combination passes accessibility tests ✅
+            </p>
         </div>
     </div>
     <div class="row">
@@ -169,13 +178,22 @@ if __name__ == "__main__":
 <div class="color-palette-dark-theme-container">
     <div class="row margin-bottom--md">
         <div class="col col--3">
-            <span class="text--bold">Primary color</span>
+            <span class="text--bold">Primary color and background color</span>
         </div>
         <div class="col">
             <div class="color-container">
                 <div class="color" style={{"background-color": "var(--ifm-color-primary)"}}></div>
                 <div class="color-text">#43b02a</div>
             </div>
+            <div class="color-container">
+                <div class="color" style={{"background-color": "#1b1b1b", "border": "var(--ifm-color-gray-400) solid 1px"}}></div>
+                <div class="color-text">#1b1b1b</div>
+            </div>
+        </div>
+        <div class="col">
+            <p>
+                This color combination passes accessibility tests ✅
+            </p>
         </div>
     </div>
     <div class="row">
