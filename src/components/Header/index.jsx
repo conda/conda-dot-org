@@ -10,7 +10,7 @@ export default function Header() {
         <p>Conda is an open source package management system and environment management system that runs on Windows, macOS, Linux and z/OS. Conda quickly installs, runs and updates packages and their dependencies.</p>
 
         <div className={styles.header_content_input}>
-          <a href="/docs/intro">Get Started</a>
+          <a className="button button--primary button--lg col" href="/docs/intro">Get Started</a>
         </div>
 
       </div>
