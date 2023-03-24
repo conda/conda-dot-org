@@ -34,6 +34,7 @@
 
 .header_content h1 {
   font-size: 3rem;
+  font-weight: bold;
   max-width: 55ch;
 }
 
@@ -43,7 +44,8 @@
 }
 
 .header_content_input {
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   align-items: center;
   justify-content: center;

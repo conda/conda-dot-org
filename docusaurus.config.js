@@ -125,6 +125,10 @@ const config = {
                 to: '/blog',
               },
               {
+                label: 'Style Guide',
+                to: '/style-guide',
+              },
+              {
                 label: 'GitHub',
                 href: 'https://github.com/conda-incubator/conda-dot-org',
               },
