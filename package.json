@@ -12,7 +12,8 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "lint": "stylelint '**/*.css' --fix --ignore-pattern build/**/*.css"
+    "lint": "stylelint '**/*.css' --fix --ignore-pattern build/**/*.css",
+    "update-news": "./bin/update-news"
   },
   "dependencies": {
     "@docusaurus/core": "2.3.1",
