@@ -12,8 +12,9 @@ export default function News() {
         key={index}
         title={item.title}
         date={item.date}
-        url={item.url}
+        slug={item.slug}
         description={item.description}
+        imageUrl={item.image}
       />
     )
   })
@@ -36,7 +37,7 @@ export default function News() {
       </div>
       <div className={styles.news_read_more}>
         <div>
-          <a className="button button--primary button--lg col" href="/blog">Read More</a>
+          <a className="button button--primary button--lg col" href="/blog">View Full Blog</a>
         </div>
       </div>
     </div>

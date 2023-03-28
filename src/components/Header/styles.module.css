@@ -33,9 +33,13 @@
 } */
 
 .header_content h1 {
-  font-size: 3rem;
+  font-size: 6rem;
   font-weight: bold;
   max-width: 55ch;
+}
+
+.header_content h2 {
+  max-width: 50ch;
 }
 
 .header_content p {
@@ -76,6 +80,10 @@
   align-items: center;
 }
 
+.header_image hr {
+  display: none;
+}
+
 @media screen and (max-width: 1050px) {
   .header {
     flex-direction: column;
@@ -87,6 +95,15 @@
 
   .header_image img {
     width: 40vh;
+  }
+
+  .header_image svg {
+    display: none;
+  }
+
+  .header_image hr {
+    display: block;
+    width: 100%;
   }
 }
 
@@ -101,8 +118,13 @@
     line-height: 24px;
   }
 
-  .header_image img {
+  .header_image svg {
     display: none;
+  }
+
+  .header_image hr {
+    display: block;
+    width: 100%;
   }
 
   .section_padding {

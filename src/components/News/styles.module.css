@@ -41,6 +41,10 @@
   color: #fff;
 }
 
+.news_container_group_highlighted > div > div > a {
+  font-weight: bold;
+}
+
 /* .new_read_more a {
     text-decoration: none;
     flex: 0.2;

@@ -11,7 +11,6 @@ export default function Header() {
         <div className={styles.header_content_input}>
           <a className="button button--primary button--lg col" href="/docs/intro">Get Started</a>
         </div>
-
       </div>
       <div className={styles.header_image}>
         <CondaCSVG title="Conda Logo" width="100%"/>
