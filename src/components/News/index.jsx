@@ -15,6 +15,7 @@ export default function News() {
         slug={item.slug}
         description={item.description}
         imageUrl={item.image}
+        first={index === 0}
       />
     )
   })

@@ -43,7 +43,12 @@ export default function NewsCard(props) {
           </h4>
           <p>{props.description}</p>
         </div>
-        <a href={url} className={styles.read_full_blog}>Read Full Blog</a>
+        <a 
+          href={url}
+          style={{"font-weight": (props.first ? "bold" : "normal")}}
+          className={styles.read_full_blog}>
+            Read Full Blog
+        </a>
       </div>
     </div>
   )
