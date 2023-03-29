@@ -10,31 +10,41 @@ from __future__ import annotations
 import datetime
 import json
 import os
+import pathlib
 import re
-import sys
 from typing import Sequence, Any, Iterator
 
-try:
-    import yaml
-except ImportError:
-    print("Please install PyYaml to use this script")
-    sys.exit(1)
+import ruamel_yaml as yaml
 
 
-BLOGS_DIR = "./blog"
-NEWS_FILE = os.path.join(BLOGS_DIR, "news.json")
+#: Directory where blog posts are located
+BLOGS_DIR = pathlib.Path("./blog")
+
+#: Location of the news file
+NEWS_FILE = BLOGS_DIR.joinpath("news.json")
 
 #: Matches anything that begins with a time stamp (e.g. 2023-03-23-something)
 BLOGS_TITLE_PAT = re.compile(r"([0-9]{4}-[0-9]{2}-[0-9]{2})(.+)")
 
 
 def has_blog_title_pattern(item: str) -> bool:
+    """
+    Filter that checks whether the file or directory has the pattern we want
+    (see the above regex for more information). 
+
+    Example:
+        - 2023-04-02-blog-post.md
+        - 2023-04-04-another-post/
+    """
     match = BLOGS_TITLE_PAT.match(item)
 
     return match is not None
 
-def has_index_file_ending(item: str) -> bool:
-    return item.endswith("index.md") or item.endswith("index.mdx")
+def has_index_file_ending(item: pathlib.Path) -> bool:
+    """
+    Checks to see if the file ends with a *.md or *.mdx
+    """
+    return item.name.endswith("index.md") or item.name.endswith("index.mdx")
 
 
 def get_blog_files() -> tuple[str]:
@@ -43,28 +53,35 @@ def get_blog_files() -> tuple[str]:
     This is only the five newest according to the date in the title.
     """
     blogs_listing = tuple(
-        os.path.join(BLOGS_DIR, item) for item in
+        BLOGS_DIR.joinpath(item) for item in
         filter(has_blog_title_pattern, os.listdir(BLOGS_DIR))
     )
     blogs_dirs = filter(os.path.isdir, blogs_listing)
     blogs_files = filter(os.path.isfile, blogs_listing)
 
     blogs_dirs_files = (
-        os.path.join(dir, item)
+        pathlib.Path(dir).joinpath(item)
         for dir in blogs_dirs
         for item in os.listdir(dir)
-        if has_index_file_ending(item)
+        if has_index_file_ending(pathlib.Path(item))
     )
 
-    return sorted(tuple(blogs_files) + tuple(blogs_dirs_files), reverse=True)[:5]
+    return sorted(
+        tuple(blogs_files) + tuple(blogs_dirs_files), reverse=True,
+        key=lambda item: item.name
+    )[:5]
 
 
-def get_date_from_filename(filename) -> datetime.datetime | None:
+def get_date_from_filename(filename: str) -> datetime.datetime | None:
+    """
+    Parses a datetime object from a str that has a date string in it that
+    looks like "YYYY-MM-DD".
+    """
     rest, base = os.path.split(filename)
 
     if has_index_file_ending(filename):
         base = os.path.basename(rest)
-    
+
     pat_match = BLOGS_TITLE_PAT.match(base)
 
     if pat_match:
@@ -99,7 +116,7 @@ def main():
     blog_files = get_blog_files()
     file_data = tuple(get_file_data(blog_files))
 
-    with open(NEWS_FILE, "w") as handle:
+    with NEWS_FILE.open("w") as handle:
         json.dump(file_data, handle)
 
 
