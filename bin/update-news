@@ -40,11 +40,12 @@ def has_blog_title_pattern(item: str) -> bool:
 
     return match is not None
 
+
 def has_index_file_ending(item: pathlib.Path) -> bool:
     """
     Checks to see if the file ends with a *.md or *.mdx
     """
-    return item.name.endswith("index.md") or item.name.endswith("index.mdx")
+    return item.name.lower() in ("index.md", "index.mdx")
 
 
 def get_blog_files() -> tuple[str]:
