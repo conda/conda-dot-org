@@ -22,7 +22,7 @@ export default function News() {
   return (
     <div className={[styles.header, styles.section_padding].join(' ')} id="blog">
       <div className={styles.news_heading}>
-        <h1 className={styles.gradient_text}>Discover the latest trends with our Conda blog updates</h1>
+        <h1 className={styles.gradient_text}>Discover the latest news and learn more in our blog</h1>
       </div>
       <div className={styles.news_container}>
         <div className={styles.news_container_group_highlighted}>
