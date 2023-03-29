@@ -33,6 +33,8 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          path: 'learn',
+          routeBasePath: 'learn',
           sidebarPath: require.resolve('./src/sidebars.js'),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
@@ -69,7 +71,7 @@ const config = {
             type: 'doc',
             docId: 'intro',
             position: 'left',
-            label: 'Docs',
+            label: 'Learn',
           },
           {
             to: '/community',
@@ -88,11 +90,11 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: 'Learn',
             items: [
               {
-                label: 'Getting started',
-                to: '/docs/intro',
+                label: 'What is conda?',
+                to: '/learn/intro',
               },
             ],
           },
