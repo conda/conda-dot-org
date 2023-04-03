@@ -1,13 +1,14 @@
 ---
-title: "prefix.dev - a fast package search website"
+title: "prefix.dev - A Fast Package Search Website"
 slug: "prefix-div-package-search"
 tags: [prefix]
 authors: [baszalmstra]
+description: Announcing the prefix.dev website for package searching
 ---
 
 Hey everyone!
 
-Im very proud to annonce the launch of [prefix.dev](https://prefix.dev/), a fast conda package search website with many more features to come.
+Im very proud to announce the launch of [prefix.dev](https://prefix.dev/), a fast conda package search website with many more features to come.
 
 For more information about prefix.dev the company and the website [see here](https://prefix.dev/posts/launching_prefix).
 

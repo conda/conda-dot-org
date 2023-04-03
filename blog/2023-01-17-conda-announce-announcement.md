@@ -1,10 +1,13 @@
 ---
 title: "Get conda news on the conda Announce mailing list"
-slub: "conda-announce-announcement"
+slug: "conda-announce-announcement"
 tags: [conda]
+description: |
+    Conda Announce is the new the mailing list for announcements and news
+    relevant to the conda ecosystem and community.
 ---
 
-**[Conda Announce](https://lists.conda.org/wws/info/announce) is a new mailing list for announcements and news relevant to the conda ecosystem and community.**
+[Conda Announce](https://lists.conda.org/wws/info/announce) is a new mailing list for announcements and news relevant to the conda ecosystem and community.
 
 If you want to stay informed about software releases, new features, upcoming events, and other community news then this is the list for you.
 

@@ -12,8 +12,10 @@ export default function News() {
         key={index}
         title={item.title}
         date={item.date}
-        url={item.url}
+        slug={item.slug}
         description={item.description}
+        imageUrl={item.image}
+        first={index === 0}
       />
     )
   })
@@ -21,7 +23,7 @@ export default function News() {
   return (
     <div className={[styles.header, styles.section_padding].join(' ')} id="blog">
       <div className={styles.news_heading}>
-        <h1 className={styles.gradient_text}>Discover the latest trends with our Conda blog updates</h1>
+        <h1 className={styles.gradient_text}>Discover the latest news and learn more in our blog</h1>
       </div>
       <div className={styles.news_container}>
         <div className={styles.news_container_group_highlighted}>
@@ -36,7 +38,7 @@ export default function News() {
       </div>
       <div className={styles.news_read_more}>
         <div>
-          <a className="button button--primary button--lg col" href="/blog">Read More</a>
+          <a className="button button--primary button--lg col" href="/blog">View Full Blog</a>
         </div>
       </div>
     </div>
