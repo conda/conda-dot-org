@@ -259,7 +259,7 @@ on your blog creation options.
 
 #### Storing and using images
 
-If you blog post has images, please put them in the following folder: `static/img/blog/<blog-file-name>/`
+If your blog post has images, please put them in the following folder: `static/img/blog/<blog-file-name>/`
 where `<blog-file-name>` is the same name as the initial blog post (e.g. `static/img/blog/2023-04-22-cool-project-v1-release/`).
 
 To use these images in your blog post, make sure to first create the blog as a `*.mdx` file and then
