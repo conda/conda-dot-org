@@ -228,7 +228,6 @@ description: A brief description of your blog's topic.
 slug: The name of your blog page within the conda.org url.
 authors: The author(s) of the blog, including their name(s), title(s), website link(s), and author image(s)
 tags: Tags to group your blog with others and enable better filtering and browsing (e.g. conda, release, package, announcement).
-tease: (Optional) A short summary of or exceprt from your blog. If this is not supplied, conda.org will use the first 20 words of your blog post.
 image: Cover or thumbnail image for your blog display.
 ```
 
@@ -246,7 +245,6 @@ authors:
     url: https://github.com/JohnDoe
     image_url: https://github.com/JohnDoe.png
 tags: [release, announcement]
-tease: Cool Project Version 1 has been released and contains a bunch of cool things.
 image: https://github.com/blog-image.png
 ---
 
@@ -258,6 +256,22 @@ The project contains the following cool things:
 
 See [the Docusaurus blog frontmatter documentation](docusaurus-blog-docs) for more information 
 on your blog creation options.
+
+#### Storing and using images
+
+If your blog post has images, please put them in the following folder: `static/img/blog/<blog-file-name>/`
+where `<blog-file-name>` is the same name as the initial blog post (e.g. `static/img/blog/2023-04-22-cool-project-v1-release/`).
+
+To use these images in your blog post, make sure to first create the blog as a `*.mdx` file and then
+import it at the top of the file. You should also used the included image plugin that Docusaurus makes
+available. An example of this is shown below:
+
+```javascript
+import Image from '@theme/IdealImage';
+import bannerImage from '@site/static/img/blog/2023-04-22-cool-project-v1-release/banner-image.png';
+
+<Image img={bannerImage} />
+```
 
 ### Creating a news post
 
