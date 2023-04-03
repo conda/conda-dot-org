@@ -2,7 +2,7 @@
 title: "What's happening on the web this week"
 slug: "2022-11-05-web-summary"
 tags: [conda]
-tease: "Conda users! We want you to help guide future directions for conda."
+description: "Conda users! We want you to help guide future directions for conda."
 ---
 
 Here's a summary of some things that have gone on around the web this week:
