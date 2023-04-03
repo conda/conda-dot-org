@@ -71,3 +71,7 @@ See our [Contributing](https://github.com/conda-incubator/conda-dot-org/blob/mai
 ## I see a problem with the website. How do I report it?
 
 Please create an [issue](https://github.com/conda-incubator/conda-dot-org/issues) in GitHub to report any problems with the website. We also welcome pull requests!
+
+## Where can I find help?
+
+Join [conda](https://app.element.io/#/room/#conda_conda:gitter.im) on Element where you can connect with our community and get the necessary help. 
