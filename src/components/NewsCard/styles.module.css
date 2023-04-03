@@ -53,6 +53,10 @@
   bottom: 1rem;
 }
 
+.news_card_image {
+  border-radius: 15px;
+}
+
 @media screen and (max-width: 550px) {
   .news_container_content h3 {
     font-size: 18px;

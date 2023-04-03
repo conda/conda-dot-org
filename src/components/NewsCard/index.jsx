@@ -15,7 +15,7 @@ export default function NewsCard(props) {
   if (props.imageUrl) {
     image = (
     <div>
-      <Image img={props.imageUrl} alt={`Banner image for ${props.title}`} /> 
+      <Image img={props.imageUrl} alt={`Banner image for ${props.title}`} className={styles.news_card_image} /> 
       <hr style={{backgroundColor: "var(--ifm-color-secondary-lightest"}} />
     </div>)
   } else if (props.key === 0) {
