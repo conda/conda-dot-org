@@ -6,8 +6,11 @@ export default function Header() {
   return (
     <div className={[styles.header, styles.section_padding].join(' ')}>
       <div className={[styles.header_content, styles.header_content_image].join(' ')}>
-        <h1 className={styles.gradient_text}><b>CONDA</b><br></br></h1>
-        <h2>Language-agnostic, multi-platform package management for projects of any size and complexity.</h2>
+        <h1 className={styles.gradient_text}><b>CONDA<br />COMMUNITY</b><br></br></h1>
+        <h2>
+          A community supporting language-agnostic, multi-platform package 
+          management for projects of any size and complexity.
+        </h2>
         <div className={styles.header_content_input}>
           <a className="button button--primary button--lg col" href="/learn/intro">Learn More</a>
         </div>
