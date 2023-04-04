@@ -74,4 +74,9 @@ Please create an [issue](https://github.com/conda-incubator/conda-dot-org/issues
 
 ## Where can I find help?
 
-Join [conda](https://app.element.io/#/room/#conda_conda:gitter.im) on Element where you can connect with our community and get the necessary help. 
+If you want some help you can reach out to us and get the necessary help.
+Here are the social profiles of conda : [Element](https://app.element.io/#/room/#conda_conda:gitter.im),  [Discourse](https://conda.discourse.group/), [Github](https://github.com/conda-incubator).
+
+For more information [visit](http://localhost:3000/community#how-to-reach-us) here.
+
+ 
