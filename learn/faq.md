@@ -74,4 +74,6 @@ If you need help with any aspect of the conda ecosystem, feel free to reach out 
 
 For more information, read [How to reach us](/community/#how-to-reach-us) on the [Community](/community) page.
 
- 
+## How can I start using conda?
+
+There are several ways to get conda on your computer. You can refer to the [installation guide](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) for a step by step procedure. 
