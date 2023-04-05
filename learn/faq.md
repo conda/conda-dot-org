@@ -76,6 +76,6 @@ Please create an [issue](https://github.com/conda-incubator/conda-dot-org/issues
 
 If you need help with any aspect of the conda ecosystem, feel free to reach out to us via any of our online channels.
 
-For more information, read [How to reach us](https://conda-dot-org.netlify.app/community/#how-to-reach-us) on the [Community](https://conda-dot-org.netlify.app/community) page.
+For more information, read [How to reach us](/community/#how-to-reach-us) on the [Community](/community) page.
 
  
