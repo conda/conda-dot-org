@@ -13,7 +13,9 @@ const features = [
     title: 'Any language',
     content: (
       <>
-        While conda itself is written in Python, its packaging approach allows you to manage applications and libraries written in any language, like C, C++, Java, Rust or Go.
+        Our packaging ecosystem allows you to manage
+        applications and libraries written in any language,
+        like C, C++, Java, Rust or Go.
       </>
     ),
   },
@@ -28,7 +30,8 @@ const features = [
     title: 'Any platform',
     content: (
       <>
-        Conda supports all major platforms and architectures: macOS, Windows, Linux, and z/OS. Intel/AMD, ARM, PowerPC, Apple Silicon... you name it.
+        This packaging ecosystem supports all major platforms and architectures: macOS, Windows, Linux,
+        Intel/AMD, ARM, PowerPC, Apple Silicon... you name it.
       </>
     ),
   },
@@ -42,11 +45,17 @@ const features = [
     title: 'Vibrant community',
     content: (
       <>
-        The conda ecosystem includes tools and projects from many organizations, like
+        This ecosystem also includes tools and projects from many organizations, like
+        {' '}
+        <a href="https://github.com/conda" target="_blank" rel="noreferrer">conda</a>
+        ,
         {' '}
         <a href="https://github.com/conda-forge" target="_blank" rel="noreferrer">conda-forge</a>
+        ,
         {' '}
-        or
+        <a href="https://github.com/mamba-org" target="_blank" rel="noreferrer">mamba</a>
+        {' '}
+        and
         {' '}
         <a href="https://github.com/conda-incubator" target="_blank" rel="noreferrer">conda-incubator</a>
         .
