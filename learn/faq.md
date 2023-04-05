@@ -74,9 +74,8 @@ Please create an [issue](https://github.com/conda-incubator/conda-dot-org/issues
 
 ## Where can I find help?
 
-If you want some help you can reach out to us and get the necessary help.
-Here are the social profiles of conda : [Element](https://app.element.io/#/room/#conda_conda:gitter.im),  [Discourse](https://conda.discourse.group/), [Github](https://github.com/conda-incubator).
+If you need help with any aspect of the conda ecosystem, feel free to reach out to us via any of our online channels.
 
-For more information [visit](http://localhost:3000/community#how-to-reach-us) here.
+For more information read [How to reach us](https://conda-dot-org.netlify.app/community/#how-to-reach-us) on the [Community](https://conda-dot-org.netlify.app/community) page.
 
  
