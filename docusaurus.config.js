@@ -69,7 +69,7 @@ const config = {
             // type=doc entries need a docId that corresponds to
             // a filename under docs/, without extension
             type: 'doc',
-            docId: 'intro',
+            docId: 'faq',
             position: 'left',
             label: 'Learn',
           },

@@ -1,0 +1,51 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.gradient_text {
+  background: var(--gradient-text);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.info_heading h1 {
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 70px;
+  letter-spacing: -0.04em;
+}
+
+.section_padding {
+  padding: 4rem 6rem;
+}
+
+@media screen and (max-width: 650px) {
+  .news_container_group_not_highlighted {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .news_container_group_highlighted .news_container_blog {
+    width: 100%;
+  }
+
+  .info_heading h1 {
+    font-size: 46px;
+    line-height: 52px;
+  }
+
+  .section_padding {
+    padding: 4rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .info_heading h1 {
+    font-size: 34px;
+    line-height: 42px;
+  }
+
+  .section_padding {
+    padding: 3rem;
+  }
+}
