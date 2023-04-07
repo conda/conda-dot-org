@@ -78,4 +78,12 @@ If you need help with any aspect of the conda ecosystem, feel free to reach out 
 
 For more information, read [How to reach us](/community/#how-to-reach-us) on the [Community](/community) page.
 
- 
+## Does the conda community have online events, meetings, or calls?
+
+Anaconda hosts webinars, tutorials, and industry events. See [here for a list of upcoming and archived events](https://www.anaconda.com/events).
+
+There are [conda community meetings](https://hackmd.io/@conda-community?tags=%5B%22meeting-notes%22%5D).
+
+Conda-forge hosts [biweekly developer meetings](https://conda-forge.org/docs/orga/minutes/00_intro.html).
+
+Mamba hosts [biweekly developer meetings](https://github.com/mamba-org/mamba#biweekly-dev-meeting).
