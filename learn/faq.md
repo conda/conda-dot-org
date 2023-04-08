@@ -64,6 +64,10 @@ A [dependency graph](https://en.wikipedia.org/wiki/Dependency_graph) is a tree-l
 
 Each separate conda environment would have its own dependency graph. The items in a dependency graph would be the packages that conda manages and what each of those packages require as a prerequisite to function properly.
 
+## I want to create a conda package for my project. Where do I start?
+
+You can create a conda package by using [conda-build](https://github.com/conda/conda-build). Please see the [documentation for conda-build](https://docs.conda.io/projects/conda-build/en/stable/index.html) to learn how.
+
 ## How do I submit a blog post to conda.org?
 
 See our [Contributing](https://github.com/conda-incubator/conda-dot-org/blob/main/CONTRIBUTING.md) documentation for more information on submitting blog posts.
