@@ -22,6 +22,10 @@ For more information, please check out the [conda documentation page on channels
 
 A feedstock is a conda package repository.
 
+## How can I start using conda?
+
+There are several ways to get started with [Conda](./faq.md/#what-is-conda). See the [installation guide](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) for step by step instructions. You can [search for the packages](./faq.md/#how-can-i-search-for-packages) you require and also check out [conda channels](./faq.md/#what-is-a-conda-channel). In case you face any issues, feel free to [contact us](./faq.md/#where-can-i-find-help).
+
 ## How can I search for packages?
 
 There are many ways to search for packages, either in your browser or in the command line. Many package organizations keep lists of their packages on their websites, so you can either use a search engine or go directly to package organization websites like [conda-forge.org](https://conda-forge.org/) and [bioconda.github.io](https://bioconda.github.io/). Anaconda also provides package hosting on [anaconda.org](https://anaconda.org/).
@@ -73,7 +77,3 @@ Please create an [issue](https://github.com/conda-incubator/conda-dot-org/issues
 If you need help with any aspect of the conda ecosystem, feel free to reach out to us via any of our online channels.
 
 For more information, read [How to reach us](/community/#how-to-reach-us) on the [Community](/community) page.
-
-## How can I start using conda?
-
-There are several ways to get conda on your computer. You can refer to the [installation guide](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) for a step by step procedure. 
