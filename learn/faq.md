@@ -8,6 +8,10 @@ sidebar_position: 2
 
 [Conda](https://docs.conda.io/) is an [open-source](https://github.com/conda/conda#readme) package manager and environment management system that helps you find and install packages as well as their dependencies. Though conda is written in Python, it can handle software written in any language. It runs on Windows, Linux, and macOS, as well as various platforms and architectures.
 
+## Why should I use conda?
+
+[Conda](https://docs.conda.io/) is a powerful environment manager that simplifies the management of dependencies and virtual environments for Machine Learning, Data Science, and Programming projects with a vast tech stack. With its cross-platform compatibility, ease of use, and support for multiple programming languages, Conda is the perfect solution for managing complex software environments. Its ability to manage dependencies, create reproducible environments, and handle complex package installations makes it a preferred choice for many developers and data scientists. Additionally, being an [open-source](https://github.com/conda/conda#readme) project guarantees its up-to-date service and transparency.
+
 ## What is a conda channel?
 
 Conda channels are the locations where conda packages are stored. By default, packages are automatically downloaded and updated from the `default` channel, but other channels (i.e., [conda-forge](https://conda-forge.org/)) can be specified using the `--channel` flag, as shown in the example below:
