@@ -78,4 +78,26 @@ If you need help with any aspect of the conda ecosystem, feel free to reach out 
 
 For more information, read [How to reach us](/community/#how-to-reach-us) on the [Community](/community) page.
 
- 
+## How is Conda Community Organized?
+
+Conda is not a single product but a collection of Individual elements merged to give a diverse community of users and developers who utilize the conda package management system for creating, managing, and distributing software environments in various programming languages, including Python, R, and others.
+
+Here are some key aspects of the conda community organization:
+
+### GitHub: 
+Heaven for all Developers to collaborate and find answers that are not found.
+Conda is a collection of various projects and thus has a big count of point-of-contacts that can be used to contact it through GitHub. You might have heard about some of these repos as well.
+
+To contact us, please refer to any of the channels based on projects as required:
+[@conda](https://github.com/conda), plus Anaconda, Inc. efforts like [@AnacondaRecipes](https://github.com/AnacondaRecipes/), [@anaconda-distribution](https://github.com/anaconda-distribution), [@ContinuumIO,](https://github.com/ContinuumIO/) [@conda-forge](https://github.com/conda-forge), [@regro,](https://github.com/regro/) [@conda-incubator](https://github.com/conda-incubator/) & [@conda-tools,](https://github.com/conda-tools/) [@mamba-org,](https://github.com/mamba-org) [@bioconda](https://bioconda.github.io/), [boa](https://github.com/mamba-org/boa), [setup-miniconda](https://github.com/conda-incubator/setup-miniconda), [conda-lock](https://github.com/conda-incubator/conda-lock) or [conda-tree](https://github.com/conda-incubator/conda-tree)
+    
+### Chat Rooms: Chat Directly with the maintainers
+[conda on Element,](http://bit.ly/conda-chat-room) 
+[conda-forge on Element,](http://bit.ly/cf-chat-space) 
+[mamba on Gitter](https://gitter.im/mamba-org/Lobby), 
+    
+### Discourse: 
+[Discourse](https://conda.discourse.group/)
+
+### Mailing List: 
+[https://groups.io/g/conda-forge](https://groups.io/g/conda-forge)
