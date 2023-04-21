@@ -45,7 +45,7 @@ Most changes are reflected live without having to restart the server.
 ### Using Docker
 To use this application on your local machine, you need to have Docker installed. Docker is a platform for building, shipping, and running applications in containers.
 
-Once you have Docker installed, navigate to the `root` folder of the application and run the command docker compose up. This command will install all the necessary dependencies and start the development server at `localhost:3000`.
+Once you have Docker installed, navigate to the `root` folder of the application and run the command `docker compose up`. This command will install all the necessary dependencies and start the development server at `localhost:3000`.
 
 Note that if you're running Docker on Windows, you may need to use `docker-compose` instead of `docker compose`.
 
