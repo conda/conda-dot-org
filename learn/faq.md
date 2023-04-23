@@ -10,7 +10,7 @@ sidebar_position: 2
 
 ## Why should I use conda?
 
-[Conda](https://docs.conda.io/) is a powerful environment manager that simplifies the management of dependencies and virtual environments for Machine Learning, Data Science, and Programming projects with a vast tech stack. With its cross-platform compatibility, ease of use, and support for multiple programming languages, Conda is the perfect solution for managing complex software environments. Its ability to manage dependencies, create reproducible environments, and handle complex package installations makes it a preferred choice for many developers and data scientists. Additionally, being an [open-source](https://github.com/conda/conda#readme) project guarantees its up-to-date service and transparency.
+When we compare Conda with other virtual environment managers, we see a clear difference in their features. Conda outperforms other software in managing dependencies and virtual environments for Machine Learning, Data Science, and Programming projects by a large margin. Comparing conda with pip, we can see that, with its cross-platform compatibility, ease of use, and support for multiple programming languages, Conda is the perfect solution for managing complex software environments. Unlike pip, which is best suited only for Python, conda gives an excellent support base to programmers working on multiple languages in their tech stack. It becomes the perfect solution to look at when working on a large project with many people invested in it using various tech stacks. On the other hand, it isn't wrong to say that pip is suitable only for managing small individual projects due to its different limitations.
 
 ## What is a conda channel?
 
