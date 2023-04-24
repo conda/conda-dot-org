@@ -64,13 +64,26 @@ A [dependency graph](https://en.wikipedia.org/wiki/Dependency_graph) is a tree-l
 
 Each separate conda environment would have its own dependency graph. The items in a dependency graph would be the packages that conda manages and what each of those packages require as a prerequisite to function properly.
 
-## Add Why can't conda find this package that I know exists? 
 
-There could be several reasons why conda is unable to find a package that you know exists. One common reason is that the package is not available in the channel that you are searching in. It's possible that the package was removed from the channel, or that the channel itself is not properly configured.
+## Why can't conda find this package that I know exists? 
 
-Another possible reason is that you have an outdated or incomplete index of available packages. You can update your index by running "conda update --all" or "conda index". It's also possible that the package you are searching for is not compatible with your operating system or architecture.
+There are several reasons why conda might be unable to find a package that you know exists. Here are some troubleshooting steps to try:
 
-Finally, it's possible that there is a problem with your conda installation or configuration. You can try reinstalling conda or creating a new environment to see if that resolves the issue.
+* Check the channel: One common reason is that the package is not available in the channel that you are searching in. It's possible that the package was removed from the channel, or that the channel itself is not properly configured.
+
+* Update your index: Another possible reason is that you have an outdated or incomplete index of available packages. You can update your index by running `conda update --all` or `conda index`. It's also possible that the package you are searching for is not compatible with your operating system or architecture.
+
+* Check your conda installation: It's possible that there is a problem with your conda installation or configuration. You can try reinstalling conda or creating a new environment to see if that resolves the issue.
+
+* Check a different channel: Sometimes a package may be available in a different channel than the one you are using. You can try searching for the package in different channels using the conda search command. For example, `conda search -c conda-forge my_package`.
+
+* Update conda: It's possible that the version of conda you are using is outdated and can't find the package. You can try updating conda using the command `conda update conda`.
+
+* Clear the conda cache: Sometimes the conda cache can become corrupted and prevent the package from being found. You can try clearing the cache using the command `conda clean -a`.
+
+* Check the package name: Make sure you are using the correct name of the package. It's possible that you may have misspelled the name or used the wrong capitalization.
+
+* Check platform compatibility: Some packages may not be available for all platforms. Make sure the package you are trying to install is available for your platform. You can check the package's documentation or website for more information.
 
 If none of these suggestions help, you may want to search online for more information about the specific package and any known issues with installing it using conda.
 
