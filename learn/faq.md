@@ -4,15 +4,6 @@ sidebar_position: 2
 
 # Frequently asked questions
 
-## What is the difference between Anaconda, Miniconda, and conda?
-
-
-* Anaconda®️ is a Python/R data science distribution that contains conda. Anaconda®️ costs nothing to install and use, [ships with 250 packages](https://docs.anaconda.com/anaconda/packages/pkg-docs/), and offers free community support.
-
-* Miniconda is a small, bootstrap version of Anaconda®️ that includes only conda, Python, the packages that they depend on, and a small number of other popular and useful packages. Users of Miniconda can run the `conda install` command to install 720+ additional conda packages from the Anaconda®️ repository.
-
-* conda is ___
-
 ## What is a conda channel?
 
 Conda channels are the locations where conda packages are stored. By default, packages are automatically downloaded and updated from the `default` channel, but other channels (i.e., [conda-forge](https://conda-forge.org/)) can be specified using the `--channel` flag, as shown in the example below:

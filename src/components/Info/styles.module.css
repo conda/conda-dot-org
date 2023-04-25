@@ -9,6 +9,20 @@
   -webkit-text-fill-color: transparent;
 }
 
+.info {
+  display: flex;
+  margin-top: 8em;
+}
+
+.info_heading {
+  width: 80ch;
+  margin: 0 auto;
+}
+
+.info p {
+  font-size: 1.3em;
+}
+
 .info_heading h1 {
   font-weight: 700;
   font-size: 50px;
@@ -29,6 +43,14 @@
     width: 100%;
   }
 
+  .info {
+    margin-top: 2em;
+  }
+
+  .info p {
+    font-size: 1em;
+  }
+
   .info_heading h1 {
     font-size: 46px;
     line-height: 52px;
@@ -43,6 +65,14 @@
   .info_heading h1 {
     font-size: 34px;
     line-height: 42px;
+  }
+
+  .info {
+    margin-top: 1em;
+  }
+
+  .info p {
+    font-size: 1em;
   }
 
   .section_padding {

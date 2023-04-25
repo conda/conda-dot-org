@@ -90,15 +90,6 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Learn',
-            items: [
-              {
-                label: 'What is conda?',
-                to: '/learn/intro',
-              },
-            ],
-          },
-          {
             title: 'Community',
             items: [
               {
