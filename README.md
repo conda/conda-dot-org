@@ -6,6 +6,9 @@ This is the repository for the conda.org community website. To become involved:
 * Visit the [Root HackMD page](https://hackmd.io/DGtozSlsSjSokpYAK5-9hw), which links to everything in HackMD.
 * We meet every two weeks on Monday at 9am US Central time / 16:00 Central European Time. Please join the [Matrix room](https://app.element.io/#/room/#conda.org:matrix.org) and we will invite you.
 
+## Code of Conduct
+
+This repo and the web site it generates are governed by the [conda organization code of conduct](CODE_OF_CONDUCT.md).
 
 ## Implementation details
 

@@ -71,3 +71,11 @@ See our [Contributing](https://github.com/conda-incubator/conda-dot-org/blob/mai
 ## I see a problem with the website. How do I report it?
 
 Please create an [issue](https://github.com/conda-incubator/conda-dot-org/issues) in GitHub to report any problems with the website. We also welcome pull requests!
+
+## Where can I find help?
+
+If you need help with any aspect of the conda ecosystem, feel free to reach out to us via any of our online channels.
+
+For more information, read [How to reach us](/community/#how-to-reach-us) on the [Community](/community) page.
+
+ 
