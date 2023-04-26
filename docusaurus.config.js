@@ -69,7 +69,7 @@ const config = {
             // type=doc entries need a docId that corresponds to
             // a filename under docs/, without extension
             type: 'doc',
-            docId: 'intro',
+            docId: 'faq',
             position: 'left',
             label: 'Learn',
           },
@@ -89,15 +89,6 @@ const config = {
       footer: {
         style: 'dark',
         links: [
-          {
-            title: 'Learn',
-            items: [
-              {
-                label: 'What is conda?',
-                to: '/learn/intro',
-              },
-            ],
-          },
           {
             title: 'Community',
             items: [
