@@ -4,6 +4,16 @@ sidebar_position: 2
 
 # Frequently asked questions
 
+## What is the difference between Anaconda, Miniconda, and conda?
+
+In simple terms, [Anaconda](https://www.anaconda.com/) is a complete Python distribution for scientific computing, [Miniconda](https://conda.io/en/latest/miniconda.html) is a lightweight version of Anaconda, and [Conda](https://docs.conda.io/) is a package and environment manager used in both Anaconda and Miniconda. Below we have listed down case for each of the above tooling, Try and compare which situation best describes your use case and then go ahead with the respective installation.
+
+[Anaconda](https://www.anaconda.com/) is a great choice for beginners who are new to Python or conda and want a complete Python distribution with over 1,500 pre-installed scientific packages. It offers the convenience of having all the necessary packages automatically installed at once without the need to individually install each package. Anaconda is a curated set of packages that have been tested for compatibility and usability, making it an excellent option for those who want to use a set of packages that are vetted for interoperability. However, it does require some disk space and time for installation, but as long as you have a few minutes and 3 GB of disk space, Anaconda is an excellent choice for scientific computing and data analysis.
+
+[Miniconda](https://conda.io/en/latest/miniconda.html) is a better choice if you prefer more control over your environment and do not mind installing the packages you need individually. Unlike Anaconda, which comes with over 1,500 scientific packages pre-installed, Miniconda is a lightweight version that only includes the essential packages and conda package manager. This means it requires less time and disk space to install. Miniconda is a good option if you need fast access to Python and the conda commands and would like to sort out the other programs later.
+
+[Conda](https://docs.conda.io/) is an [open-source](https://github.com/conda/conda#readme) package manager and environment management system that helps you find and install packages as well as their dependencies. Though conda is written in Python, it can handle software written in any language. It runs on Windows, Linux, and macOS, as well as various platforms and architectures.
+
 ## What is a conda channel?
 
 Conda channels are the locations where conda packages are stored. By default, packages are automatically downloaded and updated from the `default` channel, but other channels (i.e., [conda-forge](https://conda-forge.org/)) can be specified using the `--channel` flag, as shown in the example below:
