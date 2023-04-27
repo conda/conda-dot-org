@@ -4,10 +4,6 @@ sidebar_position: 2
 
 # Frequently asked questions
 
-## What is conda?
-
-[Conda](https://docs.conda.io/) is an [open-source](https://github.com/conda/conda#readme) package manager and environment management system that helps you find and install packages as well as their dependencies. Though conda is written in Python, it can handle software written in any language. It runs on Windows, Linux, and macOS, as well as various platforms and architectures.
-
 ## What is a conda channel?
 
 Conda channels are the locations where conda packages are stored. By default, packages are automatically downloaded and updated from the `default` channel, but other channels (i.e., [conda-forge](https://conda-forge.org/)) can be specified using the `--channel` flag, as shown in the example below:
