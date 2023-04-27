@@ -1,0 +1,146 @@
+---
+title: "Managing multiple python environments with conda"
+slug: "2023-04-27-conda-environments"
+tags: [conda]
+description: |
+    This post shares the beginner steps on how to use the conda package 
+    manager to manage multiple python versions on a single system.
+image: img/blog/2023-03-30-conda-survey/banner-multitasking.png
+---
+
+import bannerImage from '@site/static/img/blog/2023-04-27-conda-environments/banner-multitasking.png';
+
+<Image img={bannerImage} alt="Banner image for blog post; Picture of a developer multitasking" />
+
+<hr />
+
+<p>
+    <i>
+        Photo by <a href="https://pixabay.com/users/kreatikar-8562930/">Mudassar Iqbal</a> on <a href="https://pixabay.com/">Pixabay</a>
+    </i>
+</p>
+
+[Conda](https://docs.conda.io/) is a powerful package and environment manager for Python that can be used to create and manage multiple Python environments on your machine. 
+This is useful when you need to work on different projects that require different versions of Python or different sets of packages. 
+In this blog post, we'll show you how to use conda to manage multiple Python environments.
+
+<!-- truncate -->
+
+
+The summary has several sections:
+
+* **[Installation](#installation)**
+* **[Creating a virtual environment](#creating-a-virtual-environment)**
+* **[Activating an environment](#activating-an-environment)**
+* **[Installing packages](#installing-packages)**
+* **[Listing environments](#listing-environments)**
+* **[Removing an environment](#removing-an-environment)**
+* **[Summary](#summary)**
+
+
+Summary
+
+
+
+---
+
+## Installation
+
+The installation instructions are already listed on our [conda.io documentation page](https://conda.io/projects/conda/en/latest/user-guide/install/index.html#id2).
+Choose from the type of Operating System you are currently on Windows ,macOS or Linux. 
+
+To make sure that you have conda installed on your system. Run the following command on your terminal.
+
+
+```bash
+conda list
+```
+
+You should see all the packages installed in the current environment, If the installtion was done correctly!
+
+## Creating a virtual environment
+
+Once you have conda installed, you can create a new environment by running the following command in your terminal:
+
+```bash
+conda create --name myenv python=3.8
+```
+
+This command creates a new environment called **myenv** with **Python 3.8** installed. You can replace **myenv** with any name you like, 
+and you can choose a different version of Python if you prefer.
+
+## Activating an environment
+
+To activate the **myenv** environment, run the following command:
+
+```bash
+conda activate myenv
+```
+
+This command activates the **myenv** environment and sets it as the default environment for your terminal session. 
+Any packages you install or commands you run will use the Python version and packages in the **myenv** environment.
+
+<!-- truncate -->
+
+You can confirm that you're in the **myenv** environment by running the following command:
+
+```bash
+which python
+```
+
+This command should return the path to the Python executable in the **myenv**  environment.
+
+
+## Installing packages
+
+To install packages in the myenv environment, you can use the **conda install** command. 
+For example, to install NumPy and Pandas, you can run the following command:
+
+```bash
+conda install numpy pandas
+```
+
+This command installs the latest version of NumPy and Pandas in the myenv environment.
+
+<!-- truncate -->
+
+You can also specify a specific version of a package by adding the version number after the package name. For example, to install NumPy version 1.18, you can run the following command:
+
+
+
+```bash
+conda install numpy=1.18
+```
+
+
+## Listing environments
+
+To list all of the environments on your machine, you can run the following command:
+
+```bash
+conda info --envs
+```
+
+This command lists all of the environments that you have created, including the default **base** environment.
+
+## Deactivating an environment
+
+To deactivate the myenv environment and return to the base environment, run the following command:
+
+```bash
+conda deactivate
+```
+
+## Removing an environment
+
+
+To remove the **myenv** environment, run the following command:
+
+This command removes the **myenv** environment and all of the packages installed in it.
+
+
+## Summary
+
+In this blog, we discussed how conda could assist developers in managing multiple Python environments
+in numerous projects hassle free. You can avoid conflicts between different versions of Python and different sets of packages. With the commands we've covered in this blog post, 
+you should be able to create, activate, and manage multiple Python environments using conda. 
