@@ -29,7 +29,7 @@ const config = {
 
   scripts: [
     {
-      src: '//gc.zgo.at/count.js', defer: true, 'data-goatcounter': 'https://conda-dot-org.goatcounter.com/count'
+      src: '//gc.zgo.at/count.js', defer: true, 'data-goatcounter': 'https://conda-dot-org.goatcounter.com/count',
     },
   ],
 
