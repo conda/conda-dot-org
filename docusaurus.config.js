@@ -27,6 +27,12 @@ const config = {
     locales: ['en'],
   },
 
+  scripts: [
+    {
+      src: '//gc.zgo.at/count.js', defer: true, 'data-goatcounter': 'https://conda-dot-org.goatcounter.com/count',
+    },
+  ],
+
   presets: [
     [
       'classic',
