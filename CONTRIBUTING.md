@@ -1,3 +1,4 @@
+[conda-dot-org]: https://conda.org
 [github-forking-how-to]: https://docs.github.com/en/get-started/quickstart/fork-a-repo
 [installing-git]: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 [installing-npm]: https://nodejs.org/en/download/
@@ -17,8 +18,8 @@
 
 # Contributing
 
-Welcome to the conda.org contributing guide! In this guide, you will find everything you need
-to get up and running as a contributor to conda.org. This is a contributing guide
+Welcome to the [conda.org][conda-dot-org] contributing guide! In this guide, you will find everything you need
+to get up and running as a contributor to [conda.org][conda-dot-org]. This is a contributing guide
 for two kinds of contributors:
 
 - **Content contributors**
@@ -30,20 +31,31 @@ for two kinds of contributors:
 In this guide, we start off by explaining contribution steps that apply
 to both kinds of contributors. Then, the guide branches off to explain specifics for each.
 
+## General guidelines for content on [conda.org][conda-dot-org]
+
+[conda.org][conda-dot-org] is a website which represents the entire conda community. To make sure that not any one project, company or oragnization
+gets preferential treatment on this platform, we have defined the following guidelines to following when contritubing new content and updating
+existing content:
+
+- Content not present in the blog should speak of the wider ecosystem and not prioritize any particular tool, channel, company or organization.
+- The blog is an area where particular tools, channels, companies or organizations may be promoted.
+
 ## Documentation tools
 
-conda.org is built with [Docusaurus 2][docusaurus], a modern static website generator that 
+[conda.org][conda-dot-org] is built with [Docusaurus 2][docusaurus], a modern static website generator that 
 uses a friendly Markdown format to create the website copy. If you are not familiar with 
 Markdown, check out the [Markdown Guide project][markdown-guide].
 
 ## Working on issues
 
-The conda.org project has an [issue board][issue-board] from which technical contributors 
+The conda.org project has an [issue board][issue-board] from which contributors 
 can choose issues. If there is an aspect of the website that you feel needs work, please 
 create a new issue using the **Add item** button at the bottom of the appropriate column.
 
-To be assigned to an existing issue, comment on it and one of the maintainers will 
-ensure you are assigned.
+For new contributors, please look for issues which have the https://github.com/conda-incubator/conda-dot-org/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22
+label. If you want to work on an issue, please leave a comment saying so. The first person
+to comment on the issue will be assigned, if they are unable to work on it for any reason
+the second person who comments on it will be assigned and so on.
 
 ## Github flow
 
@@ -272,10 +284,6 @@ import bannerImage from '@site/static/img/blog/2023-04-22-cool-project-v1-releas
 
 <Image img={bannerImage} />
 ```
-
-### Creating a news post
-
-*Coming soon! We are still figuring out exactly how this will look*
 
 ## Technical contributors
 
