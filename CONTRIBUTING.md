@@ -33,12 +33,12 @@ to both kinds of contributors. Then, the guide branches off to explain specifics
 
 ## General guidelines for content on [conda.org][conda-dot-org]
 
-[conda.org][conda-dot-org] is a website which represents the entire conda community. To make sure that not any one project, company or organization
+[conda.org][conda-dot-org] is a website that represents the entire conda community. To make sure that not any one project, company, or organization
 gets preferential treatment, we have defined the following guidelines to follow when contributing new content and updating
 existing content:
 
-- Content not present in the blog should speak of the wider ecosystem and not prioritize any particular tool, channel, company or organization.
-- The blog is an area where particular tools, channels, companies or organizations may be promoted.
+- Content not present in the blog should speak of the wider ecosystem and not prioritize any particular tool, channel, company, or organization.
+- The blog is an area where particular tools, channels, companies, or organizations may be promoted.
 
 ## Documentation tools
 
@@ -54,8 +54,8 @@ create a new issue using the **Add item** button at the bottom of the appropriat
 
 For new contributors, please look for issues which have the https://github.com/conda-incubator/conda-dot-org/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22
 label. If you want to work on an issue, please leave a comment saying so. The first person
-to comment on the issue will be assigned, if they are unable to work on it for any reason
-the second person who comments on it will be assigned and so on.
+to comment on the issue will be assigned. If they are unable to work on it for any reason,
+the second person who comments on it will be assigned, and so on.
 
 ## Github flow
 
