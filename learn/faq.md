@@ -60,6 +60,15 @@ A [dependency graph](https://en.wikipedia.org/wiki/Dependency_graph) is a tree-l
 
 Each separate conda environment would have its own dependency graph. The items in a dependency graph would be the packages that conda manages and what each of those packages require as a prerequisite to function properly.
 
+## What are the rules for content on conda.org?
+
+[conda.org](https://conda.org) is a website which represents the entire conda community. To make sure that not any one project, company or organization
+gets preferential treatment, we have defined the following guidelines to follow when contributing new content and updating
+existing content:
+
+- Content not present in the blog should speak of the wider ecosystem and not prioritize any particular tool, channel, company or organization.
+- The blog is an area where particular tools, channels, companies or organizations may be promoted.
+
 ## How do I submit a blog post to conda.org?
 
 See our [Contributing](https://github.com/conda-incubator/conda-dot-org/blob/main/CONTRIBUTING.md) documentation for more information on submitting blog posts.

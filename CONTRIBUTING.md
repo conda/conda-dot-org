@@ -33,8 +33,8 @@ to both kinds of contributors. Then, the guide branches off to explain specifics
 
 ## General guidelines for content on [conda.org][conda-dot-org]
 
-[conda.org][conda-dot-org] is a website which represents the entire conda community. To make sure that not any one project, company or oragnization
-gets preferential treatment on this platform, we have defined the following guidelines to following when contritubing new content and updating
+[conda.org][conda-dot-org] is a website which represents the entire conda community. To make sure that not any one project, company or organization
+gets preferential treatment, we have defined the following guidelines to follow when contributing new content and updating
 existing content:
 
 - Content not present in the blog should speak of the wider ecosystem and not prioritize any particular tool, channel, company or organization.
