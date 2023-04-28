@@ -24,7 +24,7 @@ A feedstock is a conda package repository.
 
 ## How can I start using conda?
 
-There are several ways to get started with [Conda](./faq.md/#what-is-conda). See the [installation guide](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) for step by step instructions. You can [search for the packages](./faq.md/#how-can-i-search-for-packages) you require and also check out [conda channels](./faq.md/#what-is-a-conda-channel). In case you face any issues, feel free to [contact us](./faq.md/#where-can-i-find-help).
+There are several ways to get started with [Conda](./faq.md/#what-is-conda). See the [installation guide](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) for step by step instructions. You can [search for the packages](./faq.md/#how-can-i-search-for-packages) you require and also check out [conda channels](./faq.md/#what-is-a-conda-channel). We also have [mamba](https://mamba.readthedocs.io/en/latest/user_guide/mamba.html) which is a drop-in replacement for conda and [micromamba](https://mamba.readthedocs.io/en/latest/user_guide/micromamba.html), a pure C++ based CLI. In case you face any issues, feel free to [contact us](./faq.md/#where-can-i-find-help).
 
 ## How can I search for packages?
 
