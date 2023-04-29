@@ -9,7 +9,7 @@ export default function News() {
 
     return (
       <NewsCard
-        key={index}
+        index={index}
         title={item.title}
         date={item.date}
         slug={item.slug}

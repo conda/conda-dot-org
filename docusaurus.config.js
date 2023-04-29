@@ -27,6 +27,12 @@ const config = {
     locales: ['en'],
   },
 
+  scripts: [
+    {
+      src: '/js/count.js', defer: true, 'data-goatcounter': 'https://conda-dot-org.goatcounter.com/count',
+    },
+  ],
+
   presets: [
     [
       'classic',
@@ -69,7 +75,7 @@ const config = {
             // type=doc entries need a docId that corresponds to
             // a filename under docs/, without extension
             type: 'doc',
-            docId: 'intro',
+            docId: 'faq',
             position: 'left',
             label: 'Learn',
           },
@@ -90,15 +96,6 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Learn',
-            items: [
-              {
-                label: 'What is conda?',
-                to: '/learn/intro',
-              },
-            ],
-          },
-          {
             title: 'Community',
             items: [
               {
@@ -110,8 +107,8 @@ const config = {
                 href: 'https://stackoverflow.com/questions/tagged/conda%20or%20miniconda%20or%20conda-forge?sort=Newest&edited=true',
               },
               {
-                label: 'Slack',
-                href: 'https://join.slack.com/t/conda/shared_invite/zt-1ik6vglro-AdmjqKxjTbD7D0eRBfMr6A',
+                label: 'Matrix Chat',
+                href: 'https://matrix.to/#/#conda:matrix.org',
               },
               {
                 label: 'Twitter',
