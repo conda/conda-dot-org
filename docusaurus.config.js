@@ -131,6 +131,10 @@ const config = {
                 label: 'GitHub',
                 href: 'https://github.com/conda-incubator/conda-dot-org',
               },
+              {
+                label: 'Analytics Dashboard',
+                href: 'https://conda-dot-org.goatcounter.com/',
+              },
             ],
           },
         ],
