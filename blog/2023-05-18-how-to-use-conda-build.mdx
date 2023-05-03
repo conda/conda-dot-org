@@ -14,7 +14,7 @@ import condabuild from '@site/static/img/blog/2023-05-18-how-to-use-conda-build.
 <hr />
 Conda-build is a conda package that automates the process of building and distributing Python packages. It is a powerful tool that has the added advantage of handling dependencies that require C/C++ or other languages. This is particularly useful for scientific computing, where many Python packages have complex dependencies and require specialized libraries and tools.
 
-Conda-build creates a "recipe" that outlines the steps needed to build a package from source code. This recipe includes all the necessary information, from downloading and installing dependencies to compiling the source code and creating the final package. A recipe typically includes:
+A recipe outlines the steps needed to build a package from source code. We can create this "recipe" using Grayskull. A recipe includes all the necessary information, from downloading and installing dependencies to compiling the source code and creating the final package. Conda-build then renders the recipie to build the package. A recipe typically includes:
 
 <ol>
 <li>A script that contains metadata.</li>
@@ -39,14 +39,14 @@ conda install conda-build
 ```
 
 ### Creating a template for the recipe
-For this tutorial, we'll be walking you through the process of building a recipe for PyPi's "click" package. Pypi is among the various repositories available for python softwares on the internet. 
+For this tutorial, we'll be walking you through the process of building a recipe for PyPI's "click" package using Grayskull. Grayskull is an automatic Conda recipe generator that is used for creating recipes for Python packages on PyPI and non-PyPI packages available on GitHub. PypI is among the various repositories available for Python softwares on the internet. 
 ```bash
-pip install grayskull
+conda install grayskull
 grayskull pypi click
 ```
 :::note
 
-Use can use any package available from PyPi instead of click
+Use can use any package available from PyPI instead of click
 
 :::
 
