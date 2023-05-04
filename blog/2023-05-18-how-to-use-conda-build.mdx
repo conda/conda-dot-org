@@ -12,7 +12,7 @@ import condabuild from '@site/static/img/blog/2023-05-18-how-to-use-conda-build.
 <Image img={condabuild} />
 
 <hr />
-Conda-build is a conda package that automates the process of building and distributing Python packages. It is a powerful tool that has the added advantage of handling dependencies that require C/C++ or other languages. This is particularly useful for scientific computing, where many Python packages have complex dependencies and require specialized libraries and tools.
+Conda-build is an application that automates the process of building and distributing Python packages. It is a powerful tool that has the added advantage of handling dependencies that require C/C++ or other languages. This is particularly useful for scientific computing, where many Python packages have complex dependencies and require specialized libraries and tools.
 
 A recipe outlines the steps needed to build a package from source code. We can create this "recipe" using Grayskull. A recipe includes all the necessary information, from downloading and installing dependencies to compiling the source code and creating the final package. Conda-build then renders the recipie to build the package. A recipe typically includes:
 
@@ -39,7 +39,7 @@ conda install conda-build
 ```
 
 ### Creating a template for the recipe
-For this tutorial, we'll be walking you through the process of building a recipe for PyPI's "click" package using Grayskull. Grayskull is an automatic Conda recipe generator that is used for creating recipes for Python packages on PyPI and non-PyPI packages available on GitHub. PypI is among the various repositories available for Python softwares on the internet. 
+For this tutorial, we'll be walking you through the process of building a recipe for PyPI's [`click`](https://github.com/pallets/click) package using Grayskull. Grayskull is an automatic Conda recipe generator that is used for creating recipes for Python packages on PyPI and non-PyPI packages available on GitHub. PypI is among the various repositories available for Python softwares on the internet.
 ```bash
 conda install grayskull
 grayskull pypi click
@@ -50,16 +50,16 @@ Use can use any package available from PyPI instead of click
 
 :::
 
-After executing this command, a new directory called "click" will be generated. Inside this directory, you'll find a file named "meta.yaml". This file contains all the metadata necessary to create a conda package, such as the package name, version number, source code address, installation instructions, dependencies, hosting location, license, and more. Note that if you didn't use the "grayskull" command, you'll need to manually write the script yourself. You can make any changes to the meta.yaml file and be the maintainer and distributor of your package.
+After executing this command, a new directory called "click" will be generated. Inside this directory, you'll find a file named "`meta.yaml`". This file contains all the metadata necessary to create a conda package, such as the package name, version number, source code address, installation instructions, dependencies, hosting location, license, and more. Note that if you didn't use the `grayskull` command, you'll need to manually write the script yourself. You can make any changes to the `meta.yaml` file and be the maintainer and distributor of your package.
 
 
 ## Building the package
-To build your click package, run this command from the root folder:
+To build your `click` package, run this command from the root folder:
 ```bash
 conda-build click
 ```
 
-After the build process is finished, conda-build will generate a package file in the 'conda-bld' directory.
+After the build process is finished, conda-build will generate a package file in the `conda-bld` directory.
 To locate this file, you can use this command from the terminal:
 ```bash 
 conda build click --output
@@ -71,9 +71,9 @@ You can now install the package locally by running this command in the terminal:
 Congrats 🎊🎉, you have successfully downloaded your own package! You can modify this package and upload it to <a href="https://anaconda.org/">Anaconda.org</a>.
 
 ### Building a package with C/C++ dependency
-With conda-build, it is extremely simple to include non-Python packages. In this example, we will add gcc as a build dependency and mylib as a runtime dependency. We will also add a new step to compile mylib.cpp into a shared library called mylib.so.
+With conda-build, it is extremely simple to include non-Python packages. In this example, we will add `gcc` as a build dependency and `mylib` as a runtime dependency. We will also add a new step to compile `mylib.cpp` into a shared library called `mylib.so`.
 
-In the "meta.yaml" file, you can include the following and build the package again:
+In the `meta.yaml` file, you can include the following and build the package again:
 ```bash
 script: 
     g++ -o mylib.so -shared -fPIC mylib.cpp
@@ -87,8 +87,7 @@ requirements:
 
 
 ## Testing the package
-After successfully creating our package, we can now proceed to create another conda environment on our machine and use the newly created package. Additionally, we can also upload the package to Anaconda.org and distribute it to others or create our channel.
-
+After successfully creating our package, we can now proceed to create another conda environment on our machine and use the newly created package. Additionally, we can also upload the package to <a href="https://anaconda.org/">Anaconda.org</a> and distribute it to others or create our channel.
 
 To install the package on our local machine, we will create a new conda environment for our package, activate it, and then install our package. You can do that by using the following commands:
 
@@ -98,7 +97,7 @@ conda activate test_env
 conda install click
 ```
 
-Use the following command to upload your package to Anaconda.org:
+Use the following command to upload your package to <a href="https://anaconda.org/">Anaconda.org</a>:
 ```bash
 anaconda upload /path/to/my_package-1.0-0.tar.bz2
 ```
@@ -106,18 +105,3 @@ You can upload your package to any existing channel, including one you create fo
 
 ## Conclusion
 In conclusion, using conda-build to create and manage Python packages can simplify the process of distribution and installation of software packages. With conda-build, you don't have to reinvent the wheel or write code from scratch - instead, you can rely on pre-built packages and easily integrate any non-Python dependencies into your projects. Conda-build can be used as a one-stop solution for all your package management needs. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
