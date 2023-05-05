@@ -12,6 +12,13 @@ import condabuild from '@site/static/img/blog/2023-05-18-how-to-use-conda-build/
 <Image img={condabuild} />
 
 <hr />
+
+<p>
+    <i>
+        Illustration by <a href="https://github.com/ForgottenProgramme">Mahe Iram Khan</a> 
+    </i>
+</p>
+
 Conda-build is an application that automates the process of building and distributing Python packages. It is a powerful tool that has the added advantage of handling dependencies that require C/C++ or other languages. This is particularly useful for scientific computing, where many Python packages have complex dependencies and require specialized libraries and tools.
 
 A recipe outlines the steps needed to build a package from source code. We can create this "recipe" using Grayskull. A recipe includes all the necessary information, from downloading and installing dependencies to compiling the source code and creating the final package. Conda-build then renders the recipie to build the package. A recipe typically includes:
