@@ -1,0 +1,76 @@
+---
+title: "Conda 4.14.0 and conda-build 3.22.0 releases"
+slug: "2022-08-24-conda-releases"
+tags: [conda]
+description: |
+    We are pleased to announce that new releases of conda and conda-build are now available in the conda defaults channel.
+---
+
+We are pleased to announce that new releases of conda and conda-build are now available in the conda defaults channel. The updates can be installed with
+
+    conda update conda conda-build
+
+Here are some highlights from the releases:
+
+<!-- truncate -->
+
+**`conda rename`**
+
+Have you changed your mind about the name of a conda environment? No problem. You can now rename a conda environment with the `conda rename` command. conda rename supports renaming your current environment, or any of your existing environments.
+
+    conda rename -n old_env_name new_env_name
+
+See [this pull request](https://github.com/conda/conda/pull/11496) for additional command options.This implements a feature request that was first submitted in 2016 (and we think that is a record).
+
+**Channel notices**
+
+Channel owners can now create notifications for their channel users. Notifications can be tagged as informational, warnings, or critical and each type is displayed differently. How often messages appear is controlled by the channel managers. Channel users can also see all notices for all current channels by entering
+
+    conda notices
+
+See [CEP-6: Add Channel Notices to conda](https://github.com/conda-incubator/ceps/blob/main/cep-6.md) for full details.
+
+**Error Handling**
+
+There are a few improvements to conda's error handling:
+
+1. SSLErrors are now returned to the user [as SSLErrors, instead of HTTPErrors](https://github.com/conda/conda/pull/11564).
+2. Invalid package name errors now [include the invalid package name that caused the error](https://github.com/conda/conda/pull/11601).
+3. You will never see this amusing error message again 😊:
+
+```
+    % conda help
+
+    CommandNotFoundError: No command 'conda help'.
+    Did you mean 'conda help'?
+```
+
+**Inclusive Naming and Terminology**
+
+Conda has embarked on an inclusive naming initiative to replace potentially offensive naming when we come across it. This release includes two types of fixes in `conda` and `conda-build.`
+
+1. Whitelist/Blacklist are now Allowlist/Denylist
+2. The former `master` branch is now the `main` branch.
+
+**Enhanced Project metadata support in `conda-build`**
+
+`conda-build` is now compliant with the PEP 517 and 518 standards [for loading project metadata](https://github.com/conda/conda-build/pull/4480). Metadata can now be specified in JSON, TOML, and YAML (and can be easily extended to support other formats).
+
+**Other improvements**
+
+There are many other improvements in these releases. Here are a few:
+
+1. Better handling of [CUDA packages on Windows](https://github.com/conda/conda/pull/11626)
+2. Improved support for [conda on FIPS-enabled systems](https://github.com/conda/conda/pull/11658)
+3. Improved support for [Python 3.10](https://github.com/conda/conda-build/pull/4479) and [the `.conda` format](https://github.com/conda/conda-build/pull/4467) in `conda-build`
+4. A new section in the [conda developer guide](https://docs.conda.io/projects/conda/en/stable/dev-guide/index.html) on [writing tests](https://docs.conda.io/projects/conda/en/stable/dev-guide/writing-tests/index.html), and a deep dive into writing [integration tests](https://docs.conda.io/projects/conda/en/stable/dev-guide/writing-tests/integration-tests.html) in particular
+5. Many other big fixes, code cleanups, and documentation improvements. See the [`conda`](https://github.com/conda/conda/releases/tag/4.14.0) and [`conda-build`](https://github.com/conda/conda-build/releases/tag/3.22.0) release notes for a complete list.
+
+**Contributors!**
+
+These were banner releases for new contributors to both projects.
+
+* The conda release has 20 contributors, including these 11 new contributors:
+  * [Andrew Arendt](https://github.com/drewja), [Christopher Howard](https://github.com/topherocity), [Dan Dascalescu](https://github.com/dandv), [Deepyaman Datta](https://github.com/deepyaman), [Doğukan Teber](https://github.com/dogukanteber), [@nps1ngh](https://github.com/nps1ngh), [Paul Yim](https://github.com/pseudoyim), [Sam Nicholls](https://github.com/SamStudio8), [Samuel Walters-Nevet](https://github.com/SamuelWN), [Spencer Mathews](https://github.com/spencermathews), and [Tim Hoffmann](https://github.com/timhoffm)
+* The conda-build release has 11 contributors, including 3 first time contributors:
+  * [Abraham Murciano](https://github.com/abrahammurciano), [Jürgen Gmach](https://github.com/jugmac00), and [Katherine Kinnaman](https://github.com/kathatherine)
