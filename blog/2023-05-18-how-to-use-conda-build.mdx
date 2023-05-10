@@ -17,7 +17,7 @@ import condabuild from '@site/static/img/blog/2023-05-18-how-to-use-conda-build/
 
 conda-build is an application that automates the process of building and distributing Python packages. It is a powerful tool that has the added advantage of handling dependencies that require C/C++ or other languages. This is particularly useful for scientific computing, where many Python packages have complex dependencies and require specialized libraries and tools.
 
-A recipe outlines the steps needed to build a package from source code. We can create this "recipe" using [`grayskull](https://github.com/conda/grayskull). A recipe includes all the necessary information, from downloading and installing dependencies to compiling the source code and creating the final package. Conda-build then renders the recipe to build the package. A recipe typically includes:
+A recipe outlines the steps needed to build a package from source code. We can create this "recipe" using [`grayskull`](https://github.com/conda/grayskull). A recipe includes all the necessary information, from downloading and installing dependencies to compiling the source code and creating the final package. Conda-build then renders the recipe to build the package. A recipe typically includes:
 
 - A script that contains metadata.
 - The script that installs the files for the package on macOS and Linux.
@@ -32,7 +32,7 @@ In this article, we will guide you through the process of building your Python p
 
 ### Prerequisites
 
-Let's start building our own Python package. First, you need to ensure that you have a functional conda installation (e.g. via [Miniconda](https://docs.conda.io/en/latest/miniconda.html) or [Miniforge](https://github.com/conda-forge/miniforge/releases/latest)). YOu can then use conda to install conda-build.
+Let's start building our own Python package. First, you need to ensure that you have a functional conda installation (e.g. via [Miniconda](https://docs.conda.io/en/latest/miniconda.html) or [Miniforge](https://github.com/conda-forge/miniforge/releases/latest)). You can then use conda to install conda-build.
 
 ### Installing conda-build
 
@@ -113,7 +113,7 @@ To install the package on our local machine, we will create a new conda environm
 ```bash
 $ conda create -n test_env
 $ conda activate test_env
-$ conda install click
+$ conda install --use-local click
 ```
 
 Use the following command to upload your package to [Anaconda.org](https://anaconda.org/).
