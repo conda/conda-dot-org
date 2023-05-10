@@ -98,8 +98,9 @@ requirements:
  ```   
 
 :::note
-This example is intentionally simplified teaching purposes. It doesn't address `host` dependencies, build tools like `make`, ABI compatibility, etc.
+This example is intentionally simplified for teaching purposes. It doesn't address `host` dependencies, build tools like `make`, ABI compatibility, etc.
 For example, conda-build users often rely on Jinja templating to obtain the correct compiler for the platform, instead of hardcoding the compiler (`gcc`) directly.
+
 Check the [documentation for the `compiler()` function](https://docs.conda.io/projects/conda-build/en/stable/resources/variants.html#self-consistent-package-ecosystems).
 For real-world examples, you can check some recipes in [this `conda-forge` search](https://github.com/search?q=org%3Aconda-forge%20compiler(%27c%27)%20path%3Ameta.yaml&type=code).
 :::
