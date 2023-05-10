@@ -30,6 +30,8 @@ import bannerImage from '@site/static/img/blog/2023-05-05-how-we-reduced-the-con
 
 Conda is a cross-platform, language-agnostic binary package manager that includes a constraint solver to choose compatible sets of packages. Before conda can install a package, it downloads information about all available packages.  This allows the solver to make global decisions about which packages to install.  The time and bandwidth spent downloading this metadata can be significant, but we have improved this in conda 23.3.1. By enabling the `experimental: ["jlap"]` feature in `.condarc`, conda users can see more than a 99% reduction in index fetch bandwith.
 
+<!-- truncate -->
+
 ## Idea
 
 Traditionally, conda tries to fetch each channel's entire `repodata.json` or smaller `current_repodata.json` every time the cache expires, typically between 30 seconds to 20 minutes from the last remote request. If the channel has not changed this is a quick `304 Not Modified`, but very active channels will change several times an hour. Any change, usually only a few added packages, requires the user to re-download the entire index; most conda users will be familiar with this process. My manager said one of [Anaconda](https://www.anaconda.com/)'s customers wanted a better way to track changes in our repository and I became interested in solving the problem.
