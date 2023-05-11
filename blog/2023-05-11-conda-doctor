@@ -16,8 +16,8 @@ Until now there was no way to learn of these missing files except manually check
 <add gif of conda doctor running>
 
 ## How Does It Work?
-Every conda environment has a `conda meta` directory associated with it, which keeps a log of all the packages (and all the files in them) ever installed into that environment. 
-`conda doctor` parses this log and then checks for the existence of each of the listed files and reports about the missing ones. 
+Every conda environment has a `conda-meta` directory associated with it, which keeps a log of all the packages (and all the files in them) ever installed into that environment. 
+`conda doctor` parses these metadata files, checks for the existence of each of the listed files and reports about the missing ones. 
 This is extremely helpful as it is otherwise very difficult to know that a package has missing files and to detect these missing files in the package. 
 
 ## The Plugin Mechanism 
@@ -26,7 +26,7 @@ This is extremely helpful as it is otherwise very difficult to know that a packa
 Often the issues that conda users run into are issues in their conda environment. The idea behind implementing a `conda doctor` command is to "diagnose" the inconsistencies in a conda environment and report to the user, therefore empowering the user to better understand the cause of the issues they are experiencing.
 
 ## A Nine Years Old Issue
-What’s interesting is that [this feature was requested by Peter Wang](https://github.com/conda/conda/issues/474), the CEO of Anaconda, 9 years ago in the early days of conda. A number of features requested from `conda doctor` back then ended up being implemented elsewhere in conda over the years. 
+What’s interesting is that [this feature was requested by Peter Wang](https://github.com/conda/conda/issues/474), the CEO of Anaconda, nine years ago in the early days of conda. A number of features requested from `conda doctor` back then ended up being implemented elsewhere in conda over the years. 
 `conda doctor` was eventually boiled down to “a command that will diagnose the health of the environment and report inconsistencies to the user”. 
 
 ## Health Checks
