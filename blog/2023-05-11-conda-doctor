@@ -26,7 +26,7 @@ This is extremely helpful as it is otherwise very difficult to know that a packa
 Often the issues that conda users run into are issues in their conda environment. The idea behind implementing a `conda doctor` command is to "diagnose" the inconsistencies in a conda environment and report to the user, therefore empowering the user to better understand the cause of the issues they are experiencing.
 
 ## A Nine Years Old Issue
-What’s interesting is that [this feature was requested by Peter Wang](https://github.com/conda/conda/issues/474), the CEO of Anaconda, 9 years ago in the early days of conda. A number of features requested from `conda doctor` back then ended up being implemented elsewhere in conda over the years. 
+What’s interesting is that [this feature was requested by Peter Wang](https://github.com/conda/conda/issues/474), the CEO of Anaconda, nine years ago in the early days of conda. A number of features requested from `conda doctor` back then ended up being implemented elsewhere in conda over the years. 
 `conda doctor` was eventually boiled down to “a command that will diagnose the health of the environment and report inconsistencies to the user”. 
 
 ## Health Checks
