@@ -8,12 +8,14 @@ authors: [forgottenprogramme]
 tags: [conda, environments]
 
 ---
-The newest `conda doctor` command will be available with the latest conda 23.5.0, allowing conda users to detect corrupted packages (packages with files missing) in their conda environment quickly.
+The newest `conda doctor` command will be available with the latest conda 23.5.0, enabling conda users to detect corrupted packages (packages with files missing) in their conda environment quickly.
 
 One way packages in an environment may go corrupt is when one or more files in that package are accidentally deleted. Even a single missing file leads to a corrupted package.
 Until now there was no way to learn of these missing files except manually checking for their existence. With `conda doctor`, users can learn about all such packages in their conda environment with a single short command. 
 
 <add gif of conda doctor running>
+
+<!-- truncate -->
 
 ## How Does It Work?
 Every conda environment has a `conda-meta` directory associated with it, which keeps a log of all the packages (and all the files in them) ever installed into that environment. 
@@ -25,7 +27,7 @@ This is extremely helpful as it is otherwise very difficult to know that a packa
 
 Often the issues that conda users run into are issues in their conda environment. The idea behind implementing a `conda doctor` command is to "diagnose" the inconsistencies in a conda environment and report to the user, therefore empowering the user to better understand the cause of the issues they are experiencing.
 
-## A Nine Years Old Issue
+## A Nine Year Old Issue
 What’s interesting is that [this feature was requested by Peter Wang](https://github.com/conda/conda/issues/474), the CEO of Anaconda, nine years ago in the early days of conda. A number of features requested from `conda doctor` back then ended up being implemented elsewhere in conda over the years. 
 `conda doctor` was eventually boiled down to “a command that will diagnose the health of the environment and report inconsistencies to the user”. 
 
