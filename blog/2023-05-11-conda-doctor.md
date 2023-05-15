@@ -13,8 +13,6 @@ The newest `conda doctor` command will be available with the latest conda 23.5.0
 One way packages in an environment may go corrupt is when one or more files in that package are accidentally deleted. Even a single missing file leads to a corrupted package.
 Until now there was no way to learn of these missing files except manually checking for their existence. With `conda doctor`, users can learn about all such packages in their conda environment with a single short command. 
 
-[comment]: <> (add gif of conda doctor running)
-
 ## How Does It Work?
 Every conda environment has a `conda-meta` directory associated with it, which keeps a log of all the packages (and all the files in them) ever installed into that environment. 
 `conda doctor` parses these metadata files, checks for the existence of each of the listed files and reports about the missing ones. 
