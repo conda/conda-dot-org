@@ -1,5 +1,5 @@
 ---
-title: "conda doctor : Detecting conda environment inconsistencies easily"
+title: "conda doctor: Detecting conda environment inconsistencies easily"
 slug: "2023-05-11-conda-doctor"
 description: |
     The new `conda doctor` command allows users to detect packages with missing files in their conda environments.
