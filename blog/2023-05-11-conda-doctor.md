@@ -18,7 +18,7 @@ Every conda environment has a `conda-meta` directory associated with it, which k
 This is extremely helpful as it is otherwise very difficult to know that a package has missing files and to detect these missing files in the package. 
 
 ## The Plugin Mechanism 
-`conda doctor` is implemented using conda’s new [plugins mechanism](https://www.anaconda.com/blog/introducing-a-new-plugin-mechanism-for-conda/), utilizing the "subcommand plugin hook" and comes bundled with conda itself.
+`conda doctor` is implemented using conda’s new [plugins mechanism](https://www.anaconda.com/blog/introducing-a-new-plugin-mechanism-for-conda/), utilizing the "subcommand plugin hook", and comes bundled with conda itself.
 
 Often the issues that conda users run into are issues in their conda environment. The idea behind implementing a `conda doctor` command is to "diagnose" the inconsistencies in a conda environment and report to the user, therefore empowering the user to better understand the cause of the issues they are experiencing.
 
