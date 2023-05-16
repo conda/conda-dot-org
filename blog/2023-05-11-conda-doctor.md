@@ -31,5 +31,5 @@ What’s interesting is that [this feature was requested by Peter Wang](https://
 We designed the `conda doctor` functionality to have various “health checks” for the user’s environment. The first health check implemented and made available to users in this release is “detect missing files in packages”. More health checks will be made available in `conda doctor` in future releases. 
 
     
-Go check out the new `conda doctor` command and do let us know of any “health checks” you would like `conda doctor` to have, that would make your experience using `conda` better. 
+Go check out the new `conda doctor` command and do let us know of any “health checks” you would like `conda doctor` to have that would make your experience using `conda` better. 
 You can do so by opening a feature request on the [conda GitHub repository](https://github.com/conda/conda).
