@@ -10,7 +10,7 @@ tags: [conda, environments]
 ---
 The newest `conda doctor` command will be available with the latest conda 23.5.0, enabling conda users to quickly detect corrupted packages (packages with files missing) in their conda environment.
 
-One way packages in an environment may go corrupt is when one or more files in that package are accidentally deleted. Even a single missing file leads to a corrupted package.
+One way packages in an environment may become corrupt is when one or more files in that package are accidentally deleted. Even a single missing file leads to a corrupted package.
 Until now there was no way to learn of these missing files except manually checking for their existence. With `conda doctor`, users can learn about all such packages in their conda environment with a single short command. 
 
 ## How Does It Work?
