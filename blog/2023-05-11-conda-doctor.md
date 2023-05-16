@@ -15,7 +15,7 @@ Until now there was no way to learn of these missing files except manually check
 
 ## How Does It Work?
 Every conda environment has a `conda-meta` directory associated with it, which keeps a log of all the packages (and all the files in them) ever installed into that environment. 
-`conda doctor` parses these metadata files, checks for the existence of each of the listed files and reports about the missing ones. 
+`conda doctor` parses these metadata files, checks for the existence of each of the listed files, and reports the missing ones. 
 This is extremely helpful as it is otherwise very difficult to know that a package has missing files and to detect these missing files in the package. 
 
 ## The Plugin Mechanism 
