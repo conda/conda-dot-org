@@ -1,10 +1,11 @@
 ---
-title: "May Releases for Conda and Conda-Build"
+title: "May Releases for Conda, Conda-Build, and Conda-Libmamba-Solver"
 slug: "2023-05-23-may-2023-releases"
 description: |
-    Conda 23.5.0 and conda-build 3.25.0 have been released! 🎉
+    Conda 23.5.0, conda-build 3.25.0, and conda-libmamba-solver 23.5.0 have been released! 🎉
 authors: [beeankha]
-tags: [announcement, conda]
+tags: [announcement, conda, conda-build, conda-libmamba-solver]
+image: img/blog/2023-05-23-may-releases/tada.jpg
 
 ---
 
@@ -19,12 +20,14 @@ conda install -n base conda=23.5.0
 
 ### ✨ What's New? ✨
 
-The long-awaited [`conda doctor` subcommand plugin](https://github.com/conda-incubator/conda-dot-org/pull/133) has been implemented! The [related conda issue is over nine years old](https://github.com/conda/conda/issues/474) and was filed by the CEO of Anaconda himself, Peter Wang. The `conda doctor` command enables conda users to detect any packages with files missing (i.e., corrupt packages) in their conda environment.
+The long-awaited [`conda doctor` subcommand plugin](https://github.com/conda-incubator/conda-dot-org/pull/133) has been implemented! The [related conda issue is over nine years old](https://github.com/conda/conda/issues/474) and has been a regularly requested feature. The `conda doctor` command enables conda users to detect any packages with files missing (i.e., corrupt packages) in their conda environment.
 
 Additionally, the following features and changes can be found in conda 23.5.0:
 
+<!-- truncate -->
+
 * `conda list --reverse` is a new command which returns a reversed list of installed packages.
-* Folks who have [signature verification](https://www.anaconda.com/blog/conda-signature-verification) enabled will get warnings instead of an info-level messages about misconfiguration.
+* Folks who have [signature verification](https://www.anaconda.com/blog/conda-signature-verification) enabled will get warnings instead of an `info`-level message about misconfiguration.
 * More functional tests have been added around conda's content trust code.
 * For our build system, we switched from `setup.py` to `pyproject.toml` and use [Hatchling](https://pypi.org/project/hatchling/).
 * [Which Python modules get imported during `conda activate` calls are now optimized for speed.](https://github.com/conda/conda/pull/12550)
@@ -81,6 +84,8 @@ conda install -n base conda-build=3.25.0
 
 Noarch packages that use virtual packages have the virtual packages added to the hash contents of the package. This facilitates the building of noarch packages multiple times for different platforms with platform-specific dependencies. If noarch packages are built with diverging run dependencies for different platforms, the hash in the build string stayed the same prior to this change, _i.e._, the built variants got the exact same build strings and thus the package file names didn't change. In conda-build 3.25.0, different variants can be built for `__linux`/`__osx`/`__win` and get distinguished, non-clashing package file names.
 
+<!-- In the latest version of conda-build, noarch packages that use virtual packages now can have them added to the hash contents of the package. This facilitates the building of noarch packages multiple times for different platforms with platform-specific dependencies. In conda-build 3.25.0, different variants can be built for `__linux`/`__osx`/`__win` and get distinguished, non-clashing package file names. -->
+
 Additionally, the following features and changes can be found in conda-build 3.25.0:
 
 * Support for `svn` source credentials (`svn_username` and `svn_password`).
@@ -106,3 +111,5 @@ Additionally, the following features and changes can be found in conda-build 3.2
 * [`conda_build.metadata.ns_cfg`](https://github.com/conda/conda-build/pull/4837) (use `conda_build.get_selectors.get_selectors` instead). (#4837)
 * [`conda_build.config.python2_fs_encode`](https://github.com/conda/conda-build/pull/4843)
 * [`conda_build.config._ensure_dir`](https://github.com/conda/conda-build/pull/4843) (use `stdlib`'s `pathlib.Path.mkdir(exist_ok=True)` or `os.makedirs(exist_ok=True)` instead).
+
+Amongst other improvements and bug fixes, the newest version of the conda-libmamba-solver provides a `CONDA_LIBMAMBA_SOLVER_NO_CHANNELS_FROM_INSTALLED` environment variable to prevent channels from being injected from installed packages, which is useful for air-gapped environments where outside channels are not available.
