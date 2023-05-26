@@ -22,9 +22,9 @@ conda install -n base conda=23.5.0
 
 The long-awaited [`conda doctor` subcommand plugin](https://github.com/conda-incubator/conda-dot-org/pull/133) has been implemented! The [related conda issue is over nine years old](https://github.com/conda/conda/issues/474) and has been a regularly requested feature. The `conda doctor` command enables conda users to detect any packages with files missing (i.e., corrupt packages) in their conda environment.
 
-Additionally, the following features and changes can be found in conda 23.5.0:
-
 <!-- truncate -->
+
+Additionally, the following features and changes can be found in conda 23.5.0:
 
 * `conda list --reverse` is a new command which returns a reversed list of installed packages.
 * Folks who have [signature verification](https://www.anaconda.com/blog/conda-signature-verification) enabled will get warnings instead of an `info`-level message about misconfiguration.
@@ -82,9 +82,9 @@ conda install -n base conda-build=3.25.0
 
 ### ✨ What's New? ✨
 
-Noarch packages that use virtual packages have the virtual packages added to the hash contents of the package. This facilitates the building of noarch packages multiple times for different platforms with platform-specific dependencies. If noarch packages are built with diverging run dependencies for different platforms, the hash in the build string stayed the same prior to this change, _i.e._, the built variants got the exact same build strings and thus the package file names didn't change. In conda-build 3.25.0, different variants can be built for `__linux`/`__osx`/`__win` and get distinguished, non-clashing package file names.
+In the latest version of conda-build, noarch packages that use virtual packages can now have them added to the hash contents of the package. This facilitates the building of noarch packages multiple times for different platforms with platform-specific dependencies. In conda-build 3.25.0, different variants can be built for `__linux`/`__osx`/`__win` and get non-clashing package file names.
 
-<!-- In the latest version of conda-build, noarch packages that use virtual packages now can have them added to the hash contents of the package. This facilitates the building of noarch packages multiple times for different platforms with platform-specific dependencies. In conda-build 3.25.0, different variants can be built for `__linux`/`__osx`/`__win` and get distinguished, non-clashing package file names. -->
+<!-- truncate -->
 
 Additionally, the following features and changes can be found in conda-build 3.25.0:
 
@@ -97,6 +97,8 @@ Additionally, the following features and changes can be found in conda-build 3.2
 
 
 ### 🔧 What Got Fixed? 🔧
+
+The following bug fixes were implemented into the 3.25.0 version of conda-build:
 
 * `tests/commands` can also run in the presence of `run_test.*`.
 * When rendering a recipe that uses the `load_file_data` Jinja2 function, the source is now required.
@@ -112,4 +114,40 @@ Additionally, the following features and changes can be found in conda-build 3.2
 * [`conda_build.config.python2_fs_encode`](https://github.com/conda/conda-build/pull/4843)
 * [`conda_build.config._ensure_dir`](https://github.com/conda/conda-build/pull/4843) (use `stdlib`'s `pathlib.Path.mkdir(exist_ok=True)` or `os.makedirs(exist_ok=True)` instead).
 
+* * *
+
+## [Changes in Conda-Libmamba-Solver](https://github.com/conda/conda-libmamba-solver/releases/tag/23.5.0)
+
+To update conda-libmamba-solver, run:
+```bash
+conda install -n base conda-libmamba-solver=23.5.0
+```
+
+### ✨ What's New? ✨
+
 Amongst other improvements and bug fixes, the newest version of the conda-libmamba-solver provides a `CONDA_LIBMAMBA_SOLVER_NO_CHANNELS_FROM_INSTALLED` environment variable to prevent channels from being injected from installed packages, which is useful for air-gapped environments where outside channels are not available.
+
+<!-- truncate -->
+
+Additionally, the following features and changes can be found in conda-libmamba-solver 23.5.0:
+
+* Simplify `libmambapy.Context` initialization so that we only set the parts that we use.
+* Use the new `RepoInterface` and remove the `SubdirData` subclass workarounds, which requires conda 23.5.0.
+* Known solver behavior differences are now documented.
+* Development docs have been updated to reflect changes in build system and other inaccuracies.
+* Tests reproducing the known solver differences were added.
+* Some tests on `libmamba` 1.4.2 are now skipped temporarily to workaround some test failures.
+
+
+### 🔧 What Got Fixed? 🔧
+
+The following bug fixes were implemented into the 23.5.0 version of conda-libmamba-solver:
+
+* An issue where running `conda update <package>` would result in the package being downgraded if no newer versions were available has been fixed.
+* conda-libmamba-solver 23.5.0 ensures that unauthenticated channels are not re-injected in the channel lists from installed packages if an authenticated equivalent is already present.
+* `context.repodata_threads` are honored.
+
+
+### 🌅 What's Marked for [Deprecation](https://github.com/conda-incubator/ceps/blob/main/cep-9.md)? 🌅
+
+* Unnecessary user-agent tests were removed.
