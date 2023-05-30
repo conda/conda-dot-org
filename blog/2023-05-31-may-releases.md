@@ -1,11 +1,11 @@
 ---
 title: "May Releases for Conda, Conda-Build, and Conda-Libmamba-Solver"
-slug: "2023-05-23-may-2023-releases"
+slug: "2023-05-31-may-2023-releases"
 description: |
     Conda 23.5.0, conda-build 3.25.0, and conda-libmamba-solver 23.5.0 have been released! 🎉
 authors: [beeankha]
 tags: [announcement, conda, conda-build, conda-libmamba-solver]
-image: img/blog/2023-05-23-may-releases/tada.jpg
+image: img/blog/2023-05-31-may-releases/tada.jpg
 
 ---
 
