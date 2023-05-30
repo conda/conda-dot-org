@@ -14,7 +14,7 @@ import pathlib
 import re
 from typing import Sequence, Any, Iterator
 
-import ruamel_yaml as yaml
+import ruamel.yaml as yaml
 
 
 #: Directory where blog posts are located

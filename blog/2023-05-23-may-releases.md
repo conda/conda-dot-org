@@ -84,8 +84,6 @@ conda install -n base conda-build=3.25.0
 
 In the latest version of conda-build, noarch packages that use virtual packages can now have them added to the hash contents of the package. This facilitates the building of noarch packages multiple times for different platforms with platform-specific dependencies. In conda-build 3.25.0, different variants can be built for `__linux`/`__osx`/`__win` and get non-clashing package file names.
 
-<!-- truncate -->
-
 Additionally, the following features and changes can be found in conda-build 3.25.0:
 
 * Support for `svn` source credentials (`svn_username` and `svn_password`).
@@ -126,8 +124,6 @@ conda install -n base conda-libmamba-solver=23.5.0
 ### ✨ What's New? ✨
 
 Amongst other improvements and bug fixes, the newest version of the conda-libmamba-solver provides a `CONDA_LIBMAMBA_SOLVER_NO_CHANNELS_FROM_INSTALLED` environment variable to prevent channels from being injected from installed packages, which is useful for air-gapped environments where outside channels are not available.
-
-<!-- truncate -->
 
 Additionally, the following features and changes can be found in conda-libmamba-solver 23.5.0:
 
