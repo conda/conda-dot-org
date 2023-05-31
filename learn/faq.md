@@ -49,7 +49,7 @@ For more information, please check out the [conda documentation page on channels
 
 ## What is conda-forge?
 
-[conda-forge](https://conda-forge.org/) is a [community-led GitHub organization](https://github.com/conda-forge) that provides access to thousands of conda package recipes. All of these recipes are open source and can be installed with the conda package manager by specifying conda-forge as the channel.
+[Conda-forge](https://conda-forge.org/) is a [community-led GitHub organization](https://github.com/conda-forge) that provides access to thousands of conda package recipes. All of these recipes are open source and can be installed with the conda package manager by specifying conda-forge as the channel.
 
 ## Why does conda have so many meanings in different contexts?
 
