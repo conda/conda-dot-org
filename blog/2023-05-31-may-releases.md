@@ -45,7 +45,7 @@ Additionally, the following features and changes can be found in conda 23.5.0:
 
 ### 🔧 What Got Fixed? 🔧
 
-The following bug fixes were implemented into the 23.5.0 version of conda:
+The following bug fixes were implemented in the 23.5.0 version of conda:
 
 * `conda clean` no longer fails if it was unable to get the file stats.
 * If `conda.deprecations.DeprecationHandler` receives a bad version, a fallback version is provided.
