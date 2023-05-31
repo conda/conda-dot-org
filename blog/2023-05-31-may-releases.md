@@ -124,7 +124,7 @@ conda install -n base conda-libmamba-solver=23.5.0
 
 ### ✨ What's New? ✨
 
-Amongst other improvements and bug fixes, the newest version of the conda-libmamba-solver provides a `CONDA_LIBMAMBA_SOLVER_NO_CHANNELS_FROM_INSTALLED` environment variable to prevent channels from being injected from installed packages, which is useful for air-gapped environments where outside channels are not available.
+Amongst other improvements and bug fixes, the latest version of the conda-libmamba-solver provides a `CONDA_LIBMAMBA_SOLVER_NO_CHANNELS_FROM_INSTALLED` environment variable to prevent channels from being injected from installed packages, which is useful for air-gapped environments where external channel servers are not reachable.
 
 Additionally, the following features and changes can be found in conda-libmamba-solver 23.5.0:
 
