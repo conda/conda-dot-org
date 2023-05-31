@@ -10,7 +10,7 @@ Conda offers several advantages that make it a popular choice for package manage
 
 - **Simplified Package Management**: Conda simplifies the installation, management, and updating of software packages and their dependencies. It provides a unified interface for package installation across different programming languages.
 
-- **Cross-Platform Compatibility**: conda works seamlessly on Windows, macOS, and Linux operating systems. It ensures consistent package installations and avoids compatibility issues across different platforms.
+- **Cross-Platform Compatibility**: Conda works seamlessly on Windows, macOS, and Linux operating systems. It ensures consistent package installations and avoids compatibility issues across different platforms.
 
 - **Extensive Package Ecosystem**: Conda provides access to a large collection of pre-built packages for various domains, including data science, machine learning, scientific computing, and more. This extensive ecosystem saves time by eliminating the need for manual compilation and configuration.
 
