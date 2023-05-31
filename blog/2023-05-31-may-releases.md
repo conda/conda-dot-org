@@ -138,7 +138,7 @@ Additionally, the following features and changes can be found in conda-libmamba-
 
 ### 🔧 What Got Fixed? 🔧
 
-The following bug fixes were implemented into the 23.5.0 version of conda-libmamba-solver:
+The following bug fixes were implemented in the 23.5.0 version of conda-libmamba-solver:
 
 * An issue where running `conda update <package>` would result in the package being downgraded if no newer versions were available has been fixed.
 * conda-libmamba-solver 23.5.0 ensures that unauthenticated channels are not re-injected in the channel lists from installed packages if an authenticated equivalent is already present.
