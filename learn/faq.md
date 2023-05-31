@@ -6,7 +6,7 @@ sidebar_position: 2
 
 ## Why should I use conda?
 
-conda offers several advantages that make it a popular choice for package management and environment management:
+Conda offers several advantages that make it a popular choice for package management and environment management:
 
 - **Simplified Package Management**: conda simplifies the installation, management, and updating of software packages and their dependencies. It provides a unified interface for package installation across different programming languages.
 
