@@ -37,7 +37,7 @@ Additionally, the following features and changes can be found in conda 23.5.0:
 * The way that the `Activator` classes are defined in `conda/activate.py` has been refactored.
 * The index cache metadata file `.state.json` was renamed to `.info.json` to track [draft Repodata Metadata `.info.json` CEP](https://github.com/conda-incubator/ceps/pull/48).
 * Improved cache locking and logging when using `jlap`.
-* The repo's README example has changed from IPython Notebook and NumPy to PyTorch.
+* The project's README example has changed from IPython Notebook and NumPy to PyTorch.
 * Retry language in flexible solve and `repodata` logs are now less ominous.
 * Python 3.11 is now supported.
 
