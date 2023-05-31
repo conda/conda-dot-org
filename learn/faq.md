@@ -16,7 +16,7 @@ Conda offers several advantages that make it a popular choice for package manage
 
 - **Environment Management**: With conda, you can create isolated environments for different projects. These environments allow you to manage and control the dependencies and versions of packages specific to each project, ensuring reproducibility and avoiding conflicts between different software requirements.
 
-- **conda Channels**: conda channels serve as repositories for hosting and managing packages. Channels like [conda-forge](https://conda-forge.org/) offer a wide range of community-maintained packages, expanding the available options for software development and experimentation.
+- **Conda Channels**: Conda channels serve as repositories for hosting and managing packages. Channels like [conda-forge](https://conda-forge.org/) offer a wide range of community-maintained packages, expanding the available options for software development and experimentation.
 
 - **The Choice Between Conda and Mamba**: Conda is the default package manager, while Mamba is a high-performance, drop-in replacement for conda. Mamba offers faster package installations and updates, making it a suitable choice for users who prioritize speed and performance.
 
