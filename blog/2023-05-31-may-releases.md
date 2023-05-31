@@ -26,7 +26,7 @@ The long-awaited [`conda doctor` subcommand plugin](https://conda.org/blog/2023-
 
 Additionally, the following features and changes can be found in conda 23.5.0:
 
-* `conda list --reverse` is a new command which returns a reversed list of installed packages.
+* `conda list --reverse` is a new option for the `conda list` command which returns a reversed list of installed packages.
 * Folks who have [signature verification](https://www.anaconda.com/blog/conda-signature-verification) enabled will get warnings instead of an `info`-level message about misconfiguration.
 * More functional tests have been added around conda's content trust code.
 * For our build system, we switched from `setup.py` to `pyproject.toml` and use [Hatchling](https://pypi.org/project/hatchling/).
