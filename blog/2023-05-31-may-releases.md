@@ -97,7 +97,7 @@ Additionally, the following features and changes can be found in conda-build 3.2
 
 ### 🔧 What Got Fixed? 🔧
 
-The following bug fixes were implemented into the 3.25.0 version of conda-build:
+The following bug fixes were implemented in the 3.25.0 version of conda-build:
 
 * `tests/commands` can also run in the presence of `run_test.*`.
 * When rendering a recipe that uses the `load_file_data` Jinja2 function, the source is now required.
