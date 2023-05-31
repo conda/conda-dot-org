@@ -59,7 +59,7 @@ In different contexts, the term "conda" can refer to various aspects:
 
 - [**Conda packages**](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/packages.html): These are compressed tarballs or .conda files containing system-level libraries, modules, executables, and metadata, installed into the designated prefix.
 
-- [**conda environments**](https://docs.conda.io/docs/using/envs.html#:~:text=A%20conda%20environment%20is%20a,NumPy%201.6%20for%20legacy%20testing.): conda environments are directories that contain specific collections of conda packages installed for a particular project or use case.
+- [**Conda environments**](https://docs.conda.io/docs/using/envs.html#:~:text=A%20conda%20environment%20is%20a,NumPy%201.6%20for%20legacy%20testing.): Conda environments are directories that contain specific collections of conda packages installed for a particular project or use case.
 
 - **conda channels**: conda channels are locations where packages are stored and serve as the base for hosting and managing packages. They are hosted on the [Anaconda.org](https://anaconda.org/) platform.
 
