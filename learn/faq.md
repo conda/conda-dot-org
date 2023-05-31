@@ -71,7 +71,7 @@ In different contexts, the term "conda" can refer to various aspects:
 
 - **conda, the tool (Mamba)**: [Mamba](https://mamba.readthedocs.io/en/latest/installation.html) is a high-performance, drop-in replacement for conda, written in C++, offering faster package management.
 
-- [**conda Package Specification**](https://conda.io/projects/conda-build/en/latest/resources/package-spec.html): This refers to the contents of an extracted package, regardless of the compression format used.
+- [**Conda Package Specification**](https://conda.io/projects/conda-build/en/latest/resources/package-spec.html): This refers to the contents of an extracted package, regardless of the compression format used.
 
 - **Installing conda or packages**: This context refers to the process of installing conda itself or using conda to install other packages.
 
