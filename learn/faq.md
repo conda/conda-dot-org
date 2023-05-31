@@ -84,7 +84,7 @@ A feedstock is a conda package repository.
 
 ## How can I search for packages?
 
-There are many ways to search for packages, either in the browser or in the command line. Many package organizations keep lists of their packages on their websites, so you can either use a search engine or go directly to package organization websites like [conda-forge.org](https://conda-forge.org/) and [bioconda.github.io](https://bioconda.github.io/). Anaconda also provides package hosting on [anaconda.org](https://anaconda.org/).
+There are many ways to search for packages, either in the browser or on the command line. Many package organizations keep lists of their packages on their websites, so you can either use a search engine or go directly to package organization websites like [conda-forge.org](https://conda-forge.org/) and [bioconda.github.io](https://bioconda.github.io/). Anaconda also provides package hosting on [anaconda.org](https://anaconda.org/).
 
 If you want to use conda to search for packages, use the command `conda search`. Enter `conda search -h` for more information.
 
