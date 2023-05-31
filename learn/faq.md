@@ -24,7 +24,7 @@ Using conda provides a streamlined approach to package management, platform comp
 
 ## Can I use conda to manage non-Python packages?
 
-Yes, conda can be used to manage non-Python packages. While conda is widely known for its capabilities in managing Python packages, it is not limited to Python alone. conda supports package management for multiple programming languages, including R, Java, C/C++, and more. It allows you to install, manage, and update packages from different languages, ensuring consistent package installations and dependencies across the projects. 
+Yes, conda can be used to manage non-Python packages. While conda is widely known for its capabilities in managing Python packages, it is not limited to Python alone. Conda supports package management for multiple programming languages, including R, Java, C/C++, and more. It allows you to install, manage, and update packages from different languages, ensuring consistent package installations and dependencies across your projects. 
 
 To install a non-Python package, you can use the following command:
 ```
