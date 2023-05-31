@@ -145,7 +145,7 @@ mamba activate <environment-name>
 Replace `<environment-name>` with the name of the shared environment.
 
 By following these steps, you can easily share conda environments, ensuring consistent dependencies and versions.
-Remember that channels play a crucial role in environment replication. If your environment relies on packages from specific channels other than the defaults, the you might need to add those channels using:
+Remember that channels play a crucial role in environment replication. If your environment relies on packages from specific channels other than the defaults, then you might need to add those channels using:
 ```
 conda config --add channels <channel-name>
 ```
