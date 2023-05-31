@@ -32,7 +32,7 @@ Additionally, the following features and changes can be found in conda 23.5.0:
 * For our build system, we switched from `setup.py` to `pyproject.toml` and use [Hatchling](https://pypi.org/project/hatchling/).
 * [Which Python modules get imported during `conda activate` calls are now optimized for speed.](https://github.com/conda/conda/pull/12550)
 * The `conda_cli` pytest fixture has been added in order to replace `conda.testing.helpers.run_inprocess_conda_command` and `conda.testing.integration.run_command`.
-* The `tmp_env` fixture has been added in order to replace `conda.testing.integration.make_temp_env`.
+* The `tmp_env` pytest fixture has been added in order to replace `conda.testing.integration.make_temp_env`.
 * The `path_factory` fixture has been added to replace custom prefix logic like `conda.testing.integration._get_temp_prefix` and `conda.testing.integration.make_temp_prefix`.
 * The way that the `Activator` classes are defined in `conda/activate.py` has been refactored.
 * The index cache metadata file `.state.json` was renamed to `.info.json` to track [draft Repodata Metadata `.info.json` CEP](https://github.com/conda-incubator/ceps/pull/48).
