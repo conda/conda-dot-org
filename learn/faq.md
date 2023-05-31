@@ -67,7 +67,7 @@ In different contexts, the term "conda" can refer to various aspects:
 
 - **Miniconda and Anaconda**: These are distributions that include conda as the package manager. [Miniconda](https://docs.conda.io/en/latest/miniconda.html) provides a minimal installation, while [Anaconda](https://www.anaconda.com/) includes additional pre-installed packages.
 
-- **conda community**: The conda community includes channels like [conda-forge](https://conda-forge.org/) and [bioconda](https://bioconda.github.io/), which provide additional packages and resources.
+- **Conda community**: The conda community includes channels like [conda-forge](https://conda-forge.org/) and [bioconda](https://bioconda.github.io/), which provide additional packages and resources.
 
 - **Conda, the tool (Mamba)**: [Mamba](https://mamba.readthedocs.io/en/latest/installation.html) is a high-performance, drop-in replacement for conda, written in C++, offering faster package management.
 
