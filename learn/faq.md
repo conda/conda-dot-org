@@ -55,7 +55,7 @@ For more information, please check out the [conda documentation page on channels
 
 In different contexts, the term "conda" can refer to various aspects:
 
-- **conda as a tool**: conda is an open-source, cross-platform package manager used for managing software packages.
+- **Conda as a tool**: Conda is an open-source, cross-platform package manager used for managing software packages.
 
 - [**conda packages**](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/packages.html): These are compressed tarballs or .conda files containing system-level libraries, modules, executables, and metadata, installed into the designated prefix.
 
