@@ -63,7 +63,7 @@ In different contexts, the term "conda" can refer to various aspects:
 
 - **conda channels**: conda channels are locations where packages are stored and serve as the base for hosting and managing packages. They are hosted on the [Anaconda.org](https://anaconda.org/) platform.
 
-- **conda, the package format**: conda can also refer to the package format itself, which is an archive containing programs and metadata needed by package managers.
+- **Conda, the package format**: Conda can also refer to the package format itself, which is an archive containing programs and metadata needed by package managers.
 
 - **Miniconda and Anaconda**: These are distributions that include conda as the package manager. [Miniconda](https://docs.conda.io/en/latest/miniconda.html) provides a minimal installation, while [Anaconda](https://www.anaconda.com/) includes additional pre-installed packages.
 
