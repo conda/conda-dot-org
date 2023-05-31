@@ -196,7 +196,7 @@ The conda community offers diverse events and meetings for engagement:
 
 - Regular meetings are conducted by the **conda community** to discuss updates and ideas. [Find the meeting notes here](https://hackmd.io/@conda-community?tags=%5B%22meeting-notes%22%5D).
 
-- **conda-forge** holds biweekly developer meetings, with [minutes available here](https://conda-forge.org/docs/orga/minutes/00_intro.html).
+- **Conda-forge** holds biweekly developer meetings, with [minutes available here](https://conda-forge.org/docs/orga/minutes/00_intro.html).
 
 - **Mamba** also organizes biweekly developer meetings. [Get more information here](https://github.com/mamba-org/mamba#biweekly-dev-meeting).
 
