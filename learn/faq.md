@@ -129,7 +129,7 @@ This command exports the environment to an `environment.yml` file.
 ```
 conda env create -f environment.yml
 ```
-This command reads the `environment.yml` file and recreates the environment with the same package versions and dependencies. You need to have conda or mamba installed on their system.
+This command reads the `environment.yml` file and recreates the environment with the same package versions and dependencies. The person building an environment from this file needs to have conda or mamba installed on their system.
 Note: If using mamba instead of conda, the command will be:
 ```
 mamba env create -f environment.yml
