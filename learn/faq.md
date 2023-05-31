@@ -69,7 +69,7 @@ In different contexts, the term "conda" can refer to various aspects:
 
 - **conda community**: The conda community includes channels like [conda-forge](https://conda-forge.org/) and [bioconda](https://bioconda.github.io/), which provide additional packages and resources.
 
-- **conda, the tool (Mamba)**: [Mamba](https://mamba.readthedocs.io/en/latest/installation.html) is a high-performance, drop-in replacement for conda, written in C++, offering faster package management.
+- **Conda, the tool (Mamba)**: [Mamba](https://mamba.readthedocs.io/en/latest/installation.html) is a high-performance, drop-in replacement for conda, written in C++, offering faster package management.
 
 - [**Conda Package Specification**](https://conda.io/projects/conda-build/en/latest/resources/package-spec.html): This refers to the contents of an extracted package, regardless of the compression format used.
 
