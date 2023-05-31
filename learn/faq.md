@@ -8,7 +8,7 @@ sidebar_position: 2
 
 Conda offers several advantages that make it a popular choice for package management and environment management:
 
-- **Simplified Package Management**: conda simplifies the installation, management, and updating of software packages and their dependencies. It provides a unified interface for package installation across different programming languages.
+- **Simplified Package Management**: Conda simplifies the installation, management, and updating of software packages and their dependencies. It provides a unified interface for package installation across different programming languages.
 
 - **Cross-Platform Compatibility**: conda works seamlessly on Windows, macOS, and Linux operating systems. It ensures consistent package installations and avoids compatibility issues across different platforms.
 
