@@ -47,7 +47,7 @@ Additionally, the following features and changes can be found in conda 23.5.0:
 
 The following bug fixes were implemented into the 23.5.0 version of conda:
 
-* `conda clean` no longer fails if we failed to get the file stats.
+* `conda clean` no longer fails if it was unable to get the file stats.
 * If `conda.deprecations.DeprecationHandler` receives a bad version, a fallback version is provided.
 * The default value for `defaults` includes `msys2` when `context.subdir` is `win-*` on non-Windows platforms.
 * `TypeError`s are avoided when non-string types are written to the index cache metadata.
