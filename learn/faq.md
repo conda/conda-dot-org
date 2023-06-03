@@ -28,14 +28,20 @@ Yes, conda can be used to manage non-Python packages. While conda is widely know
 
 To install a non-Python package, you can use the following command:
 ```
-conda install -c conda-forge <package-name>
+conda install <package-name>
 ```
-For example, to install a non-Python package like gcc for C/C++ programming language, you can run:
+By default, Conda will search for the package in the default channels. However, you can also obtain non-Python packages from other channels apart from conda-forge. For example, you can specify a different channel using the -c flag:
+```
+conda install -c <channel-name> <package-name>
+```
+For example, to install a non-Python package like gcc for C/C++ programming language, from the conda-forge channel, you can run:
 ```
 conda install -c conda-forge gcc
 ```
 Similarly, you can use conda to manage packages for other languages such as R, Java, or any other supported language. Just replace `<package-name> `with the specific package you want to install.
 This flexibility makes conda a versatile choice for managing a wide range of software packages, regardless of the programming language.
+
+Feel free to explore different channels to find the desired non-Python packages.
 
 ## What is a conda channel?
 
@@ -58,18 +64,22 @@ In different contexts, the term "conda" can refer to various aspects:
 - **Conda as a tool**: Conda is an open-source, cross-platform package manager used for managing software packages.
 
 - [**Conda packages**](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/packages.html): These are compressed tarballs or .conda files containing system-level libraries, modules, executables, and metadata, installed into the designated prefix.
+(Here, "prefix" refers to the installation directory where the packages are installed. It represents the target location on your system where the package files are placed.)
 
-- [**Conda environments**](https://docs.conda.io/docs/using/envs.html#:~:text=A%20conda%20environment%20is%20a,NumPy%201.6%20for%20legacy%20testing.): Conda environments are directories that contain specific collections of conda packages installed for a particular project or use case.
+- [**Conda environments**](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/environments.html): Conda environments are directories that contain specific collections of conda packages installed for a particular project or use case.
 
-- **Conda channels**: Conda channels are locations where packages are stored and serve as the base for hosting and managing packages. They are hosted on the [Anaconda.org](https://anaconda.org/) platform.
+- **Conda channels**: Conda channels are locations where packages are stored and serve as the base for hosting and managing packages. They can be hosted on various platforms, including [Anaconda.org](https://anaconda.org/) and others.
 
 - **Conda, the package format**: Conda can also refer to the package format itself, which is an archive containing programs and metadata needed by package managers.
 
+- **Conda distributions**: Conda is included in various distributions. [Miniconda](https://docs.conda.io/en/latest/miniconda.html) provides a minimal installation, [Anaconda](https://www.anaconda.com/) includes additional pre-installed packages, and there is also [Micromamba](https://mamba.readthedocs.io/en/latest/user_guide/micromamba.html), a lightweight distribution based on Conda.
+
+
 - **Miniconda and Anaconda**: These are distributions that include conda as the package manager. [Miniconda](https://docs.conda.io/en/latest/miniconda.html) provides a minimal installation, while [Anaconda](https://www.anaconda.com/) includes additional pre-installed packages.
 
-- **Conda community**: The conda community includes channels like [conda-forge](https://conda-forge.org/) and [bioconda](https://bioconda.github.io/), which provide additional packages and resources.
+- **Conda community**: The Conda community includes channels like [conda-forge](https://conda-forge.org/) and [bioconda](https://bioconda.github.io/), which provide additional packages and resources.
 
-- **Conda, the tool (Mamba)**: [Mamba](https://mamba.readthedocs.io/en/latest/installation.html) is a high-performance, drop-in replacement for conda, written in C++, offering faster package management.
+- [**Mamba**](https://mamba.readthedocs.io/en/latest/installation.html): Mamba is a high-performance, drop-in replacement for Conda. It is written in C++ and offers faster package management.
 
 - [**Conda Package Specification**](https://conda.io/projects/conda-build/en/latest/resources/package-spec.html): This refers to the contents of an extracted package, regardless of the compression format used.
 
@@ -123,7 +133,10 @@ conda env export > environment.yml
 ```
 This command exports the environment to an `environment.yml` file.
 
-2. **Sharing the environment file:** Once you have the `environment.yml` file, you can share it with others through various means, such as email, file sharing services, or version control systems like Git. Make sure to communicate any specific instructions or requirements related to the environment, such as additional dependencies or channels.
+2. **Sharing the environment file:** Once you have the `environment.yml` file, you can share it with others through various means, such as email, file sharing services, or version control systems like Git. 
+
+The `environment.yml` file contains information about the dependencies required for the environment, including packages, versions, and channels. Make sure to communicate any specific instructions or requirements related to the environment, such as additional dependencies or channels.
+
 
 3. **Creating the environment from the file:** To create an identical environment on another machine, the other person can use the following command in their terminal or command prompt:
 ```
@@ -182,9 +195,19 @@ existing content:
 
 See our [Contributing](https://github.com/conda-incubator/conda-dot-org/blob/main/CONTRIBUTING.md) documentation for more information on submitting blog posts.
 
-## How is the conda community organized?
+## How is the Conda community organized?
 
-The conda community is a vibrant and diverse group of users and developers who utilize the conda package management system for creating, managing, and distributing software environments. The community is organized through various channels to facilitate collaboration and support.
+The Conda community is a vibrant and diverse group of users and developers who utilize Conda, a popular package management system, for creating, managing, and distributing software environments. The Conda community consists of various sub-communities that play an important role in supporting and extending the functionality of Conda. Some of these communities include:
+
+- [Conda Forge](https://conda-forge.org/): A community-led collection of recipes, build infrastructure, and packages for Conda. It provides a wide range of community-maintained packages that can be easily installed using Conda.
+
+- [Bioconda](https://bioconda.github.io/): A specialized community for bioinformatics software packages. Bioconda offers a comprehensive collection of bioinformatics tools and libraries that can be easily managed with Conda.
+
+- [Micromamba](https://mamba.readthedocs.io/en/latest/user_guide/micromamba.html): A lightweight, fast, and pure C++based alternative to Conda. Micromamba is designed to provide a streamlined package management experience and is compatible with Conda environments and packages.
+
+These communities actively contribute to the Conda ecosystem, providing additional packages, resources, and support for users and developers.
+
+
 
 To contact us, please refer to the [Community Page](https://conda.org/community#how-to-reach-us).
 
@@ -212,5 +235,4 @@ Please create an [issue](https://github.com/conda-incubator/conda-dot-org/issues
 If you need help with any aspect of the conda ecosystem, feel free to reach out to us via any of our online channels.
 
 For more information, read [How to reach us](/community/#how-to-reach-us) on the [Community](/community) page.
-
  
