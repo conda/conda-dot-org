@@ -27,17 +27,23 @@ Using conda provides a streamlined approach to package management, platform comp
 Yes, conda can be used to manage non-Python packages. While conda is widely known for its capabilities in managing Python packages, it is not limited to Python alone. Conda supports package management for multiple programming languages, including R, Java, C/C++, and more. It allows you to install, manage, and update packages from different languages, ensuring consistent package installations and dependencies across your projects. 
 
 To install a non-Python package, you can use the following command:
+
 ```
 conda install <package-name>
 ```
+
 By default, Conda will search for the package in the default channels. However, you can also obtain non-Python packages from other channels apart from conda-forge. For example, you can specify a different channel using the -c flag:
+
 ```
 conda install -c <channel-name> <package-name>
 ```
+
 For example, to install a non-Python package like gcc for C/C++ programming language, from the conda-forge channel, you can run:
+
 ```
 conda install -c conda-forge gcc
 ```
+
 Similarly, you can use conda to manage packages for other languages such as R, Java, or any other supported language. Just replace `<package-name> `with the specific package you want to install.
 This flexibility makes conda a versatile choice for managing a wide range of software packages, regardless of the programming language.
 
@@ -73,8 +79,6 @@ In different contexts, the term "conda" can refer to various aspects:
 - **Conda, the package format**: Conda can also refer to the package format itself, which is an archive containing programs and metadata needed by package managers.
 
 - **Conda distributions**: Conda is included in various distributions. [Miniconda](https://docs.conda.io/en/latest/miniconda.html) provides a minimal installation, [Anaconda](https://www.anaconda.com/) includes additional pre-installed packages, and there is also [Micromamba](https://mamba.readthedocs.io/en/latest/user_guide/micromamba.html), a lightweight distribution based on Conda.
-
-
 - **Miniconda and Anaconda**: These are distributions that include conda as the package manager. [Miniconda](https://docs.conda.io/en/latest/miniconda.html) provides a minimal installation, while [Anaconda](https://www.anaconda.com/) includes additional pre-installed packages.
 
 - **Conda community**: The Conda community includes channels like [conda-forge](https://conda-forge.org/) and [bioconda](https://bioconda.github.io/), which provide additional packages and resources.
@@ -86,8 +90,6 @@ In different contexts, the term "conda" can refer to various aspects:
 - **Installing conda or packages**: This context refers to the process of installing conda itself or using conda to install other packages.
 
 You can find more about this [here](https://conda.org/community#the-many-meanings-of-conda).
-
-
 ## What is a feedstock?
 
 A feedstock is a conda package repository.
@@ -127,54 +129,68 @@ For this reason, it is highly recommended to utilize separate conda environments
 ## Can I share conda environments with others? If so, how?
 
 Yes, you can share conda environments with others, making it easier to collaborate on projects or reproduce specific software setups. Here's how you can share conda environments:
+
 1. **Exporting the environment:** With conda, you can export the environment to a YAML file that contains a list of all the packages and their versions. Open the terminal or command prompt, activate the environment you want to share, and use the following command:
+
 ```
 conda env export > environment.yml
 ```
+
 This command exports the environment to an `environment.yml` file.
 
 2. **Sharing the environment file:** Once you have the `environment.yml` file, you can share it with others through various means, such as email, file sharing services, or version control systems like Git. 
 
 The `environment.yml` file contains information about the dependencies required for the environment, including packages, versions, and channels. Make sure to communicate any specific instructions or requirements related to the environment, such as additional dependencies or channels.
-
-
 3. **Creating the environment from the file:** To create an identical environment on another machine, the other person can use the following command in their terminal or command prompt:
+
 ```
 conda env create -f environment.yml
 ```
+
 This command reads the `environment.yml` file and recreates the environment with the same package versions and dependencies. The person building an environment from this file needs to have conda or mamba installed on their system.
+
 Note: If using mamba instead of conda, the command will be:
+
 ```
 mamba env create -f environment.yml
 ```
+
 4. **Activating the shared environment:** After the environment is successfully created, the other person can activate it with:
+
 ```
 conda activate <environment-name>
 ```
+
 or
+
 ```
 mamba activate <environment-name>
 ```
+
 Replace `<environment-name>` with the name of the shared environment.
 
 By following these steps, you can easily share conda environments, ensuring consistent dependencies and versions.
 Remember that channels play a crucial role in environment replication. If your environment relies on packages from specific channels other than the defaults, then you might need to add those channels using:
+
 ```
 conda config --add channels <channel-name>
 ```
-or 
+
+or
+
 ```
 mamba config --add channels <channel-name>
 ``` 
+
 before creating the environment from the YAML file.
 
 ## I want to create a conda package for my project. Where do I start?
 
-To create a conda package for the project, you can start by referring to the official documentation provided by [conda-build](https://github.com/conda/conda-build).
+To create a conda package for your project, you can start by referring to the official documentation provided by [conda-build](https://github.com/conda/conda-build).
 
-For step-by-step guidance on setting up the package, defining dependencies, handling different platforms, and more, you can check out the [documentation for conda-build](https://docs.conda.io/projects/conda-build/en/stable/user-guide/tutorials/building-conda-packages.html).
+For step-by-step guidance on setting up packages, defining dependencies, handling different platforms, and more, you can check out the [documentation for conda-build](https://docs.conda.io/projects/conda-build/en/stable/user-guide/tutorials/building-conda-packages.html).
 
-If you need further assistance or have specific questions related to creating conda packages, visit [conda community page](https://conda.org/community).
+If you need further assistance or have specific questions related to creating conda packages, visit the [conda community page](https://conda.org/community).
 
 ## What is a dependency graph?
 
@@ -195,19 +211,17 @@ existing content:
 
 See our [Contributing](https://github.com/conda-incubator/conda-dot-org/blob/main/CONTRIBUTING.md) documentation for more information on submitting blog posts.
 
-## How is the Conda community organized?
+## How is the conda community organized?
 
-The Conda community is a vibrant and diverse group of users and developers who utilize Conda, a popular package management system, for creating, managing, and distributing software environments. The Conda community consists of various sub-communities that play an important role in supporting and extending the functionality of Conda. Some of these communities include:
+The conda community is a vibrant and diverse group of users and developers who utilize conda, a popular package management system, for creating, managing, and distributing software environments. The conda community consists of various sub-communities that play an important role in supporting and extending the functionality of conda. Some of these communities include:
 
-- [Conda Forge](https://conda-forge.org/): A community-led collection of recipes, build infrastructure, and packages for Conda. It provides a wide range of community-maintained packages that can be easily installed using Conda.
+- [conda-forge](https://conda-forge.org/): A community-led collection of recipes, build infrastructure, and packages for conda. It provides a wide range of community-maintained packages that can be easily installed using conda.
 
-- [Bioconda](https://bioconda.github.io/): A specialized community for bioinformatics software packages. Bioconda offers a comprehensive collection of bioinformatics tools and libraries that can be easily managed with Conda.
+- [Bioconda](https://bioconda.github.io/): A specialized community for bioinformatics software packages. Bioconda offers a comprehensive collection of bioinformatics tools and libraries that can be easily managed with conda.
 
-- [Micromamba](https://mamba.readthedocs.io/en/latest/user_guide/micromamba.html): A lightweight, fast, and pure C++based alternative to Conda. Micromamba is designed to provide a streamlined package management experience and is compatible with Conda environments and packages.
+- [Micromamba](https://mamba.readthedocs.io/en/latest/user_guide/micromamba.html): A lightweight, fast, and pure C++ based alternative to conda. Micromamba is designed to provide a streamlined package management experience and is compatible with conda environments and packages.
 
-These communities actively contribute to the Conda ecosystem, providing additional packages, resources, and support for users and developers.
-
-
+These communities actively contribute to the conda ecosystem, providing additional packages, resources, and support for users and developers.
 
 To contact us, please refer to the [Community Page](https://conda.org/community#how-to-reach-us).
 
@@ -224,8 +238,6 @@ The conda community offers diverse events and meetings for engagement:
 - **Mamba** also organizes biweekly developer meetings. [Get more information here](https://github.com/mamba-org/mamba#biweekly-dev-meeting).
 
 Participating in these events and meetings provides valuable opportunities to connect and contribute to the conda community.
-
-
 ## I see a problem with the website. How do I report it?
 
 Please create an [issue](https://github.com/conda-incubator/conda-dot-org/issues) in GitHub to report any problems with the website. We also welcome pull requests!
