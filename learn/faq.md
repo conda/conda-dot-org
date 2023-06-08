@@ -83,4 +83,17 @@ If you need help with any aspect of the conda ecosystem, feel free to reach out 
 
 For more information, read [How to reach us](/community/#how-to-reach-us) on the [Community](/community) page.
 
- 
+ ## Why does conda have so many meanings in different contexts?
+
+ There are quite a few contexts in which [Conda](./faq.md/#what-is-conda) may be used. Following are the ones that are most commonly used:
+
+ - Conda as a tool: Here, conda refers to an open-source, cross-platform, language-agnostic package manager.  
+ - [Conda packages](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/packages.html): It is a compressed tarball or.conda file containing system-level libraries, Python or other modules, executable programs, metadata, and a collection of files that are installed directly into the `install` prefix.
+ - [Conda environments](https://docs.conda.io/docs/using/envs.html#:~:text=A%20conda%20environment%20is%20a,NumPy%201.6%20for%20legacy%20testing.): A conda environment is a directory that contains a specific collection of conda packages that you have installed.
+ - [Conda channels](./faq.md/#what-is-a-conda-channel): Conda channels are the locations where packages are stored. They serve as the base for hosting and managing packages. Conda channels are served in a channel server called [Anaconda.org](https://anaconda.org/).
+ - Conda, the package format: A package format is a type of archive containing computer programs and additional metadata needed by package managers. As conda is a package manager, the term conda may sometimes be used as a package format too. 
+ - Oftentimes conda is confused with [Miniconda](https://docs.conda.io/en/latest/miniconda.html) or [Anaconda](https://www.anaconda.com/). Miniconda and Anaconda are distributions which includes conda, the package manager. Anaconda is also the name of the company behind all these efforts. 
+ - The [Conda community](../src/pages/community.md): You might be referring to [conda-forge](https://conda-forge.org/) or [bioconda](https://bioconda.github.io/). 
+ - conda, the tool: You might actually be using [mamba](https://mamba.readthedocs.io/en/latest/installation.html), which is a reimplementation of the conda package manager in C++.
+ - [Conda Package Specification](https://conda.io/projects/conda-build/en/latest/resources/package-spec.html): This refers to the contents of each archive once extracted, irrespective of the compression format. 
+ - Installing conda or installing another package using conda
