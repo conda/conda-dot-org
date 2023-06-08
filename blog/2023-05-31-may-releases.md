@@ -20,7 +20,7 @@ conda install -n base conda=23.5.0
 
 ### ✨ What's New? ✨
 
-The long-awaited [`conda doctor` subcommand plugin](https://conda.org/blog/2023-05-11-conda-doctor/) has been implemented! The [related conda issue is over nine years old](https://github.com/conda/conda/issues/474) and has been a regularly requested feature. The `conda doctor` command enables conda users to detect any packages with files missing (i.e., corrupt packages) in their conda environment.
+The long-awaited [`conda doctor` subcommand plugin](/blog/2023-06-01-conda-doctor) has been implemented! The [related conda issue is over nine years old](https://github.com/conda/conda/issues/474) and has been a regularly requested feature. The `conda doctor` command enables conda users to detect any packages with files missing (i.e., corrupt packages) in their conda environment.
 
 <!-- truncate -->
 
