@@ -33,9 +33,9 @@ We expect many more users to try it out that way to get more feedback where we c
 Afterwards, in the September 2023 release window for conda (`23.9.0` per [CEP 8](https://github.com/conda-incubator/ceps/blob/main/cep-8.md)), we'll also:
 
 
-- switch the default solver configuration to `libmamba` (no need to `--solver=libmamba` anymore)
-- keep the `classic` solver code included in conda, to be able to "switch back”, if circumstances require it
-- create a plan to retire the `classic` solver in the far-future
+- switch the default solver configuration to `libmamba`, no need to `--solver=libmamba` anymore
+- keep the `classic` solver code included in conda, to be able to "switch back”, if circumstances require it, via `--solver=classic` and
+- create a plan to retire the `classic` solver in the far-future.
 
 The long-term plan for the `classic` solver will include a timeline for deprecation from the main conda code base based on [CEP 9](https://github.com/conda-incubator/ceps/blob/main/cep-9.md) and additional public discussions with users if it's worth keeping the solver maintained in a separate conda plugin package (for example).
 
