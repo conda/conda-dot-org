@@ -14,20 +14,20 @@ Over a year ago the conda team at Anaconda, together with conda developers at Qu
 
 The dependency solver is one of the main pillars that make up the conda package and environment manager (next to network & IO stack and the command line interface integration for example) and has been the source of many performance and user experience issues over the years, given the growth of the conda ecosystem. Users of conda-forge and other larger conda channels in particular struggled with the current solver implementation based on pycosat.
 
-[Fast-forward to December 2022](https://www.anaconda.com/blog/conda-is-fast-now), we’ve encouraged the use of the libmamba solver via the separate plugin package “conda-libmamba-solver" as a way to trial the use of the solver and get more feedback from real-world users. In case you have any feedback for us, please head over to the [conda-libmamba-solver repository on GitHub](https://github.com/conda/conda-libmamba-solver/issues/new/choose).
+[Fast-forward to December 2022](https://www.anaconda.com/blog/conda-is-fast-now), we’ve encouraged the use of the libmamba solver via the separate plugin package “conda-libmamba-solver" as a way to trial the use of the solver and get more feedback from real-world users. In case you haven't had the chance to provide your feedback, please head over to the [conda-libmamba-solver repository on GitHub](https://github.com/conda/conda-libmamba-solver/issues/new/choose).
 
 ## Roll-out Plan
 
 
-I’m happy to announce the roll-out plan for the next phase for the solver, which we’re starting to implement to get the conda-libmamba-solver in the hands of more people.
+We're happy to announce the roll-out plan for the next phase for the solver, which we’re starting to implement to get the conda-libmamba-solver in the hands of more people.
 
 The June 2023 editions of the [Anaconda Distribution](https://www.anaconda.com/download/) and [miniconda](https://docs.conda.io/en/latest/miniconda.html) installers will include the [conda-libmamba-solver](https://conda.github.io/conda-libmamba-solver/) package by default for new installations.
 
-This will make switching to the solver much easier for end users as it will be a simple `CONDA_SOVLER=libmamba` (for one-time runs) or `conda config --set solver=libmamba` (for persistently switching via the `.condarc` file) and not require additional installation steps.
+This will make switching to the solver much easier for end users as it will require only setting `CONDA_SOVLER=libmamba` (for one-time runs) or `conda config --set solver=libmamba` (for persistently switching via the `.condarc` file) and not require additional installation steps. More details on that in the [conda-libmamba-solver getting started guide](https://conda.github.io/conda-libmamba-solver/getting-started/).
 
 We expect many more users to try it out that way to get more feedback where we can improve it further. If you’d like to send us your feedback now, please don’t hesitate to open ticket in the [conda](https://github.com/conda/conda/issues/new/choose) and [conda-libmamba-solver](https://github.com/conda/conda-libmamba-solver/issues/new/choose) repositories on GitHub accordingly.
 
-## Retirement Plan
+## Changing the default solver
 
 
 Afterwards, in the September 2023 release window for conda (`23.9.0` per [CEP 8](https://github.com/conda-incubator/ceps/blob/main/cep-8.md)), we'll also:
@@ -35,7 +35,7 @@ Afterwards, in the September 2023 release window for conda (`23.9.0` per [CEP 8]
 
 - switch the default solver configuration to `libmamba` (no need to `--solver=libmamba` anymore)
 - keep the `classic` solver code included in conda, to be able to "switch back”, if circumstances require it
-- create a plan to retire the `classic` solver in a far-future
+- create a plan to retire the `classic` solver in the far-future
 
 The long-term plan for the `classic` solver will include a timeline for deprecation from the main conda code base based on [CEP 9](https://github.com/conda-incubator/ceps/blob/main/cep-9.md) and additional public discussions with users if it's worth keeping the solver maintained in a separate conda plugin package (for example).
 
