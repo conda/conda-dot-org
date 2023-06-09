@@ -7,9 +7,6 @@ authors: [jezdez]
 tags: [conda, mamba, solver, libmamba, dependency solver, performance, user experience, conda-forge, pycosat, plugin package, Anaconda Distribution, miniconda, CEP 8, CEP 9]
 
 ---
-## Background
-
-
 Over a year ago, the conda team at Anaconda, together with conda developers at Quansight and QuantStack, [announced the release](https://www.anaconda.com/blog/a-faster-conda-for-a-growing-community) of a new solver for conda based on the solver that the [mamba project](https://mamba.readthedocs.io/) had developed on top of the venerable libsolv project.
 
 The dependency solver is one of the main pillars that makes up the conda package and environment manager (next to the network & IO stack and the command line interface integration, for example) and has been the source of many performance and user experience issues over the years, given the growth of the conda ecosystem. Users of conda-forge and other larger conda channels in particular struggled with the current solver implementation based on pycosat.
