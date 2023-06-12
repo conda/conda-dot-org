@@ -3,12 +3,20 @@ title: "Conda and the libmamba solver: Roll-out plan 2023"
 slug: "2023-06-10-conda-libmamba-solver-rollout"
 description: |
     Learn about the upcoming rollout plan for the conda-libmamba-solver, bringing enhanced performance and user experience to conda.
-authors: [jezdez]
+authors: [jezdez, jaimergp]
 tags: [conda-libmamba-solver, solvers, performance]
 
 ---
 
 Over a year ago, the conda team at Anaconda, together with conda developers at Quansight and QuantStack, [announced the release](https://www.anaconda.com/blog/a-faster-conda-for-a-growing-community) of a new solver for conda based on the libraries that the [mamba project](https://mamba.readthedocs.io/) had developed on top of the venerable libsolv project.
+
+## TLDR;
+
+- From June 2023 on, `conda-libmamba-solver` will be part of the official installers. The default solver is still `classic`.
+- From September 2023 on, the default solver will be `libmamba`. `classic` will be available via `--solver=classic`, if needed.
+- At some point in the future, we'll discuss whether the classic solver is kept around, maintained as a separate plugin, and/or deprecated for good. Feedback welcome!
+
+## Why we're doing this
 
 The dependency solver can be considered one of the main pillars in the `conda` client (next to the network and IO stack, or the command line interface). It has been a source of many performance and user experience issues over the years, given the growth of the conda ecosystem. In particular, users of conda-forge and other larger conda channels struggle with the current solver implementation, based on pycosat.
 
