@@ -10,7 +10,7 @@ tags: [conda-libmamba-solver, solvers, performance]
 
 Over a year ago, the conda team at Anaconda, together with conda developers at Quansight and QuantStack, [announced the release](https://www.anaconda.com/blog/a-faster-conda-for-a-growing-community) of a new solver for conda based on the libraries that the [mamba project](https://mamba.readthedocs.io/) had developed on top of the venerable libsolv project.
 
-## TLDR;
+## TL;DR
 
 
 - From June 2023 on, `conda-libmamba-solver` will be part of the official installers. The default solver is still `classic`.
@@ -43,7 +43,7 @@ We expect many more users to try it out that way to get more feedback where we c
 Afterwards, in the September 2023 release window for conda (`23.9.0` per [CEP 8](https://github.com/conda-incubator/ceps/blob/main/cep-8.md)), we'll also:
 
 
-- switch the default solver configuration to `libmamba`(no need to `--solver=libmamba` anymore),
+- switch the default solver configuration to `libmamba` (no need to use the `--solver=libmamba` CLI flag anymore),
 - keep the `classic` solver code included in `conda`, to be able to "switch back”, if circumstances require it, via `--solver=classic`, and
 - create a plan to retire the `classic` solver in the far-future.
 
