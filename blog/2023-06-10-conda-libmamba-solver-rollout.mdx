@@ -12,9 +12,12 @@ Over a year ago, the conda team at Anaconda, together with conda developers at Q
 
 ## TLDR;
 
+
 - From June 2023 on, `conda-libmamba-solver` will be part of the official installers. The default solver is still `classic`.
 - From September 2023 on, the default solver will be `libmamba`. `classic` will be available via `--solver=classic`, if needed.
 - At some point in the future, we'll discuss whether the classic solver is kept around, maintained as a separate plugin, and/or deprecated for good. Feedback welcome!
+
+<!-- truncate -->
 
 ## Why we're doing this
 
@@ -27,7 +30,6 @@ The dependency solver can be considered one of the main pillars in the `conda` c
 
 We're happy to announce the roll-out plan for the next phase for the solver, to get the conda-libmamba-solver in the hands of more people.
 
-<!-- truncate -->
 
 The June 2023 editions of the [Anaconda Distribution](https://www.anaconda.com/download/) and [miniconda](https://docs.conda.io/en/latest/miniconda.html) installers will include the [conda-libmamba-solver](https://conda.github.io/conda-libmamba-solver/) package in the `base` environment.
 
