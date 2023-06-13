@@ -87,7 +87,9 @@ The conda community also has a Discourse instance where all are invited to discu
 
 ## Mailing List
 
-The [Conda Announce mailing list][conda-announce] is a low volume moderatred mailing list for distributing conda ecosystem and community news. [Subscribe now][conda-announce-subscribe] and have conda news delivered to your inbox.
+The [Conda Announce mailing list][conda-announce] is a low volume moderated mailing list for distributing conda ecosystem and community news. 
+
+[Subscribe now][conda-announce-subscribe] and have conda news delivered to your inbox.
 
 ## Contributing
 
