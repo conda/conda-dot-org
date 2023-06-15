@@ -12,7 +12,7 @@ export default function Header() {
           management ecosystem for projects of any size and complexity.
         </p>
         <div className={styles.header_content_input}>
-          <a className="button button--primary button--lg col" href="/community">Learn More</a>
+          <a className="button button--primary button--lg col" href="/learn/community">Learn More</a>
         </div>
       </div>
       <div className={styles.header_image}>

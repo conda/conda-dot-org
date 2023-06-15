@@ -80,7 +80,8 @@ const config = {
             label: 'Learn',
           },
           {
-            to: '/community',
+            type: 'doc',
+            docId: 'community/index',
             position: 'left',
             label: 'Community',
           },
