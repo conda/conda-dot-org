@@ -80,8 +80,7 @@ const config = {
             label: 'Learn',
           },
           {
-            type: 'doc',
-            docId: 'community/index',
+            to: '/community',
             position: 'left',
             label: 'Community',
           },
@@ -158,15 +157,13 @@ const config = {
       },
     ],
     [
-      '@docusaurus/plugin-client-redirects',
+      '@docusaurus/plugin-content-docs',
       {
-        redirects: [
-          {
-            to: '/learn/community',
-            from: '/community'
-          }
-        ]
-      }
+        id: 'community',
+        path: 'community',
+        routeBasePath: 'community',
+        sidebarPath: require.resolve('./src/sidebarsCommunity.js'),
+      },
     ],
   ],
 };

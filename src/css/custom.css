@@ -59,10 +59,6 @@ article {
   max-width: 80ch;
 }
 
-.navbar__link--active {
-  color: inherit;
-}
-
 /** End layout overrides **/
 
 /** Custom Fonts **/
