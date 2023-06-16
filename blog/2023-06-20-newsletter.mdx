@@ -88,14 +88,16 @@ PackagingCon 2023 will be held October 26-28 in Berlin, and will be a hybrid eve
 
 <Image img={rattler} alt="Banner image for Rattler, from GitHub project"/>
 
-* [rattler](https://github.com/mamba-org/rattler) is a new collection of Rust libraries to work with conda packages made by the prefix.dev team!
-  * rattler 0.3.0 just came out with lots of highlights, such as JLAP support, local `file://` urls and authenticated requests with the new `rattler_networking`. For the full (impressive) changelog, see here: https://github.com/mamba-org/rattler/releases/tag/v0.3.0
+**[rattler](https://github.com/mamba-org/rattler) is a new collection of Rust libraries to work with conda packages made by the [prefix.dev](https://prefix.dev/) team!**
 
-* [rattler-build](https://prefix.dev/blog/the_new_rattler_build) is built on top rattler to facilitate the creation of conda packages. It already _works_ very well and is much faster than conda-build. To push this effort forward, we started multiple conda enhancement proposals. Engage with us and the conda community on a forward-looking YAML format that is easy to parse (pure YAML) and keeps most of the conda-build functionalities!
-  * A new YAML format: https://github.com/conda-incubator/ceps/pull/54
-  * Integration with VSCode for the [new YAML format with automatic syntax linting](https://github.com/conda-incubator/ceps/pull/56#issuecomment-1593118521)
-  * A new way to define multiple outputs and tests: https://github.com/conda-incubator/ceps/pull/56
-  * A new test for file existence inside of packages: https://github.com/conda-incubator/ceps/pull/57
+* rattler 0.3.0 just came out with lots of highlights, such as JLAP support, local `file://` urls and authenticated requests with the new `rattler_networking`. See the full ( and impressive) [changelog](https://github.com/mamba-org/rattler/releases/tag/v0.3.0) for more.
+
+**[rattler-build](https://prefix.dev/blog/the_new_rattler_build)** is built on top rattler to facilitate the creation of conda packages. It already _works_ very well and is much faster than conda-build. To push this effort forward, we started multiple conda enhancement proposals. Engage with us and the conda community on a forward-looking YAML format that is easy to parse (pure YAML) and keeps most of the conda-build functionalities!
+
+* A [new YAML format](https://github.com/conda-incubator/ceps/pull/54).
+* Integration with VSCode for the [new YAML format with automatic syntax linting](https://github.com/conda-incubator/ceps/pull/56#issuecomment-1593118521).
+* A new way to [define multiple outputs and tests](https://github.com/conda-incubator/ceps/pull/56).
+* A new test for [file existence inside of packages](https://github.com/conda-incubator/ceps/pull/57).
 
 ## Community channel updates
 
@@ -147,7 +149,7 @@ And this thought provoking post from Ralk Gommers earlier this year:
 
 ## Releases & Announcements
 
-* **[conda-lock 2.0](https://github.com/conda/conda-lock/releases/)** - A lightweight library for generating fully reproducible lock files for conda environments.
+* **[conda-lock 2.1](https://github.com/conda/conda-lock/releases/)** - A lightweight library for generating fully reproducible lock files for conda environments.
 * **[conda 23.5.0](https://conda.org/blog/2023-05-31-may-2023-releases#changes-in-conda)** - Python 3.11 support and the new [**conda doctor** subcommand plugin](https://conda.org/blog/2023-06-01-conda-doctor) for detecting corrupted installs.
 * **[conda-build 3.25.0](https://conda.org/blog/2023-05-31-may-2023-releases#changes-in-conda-build)** - an update to `conda`'s package builder.
 * **[conda-libmamba-solver 23.5.0](https://conda.org/blog/2023-05-31-may-2023-releases#changes-in-conda-libmamba-solver)** - An update to the fast `libmamba` solver in `conda`.
