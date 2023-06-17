@@ -1,0 +1,112 @@
+---
+title: "Developer Guide: A Tale of Five Prefixes"
+slug: 2024-05-08-prefixes
+authors: [kenodegard]
+tags: [conda, context, prefix, prefixes, api]
+description: Prefixes, prefixes, prefixes! All the prefixes!
+image: img/blog/2024-05-08-prefixes/banner.png
+---
+
+[conda-env-pr]: https://github.com/conda/conda/pull/2950
+[conda-4.2.0]: https://github.com/conda/conda/releases/tag/4.2.0
+[condarc]: https://docs.conda.io/projects/conda/en/stable/user-guide/configuration/use-condarc.html
+
+In the realm of package management and environment configuration, `conda` has
+emerged as a versatile tool empowering developers with environment management. A
+pivotal aspect of `conda`'s architecture lies in its prefix system, which
+underwent a significant evolution over its versions, transforming `conda` from a
+simple package manager into a sprawling environment manager. In this technical
+discourse, we delve into the intricacies of `conda`'s prefix system, shedding
+light on its evolution and the five distinct prefixes delineated within the
+`conda` source code.
+
+In the nascent stages of `conda`'s development, its primary functionality
+revolved around installing packages into a singular environment, at the time
+referred to as the `root` environment. This era, marked by `conda` versions
+preceding 4.2.0, laid the groundwork for `conda`'s subsequent evolution as an
+environment manager.
+
+With the advent of [`conda 4.2.0`][conda-4.2.0] and beyond, a paradigm shift
+occurred when the `conda-env` project was [merged][conda-env-pr] with the
+`conda` project, elevating `conda` from a mere package manager to a
+comprehensive environment manager. This pivotal transformation bestowed upon
+`conda` the capability to create and manage separate environments, fostering
+modularity and flexibility in development workflows.
+
+Delving into `conda`'s Git history via `git blame` provides invaluable insights
+into the timeline of the prefix system evolution. By tracing the commit history,
+we unearth pivotal moments that introduced and refined the various prefixes
+integral to `conda`'s architecture. The history is also revealing in how
+non-linear the development of the prefix system has been, explaining many of the
+complexities of trying to wrestle with the prefixes or trying to find ways to
+simplify them.
+
+#### `conda.base.context.context.conda_prefix`
+
+Introduced in `conda 4.2.0` (see https://github.com/conda/conda/commit/6e730cc)
+as part of the private environment effort which has since been abandoned and
+deprecated.
+
+The `conda_prefix` lies at the heart of the prefix system, denoting the
+installation directory of `conda` itself. Typically, this aligns with the
+location of the `base` environment and is equivalent to Python's `sys.prefix`
+value.
+
+**Use this anytime you need to interact with the `conda` installation itself.**
+
+#### `conda.base.context.context.root_prefix`
+
+> Previously `conda.config.root_dir` → `conda.config.ROOT_DIR`.
+
+Introduced in `conda 1.1.0` (see https://github.com/conda/conda/commit/d2b370a)
+and was originally intended for testing purposes only.
+
+The `root_prefix` serves as a [configurable value][condarc], most easily
+configurable in the user's `~/.condarc` file. In the absence of user-defined
+preferences, it defaults to the `conda_prefix`.
+
+**Avoid using this. This is a contender for deprecation.**
+
+#### `conda.base.context.context.active_prefix`
+
+Introduced in `conda 4.4.0` (see https://github.com/conda/conda/commit/cbbe81f)
+as part of cleaning up the `conda info` output.
+
+Reflecting the currently active environment, the `active_prefix` is determined
+by the `$CONDA_PREFIX` environment variable which is set by the `conda activate`
+and `conda deactivate` commands.
+
+**Avoid using this. Treat this as an internal value.**
+
+#### `conda.base.context.context.default_prefix`
+
+> Previously `conda.config.default_prefix` → `conda.config.DEFAULT_ENV_PREFIX` →
+> `conda.config.default_environment` → `conda.anaconda.default_environment`.
+
+Introduced in `conda 1.1.0` (see https://github.com/conda/conda/commit/acd8144)
+as part of a larger configuration overhaul.
+
+The `default_prefix` effectively aggregates `root_prefix` and `active_prefix`,
+embodying the default environment in the absence of CLI overrides.
+
+**Avoid using this. Treat this as an internal value.**
+
+#### `conda.base.context.context.target_prefix`
+
+> Previously `prefix` → `conda.cli.common.get_prefix()` →
+> `conda.cli.utils.get_prefix()`.
+
+Introduced in `conda 1.3.0` (see https://github.com/conda/conda/commit/9fd0f4b)
+to abstract out the `--name`/`--prefix` logic from the CLI implementations.
+
+The `target_prefix` is the final prefix and first reflects the user input via
+the CLI options, `--name` or `--prefix`. In the absence of CLI overrides, it
+defaults to the `default_prefix`.
+
+**Use this when you need to interact with the current environment.**
+
+In essence, `conda` prefix system serves as the cornerstone of its environment
+management capabilities, facilitating seamless navigation and interaction within
+the different environments a user may have created. As `conda` continues to
+evolve, understanding its prefix system remains paramount for harnessing its
+capabilities effectively and correctly.
