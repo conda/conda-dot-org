@@ -12,7 +12,7 @@ sidebar_position: 1
 [mamba-gh]: https://github.com/mamba-org/mamba
 [boa]: https://github.com/mamba-org/boa
 [conda-org]: https://github.com/conda
-[conda-incubator]: https://github.com/conda-incubator/ 
+[conda-incubator]: https://github.com/conda-incubator/
 [setup-miniconda]: https://github.com/conda-incubator/setup-miniconda
 [conda-lock]: https://github.com/conda-incubator/conda-lock
 [conda-tree]: https://github.com/conda-incubator/conda-tree
@@ -34,6 +34,8 @@ sidebar_position: 1
 
 <!-- Misc. -->
 [conda-discourse]: https://conda.discourse.group/
+[conda-announce]: https://lists.conda.org/wws/info/announce
+[conda-announce-subscribe]: https://lists.conda.org/wws/subscribe/announce
 
 # Conda community
 
@@ -83,6 +85,12 @@ The conda community also has a Discourse instance where all are invited to discu
 
 [Visit conda on Discourse][conda-discourse]
 
+## Mailing List
+
+The [Conda Announce mailing list][conda-announce] is a low volume moderated mailing list for distributing conda ecosystem and community news. 
+
+[Subscribe now][conda-announce-subscribe] and have conda news delivered to your inbox.
+
 ## Contributing
 
 The various projects associated with the conda community are always open to contributions
@@ -91,14 +99,14 @@ project, we encourage you to visit their respective project websites (see above)
 
 Contributing to this website, either in the form of a blog post or feature addition can be
 done via our [GitHub project page][conda-dot-org]. Please also feel free to reach out to
-us via our [Element chat room][conda-element]. 
+us via our [Element chat room][conda-element].
 
 We look forward to hearing from you and your contributions!
 
 ## Code of conduct and governance
 
 In order to ensure that everyone in our community treats each other with respect and decency,
-we have carefully crafted a code of conduct. In addition to this, we have also created a 
+we have carefully crafted a code of conduct. In addition to this, we have also created a
 governance document which establishes clear rules and expectations surrounding the management
 of conda community projects and standards.
 
