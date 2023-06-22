@@ -24,6 +24,8 @@ import colab from '@site/static/img/blog/2023-06-22-conda-spaces-blogpost/collab
 
 **Welcome to conda Community Spaces!**, Your gateway to a vibrant community where connections are forged, knowledge is shared, and inspiration flourishes. At conda, we are passionate about fostering open collaboration, embracing diverse perspectives, and creating a supportive environment for everyone. Join us on this exciting journey as we delve into the multitude of conda spaces designed to bring our community closer, empower your learning, and ignite your creativity.
 
+<!-- truncate -->
+
 # 🗞️[Newsletter](https://lists.conda.org/wws/info/announce)🗞️:
 
 Stay informed, inspired, and connected with the latest updates, project developments, and captivating articles through our monthly newsletter. Let the conda newsletter be your gateway to exclusive insights, community highlights, and exciting announcements. 
