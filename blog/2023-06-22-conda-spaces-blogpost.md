@@ -26,7 +26,7 @@ import colab from '@site/static/img/blog/2023-06-22-conda-spaces-blogpost/collab
 
 <!-- truncate -->
 
-# 🗞️[Newsletter](https://lists.conda.org/wws/info/announce)🗞️:
+# 🗞️[Newsletter](https://lists.conda.org/wws/info/announce)🗞️
 
 Stay informed, inspired, and connected with the latest updates, project developments, and captivating articles through our monthly newsletter. Let the conda newsletter be your gateway to exclusive insights, community highlights, and exciting announcements. 
 
