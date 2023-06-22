@@ -8,7 +8,7 @@ authors: [pinak-datta, tnabtaf]
 tags: [conda, announcement]
 image:  img/blog/2023-06-22-conda-spaces-blogpost/collaborate.jpg
 ---
-
+import Image from '@theme/IdealImage';
 import colab from '@site/static/img/blog/2023-06-22-conda-spaces-blog/collaborate.jpg';
 
 <Image img={colab} alt="Collaboration image for blog post"/>
