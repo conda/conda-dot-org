@@ -44,9 +44,6 @@ Connect and engage with the conda community through our Matrix communication cha
 As part of our commitment to providing comprehensive resources, we have recently added a helpful post about Element and Matrix. This post serves as a one-page guide to getting started with Element, the chat client that works with the Matrix protocol. 
 
 The guide walks you through the process, ensuring a smooth transition to Element and helping you make the most of the conda community chat rooms hosted on Matrix. To access the guide and understand the migration from other platforms to Element, please visit this post: [One-page guide: Conda Community Chat using Element](https://conda.discourse.group/t/one-page-guide-conda-community-chat-using-element/173).
-
-
-
 [Visit our conda Matrix space](https://matrix.to/#/#conda:matrix.org) and become an active participant in shaping the future of conda. Together, let's build a thriving community driven by open communication and shared goals.
 
 # 🗓️[Events](https://conda.org/community/calendar)🗓️
