@@ -1,6 +1,7 @@
 ---
-title: Exploring conda Community Spaces: Connect and Collaborate with Us!
-description: Connect and Collaborate with Conda Community Spaces! Discover, learn, and stay connected with our vibrant community. Explore resources, gain insights, and ignite your creativity. Join us on this exciting journey!
+title: "Exploring conda Community Spaces: Connect and Collaborate with Us!"
+description: |
+      Connect and Collaborate with Conda Community Spaces! Discover, learn, and stay connected with our vibrant community. Explore resources, gain insights, and ignite your creativity. Join us on this exciting journey!"
 slug: 2023-06-22-conda-spaces-blogpost
 authors: [pinak-datta, tnabtaf]
   
