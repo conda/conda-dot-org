@@ -1,6 +1,6 @@
 ---
 title: "Conda and the libmamba solver: Roll-out plan 2023"
-slug: "2023-06-10-conda-libmamba-solver-rollout"
+slug: "2023-07-05-conda-libmamba-solver-rollout"
 description: |
     Learn about the upcoming rollout plan for the conda-libmamba-solver, bringing enhanced performance and user experience to conda.
 authors: [jezdez, jaimergp]
@@ -13,8 +13,8 @@ Over a year ago, the conda team at Anaconda, together with conda developers at Q
 ## TL;DR
 
 
-- From June 2023 on, `conda-libmamba-solver` will be part of the official installers. The default solver is still `classic`.
-- From September 2023 on, the default solver will be `libmamba`. `classic` will be available via `--solver=classic`, if needed.
+- From July 2023 on, `conda-libmamba-solver` will be part of the various installers. The default conda solver is still `classic`. Look out for the release of miniconda, Anaconda Distribution and miniforge soon.
+- From September 2023 on, the default conda solver will be `libmamba`. `classic` will be available via `--solver=classic`, if needed.
 - At some point in the future, we'll discuss whether the classic solver is kept around, maintained as a separate plugin, and/or deprecated for good. Feedback welcome!
 
 <!-- truncate -->
@@ -31,7 +31,7 @@ The dependency solver can be considered one of the main pillars in the `conda` c
 We're happy to announce the roll-out plan for the next phase for the solver, to get the conda-libmamba-solver in the hands of more people.
 
 
-The June 2023 editions of the [Anaconda Distribution](https://www.anaconda.com/download/) and [miniconda](https://docs.conda.io/en/latest/miniconda.html) installers will include the [conda-libmamba-solver](https://conda.github.io/conda-libmamba-solver/) package in the `base` environment.
+The July 2023 editions of the [Anaconda Distribution](https://www.anaconda.com/download/) and [miniconda](https://docs.conda.io/en/latest/miniconda.html) installers will include the [conda-libmamba-solver](https://conda.github.io/conda-libmamba-solver/) package in the `base` environment.
 
 This will make switching to the solver much easier for end users, as it will require only adding `--solver=libmamba` (for one-time runs) or `conda config --set solver=libmamba` (for persistently switching via the `.condarc` file) and not require additional installation steps. More details on that in the [conda-libmamba-solver getting started guide](https://conda.github.io/conda-libmamba-solver/getting-started/).
 
