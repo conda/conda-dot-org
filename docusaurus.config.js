@@ -156,6 +156,15 @@ const config = {
         disableInDev: false,
       },
     ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'community',
+        path: 'community',
+        routeBasePath: 'community',
+        sidebarPath: require.resolve('./src/sidebarsCommunity.js'),
+      },
+    ],
   ],
 };
 
