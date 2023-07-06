@@ -24,9 +24,9 @@ Using conda provides a streamlined approach to package management, platform comp
 
 ## How can I start using conda?
 
-To start using conda, there are various options available to you. Follow these steps to begin your conda journey and explore the rich ecosystem of packages:
+To start using conda, specifically Miniconda, there are various options available to you. Follow these steps to begin your conda journey and explore the rich ecosystem of packages:
 
-1. **Installation:** Visit the [installation guide](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) for detailed instructions on how to install conda. It provides step-by-step guidance to get conda up and running on your system.
+1. **Installation:** Visit the [installation guide](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) for detailed instructions on **how to install conda via Miniconda**. It provides step-by-step guidance to get conda up and running on your system. (*[Miniconda](https://docs.conda.io/en/latest/miniconda.html) is a minimal version of conda that includes only the essential components, allowing for a more customized and lightweight installation.*)
 
 2. **Package Search:** Once you have conda installed, you can search for the packages you need. Use the built-in search functionality to find packages based on your requirements. Refer to our [FAQ section](https://conda.org/learn/faq#how-can-i-search-for-packages) for more information on how to search for packages effectively.
 
