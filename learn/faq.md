@@ -34,7 +34,7 @@ To start using conda, there are various options available to you. Follow these s
 
 4. **Alternative Tools:** In addition to conda, we have alternative tools like [**Mamba**](https://mamba.readthedocs.io/en/latest/user_guide/mamba.html) and [**Micromamba**](https://mamba.readthedocs.io/en/latest/user_guide/micromamba.html). Mamba is a drop-in replacement for conda that offers faster package management, and Micromamba is a pure C++ based CLI. Explore these tools to enhance your conda experience.
 
-5. **Seeking Help:** If you encounter any issues or have questions, we're here to assist you. Reach out to us through our [contact page](https://conda.org/learn/faq#where-can-i-find-help). Our community is ready to provide assistance and help you overcome any obstacles you may face.
+5. **Seeking Help:** If you encounter any issues or have questions, we're here to help. Reach out to us through our [contact page](https://conda.org/learn/faq#where-can-i-find-help). Our community is ready to provide assistance and help you overcome any obstacles you may face.
 
 We hope this guidance helps you get started with conda smoothly.
 
