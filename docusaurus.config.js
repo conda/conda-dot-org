@@ -103,16 +103,20 @@ const config = {
                 href: 'https://conda.discourse.group/',
               },
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/conda%20or%20miniconda%20or%20conda-forge?sort=Newest&edited=true',
-              },
-              {
                 label: 'Matrix Chat',
                 href: 'https://matrix.to/#/#conda:matrix.org',
               },
               {
+                label: 'Mastodon',
+                href: 'https://fosstodon.org/@conda',
+              },
+              {
                 label: 'Twitter',
                 href: 'https://twitter.com/condaproject',
+              },
+              {
+                label: 'Stack Overflow',
+                href: 'https://stackoverflow.com/questions/tagged/conda%20or%20miniconda%20or%20conda-forge?sort=Newest&edited=true',
               },
             ],
           },
