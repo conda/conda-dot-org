@@ -28,7 +28,10 @@ To start using conda, specifically Miniconda, there are various options availabl
 
 1. **Installation:** Visit the [installation guide](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) for detailed instructions on **how to install conda via Miniconda**. It provides step-by-step guidance to get conda up and running on your system. (*[Miniconda](https://docs.conda.io/en/latest/miniconda.html) is a minimal version of conda that includes only the essential components, allowing for a more customized and lightweight installation.*)
 
-2. **Package Search:** Once you have conda installed, you can search for the packages you need. Use the built-in search functionality to find packages based on your requirements. Refer to our [FAQ section](https://conda.org/learn/faq#how-can-i-search-for-packages) for more information on how to search for packages effectively.
+2. **Package Search:** Once you have conda installed, you can search for the packages you need. Use the built-in search functionality to find packages based on your requirements. **For a faster and comprehensive package search experience, you can visit [Anaconda.org's Page](https://anaconda.org/anaconda/repo)**. (*Anaconda.org is a platform that hosts a vast collection of packages from different channels, allowing you to easily explore and discover the packages you need*).
+
+    Refer to our [FAQ section](./faq.md) for more information on how to search for packages effectively.
+
 
 3. **Conda Channels:** Discover the power of conda channels. They are repositories that contain pre-built packages for conda users. Learn more about conda channels and how to use them effectively in our [FAQ section](https://conda.org/learn/faq#what-is-a-conda-channel).
 
