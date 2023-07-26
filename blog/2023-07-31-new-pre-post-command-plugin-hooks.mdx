@@ -33,12 +33,18 @@ two new plugin hooks was introduced: "pre command" and "post command". These two
 plugin authors the ability execute code before and after conda commands are run. In this blog post,
 we provide more details on how and why you may use these to extend the default behavior of conda.
 
-To see a fully functioning example of how to use these new hooks, please check out the [conda-guard
-project][conda-guard].
-
 <!-- truncate -->
 
-To explain how these plugin hooks can be used, we walk through two examples.
+:::info
+
+To check out a fully functional example, check out the [conda-guard][conda-guard] project
+to see how these new plugin hooks are used in practice.
+:::
+
+
+---
+
+To explain how these plugin hooks can be used, we will cover two examples.
 
 ## Conda guard and the "pre command" hook
 
@@ -89,7 +95,11 @@ To actually prevent us from modifying our guarded environments, the `action` fun
 checks if the current environment is guarded and then throws a `CondaError` if it is to make
 sure that the program exits early with a meaningful error message for the user.
 
-_For the full implementation please see https://github.com/travishathaway/conda-guard_
+:::info
+
+For the full implementation, please see the [conda-guard][conda-guard] project.
+
+:::
 
 ## Simple analytics with "post command"
 
@@ -106,7 +116,11 @@ Here is a snippet of how that plugin might look:
 from conda.cli.conda_argparse import BUILTIN_COMMANDS
 from conda.plugins import hookimpl, CondaPostCommand
 
-ENV_COMMANDS = {"env_config", "env_create", "env_export", "env_list", "env_remove", "env_update"}
+ENV_COMMANDS = {
+    "env_config", "env_create", 
+    "env_export", "env_list",
+    "env_remove", "env_update"
+}
 
 def conda_stats_post_commands_action(command: str):
     """Counts how many times we have run a particular conda command"""
@@ -129,8 +143,12 @@ function counts the usage of the command each time it is run and the "run_for" p
 is configured to run for every builtin conda command, including the `conda env *` 
 commands.
 
+:::note
+
 The implementation of the database has been purposely left out of the example as it
 falls out of scope of this blog post (implement it yourself for fun! 😅).
+
+:::
 
 ## Wrapping up
 
