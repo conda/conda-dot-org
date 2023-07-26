@@ -1,6 +1,6 @@
 ---
 title: "New pre and post command plugin hooks"
-slug: "2023-07-05-latest-conda-release-includes-new-plugin-hooks"
+slug: "2023-07-31-latest-conda-release-includes-new-plugin-hooks"
 description: |
   The latest release of conda introduces two new plugin hooks: pre and post command. These hooks allow plugin
   authors to execute code before and after any conda command. Learn more about how and why you would use
@@ -30,10 +30,10 @@ import banner from '@site/static/img/blog/2023-07-31-new-pre-post-command-plugin
 
 With the latest conda release (`23.7.0` at the time this post was written), the ability to define
 two new plugin hooks was introduced: "pre command" and "post command". These two new plugin hooks give
-plugin authors the ability execute code before and after conda commands are run. In this blog post,
+plugin authors the ability to execute code before and after conda commands are run. In this blog post,
 we provide more details on how and why you may use these to extend the default behavior of conda.
 
-To see a fully functioning example of how to use these new hooks, please check out the [conda-guard
+To see a fully-functioning example of how to use these new hooks, please check out the [conda-guard
 project][conda-guard].
 
 <!-- truncate -->
@@ -42,7 +42,7 @@ To explain how these plugin hooks can be used, we walk through two examples.
 
 ## Conda guard and the "pre command" hook
 
-The project linked to above is called conda-guard, and it extends conda by adding functionality to "guard"
+The project linked to above is called [`conda-guard`](https://github.com/travishathaway/conda-guard), and it extends conda by adding functionality to "guard"
 a conda environment from being changed. Sometimes users may want to do this to protect themselves from
 [unintentionally modifying their base environments][conda-issue].
 
@@ -124,9 +124,9 @@ def conda_post_commands():
 
 The example above registers our "post command" hook by defining a function called
 `conda_post_commands`. Very similarly to the "pre command" hook, this returns a 
-`CondaPostCommand` object which defines "name", "action" and "run_for". The "action"
-function counts the usage of the command each time it is run and the "run_for" property
-is configured to run for every builtin conda command, including the `conda env *` 
+`CondaPostCommand` object which defines `name`, `action` and `run_for`. The `action`
+function counts the usage of the command each time it is run and the `run_for` property
+is configured to run for every built-in conda command, including the `conda env *` 
 commands.
 
 The implementation of the database has been purposely left out of the example as it
