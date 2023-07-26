@@ -1,5 +1,5 @@
 ---
-title: "July Releases for Conda, Conda-Build"
+title: "July Releases for Conda and Conda-Build"
 slug: "2023-07-28-july-2023-releases"
 description: |
     Conda 23.7.0 and conda-build 3.26.0 have been released! 🎉
@@ -119,6 +119,6 @@ The following bug fixes were implemented in the 3.26.0 version of conda-build:
 
 ### We ❤️ Our Community
 
-Altogether we had 10 (!) new contributors to the conda and conda-build repositories this release cycle; thank you to the conda community for helping make this release so great.
+Altogether we had 10 (!) new contributors to the conda and conda-build repositories this release cycle; thank you to all of our open source community members for helping make the new versions of conda and conda-build so great.
 
 If you have ideas or want to help improve conda and/or conda-build, we love to see new (and returning) contributors! 😄
