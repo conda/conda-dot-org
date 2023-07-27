@@ -2,21 +2,21 @@
 title: "July 2023 Releases for conda and conda-build"
 slug: "2023-07-28-july-2023-releases"
 description: |
-    Conda 23.7.0 and conda-build 3.26.0 have been released! 🎉
+    Conda 23.7.0 & 23.7.1 and conda-build 3.26.0 have been released! 🎉
 authors: [beeankha]
 tags: [announcement, conda, conda-build]
 image: img/blog/2023-07-28-july-releases/rocket.jpg
 
 ---
 
-The July 2023 releases are here! 🎊 Conda 23.7.0 and conda-build 3.26.0 are now available on both `main` and `conda-forge` channels.
+The July 2023 releases are here! 🎊 Conda 23.7.0 & 23.7.1 and conda-build 3.26.0 are now available on both `main` and `conda-forge` channels.
 
 
-## [Changes in Conda](https://github.com/conda/conda/releases/tag/23.7.0)
+## Changes in Conda [23.7.0](https://github.com/conda/conda/releases/tag/23.7.0) & [23.7.1](https://github.com/conda/conda/releases/tag/23.7.1)
 
 To update conda, run:
 ```bash
-conda install -n base conda=23.7.0
+conda install -n base conda=23.7.1
 ```
 
 ### ✨ What's New? ✨
@@ -41,12 +41,15 @@ Additionally, the following features and changes can be found in conda 23.7.0:
 
 ### 🔧 What Got Fixed? 🔧
 
-The following bug fixes were implemented in the 23.7.0 version of conda:
+The following bug fixes were implemented in conda 23.7.0:
 
 * `requests.exceptions.JSONDecodeError` is utilized for ensuring compatibility with different `json` implementations used by requests. This fixes a bug that caused only the first of multiple given source URLs to be tried. This also raises the minimum required requests version to 2.27.0.
 * `__osx` virtual package are no longer exported when `CONDA_OVERRIDE_OSX` is set to an empty string.
 * Erroneous `conda deactivate` behavior that unset pre-existing environment variables that are identical to those set during `conda activate` has been fixed.
 * Third-party subcommands now correctly receive _remaining_ arguments instead of a blanket `sys.argv[2:]`, which broke `conda_cli` testing.
+The following bug fix was implemented in conda 23.7.1:
+
+* Patch a parsing regression for `--json` and `--debug` arguments.
 
 
 ### 📄 What's New in Documentation? 📄
@@ -73,7 +76,7 @@ The following modules and functions were marked for deprecation:
 
 * * *
 
-## [Changes in Conda-Build](https://github.com/conda/conda-build/releases/tag/3.26.0)
+## Changes in Conda-Build [3.26.0](https://github.com/conda/conda-build/releases/tag/3.26.0)
 
 To update conda-build, run:
 ```bash
@@ -94,7 +97,7 @@ Additionally, the following features and changes can be found in conda-build 3.2
 
 ### 🔧 What Got Fixed? 🔧
 
-The following bug fixes were implemented in the 3.26.0 version of conda-build:
+The following bug fixes were implemented in conda-build 3.26.0:
 
 * The handling of unknown binaries with newer `(py)lief` versions has been fixed.
 * `LIEF` logging to remove "Unknown format" warning message is disabled.
