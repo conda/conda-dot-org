@@ -121,4 +121,15 @@ The following bug fixes were implemented in the 3.26.0 version of conda-build:
 
 Altogether we had 10 (!) new contributors to the conda and conda-build repositories this release cycle; thank you to all of our open source community members for helping make the new versions of conda and conda-build so great.
 
+* [@johanneskoester](https://github.com/johanneskoester) made their first contribution in [conda#12683](https://github.com/conda/conda/pull/12683)
+* [@josegonzalez](https://github.com/josegonzalez) made their first contribution in [conda-build#3998](https://github.com/conda/conda-build/pull/3998)
+* [@kalawac](https://github.com/kalawac) made their first contribution in [conda#12738](https://github.com/conda/conda/pull/12738)
+* [@lesteve](https://github.com/lesteve) made their first contribution in [conda#12715](https://github.com/conda/conda/pull/12715)
+* [@marcoesters](https://github.com/marcoesters) made their first contribution in [conda#12863](https://github.com/conda/conda/pull/12863)
+* [@mattkram](https://github.com/mattkram) made their first contribution in [conda#12730](https://github.com/conda/conda/pull/12730)
+* [@morremeyer](https://github.com/morremeyer) made their first contribution in [conda#12871](https://github.com/conda/conda/pull/12871)
+* [@mpotane](https://github.com/mpotane) made their first contribution in [conda#11740](https://github.com/conda/conda/pull/11740)
+* [@rfezzani](https://github.com/rfezzani) made their first contribution in [conda-build#4850](https://github.com/conda/conda-build/pull/4850)
+* [@schackartk](https://github.com/schackartk) made their first contribution in [conda#12781](https://github.com/conda/conda/pull/12781)
+
 If you have ideas or want to help improve conda and/or conda-build, we love to see new (and returning) contributors! 😄
