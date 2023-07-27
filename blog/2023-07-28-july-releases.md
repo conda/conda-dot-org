@@ -47,6 +47,7 @@ The following bug fixes were implemented in conda 23.7.0:
 * `__osx` virtual package are no longer exported when `CONDA_OVERRIDE_OSX` is set to an empty string.
 * Erroneous `conda deactivate` behavior that unset pre-existing environment variables that are identical to those set during `conda activate` has been fixed.
 * Third-party subcommands now correctly receive _remaining_ arguments instead of a blanket `sys.argv[2:]`, which broke `conda_cli` testing.
+
 The following bug fix was implemented in conda 23.7.1:
 
 * Patch a parsing regression for `--json` and `--debug` arguments.
