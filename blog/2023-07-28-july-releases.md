@@ -1,5 +1,5 @@
 ---
-title: "July Releases for Conda and Conda-Build"
+title: "July 2023 Releases for conda and conda-build"
 slug: "2023-07-28-july-2023-releases"
 description: |
     Conda 23.7.0 and conda-build 3.26.0 have been released! 🎉
@@ -9,7 +9,7 @@ image: img/blog/2023-07-28-july-releases/rocket.jpg
 
 ---
 
-July releases are here! 🎊 Conda 23.7.0 and conda-build 3.26.0 are now available on both `main` and `conda-forge` channels.
+The July 2023 releases are here! 🎊 Conda 23.7.0 and conda-build 3.26.0 are now available on both `main` and `conda-forge` channels.
 
 
 ## [Changes in Conda](https://github.com/conda/conda/releases/tag/23.7.0)
@@ -82,7 +82,7 @@ conda install -n base conda-build=3.26.0
 
 ### ✨ What's New? ✨
 
-In the latest version of conda-build, extra-meta data is logged to make it easier to verify that the right extra-meta data is burned into packages (which also helps to co-relate packages and their build-log). The feature was first introduced in [PR #4303](https://github.com/conda/conda-build/pull/4303) and is now improved via the logging call.
+In the latest version of conda-build, `extra-meta` data is logged to make it easier to verify that the right extra-meta data is burned into packages (which also helps to co-relate packages and their build-log). The feature was first introduced in [PR #4303](https://github.com/conda/conda-build/pull/4303) and is now improved via the logging call.
 
 Additionally, the following features and changes can be found in conda-build 3.26.0:
 
