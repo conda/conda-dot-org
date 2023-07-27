@@ -2,21 +2,21 @@
 title: "July 2023 Releases for conda and conda-build"
 slug: "2023-07-28-july-2023-releases"
 description: |
-    Conda 23.7.0 & 23.7.1 and conda-build 3.26.0 have been released! 🎉
+    Conda 23.7.0, 23.7.1, 23.7.2, and conda-build 3.26.0 have been released! 🎉
 authors: [beeankha]
 tags: [announcement, conda, conda-build]
 image: img/blog/2023-07-28-july-releases/rocket.jpg
 
 ---
 
-The July 2023 releases are here! 🎊 Conda 23.7.0 & 23.7.1 and conda-build 3.26.0 are now available on both `main` and `conda-forge` channels.
+The July 2023 releases are here! 🎊 Conda 23.7.0, 23.7.1, 23.7.2, and conda-build 3.26.0 are now available on both `main` and `conda-forge` channels.
 
 
-## Changes in Conda [23.7.0](https://github.com/conda/conda/releases/tag/23.7.0) & [23.7.1](https://github.com/conda/conda/releases/tag/23.7.1)
+## Changes in Conda [23.7.0](https://github.com/conda/conda/releases/tag/23.7.0)/[23.7.1](https://github.com/conda/conda/releases/tag/23.7.1)/[23.7.2](https://github.com/conda/conda/releases/tag/23.7.2)
 
 To update conda, run:
 ```bash
-conda install -n base conda=23.7.1
+conda install -n base conda=23.7.2
 ```
 
 ### ✨ What's New? ✨
@@ -48,7 +48,7 @@ The following bug fixes were implemented in conda 23.7.0:
 * Erroneous `conda deactivate` behavior that unset pre-existing environment variables that are identical to those set during `conda activate` has been fixed.
 * Third-party subcommands now correctly receive _remaining_ arguments instead of a blanket `sys.argv[2:]`, which broke `conda_cli` testing.
 
-The following bug fix was implemented in conda 23.7.1:
+The following bug fix was implemented in conda 23.7.1/23.7.2:
 
 * Patch a parsing regression for `--json` and `--debug` arguments.
 
