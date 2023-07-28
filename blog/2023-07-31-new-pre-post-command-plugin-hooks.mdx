@@ -57,7 +57,7 @@ run a function that executes before the command gets executed. By doing this, we
 the environment is guarded or not and exit early if so. Below is how such a plugin hook would be defined:
 
 ```python
-from conda.plugins import hookimpl, CondaPreCommand
+from conda import plugins
 
 def conda_guard_pre_commands_action(command: str) -> None:
     """Checks to see if the current environment is guarded"""
@@ -69,14 +69,13 @@ def conda_guard_pre_commands_action(command: str) -> None:
             "remove guard."
         )
 
-@hookimpl
+@plugins.hookimpl
 def conda_pre_commands():
-    yield CondaPreCommand(
+    yield plugins.CondaPreCommand(
         name=f"conda_guard_pre_command",
         action=conda_guard_pre_commands_action,
         run_for={"install", "remove", "update", "env_update", "env_remove"},
     )
-```
 
 In the example above, we first register our plugin hook by defining a function called
 `conda_pre_commands` and then decorating it with the `hookimpl` function provided by conda.
@@ -101,7 +100,7 @@ For the full implementation, please see the [conda-guard][conda-guard] project.
 
 :::
 
-## Simple analytics with "post command"
+## Simple command counter with the "post command" hook
 
 The "post command" hook functions in exactly the same way as the "pre command" except that it gets
 called once a conda command has successfully finished running. It is important to note that if
@@ -114,7 +113,7 @@ Here is a snippet of how that plugin might look:
 
 ```python
 from conda.cli.conda_argparse import BUILTIN_COMMANDS
-from conda.plugins import hookimpl, CondaPostCommand
+from conda import plugins
 
 ENV_COMMANDS = {
     "env_config", "env_create", 
@@ -127,14 +126,13 @@ def conda_stats_post_commands_action(command: str):
     database = get_database()
     database.add_command(command)
 
-@hookimpl
+@plugins.hookimpl
 def conda_post_commands():
-    yield CondaPostCommand(
+    yield plugins.CondaPostCommand(
         name=f"conda_stats_post_command",
         action=conda_stats_post_commands_action,
         run_for=BUILTIN_COMMANDS.union(ENV_COMMANDS),
     )
-```
 
 The example above registers our "post command" hook by defining a function called
 `conda_post_commands`. Very similarly to the "pre command" hook, this returns a 
