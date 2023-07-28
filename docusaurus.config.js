@@ -148,6 +148,37 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
+      algolia: {
+        // The application ID provided by Algolia
+        appId: '0ODKLVRPCZ',
+
+        // Public API key: it is safe to commit it
+        apiKey: 'cf5a5b2ee2c9278e23e79ac023bd5c7f',
+
+        indexName: 'condaorg',
+
+        // Optional: see doc section below
+        contextualSearch: true,
+
+        /* Optional: Replace parts of the item URLs from Algolia.
+        Useful when using the same search index for multiple deployments using
+        a different baseUrl. You can use regexp or string in the `from` param.
+        For example: localhost:3000 vs myCompany.com/docs */
+        // replaceSearchResultPathname: {
+        //   from: '/docs/', // or as RegExp: /\/docs\//
+        //   to: '/',
+        // },
+
+        // Optional: Algolia search parameters
+        searchParameters: {},
+
+        // Optional: path for search page that enabled by default (`false` to disable it)
+        searchPagePath: false,
+
+        // ... other Algolia params
+        insights: true,
+        debug: false, // Set debug to true if you want to inspect the modal
+      },
     }),
   plugins: [
     [
