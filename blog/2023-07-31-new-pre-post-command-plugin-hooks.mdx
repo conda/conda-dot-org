@@ -11,7 +11,7 @@ image: img/blog/2023-07-31-new-pre-post-command-plugin-hooks/pre-post-command-im
 ---
 
 [conda-issue]: https://github.com/conda/conda/issues/12138
-[conda-guard]: https://github.com/travishathaway/conda-guard
+[conda-schutz]: https://github.com/travishathaway/conda-schutz
 [conda-plugin-docs]: https://docs.conda.io/projects/conda/en/stable/dev-guide/plugins/index.html
 [matrix]: https://matrix.to/#/#conda:matrix.org
 
@@ -37,7 +37,7 @@ we provide more details on how and why you may use these to extend the default b
 
 :::info
 
-To check out a fully functional example, check out the [conda-guard][conda-guard] project
+To check out a fully functional example, check out the [conda-schutz][conda-schutz] project
 to see how these new plugin hooks are used in practice.
 :::
 
@@ -48,9 +48,10 @@ To explain how these plugin hooks can be used, we will cover two examples.
 
 ## Conda guard and the "pre command" hook
 
-The project linked to above is called [`conda-guard`](https://github.com/travishathaway/conda-guard), and it extends conda by adding functionality to "guard"
-a conda environment from being changed. Sometimes users may want to do this to protect themselves from
-[unintentionally modifying their base environments][conda-issue].
+The project linked to above is called [`conda-schutz`](https://github.com/travishathaway/conda-schutz)
+("schutz" roughly translates to "guard" in German 😀🇩🇪), and it extends conda by adding functionality 
+to "guard" a conda environment from being changed. Sometimes users may want to do this to protect themselves
+from [unintentionally modifying their base environments][conda-issue].
 
 Using the "pre command" plugin hook, we can first specify which commands we want it to run for and then
 run a function that executes before the command gets executed. By doing this, we can figure out whether
@@ -59,7 +60,7 @@ the environment is guarded or not and exit early if so. Below is how such a plug
 ```python
 from conda import plugins
 
-def conda_guard_pre_commands_action(command: str) -> None:
+def conda_schutz_pre_commands_action(command: str) -> None:
     """Checks to see if the current environment is guarded"""
     current_environment = get_current_environment()
     
@@ -72,10 +73,11 @@ def conda_guard_pre_commands_action(command: str) -> None:
 @plugins.hookimpl
 def conda_pre_commands():
     yield plugins.CondaPreCommand(
-        name=f"conda_guard_pre_command",
-        action=conda_guard_pre_commands_action,
+        name=f"conda_schutz_pre_command",
+        action=conda_schutz_pre_commands_action,
         run_for={"install", "remove", "update", "env_update", "env_remove"},
     )
+```
 
 In the example above, we first register our plugin hook by defining a function called
 `conda_pre_commands` and then decorating it with the `hookimpl` function provided by conda.
@@ -96,7 +98,7 @@ sure that the program exits early with a meaningful error message for the user.
 
 :::info
 
-For the full implementation, please see the [conda-guard][conda-guard] project.
+For the full implementation, please see the [conda-schutz][conda-schutz] project.
 
 :::
 
@@ -133,6 +135,7 @@ def conda_post_commands():
         action=conda_stats_post_commands_action,
         run_for=BUILTIN_COMMANDS.union(ENV_COMMANDS),
     )
+```
 
 The example above registers our "post command" hook by defining a function called
 `conda_post_commands`. Very similarly to the "pre command" hook, this returns a 
@@ -151,13 +154,13 @@ falls out of scope of this blog post (implement it yourself for fun! 😅).
 ## Wrapping up
 
 If you would like to get started with using these new plugins, please check out the 
-[conda-guard][conda-guard] project. This project can also be used as a starting template
+[conda-schutz][conda-schutz] project. This project can also be used as a starting template
 for your plugins.
 
 For even more information about all plugin hooks currently available in conda,
 head over to the [relevant documentation page][conda-plugin-docs].
 
-As always, you are more than welcome to visit us on our [Matrix Chat][matrix] to ask any questions
-or provide feedback.
+As always, you are more than welcome to visit us on our [Matrix Chat][matrix] to ask any
+questions or provide feedback.
 
 Happy coding ✌️
