@@ -37,8 +37,8 @@ we provide more details on how and why you may use these to extend the default b
 
 :::info
 
-To check out a fully functional example, check out the [conda-protect][conda-protect] project
-to see how these new plugin hooks are used in practice.
+For a fully functional example of how these plugin hooks are used in practice,
+check out the [conda-protect][conda-protect] project.
 
 :::
 
@@ -47,14 +47,14 @@ to see how these new plugin hooks are used in practice.
 
 To explain how these plugin hooks can be used, we will cover two examples.
 
-## Conda guard and the "pre command" hook
+## Conda protect and the "pre command" hook
 
-The project linked to above is called [`conda-protect`][conda-protect] and it extends conda by adding functionality 
+The project linked to above is called [`conda-protect`][conda-protect], and it extends conda by adding functionality 
 to "protect" a conda environment from being changed. Sometimes users may want to do this to protect themselves
 from [unintentionally modifying their base environments][conda-issue].
 
-Using the "pre command" plugin hook, we can first specify which commands we want it to run for and then
-run a function that executes before the command gets executed. By doing this, we can figure out whether
+Using the "pre command" plugin hook, we can first specify which commands we want to be protected and then
+run a function that gets called before the command gets executed. By doing this, we can figure out whether
 the environment is protected or not and exit early if so. Below is how such a plugin hook would be defined:
 
 ```python
@@ -62,9 +62,9 @@ from conda import plugins
 
 def conda_protect_pre_commands_action(command: str) -> None:
     """Checks to see if the current environment is protected"""
-    current_environment = get_current_environment()
+    environment = get_current_environment()
     
-    if is_guarded(current_environment):
+    if is_guarded(environment):
         raise CondaError(
             f"Current environment is protect. Run `conda guard {environment}` to "
             "remove protection."
