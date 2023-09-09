@@ -41,8 +41,6 @@ Happy reading!
 
 ## Upcoming Events
 
-[<Image img={rse} alt="Banner image for RSE-Con 2023"/>](https://rsecon23.society-rse.org/)
-
 ### [Conda-forge guide at RSE 2023](https://us-rse.org/usrse23/program/tutorials/#publish-your-software-in-conda-forge)
 
 Dave will be guiding you to make your open-source software easily accessible to others by publishing it on conda-forge. Conda-forge is a thriving community-managed channel within the conda ecosystem, boasting over 20,000 packages and serving billions of downloads annually. In this hands-on tutorial, you'll grasp the fundamentals of software packaging, understand the conda ecosystem, and explore the process of preparing and publishing your software on conda-forge.
