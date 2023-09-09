@@ -29,6 +29,7 @@ In this issue, we've got a diverse range of topics to cover, including [Upcoming
 
 But that's not all! We'll also highlight one [job opportunity](#Job-still-Open-at-sfbi!) and share news about [Travis's recent talk](  #Writing-Plugin-Friendly-Python-Applications:-by-Travis), now available for public consumption.
 
+<!-- truncate -->
 
 And if you don't want to miss out on future editions, be sure to **Sign-up for the conda Announce Mailing List**.
 
