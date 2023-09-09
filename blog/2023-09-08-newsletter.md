@@ -11,8 +11,8 @@ image: img/blog/2023-09-08-newsletter-2/newsletter.jpg
 import Image from '@theme/IdealImage';
 import banner from '@site/static/img/blog/2023-09-08-newsletter-2/newsletter.jpg';
 import packagingcon from '@site/static/img/blog/2023-06-23-newsletter/packagingcon.jpg';
-import rse from '@site/static/img/blog/2023-09-08-newsletter/rse.jpg';
-import yt from '@site/static/img/blog/2023-09-08-newsletter-2/travis_yt.png';
+import rse from '@site/static/img/blog/2023-09-08-newsletter/rse_con.jpg';
+import yt from '@site/static/img/blog/2023-09-08-newsletter-2/yt.png';
 
 
 <Image img={banner} alt="Banner image for blog post; Conda Newsletter Issue # 2 - mailboxes"/>
