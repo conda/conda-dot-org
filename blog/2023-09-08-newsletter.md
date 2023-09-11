@@ -182,8 +182,8 @@ In this talk, Travis Hathaway explores how to **design plugin-friendly Python ap
 
 Throughout the session, he demonstrates these principles using the pluggy library. He also shares a case study on conda, showcasing how it's adapting its codebase to embrace plugin-friendly practices.
 
-<a href="https://www.youtube.com/embed/d40tBcqopAI?si=NN62GyGLvbEgzqpC">
-  <img src="https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2Fd40tBcqopAI%3Fsi%3DNN62GyGLvbEgzqpC" alt="YouTube video  for Writing Plugin Friendly Python Applications" title="Writing Plugin Friendly Python Applications"/>
+<a href="https://youtu.be/d40tBcqopAI?feature=shared" target="_blank">
+ <img src="https://i3.ytimg.com/vi/d40tBcqopAI/maxresdefault.jpg" alt="Watch the video" />
 </a>
 
 **[Watch the video](https://youtu.be/d40tBcqopAI?feature=shared)** to learn how to enhance your Python applications with plugin-friendliness.
