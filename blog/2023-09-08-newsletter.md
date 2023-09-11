@@ -2,7 +2,7 @@
 title: "Conda Newsletter, Issue #2"
 slug: "2023-09-08-newsletter"
 description: |
-    Upcoming Events, conda-store brief, Is conda free?, pre and post plugin hooks, Recent releases, Travis's latest talk on Youtube.
+    Upcoming Events, conda-store brief, Is conda free?, pre and post plugin hooks, Recent releases, Travis Hathaway's latest talk on Youtube.
 authors: [pinak-datta]
 tags: [conda, newsletter]
 image: img/blog/2023-09-08-newsletter-2/newsletter.jpg
