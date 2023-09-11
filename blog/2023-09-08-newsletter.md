@@ -31,7 +31,7 @@ But that's not all! We'll also highlight one [job opportunity](#Job-still-Open-a
 
 <!-- truncate -->
 
-And if you don't want to miss out on future editions, be sure to **Sign-up for the conda Announce Mailing List**.
+And if you don't want to miss out on future editions, be sure to **[Sign-up for the conda Announce Mailing List](https://lists.conda.org/wws/info/announce)**.
 
 So, without further ado, let's dive into this issue and explore the exciting developments happening in the world of conda. 
 
@@ -48,7 +48,7 @@ Community Member, Dave Clements will be leading a tutorial on publishing open-so
 **Key Highlights:**
 
 - Introduction to software packaging concepts and challenges.
-- Dive into the conda ecosystem.
+- Diving into the conda ecosystem.
 - Step-by-step guide to preparing a sample software package for conda-forge.
 - Building your package using conda-build.
 - Submission and publication of your package on conda-forge.
@@ -62,7 +62,7 @@ Community Member, Dave Clements will be leading a tutorial on publishing open-so
 ### PackagingCon 2023
 
  - **When**: October 26-28, 2023
- - **Where**: Berlin (Hybrid, so online is an option too !)
+ - **Where**: Berlin (Hybrid, so online is an option too!)
  - **Early Registration Ends**: September 8, 2023
 
 [**PackagingCon 2023**](https://packaging-con.org/) is your opportunity to connect with software packaging experts, discuss best practices, and tackle common challenges. Whether you're a developer, packager, or part of a packaging community, this conference is a must-attend.
@@ -97,7 +97,7 @@ Experience enhanced flexibility and reliability with conda-store, a powerful too
 
 [Explore comprehensive documentation at conda.store](https://conda.store/en/latest/user_guide.html) for installation, usage, and contributions.
 
-Whether you're a data scientist or an administrator, conda-store revolutionizes conda environments. Make sure to check them out!
+Whether you're a data scientist or an administrator, conda-store revolutionizes conda environments. Make sure to check it out!
 
 ### Is conda Free?
 
@@ -109,7 +109,7 @@ Whether you're a data scientist or an administrator, conda-store revolutionizes 
 
 - For packages in the default channel and Anaconda Distribution:
 
-    -    Organizations with less than 200 people can use them for free.
+    -    Organizations with fewer than 200 people can use them for free.
     -    Larger organizations can still qualify for free use if they meet Anaconda's terms of service exemptions, including developers, students, teachers, academic institutions, non-commercial open source software projects, and small businesses.
       
 For an in-depth look at conda's free offerings and the finer details, dive into [**Dave Clement's full blog post here**](https://www.anaconda.com/blog/is-conda-free#summarize).
@@ -142,9 +142,9 @@ In essence, Pandata serves as your guide to a suite of libraries designed to wor
 
 [**Conda Build 3.26.0**](https://conda.org/blog/2023-07-28-july-2023-releases#changes-in-conda-237023712372): Logs extra-meta data for package verification, adds pip to env-doc make command, and fixes various bugs related to handling unknown binaries and Git cloning with submodules.
 
-[**constructor 3.4.5**](https://github.com/conda/constructor/releases/tag/3.4.5): Constructor 3.4.5 enhances support for .yaml and .txt files in the environment_file key while ensuring accurate conda metadata in installer creation from existing environments on Windows.
+[**constructor 3.4.5**](https://github.com/conda/constructor/releases/tag/3.4.5): Constructor 3.4.5 enhances support for .yaml and .txt files in the environment_file key. This release also ensures accurate conda metadata when creating installers from existing environments on Windows.
 
-[**conda-libmamba-solver 23.7.0**](https://github.com/conda/conda-libmamba-solver/releases/tag/23.7.0): Libmamba Solver 23.7.0 introduces local channel integrations in conda-build, fixes for namespaced settings, CLI argument handling, authentication in package downloads, and improved handling of channels in conda-lock, among other enhancements and bug fixes.
+[**conda-libmamba-solver 23.7.0**](https://github.com/conda/conda-libmamba-solver/releases/tag/23.7.0): Libmamba solver 23.7.0 introduces local channel integrations in conda-build, fixes for namespaced settings, CLI argument handling, authentication in package downloads, and improved handling of channels in conda-lock, among other enhancements and bug fixes.
 
 [**conda-lock 2.1.2**](https://github.com/conda/conda-lock/releases/tag/v2.1.2): conda-lock 2.1.2 resolves Pydantic v2 warnings, implements auth stripping for private PyPi packages, and enhances compatibility with Mamba>=1.4.6. Additionally, it includes infrastructure improvements, dependency updates to pydantic 2.0, and the removal of deprecated pkg_resources, among other changes.
 
@@ -156,7 +156,7 @@ In essence, Pandata serves as your guide to a suite of libraries designed to wor
 
 ---
 
-## [Job still Open at sfbi!](https://www.sfbi.fr/emplois/offre/202308020700-cdd-ingenieur-e-en-developpement-logiciel)
+## [Job still Open at SFBI!](https://www.sfbi.fr/emplois/offre/202308020700-cdd-ingenieur-e-en-developpement-logiciel)
 
 **Job Role**: Software Development Engineer
 
@@ -168,9 +168,9 @@ In essence, Pandata serves as your guide to a suite of libraries designed to wor
 
 **Education**: Bac+5 / Master's Degree
 
-Join in revolutionizing genomics research! They're looking for a Software Development Engineer to enhance our flagship tool, REPET. 
+Join in revolutionizing genomics research! SFBI is looking for a Software Development Engineer to enhance its flagship tool, REPET. 
 
-**Your mission**: improve portability and scalability. If you have skills in Python, conda, Snakemake, and more, apply by September 20, 2023. [**Learn more**](https://www.sfbi.fr/emplois/offre/202308020700-cdd-ingenieur-e-en-developpement-logiciel).
+**Your mission**: Improve portability and scalability. If you have skills in Python, conda, Snakemake, and more, apply by September 20, 2023. [**Learn more**](https://www.sfbi.fr/emplois/offre/202308020700-cdd-ingenieur-e-en-developpement-logiciel).
 
 ---
 
