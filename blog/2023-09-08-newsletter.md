@@ -18,7 +18,7 @@ import yt from '@site/static/img/blog/2023-09-08-newsletter-2/yt.png';
 <p>
     <i>
         <small>
-            Image credit: <a href="https://unsplash.com/photos/GjFbKfI874o">Letterboxes on an American Street</a>
+            Image credit: <a href="https://unsplash.com/photos/GjFbKfI874o">Yannik Mika on Unsplash</a>
         </small>
     </i>
 </p>
@@ -27,7 +27,7 @@ import yt from '@site/static/img/blog/2023-09-08-newsletter-2/yt.png';
 
 In this issue, we've got a diverse range of topics to cover, including [Upcoming Events](#Upcoming-Events), new tools like [conda-store](#conda-store), thought-provoking discussions on [conda's free nature](#Is-conda-Free?), [plugin hooks](#New-pre-and-post-command-plugin-hooks), and intriguing projects like [Pandata](#Pandata). Plus, we'll delve into [recent releases](#Releases) that promise to enhance your conda experience.
 
-But that's not all! We'll also highlight one [job opportunity](#Job-still-Open-at-sfbi!) and share news about [Travis's recent talk](  #Writing-Plugin-Friendly-Python-Applications:-by-Travis), now available for public consumption.
+But that's not all! We'll also highlight one [job opportunity](#Job-still-Open-at-sfbi!) and share news about [Travis Hathaway's recent talk](  #Writing-Plugin-Friendly-Python-Applications:-by-Travis), now available for public consumption.
 
 <!-- truncate -->
 
@@ -43,7 +43,7 @@ Happy reading!
 
 ### [Conda-forge guide at RSE 2023](https://us-rse.org/usrse23/program/tutorials/#publish-your-software-in-conda-forge)
 
-Dave will be guiding you to make your open-source software easily accessible to others by publishing it on conda-forge. Conda-forge is a thriving community-managed channel within the conda ecosystem, boasting over 20,000 packages and serving billions of downloads annually. In this hands-on tutorial, you'll grasp the fundamentals of software packaging, understand the conda ecosystem, and explore the process of preparing and publishing your software on conda-forge.
+Community Member, Dave Clements will be leading a tutorial on publishing open-source software to conda-forge. Conda-forge is a thriving community-managed channel within the conda ecosystem, boasting over 20,000 packages and serving billions of downloads annually. In this hands-on tutorial, you'll grasp the fundamentals of software packaging, understand the conda ecosystem, and explore the process of preparing and publishing your software on conda-forge.
 
 **Key Highlights:**
 
@@ -69,7 +69,7 @@ Dave will be guiding you to make your open-source software easily accessible to 
 
 [**Registration**](https://ti.to/packagingcon/packagingcon-2023): Early bird rates start at €37.50 for virtual and €150 for in-person. Discounts available for students and early registrants. *Early registration ends on September 8!*.
 
-For more information, you can also check out [**Dave's post on PackagingCon**](https://conda.org/blog/2023-07-25-packagingcon/). 
+For more information, you can also check out [**Dave Clements' post on PackagingCon**](https://conda.org/blog/2023-07-25-packagingcon/). 
 
 ---
 
@@ -101,7 +101,7 @@ Whether you're a data scientist or an administrator, conda-store revolutionizes 
 
 ### Is conda Free?
 
-[**In Dave's latest blog post**](https://www.anaconda.com/blog/is-conda-free#summarize), he clarifies the question that's on everyone's mind: "*Is conda truly free?*" Here's a brief overview:
+[**In Dave Clement's latest blog post**](https://www.anaconda.com/blog/is-conda-free#summarize), he clarifies the question that's on everyone's mind: "*Is conda truly free?*" Here's a brief overview:
 
 - Conda, the package and environment management software, is open source and free for anyone to use.
 
@@ -112,19 +112,19 @@ Whether you're a data scientist or an administrator, conda-store revolutionizes 
     -    Organizations with less than 200 people can use them for free.
     -    Larger organizations can still qualify for free use if they meet Anaconda's terms of service exemptions, including developers, students, teachers, academic institutions, non-commercial open source software projects, and small businesses.
       
-For an in-depth look at conda's free offerings and the finer details, dive into [**Dave's full blog post here**](https://www.anaconda.com/blog/is-conda-free#summarize).
+For an in-depth look at conda's free offerings and the finer details, dive into [**Dave Clement's full blog post here**](https://www.anaconda.com/blog/is-conda-free#summarize).
 
 ### New pre and post command plugin hooks
 
 Discover the latest in conda extensibility with the introduction of **"pre command" and "post command" plugin hooks**. These powerful additions, available since conda release 23.7.2, allow plugin authors to execute code before and after conda commands, expanding the possibilities for customizing your conda experience.
 
-[**Key Highlights from Travis's Blog:**](https://conda.org/blog/2023-07-31-latest-conda-release-includes-new-plugin-hooks/)
+[**Key highlights from Travis Hathaway's blog post:**](https://conda.org/blog/2023-07-31-latest-conda-release-includes-new-plugin-hooks/)
 
 **Pre Command Hook**: This hook enables you to execute code before specified conda commands run. It's a game-changer for customizing and extending conda's default behavior. An excellent example of its practical application can be found in the conda-protect project, where it's used to safeguard conda environments.
 
 **Post Command Hook**: Similar to the pre command hook, the post command hook lets you run code after conda commands have successfully executed. This opens up exciting opportunities, like creating a simple command counter to analyze your conda usage.
 
-For detailed implementation examples and insights into these new plugin hooks, [dive into Travis's blog post here](https://conda.org/blog/2023-07-31-latest-conda-release-includes-new-plugin-hooks/).
+For detailed implementation examples and insights into these new plugin hooks, [dive into Travis Hathaway's blog post here](https://conda.org/blog/2023-07-31-latest-conda-release-includes-new-plugin-hooks/).
 
 ### Pandata
 
@@ -176,10 +176,14 @@ Join in revolutionizing genomics research! They're looking for a Software Develo
 
 <Image img={yt} alt="Image of the talk on Youtube"/>
 
-## [Writing Plugin Friendly Python Applications: by Travis](https://youtu.be/d40tBcqopAI?feature=shared)
+## [Writing Plugin Friendly Python Applications: by Travis ( A Conda Maintainer)](https://youtu.be/d40tBcqopAI?feature=shared)
 
-In this talk, Travis explores the art of **designing plugin-friendly Python applications**. He emphasizes the importance of well-defined contracts between core software and plugins, fostering modular organization.
+In this talk, Travis Hathaway explores how to **design plugin-friendly Python applications**. He emphasizes the importance of well-defined contracts between core software and plugins, fostering modular organization.
 
-Throughout the session, Travis demonstrates these principles using the pluggy library. He also shares a case study on conda, showcasing how it's adapting its codebase to embrace plugin-friendly practices.
+Throughout the session, he demonstrates these principles using the pluggy library. He also shares a case study on conda, showcasing how it's adapting its codebase to embrace plugin-friendly practices.
+
+<a href="https://www.youtube.com/embed/d40tBcqopAI?si=NN62GyGLvbEgzqpC">
+  <img src="https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2Fd40tBcqopAI%3Fsi%3DNN62GyGLvbEgzqpC" alt="YouTube video  for Writing Plugin Friendly Python Applications" title="Writing Plugin Friendly Python Applications"/>
+</a>
 
 **[Watch the video](https://youtu.be/d40tBcqopAI?feature=shared)** to learn how to enhance your Python applications with plugin-friendliness.
