@@ -33,7 +33,7 @@ We're happy to announce the roll-out plan for the next phase for the solver, to 
 
 The July 2023 editions of the [Anaconda Distribution](https://www.anaconda.com/download/) and [miniconda](https://docs.conda.io/en/latest/miniconda.html) installers will include the [conda-libmamba-solver](https://conda.github.io/conda-libmamba-solver/) package in the `base` environment.
 
-This will make switching to the solver much easier for end users, as it will require only adding `--solver=libmamba` (for one-time runs) or `conda config --set solver=libmamba` (for persistently switching via the `.condarc` file) and not require additional installation steps. More details on that in the [conda-libmamba-solver getting started guide](https://conda.github.io/conda-libmamba-solver/getting-started/).
+This will make switching to the solver much easier for end users, as it will require only adding `--solver=libmamba` (for one-time runs) or `conda config --set solver libmamba` (for persistently switching via the `.condarc` file) and not require additional installation steps. More details on that in the [conda-libmamba-solver getting started guide](https://conda.github.io/conda-libmamba-solver/getting-started/).
 
 We expect many more users to try it out that way to get more feedback where we can improve it further. If you’d like to send us your feedback now, please don’t hesitate to open a ticket in the [conda](https://github.com/conda/conda/issues/new/choose) and [conda-libmamba-solver](https://github.com/conda/conda-libmamba-solver/issues/new/choose) repositories on GitHub accordingly.
 
