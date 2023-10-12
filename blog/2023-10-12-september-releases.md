@@ -24,66 +24,66 @@ Conda's default solver will change to [`conda-libmamba-solver`](https://conda.gi
 
 :::
 
-You can already benefit from it _today_ by [configuring your conda installation to use it](https://conda.github.io/conda-libmamba-solver/getting-started/#usage) (e.g. by running `conda config --set solver libmamba`).
+You can already benefit from `conda-libmamba-solver` _today_ by [configuring your conda installation to use it](https://conda.github.io/conda-libmamba-solver/getting-started/#usage) (e.g. by running `conda config --set solver libmamba`).
 
 The current "classic" solver is based on [pycosat](https://github.com/conda/pycosat)/[Picosat](http://fmv.jku.at/picosat/) and will remain part of conda for the foreseeable future. A fallback is possible and available.
 
-For additional details on this change see the full announcement [here](https://github.com/conda/conda/blob/main/CHANGELOG.md#2390-2023-09-27).
+Additional details on this change as well as the full announcement can be found in the [conda 23.9.0 changelog](https://github.com/conda/conda/blob/main/CHANGELOG.md#2390-2023-09-27).
 
 <!-- truncate -->
 
 ### ✨ What's New? ✨
 
-* Add a new "auth handler" plugin hook for conda. See the new [`conda-auth`](https://github.com/conda-incubator/conda-auth) plugin for an example.
-* Lock index cache metadata by default. Added `--no-lock` option in case of problems, should not be necessary.
-* Add `context.register_envs` option to control whether to register environments in `~/.conda/environments.txt` when they are created. Defaults to true.
-* Inject a new detailed output verbosity level (i.e., the old debug level `-vv` is now `-vvv`).
-* Add support for `truststore` to the `ssl_verify` config option, enabling conda to use the operating system certificate store (requires Python 3.10 or later).
-* Add support for `emscripten-wasm32` and `wasi-wasm32` platforms.
+* A new "auth handler" plugin hook has been added for conda. See the new [`conda-auth`](https://github.com/conda-incubator/conda-auth) plugin for an example.
+* Index cache metadata is locked by default; a `--no-lock` option is also now available.
+* A new`context.register_envs` option can control whether to register environments in `~/.conda/environments.txt` when they are created. Defaults to true.
+* New detailed output verbosity level (i.e., the old debug level `-vv` is now `-vvv`).
+* Support for `truststore` to the `ssl_verify` config option has been added, enabling conda to use the operating system certificate store (requires Python 3.10 or later).
+* `emscripten-wasm32` and `wasi-wasm32` platforms are now supported.
 
 ### 🔧 What Got Fixed? 🔧
 
-* When using pip dependencies with `conda env create`, check the directory permissions before writing to disk.
-* Hide `InsecureRequestWarning` for JLAP when `CONDA_SSL_VERIFY=false`, matching non-JLAP behavior.
-* Disallow ability to create a conda environment with a colon in the prefix.
-* Fix `AttributeError` logging response with nonexistent request when using JLAP with `file:///` URIs.
-* Do not show progress bars in non-interactive runs for cleaner logs.
-* Default `--json` and `--debug` to `NULL` so as to not override `CONDA_JSON` and `CONDA_DEBUG` environment variables.
-* Fix `conda remove --all --json` output.
-* Update test data to stop triggering security scanners' false-positives.
-* Fix performance regression of basic commands (e.g., `conda info`) on WSL.
-* Configure conda to ignore "Retry-After" header to avoid the scenarios when this value is very large and causes conda to hang indefinitely.
-* Treat `JSONDecodeError` on `repodata.info.json` as a warning, equivalent to a missing `repodata.info.json`.
-* Fix sorting error for `conda config --show-sources --json`.
-* Catch `OSError` in `find_commands` to account for incorrect `PATH` entries on Windows.
+* `conda env create` checks the directory permissions when using pip dependencies before writing to disk.
+* `InsecureRequestWarning` for JLAP is hidden when `CONDA_SSL_VERIFY=false`, matching non-JLAP behavior.
+* The ability to create a conda environment with a colon in the prefix is no longer allowed.
+* `AttributeError` logging response with nonexistent request has been fixed when using JLAP with `file:///` URIs.
+* For cleaner logs, progress bars no longer show up in non-interactive runs.
+* `--json` and `--debug` default to `NULL` so as to not override `CONDA_JSON` and `CONDA_DEBUG` environment variables.
+* Fixed `conda remove --all --json` output.
+* Test data has been updated to stop triggering security scanners' false-positives.
+* No more performance regression of basic commands (e.g., `conda info`) on WSL.
+* Conda is now configured to ignore "Retry-After" header to avoid the scenarios when this value is very large and causes conda to hang indefinitely.
+* `JSONDecodeError` on `repodata.info.json` is treated as a warning, equivalent to a missing `repodata.info.json`.
+* Fixed sorting error for `conda config --show-sources --json`.
+* `OSError` in `find_commands` is now detected to account for incorrect `PATH` entries on Windows.
 * `conda env update --prune` uses only the specs coming from `environment.yml` file and ignores the history specs.
 
 ### 🌅 What's Marked for [Deprecation](https://github.com/conda-incubator/ceps/blob/main/cep-9.md)? 🌅
 
-This is the first release of conda removing code previously marked as deprecated per the [deprecation schedule](https://github.com/conda-incubator/ceps/blob/main/cep-9.md). The following was removed:
+This is the first release of conda removing code previously marked as deprecated per the [deprecation schedule](https://github.com/conda-incubator/ceps/blob/main/cep-9.md). The following is a list of what was removed:
 
-* Removed `conda.another_unicode()`.
-* Removed `conda._vendor.toolz`.
-* Removed `conda._vendor.tqdm`.
-* Removed `conda.auxlib.decorators.memoized` decorator.
-* Removed `conda.base.context.Context.experimental_solver`.
-* Removed `conda.base.context.Context.conda_private`.
-* Removed `conda.base.context.Context.cuda_version`.
-* Removed `conda.base.context.get_prefix()`.
-* Removed `conda.cli.common.ensure_name_or_prefix()`.
-* Removed `--experimental-solver` command line option.
-* Removed `conda.common.cuda` module.
-* Removed `conda.common.path.explode_directories(already_split)`.
-* Removed `conda.common.url.escape_channel_url()`.
-* Removed `conda.core.index.check_whitelist()`.
-* Removed `conda.core.solve._get_solver_class()`.
-* Removed `conda.core.subdir_data.read_mod_and_etag()`.
-* Removed `conda.gateways.repodata.RepodataState.load()`.
-* Removed `conda.gateways.repodata.RepodataState.save()`.
-* Removed `conda.lock` module.
-* Removed `conda_env.cli.common.stdout_json()`.
-* Removed `conda_env.cli.common.get_prefix()`.
-* Removed `conda_env.cli.common.find_prefix_name()`.
+* `conda.another_unicode()`
+* `conda._vendor.toolz`
+* `conda._vendor.tqdm`
+* `conda.auxlib.decorators.memoized`
+* `conda.base.context.Context.experimental_solver`
+* `conda.base.context.Context.conda_private`
+* `conda.base.context.Context.cuda_version`
+* `conda.base.context.get_prefix()`
+* `conda.cli.common.ensure_name_or_prefix()`
+* `--experimental-solver`
+* `conda.common.cuda`
+* `conda.common.path.explode_directories(already_split)`
+* `conda.common.url.escape_channel_url()`
+* `conda.core.index.check_whitelist()`
+* `conda.core.solve._get_solver_class()`
+* `conda.core.subdir_data.read_mod_and_etag()`
+* `conda.gateways.repodata.RepodataState.load()`
+* `conda.gateways.repodata.RepodataState.save()`
+* `conda.lock`
+* `conda_env.cli.common.stdout_json()`
+* `conda_env.cli.common.get_prefix()`
+* `conda_env.cli.common.find_prefix_name()`
 
 * * *
 
@@ -96,18 +96,18 @@ conda install -n base conda-build=3.27.0
 
 ### ✨ What's New? ✨
 
-* Remove `glob2` dependency.
-* Add support for `emscripten-wasm32` and `wasi-wasm32` platforms.
+* Removed `glob2` dependency.
+* `emscripten-wasm32` and `wasi-wasm32` platforms are now supported.
 
 ### 🔧 What Got Fixed? 🔧
 
-* Delay imports in conda command plugin until the command is used, avoiding import-time side effects.
+* Imports in conda command plugins are delayed until the command is used, avoiding import-time side effects.
 
 ### 📄 What's New in Documentation? 📄
 
-* Document `~=` (compatibility release) match spec.
-* Clarify that the `build` prefix is activated _after_ the `host` prefix.
-* Add explanation that conda-build should be run from the base environment.
+* Improved formatting of `~=` (compatibility release) match spec.
+* Docs now clarify that the `build` prefix is activated _after_ the `host` prefix.
+* An explanation has been added stating that conda-build should be run from the base environment.
 
 * * *
 
@@ -120,28 +120,28 @@ conda install -n base conda-libmamba-solver=23.9.1
 
 ### ✨ What's New? ✨
 
-* Increase performance of `notify_conda_outdated` logic.
-* Expose libmamba's `repoquery` search features as a conda subcommand plugin.
-* Rewrite how we create tasks for `libsolv`, making use of `libmamba`'s `add_pin` features. Requires `libmambapy >=1.5.1`.
-* Name-only pins will lock the corresponding package if installed.
-* Use the `.solv` cache for repodata if available and recent.
+* Increased performance of `notify_conda_outdated` logic.
+* Libmamba's `repoquery` search features are now exposed as a conda subcommand plugin.
+* How tasks for `libsolv` are created has been rewritten, making use of `libmamba`'s `add_pin` features (requires `libmambapy >=1.5.1`).
+* Name-only pins now lock the corresponding package if installed.
+* The `.solv` cache for repodata is used if available and recent.
 
 ### 🔧 What Got Fixed? 🔧
 
-* Prevent solver from bouncing between two compatible solutions when the same command is run twice in a row.
-* Handle commands with no channels passed gracefully.
-* Workaround for missing `noarch` field in returned `PackageRecord` payload.
-* Fixes a bug where the `--prune` flag was not working correctly in `conda env update` commands.
-* Ensure environments are not aggressively updated to higher priority channels under some conditions.
-* Do not inject those channels from installed packages that do not exist or are unavailable.
-* Correctly print all configured channels in `PackagesNotFoundError` exceptions.
-* Do not crash if a `MatchSpec` with a build string is specified in the CLI and there's a pinned spec for the same package name.
-* Only apply `defaults::pkg` workarounds for the default value `default_channels`.
+* The solver no longer bounces between two compatible solutions when the same command is run twice in a row.
+* Commands with no channels passed are handled gracefully.
+* Workaround added for missing `noarch` field in returned `PackageRecord` payload.
+* A bug where the `--prune` flag was not working correctly in `conda env update` commands has been fixed.
+* Environments are no longer aggressively updated to higher priority channels under certain conditions.
+* No more injection of channels from installed packages that do not exist or are unavailable.
+* All configured channels in `PackagesNotFoundError` exceptions print correctly.
+* No more crashes when a `MatchSpec` with a build string is specified in the CLI and there's a pinned spec for the same package name.
+* `defaults::pkg` workarounds are only applied for the default value `default_channels`.
 * Users won't be able to override pinned specs with incompatible CLI specs anymore. Instead they must modify their pinned specs explicitly.
 
 ### 📄 What's New in Documentation? 📄
 
-* Document intentional deviations from conda's `classic` solver behavior.
+* Intentional deviations from conda's `classic` solver behavior are now documented.
 
 * * *
 
@@ -154,9 +154,9 @@ conda install -n base conda-index=0.3.0
 
 ### ✨ What's New? ✨
 
-* Add `--run-exports` to generate CEP-12 compliant `run_exports.json` documents for each subdir.
-* Don't pretty-print `repodata.json` by default, saving time and space.
-* Require conda >= 4.14.
+* `--run-exports` has been added to generate CEP-12 compliant `run_exports.json` documents for each `subdir`.
+* Pretty-print `repodata.json` is no longer default, saving time and space.
+* Version requirement: `conda >= 4.14`.
 
 * * * 
 
@@ -170,16 +170,17 @@ conda install -n base pycosat=0.6.6
 ### ✨ What's New? ✨
 
 * Pycosat 0.6.4 accidentally did not include the changes intended to be released. Pycosat 0.6.5 includes those changes.
-* Use `PyMem_Calloc()` to initialize memory to `0`.
+* `PyMem_Calloc()` is utilized in order to initialize memory to `0`.
 
 * * *
 
 ### We ❤️ Our Community
 
-Altogether we had 10 (!) new contributors this release cycle; thank you to all of our open source community members for helping making these improvements possible.
+Altogether we had 11 (!) new contributors this release cycle; thank you to all of our open source community members for helping making these improvements possible.
 
 * [@boldorider4](https://github.com/boldorider4) made their first contribution in [conda-build#4960](https://github.com/conda/conda-build/pull/4960)
 * [@DaveKaretnyk](https://github.com/DaveKaretnyk) made their first contribution in [conda-build#5004](https://github.com/conda/conda-build/pull/5004)
+* [@dholth](https://github.com/dholth) made their first contribution in [pycosat#54](https://github.com/conda/pycosat/pull/54)
 * [@jmcarpenter2](https://github.com/jmcarpenter2) made their first contribution in [conda#13034](https://github.com/conda/conda/pull/13034)
 * [@Mon-ius](https://github.com/Mon-ius) made their first contribution in [conda#12811](https://github.com/conda/conda/pull/12811)
 * [@otaithleigh](https://github.com/otaithleigh) made their first contribution in [conda#13035](https://github.com/conda/conda/pull/13035)
