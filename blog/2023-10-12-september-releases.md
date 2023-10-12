@@ -2,7 +2,7 @@
 title: "September 2023 Releases"
 slug: "2023-10-12-september-releases"
 description: |
-    Conda 23.9.0, conda-build 3.27.0, conda-libmamba-solver 23.9.1, conda-index 0.3.0, and pycosat 0.6.6 have been released! 🎉
+    Conda 23.9.0, conda-build 3.27.0, conda-libmamba-solver 23.9.0/23.9.1, conda-index 0.3.0, and pycosat 0.6.5/0.6.6 have been released! 🎉
 authors: [kenodegard]
 tags: [announcement, conda, conda-build, conda-libmamba-solver, conda-index, pycosat]
 ---
@@ -35,6 +35,7 @@ For additional details on this change see the full announcement [here](https://g
 * Add `context.register_envs` option to control whether to register environments in `~/.conda/environments.txt` when they are created. Defaults to true.
 * Inject a new detailed output verbosity level (i.e., the old debug level `-vv` is now `-vvv`).
 * Add support for `truststore` to the `ssl_verify` config option, enabling conda to use the operating system certificate store (requires Python 3.10 or later).
+* Add support for `emscripten-wasm32` and `wasi-wasm32` platforms.
 
 ### 🔧 What Got Fixed? 🔧
 
@@ -91,26 +92,97 @@ conda install -n base conda-build=3.27.0
 
 ### ✨ What's New? ✨
 
-
+* Remove `glob2` dependency.
+* Add support for `emscripten-wasm32` and `wasi-wasm32` platforms.
 
 ### 🔧 What Got Fixed? 🔧
 
-
+* Delay imports in conda command plugin until the command is used, avoiding import-time side effects.
 
 ### 📄 What's New in Documentation? 📄
 
+* Document `~=` (compatibility release) match spec.
+* Clarify that the `build` prefix is activated _after_ the `host` prefix.
+* Add explanation that conda-build should be run from the base environment.
 
+* * *
 
-### 🌅 What's Marked for [Deprecation](https://github.com/conda-incubator/ceps/blob/main/cep-9.md)? 🌅
+## Changes in Conda-Libmamba-Solver [23.9.0](https://github.com/conda/conda-libmamba-solver/releases/tag/23.9.0)/[23.9.1](https://github.com/conda/conda-libmamba-solver/releases/tag/23.9.1)
 
+To update conda-libmamba-solver, run:
+```bash
+conda install -n base conda-libmamba-solver=23.9.1
+```
 
+### ✨ What's New? ✨
+
+* Increase performance of `notify_conda_outdated` logic.
+* Expose libmamba's `repoquery` search features as a conda subcommand plugin.
+* Rewrite how we create tasks for `libsolv`, making use of `libmamba`'s `add_pin` features. Requires `libmambapy >=1.5.1`.
+* Name-only pins will lock the corresponding package if installed.
+* Use the `.solv` cache for repodata if available and recent.
+
+### 🔧 What Got Fixed? 🔧
+
+* Prevent solver from bouncing between two compatible solutions when the same command is run twice in a row.
+* Handle commands with no channels passed gracefully.
+* Workaround for missing `noarch` field in returned `PackageRecord` payload.
+* Fixes a bug where the `--prune` flag was not working correctly in `conda env update` commands.
+* Ensure environments are not aggressively updated to higher priority channels under some conditions.
+* Do not inject those channels from installed packages that do not exist or are unavailable.
+* Correctly print all configured channels in `PackagesNotFoundError` exceptions.
+* Do not crash if a `MatchSpec` with a build string is specified in the CLI and there's a pinned spec for the same package name.
+* Only apply `defaults::pkg` workarounds for the default value `default_channels`.
+* Users won't be able to override pinned specs with incompatible CLI specs anymore. Instead they must modify their pinned specs explicitly.
+
+### 📄 What's New in Documentation? 📄
+
+* Document intentional deviations from conda's `classic` solver behavior.
+
+* * *
+
+## Changes in Conda-Index [0.3.0](https://github.com/conda/conda-index/releases/tag/0.3.0)
+
+To update conda-index, run:
+```bash
+conda install -n base conda-index=0.3.0
+```
+
+### ✨ What's New? ✨
+
+* Add `--run-exports` to generate CEP-12 compliant `run_exports.json` documents for each subdir.
+* Don't pretty-print `repodata.json` by default, saving time and space.
+* Require conda >= 4.14.
 
 * * * 
 
+## Changes in Pycosat [0.6.5](https://github.com/conda/pycosat/releases/tag/0.6.5)/[0.6.6](https://github.com/conda/pycosat/releases/tag/0.6.6)
+
+To update conda-index, run:
+```bash
+conda install -n base pycosat=0.6.6
+```
+
+### ✨ What's New? ✨
+
+* Pycosat 0.6.4 accidentally did not include the changes intended to be released. Pycosat 0.6.5 includes those changes.
+* Use `PyMem_Calloc()` to initialize memory to `0`.
+
+* * *
+
 ### We ❤️ Our Community
 
-Altogether we had 10 (!) new contributors to the conda and conda-build repositories this release cycle; thank you to all of our open source community members for helping make the new versions of conda and conda-build so great.
+Altogether we had 10 (!) new contributors this release cycle; thank you to all of our open source community members for helping making these improvements possible.
 
-
+* @boldorider4 made their first contribution in [conda-build#4960](https://github.com/conda/conda-build/pull/4960)
+* @DaveKaretnyk made their first contribution in [conda-build#5004](https://github.com/conda/conda-build/pull/5004)
+* @jmcarpenter2 made their first contribution in [conda#13034](https://github.com/conda/conda/pull/13034)
+* @Mon-ius made their first contribution in [conda#12811](https://github.com/conda/conda/pull/12811)
+* @otaithleigh made their first contribution in [conda#13035](https://github.com/conda/conda/pull/13035)
+* @psteyer made their first contribution in [conda#11610](https://github.com/conda/conda/pull/11610)
+* @scdub made their first contribution in [conda-build#4965](https://github.com/conda/conda-build/pull/4965)
+* @tarcisioe made their first contribution in [conda#9614](https://github.com/conda/conda/pull/9614)
+* @wolfv made their first contribution in [conda#13095](https://github.com/conda/conda/pull/13095) and [conda-build#4813](https://github.com/conda/conda-build/pull/4813)
+* @zeehio made their first contribution in [conda#13075](https://github.com/conda/conda/pull/13075)
 
 If you have ideas or want to help improve any of the conda community projects, we love to see new (and returning) contributors! 😄
