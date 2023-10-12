@@ -18,7 +18,11 @@ conda install -n base conda=23.9.0
 
 ### 📢 Special Announcement 📢
 
-> Conda's default solver will change to [`conda-libmamba-solver`](https://conda.github.io/conda-libmamba-solver/) in a __special 23.10.0 release__ in the near future!
+:::info
+
+Conda's default solver will change to [`conda-libmamba-solver`](https://conda.github.io/conda-libmamba-solver/) in a __special 23.10.0 release__ in the near future!
+
+:::
 
 You can already benefit from it _today_ by [configuring your conda installation to use it](https://conda.github.io/conda-libmamba-solver/getting-started/#usage) (e.g. by running `conda config --set solver libmamba`).
 
