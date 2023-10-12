@@ -178,15 +178,15 @@ conda install -n base pycosat=0.6.6
 
 Altogether we had 10 (!) new contributors this release cycle; thank you to all of our open source community members for helping making these improvements possible.
 
-* @boldorider4 made their first contribution in [conda-build#4960](https://github.com/conda/conda-build/pull/4960)
-* @DaveKaretnyk made their first contribution in [conda-build#5004](https://github.com/conda/conda-build/pull/5004)
-* @jmcarpenter2 made their first contribution in [conda#13034](https://github.com/conda/conda/pull/13034)
-* @Mon-ius made their first contribution in [conda#12811](https://github.com/conda/conda/pull/12811)
-* @otaithleigh made their first contribution in [conda#13035](https://github.com/conda/conda/pull/13035)
-* @psteyer made their first contribution in [conda#11610](https://github.com/conda/conda/pull/11610)
-* @scdub made their first contribution in [conda-build#4965](https://github.com/conda/conda-build/pull/4965)
-* @tarcisioe made their first contribution in [conda#9614](https://github.com/conda/conda/pull/9614)
-* @wolfv made their first contribution in [conda#13095](https://github.com/conda/conda/pull/13095) and [conda-build#4813](https://github.com/conda/conda-build/pull/4813)
-* @zeehio made their first contribution in [conda#13075](https://github.com/conda/conda/pull/13075)
+* [@boldorider4](https://github.com/boldorider4) made their first contribution in [conda-build#4960](https://github.com/conda/conda-build/pull/4960)
+* [@DaveKaretnyk](https://github.com/DaveKaretnyk) made their first contribution in [conda-build#5004](https://github.com/conda/conda-build/pull/5004)
+* [@jmcarpenter2](https://github.com/jmcarpenter2) made their first contribution in [conda#13034](https://github.com/conda/conda/pull/13034)
+* [@Mon-ius](https://github.com/Mon-ius) made their first contribution in [conda#12811](https://github.com/conda/conda/pull/12811)
+* [@otaithleigh](https://github.com/otaithleigh) made their first contribution in [conda#13035](https://github.com/conda/conda/pull/13035)
+* [@psteyer](https://github.com/psteyer) made their first contribution in [conda#11610](https://github.com/conda/conda/pull/11610)
+* [@scdub](https://github.com/scdub) made their first contribution in [conda-build#4965](https://github.com/conda/conda-build/pull/4965)
+* [@tarcisioe](https://github.com/tarcisioe) made their first contribution in [conda#9614](https://github.com/conda/conda/pull/9614)
+* [@wolfv](https://github.com/wolfv) made their first contribution in [conda#13095](https://github.com/conda/conda/pull/13095) and [conda-build#4813](https://github.com/conda/conda-build/pull/4813)
+* [@zeehio](https://github.com/zeehio) made their first contribution in [conda#13075](https://github.com/conda/conda/pull/13075)
 
 If you have ideas or want to help improve any of the conda community projects, we love to see new (and returning) contributors! 😄
