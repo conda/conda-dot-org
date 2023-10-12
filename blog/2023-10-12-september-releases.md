@@ -36,7 +36,7 @@ Additional details on this change as well as the full announcement can be found 
 
 * A new "auth handler" plugin hook has been added for conda. See the new [`conda-auth`](https://github.com/conda-incubator/conda-auth) plugin for an example.
 * Index cache metadata is locked by default; a `--no-lock` option is also now available.
-* A new`context.register_envs` option can control whether to register environments in `~/.conda/environments.txt` when they are created. Defaults to true.
+* A new `context.register_envs` option can control whether to register environments in `~/.conda/environments.txt` when they are created. Defaults to true.
 * New detailed output verbosity level (i.e., the old debug level `-vv` is now `-vvv`).
 * Support for `truststore` to the `ssl_verify` config option has been added, enabling conda to use the operating system certificate store (requires Python 3.10 or later).
 * `emscripten-wasm32` and `wasi-wasm32` platforms are now supported.
@@ -137,7 +137,7 @@ conda install -n base conda-libmamba-solver=23.9.1
 * All configured channels in `PackagesNotFoundError` exceptions print correctly.
 * No more crashes when a `MatchSpec` with a build string is specified in the CLI and there's a pinned spec for the same package name.
 * `defaults::pkg` workarounds are only applied for the default value `default_channels`.
-* Users won't be able to override pinned specs with incompatible CLI specs anymore. Instead they must modify their pinned specs explicitly.
+* Users won't be able to override pinned specs with incompatible CLI specs anymore. Instead, they must modify their pinned specs explicitly.
 
 ### 📄 What's New in Documentation? 📄
 
@@ -176,7 +176,7 @@ conda install -n base pycosat=0.6.6
 
 ### We ❤️ Our Community
 
-Altogether we had 11 (!) new contributors this release cycle; thank you to all of our open source community members for helping making these improvements possible.
+Altogether, we had 11 (!) new contributors this release cycle; thank you to all of our open source community members for helping making these improvements possible.
 
 * [@boldorider4](https://github.com/boldorider4) made their first contribution in [conda-build#4960](https://github.com/conda/conda-build/pull/4960)
 * [@DaveKaretnyk](https://github.com/DaveKaretnyk) made their first contribution in [conda-build#5004](https://github.com/conda/conda-build/pull/5004)
