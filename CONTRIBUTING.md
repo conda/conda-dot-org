@@ -25,7 +25,7 @@ for two kinds of contributors:
 - **Content contributors**
     - Contributors writing content for the website, which can include news and blog posts.
 - **Technical contributors**
-    - Contributors writing HTML, CSS, or Javascript for the website that modifies the way 
+    - Contributors writing HTML, CSS, or Javascript for the website that modifies the way
       it looks or behaves.
 
 In this guide, we start off by explaining contribution steps that apply
@@ -42,14 +42,14 @@ existing content:
 
 ## Documentation tools
 
-[conda.org][conda-dot-org] is built with [Docusaurus 2][docusaurus], a modern static website generator that 
-uses a friendly Markdown format to create the website copy. If you are not familiar with 
+[conda.org][conda-dot-org] is built with [Docusaurus 2][docusaurus], a modern static website generator that
+uses a friendly Markdown format to create the website copy. If you are not familiar with
 Markdown, check out the [Markdown Guide project][markdown-guide].
 
 ## Working on issues
 
-The conda.org project has an [issue board][issue-board] from which contributors 
-can choose issues. If there is an aspect of the website that you feel needs work, please 
+The conda.org project has an [issue board][issue-board] from which contributors
+can choose issues. If there is an aspect of the website that you feel needs work, please
 create a new issue using the **Add item** button at the bottom of the appropriate column.
 
 For new contributors, please look for issues which have the https://github.com/conda-incubator/conda-dot-org/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22
@@ -78,15 +78,15 @@ a very useful tool, especially for contributors utilizing Windows machines for d
 
 #### 1. Creating a fork
 
-The very first step to contributing is creating your own fork of the 
-[conda-dot-org repository][conda-dot-org-repo]. If you have never done this before, 
-we strongly encourage you to read the 
+The very first step to contributing is creating your own fork of the
+[conda-dot-org repository][conda-dot-org-repo]. If you have never done this before,
+we strongly encourage you to read the
 [Fork a repo][github-forking-how-to] guide from GitHub first.
 
 #### 2. Clone your repository
 
-After you have created your fork, you are ready to clone this repository to your 
-local computer, where you can begin making edits. The commands for doing so will 
+After you have created your fork, you are ready to clone this repository to your
+local computer, where you can begin making edits. The commands for doing so will
 be different depending on your user name, but a typical example is shown below:
 
 ```
@@ -134,19 +134,19 @@ $ git checkout -b 112-home-page-improvements
 
 #### 4. Making edits and committing your changes
 
-Running the clone command (see step two) creates a copy of the repo in your file system. 
-You can then use a code editor of your choice (such as [VSCode][vscode-download], 
+Running the clone command (see step two) creates a copy of the repo in your file system.
+You can then use a code editor of your choice (such as [VSCode][vscode-download],
 [SublimeText][sublimetext-download], or [Atom][atom-download]) to make changes to the files.
 
-As you're working, you can view your changes locally using the instructions in the 
+As you're working, you can view your changes locally using the instructions in the
 [Setting up a local version of the site](#setting-up-a-local-version-of-the-site) section.
 
-Once you have made the necessary edits, you can commit these edits by running the 
-following commands. Here, we assume that I have added a new file called "article.md" 
+Once you have made the necessary edits, you can commit these edits by running the
+following commands. Here, we assume that I have added a new file called "article.md"
 to the repository:
 
 ```
-$ git add article.md 
+$ git add article.md
 $ git commit -m "adding my new article"
 ```
 
@@ -154,7 +154,7 @@ $ git commit -m "adding my new article"
 
 Once that runs, you can "push" these changes to GitHub.
 
-The first time you push your changes, you will need to specify your upstream branch 
+The first time you push your changes, you will need to specify your upstream branch
 by running the following command:
 
 ```
@@ -163,8 +163,8 @@ git push --set-upstream origin my-new-contribution
 > **Note**
 > Any further push commands will only need to be `git push`.
 
-The output of your first push command always includes a link you can use to open a 
-pull request. Click this link to open a pull request against the main 
+The output of your first push command always includes a link you can use to open a
+pull request. Click this link to open a pull request against the main
 branch in the conda-dot-org repository. On the pull request creation form, always
 be sure that the "base" branch is the "main" branch for conda-dot-org.
 
@@ -177,7 +177,7 @@ only to push any more changes).
 
 The above steps are great for adding your changes to git and submitting them for review,
 but what if you want to preview exactly what your changes will look like on the website?
-The answer to this involves running a local version of the website that automatically 
+The answer to this involves running a local version of the website that automatically
 updates as you change and add files on your computer. Below, we will walk through the
 steps necessary to do just that.
 
@@ -186,8 +186,8 @@ steps necessary to do just that.
 - npm: [installation link][installing-npm]
 
 NPM (Node Package Manager) is a program used for installing Javascript dependencies on your
-computer. To follow this guide, it is not necessary that you know Javascript, but you will 
-need to be comfortable with running a couple different commands in your command line 
+computer. To follow this guide, it is not necessary that you know Javascript, but you will
+need to be comfortable with running a couple different commands in your command line
 interface (CLI) that will install these dependencies and then run the server locally.
 
 > **Note**
@@ -195,7 +195,7 @@ interface (CLI) that will install these dependencies and then run the server loc
 
 ### Installing NPM dependencies
 
-Provided that you have already forked and cloned the repository (see above), the first step 
+Provided that you have already forked and cloned the repository (see above), the first step
 is installing all the necessary dependencies.
 
 If you aren't in the conda-dot-org repository folder, use the `cd` command to change your directory.
@@ -207,7 +207,7 @@ cd conda-dot-org
 Then, use the following command to install your dependencies:
 
 ```
-npm install 
+npm install
 ```
 
 After this command finishes, you can run the following command to get the website running
@@ -219,17 +219,17 @@ npm run start
 
 That's it! Every time you make edits, the website will dynamically reload, showing your
 new updates/additions. See something that doesn't quite look right or is not showing
-up how you expect? Be sure to check the error log in the terminal for any information 
+up how you expect? Be sure to check the error log in the terminal for any information
 that can help you.
 
 ## Content contributors
 
 ### Creating a blog post
 
-Blog posts must be created in the `blog` directory with a file naming convention 
-of `YYYY-MM-DD-title.md`. 
+Blog posts must be created in the `blog` directory with a file naming convention
+of `YYYY-MM-DD-title.md`.
 
-Let's say you're announcing a cool new project you've recently released. Your file would be 
+Let's say you're announcing a cool new project you've recently released. Your file would be
 named something like `2023-04-22-cool-project-v1-release.md`.
 
 conda.org blog posts support the following metadata:
@@ -243,7 +243,7 @@ tags: Tags to group your blog with others and enable better filtering and browsi
 image: Cover or thumbnail image for your blog display.
 ```
 
-Consider the following "Cool Project" example. Its file will begin with the following metadata, set off 
+Consider the following "Cool Project" example. Its file will begin with the following metadata, set off
 with three dashes, followed by the actual blog text.
 
 ```
@@ -266,7 +266,7 @@ The project contains the following cool things:
 ...
 ```
 
-See [the Docusaurus blog frontmatter documentation](docusaurus-blog-docs) for more information 
+See [the Docusaurus blog frontmatter documentation](docusaurus-blog-docs) for more information
 on your blog creation options.
 
 #### Storing and using images

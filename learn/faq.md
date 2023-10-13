@@ -43,7 +43,7 @@ We hope this guidance helps you get started with conda smoothly.
 
 ## Can I use conda to manage non-Python packages?
 
-Yes, conda can be used to manage non-Python packages. While conda is widely known for its capabilities in managing Python packages, it is not limited to Python alone. Conda supports package management for multiple programming languages, including R, Java, C/C++, and more. It allows you to install, manage, and update packages from different languages, ensuring consistent package installations and dependencies across your projects. 
+Yes, conda can be used to manage non-Python packages. While conda is widely known for its capabilities in managing Python packages, it is not limited to Python alone. Conda supports package management for multiple programming languages, including R, Java, C/C++, and more. It allows you to install, manage, and update packages from different languages, ensuring consistent package installations and dependencies across your projects.
 
 To install a non-Python package, you can use the following command:
 
@@ -157,7 +157,7 @@ conda env export > environment.yml
 
 This command exports the environment to an `environment.yml` file.
 
-2. **Sharing the environment file:** Once you have the `environment.yml` file, you can share it with others through various means, such as email, file sharing services, or version control systems like Git. 
+2. **Sharing the environment file:** Once you have the `environment.yml` file, you can share it with others through various means, such as email, file sharing services, or version control systems like Git.
 
 The `environment.yml` file contains information about the dependencies required for the environment, including packages, versions, and channels. Make sure to communicate any specific instructions or requirements related to the environment, such as additional dependencies or channels.
 3. **Creating the environment from the file:** To create an identical environment on another machine, the other person can use the following command in their terminal or command prompt:
@@ -199,7 +199,7 @@ or
 
 ```
 mamba config --add channels <channel-name>
-``` 
+```
 
 before creating the environment from the YAML file.
 
@@ -266,4 +266,3 @@ Please create an [issue](https://github.com/conda-incubator/conda-dot-org/issues
 If you need help with any aspect of the conda ecosystem, feel free to reach out to us via any of our online channels.
 
 For more information, read [How to reach us](/community/#how-to-reach-us) on the [Community](/community) page.
- 

@@ -33,11 +33,11 @@ Until now there was no way to learn of these missing files except manually check
 
 ## How Does It Work?
 
-Every conda environment has a `conda-meta` directory associated with it, which keeps a log of all the packages (and all the files in them) ever installed into that environment. 
-`conda doctor` parses these metadata files, checks for the existence of each of the listed files, and reports the missing ones. 
-This is extremely helpful, as it is otherwise very difficult to know that a package has missing files and to detect these missing files in the package. 
+Every conda environment has a `conda-meta` directory associated with it, which keeps a log of all the packages (and all the files in them) ever installed into that environment.
+`conda doctor` parses these metadata files, checks for the existence of each of the listed files, and reports the missing ones.
+This is extremely helpful, as it is otherwise very difficult to know that a package has missing files and to detect these missing files in the package.
 
-## The Plugin Mechanism 
+## The Plugin Mechanism
 
 `conda doctor` is implemented using conda’s new [plugins mechanism](https://www.anaconda.com/blog/introducing-a-new-plugin-mechanism-for-conda/), utilizing the "subcommand plugin hook", and comes bundled with conda itself.
 
@@ -46,10 +46,10 @@ Often the issues that conda users run into are issues in their conda environment
 ## A Nine Year Old Issue
 
 What’s interesting is that [this feature was requested by Peter Wang](https://github.com/conda/conda/issues/474), the CEO of Anaconda, nine years ago in the early days of conda. A number of features requested via this `conda doctor` issue back then ended up being implemented elsewhere in conda over the years.
-`conda doctor` was eventually boiled down to “a command that will diagnose the health of the environment and report inconsistencies to the user”. 
+`conda doctor` was eventually boiled down to “a command that will diagnose the health of the environment and report inconsistencies to the user”.
 
 ## Health Checks
 
-We designed the `conda doctor` functionality to have various “health checks” for the user’s environment. The first health check implemented and made available to users in this release is “detect missing files in packages”. More health checks will be made available in `conda doctor` in future releases. 
+We designed the `conda doctor` functionality to have various “health checks” for the user’s environment. The first health check implemented and made available to users in this release is “detect missing files in packages”. More health checks will be made available in `conda doctor` in future releases.
 
 Go check out the new `conda doctor` command and let us know of any “health checks” you would like `conda doctor` to have that would improve your conda experience. You can do so by opening a feature request on the [conda GitHub repository](https://github.com/conda/conda).

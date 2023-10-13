@@ -119,7 +119,7 @@ The following bug fixes were implemented in conda-build 3.26.0:
 * [Module-based invocations (e.g., `python -m conda_build.cli.main_build`)](https://github.com/conda/conda-build/pull/4921)
 
 
-* * * 
+* * *
 
 ### We ❤️ Our Community
 

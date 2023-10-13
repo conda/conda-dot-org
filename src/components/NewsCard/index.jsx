@@ -9,11 +9,11 @@ import CondaCSVG from '@site/static/img/conda_c.svg';
 export default function NewsCard(props) {
   const url = `/blog/${props.slug}`;
   let image = "";
-  
+
   if (props.imageUrl) {
     image = (
     <div>
-      <Image img={props.imageUrl} alt={`Banner image for ${props.title}`} className={styles.news_card_image} /> 
+      <Image img={props.imageUrl} alt={`Banner image for ${props.title}`} className={styles.news_card_image} />
       <hr style={{backgroundColor: "var(--ifm-color-secondary-lightest"}} />
     </div>)
   } else if (props.index === 0) {
@@ -41,7 +41,7 @@ export default function NewsCard(props) {
           </h4>
           <p>{props.description}</p>
         </div>
-        <a 
+        <a
           href={url}
           style={{fontWeight: (props.first ? "bold" : "normal")}}
           className={styles.read_full_blog}>

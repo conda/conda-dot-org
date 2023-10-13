@@ -8,7 +8,7 @@ export default function Header() {
       <div className={[styles.header_content, styles.header_content_image].join(' ')}>
         <h1 className={styles.gradient_text}><b>CONDA<br />COMMUNITY</b><br></br></h1>
         <p>
-          A community supporting a language-agnostic, multi-platform package 
+          A community supporting a language-agnostic, multi-platform package
           management ecosystem for projects of any size and complexity.
         </p>
         <div className={styles.header_content_input}>
