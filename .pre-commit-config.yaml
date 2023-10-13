@@ -1,0 +1,52 @@
+---
+exclude: |
+  (?x)^(
+    package-lock.json|
+    blog/news.json
+  )$
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      # standard end of line/end of file cleanup
+      - id: mixed-line-ending
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      # ensure syntaxes are valid
+      - id: check-yaml
+      - id: check-json
+      # catch git merge/rebase problems
+      - id: check-merge-conflict
+      # alphabetically sort blog/authors.yml
+      - id: sort-simple-yaml
+        files: ^blog/authors.yml$
+  - repo: https://github.com/jumanjihouse/pre-commit-hook-yamlfmt
+    rev: 0.2.3
+    hooks:
+      - id: yamlfmt
+        # ruamel.yaml doesn't line wrap correctly (?) so set width to 1M to avoid issues
+        args: [--mapping, '2', --offset, '2', --sequence, '4', --width, '1000000']
+  - repo: https://github.com/python-jsonschema/check-jsonschema
+    rev: 0.24.1
+    hooks:
+      # verify github syntaxes
+      - id: check-github-workflows
+  - repo: https://github.com/codespell-project/codespell
+    # see setup.cfg
+    rev: v2.2.4
+    hooks:
+      - id: codespell
+        args: [--write-changes]
+  - repo: local
+    hooks:
+      - id: generate-news
+        name: Regenerate news manifest
+        entry: bin/update-news
+        language: python
+        files: ^blog/
+        additional_dependencies: [ruamel.yaml]
+  - repo: meta
+    # see https://pre-commit.com/#meta-hooks
+    hooks:
+      - id: check-hooks-apply
+      - id: check-useless-excludes
