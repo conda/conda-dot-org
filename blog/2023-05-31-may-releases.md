@@ -5,8 +5,7 @@ description: |
     Conda 23.5.0, conda-build 3.25.0, and conda-libmamba-solver 23.5.0 have been released! 🎉
 authors: [beeankha]
 tags: [announcement, conda, conda-build, conda-libmamba-solver]
-image: img/blog/2023-05-31-may-releases/tada.jpg
-
+image: img/blog/generics/tada.jpg
 ---
 
 May releases are here! 🎊 Conda 23.5.0, conda-build 3.25.0, and conda-libmamba-solver 23.5.0 are now available on both main and conda-forge:
