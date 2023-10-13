@@ -1,0 +1,34 @@
+#! /usr/bin/env python
+"""
+This is a script to help us keep our "blog/authors.yml" file alphabetically sorted.
+"""
+from io import StringIO
+import pathlib
+
+import ruamel.yaml as yaml
+
+#: Directory where blog posts are located
+AUTHORS_FILE = pathlib.Path("./blog/authors.yml")
+
+
+def main():
+    # configure yaml parser
+    parser = yaml.YAML(typ="safe", pure=True)
+    parser.indent(mapping=2, offset=2, sequence=4)
+    parser.default_flow_style = False
+    parser.sort_base_mapping_type_on_output = False
+
+    # load authors file and sort
+    authors = parser.load(AUTHORS_FILE.read_text())
+    authors = {author: meta for author, meta in sorted(authors.items())}
+
+    # dump authors to string
+    stream = StringIO()
+    parser.dump(authors, stream)
+
+    # save authors file
+    AUTHORS_FILE.write_text(f"---\n{stream.getvalue()}")
+
+
+if __name__ == "__main__":
+    main()

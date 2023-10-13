@@ -45,6 +45,12 @@ repos:
         language: python
         files: ^blog/
         additional_dependencies: [ruamel.yaml]
+      - id: sort-authors
+        name: Alphabetically sort authors
+        entry: bin/sort-authors
+        language: python
+        files: ^blog/authors.yml$
+        additional_dependencies: [ruamel.yaml]
   - repo: meta
     # see https://pre-commit.com/#meta-hooks
     hooks:
