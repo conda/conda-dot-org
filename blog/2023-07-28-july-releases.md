@@ -5,7 +5,8 @@ description: |
     Conda 23.7.0, 23.7.1, 23.7.2, and conda-build 3.26.0 have been released! 🎉
 authors: [beeankha]
 tags: [announcement, conda, conda-build]
-image: img/blog/generics/rocket.jpg
+image: img/blog/2023-07-28-july-releases/rocket.jpg
+
 ---
 
 The July 2023 releases are here! 🎊 Conda 23.7.0, 23.7.1, 23.7.2, and conda-build 3.26.0 are now available on both `main` and `conda-forge` channels.
