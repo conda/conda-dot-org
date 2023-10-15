@@ -29,6 +29,11 @@ jezdez:
   title: Steering council member
   url: https://github.com/jezdez
   image_url: https://github.com/jezdez.png
+kenodegard:
+  name: Ken Odegard
+  title: Conda Maintainer
+  url: https://github.com/kenodegard
+  image_url: https://github.com/kenodegard.png
 pinak-datta:
   name: Pinak Datta
   title: Intern, Google Season of Docs
