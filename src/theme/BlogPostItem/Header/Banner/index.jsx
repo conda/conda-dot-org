@@ -5,7 +5,7 @@ import { useBlogPost } from '@docusaurus/theme-common/internal';
 export default function BlogPostItemHeaderBanner() {
   const { metadata } = useBlogPost();
   const { frontMatter } = metadata;
-  const { image, image_credit } = frontMatter;
+  const { image, image_credit, title } = frontMatter;
 
   const ImageCredit = ({ image_credit }) => (
     <p>
@@ -19,7 +19,7 @@ export default function BlogPostItemHeaderBanner() {
 
   return (
     <div>
-      {image && (<Image img={require(`@site/static/${image}`)} alt="Banner image for blog post" />)}
+      {image && (<Image img={require(`@site/static/${image}`)} alt={`Banner image for ${title} blog post`} />)}
       {image && image_credit && (<ImageCredit image_credit={image_credit} />)}
     </div>
   );

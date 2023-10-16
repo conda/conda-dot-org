@@ -3,24 +3,17 @@ import styles from './styles.module.css';
 import Image from '@theme/IdealImage';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendar } from '@fortawesome/free-regular-svg-icons'
-import CondaCSVG from '@site/static/img/conda_c.svg';
+import Link from '@docusaurus/Link';
 
-
-export default function NewsCard(props) {
-  const url = `/blog/${props.slug}`;
-  let image = "";
-  
-  if (props.imageUrl) {
-    image = (
-    <div>
-      <Image img={props.imageUrl} alt={`Banner image for ${props.title}`} className={styles.news_card_image} /> 
-      <hr style={{backgroundColor: "var(--ifm-color-secondary-lightest"}} />
-    </div>)
-  } else if (props.index === 0) {
-    image = (
-      <CondaCSVG />
-    )
-  }
+export default function NewsCard({slug, imageUrl, title, first, date, description}) {
+  const url = `/blog/${slug}`;
+  const image = (imageUrl) ? (
+    <Image
+      img={require(`@site/static/${imageUrl}`)}
+      alt={`Banner image for ${title} blog post`}
+      className={styles.news_card_image}
+    />
+  ) : "";
 
   function getDateLocalString(date) {
     const dateObj = new Date(date);
@@ -31,22 +24,15 @@ export default function NewsCard(props) {
     <div className={styles.news_container_blog}>
       <div className={styles.news_container_content}>
         <div>
-          <a href={url} >
-            {image}
-          </a>
-          <h3><a href={url}>{props.title}</a></h3>
+          {image && (<Link to={url}>{image}</Link>)}
+          <h3><Link to={url}>{title}</Link></h3>
           <h4>
             <FontAwesomeIcon icon={faCalendar} />
-            <span>{getDateLocalString(props.date)}</span>
+            <span>{getDateLocalString(date)}</span>
           </h4>
-          <p>{props.description}</p>
+          <p>{description}</p>
+          <Link to={url} className={styles.read_full_blog} style={{fontWeight: (first ? "bold" : "normal")}}>Read Full Blog</Link>
         </div>
-        <a 
-          href={url}
-          style={{fontWeight: (props.first ? "bold" : "normal")}}
-          className={styles.read_full_blog}>
-            Read Full Blog
-        </a>
       </div>
     </div>
   )
