@@ -1,10 +1,10 @@
 ---
 title: "July 2023 Releases for conda and conda-build"
 slug: "2023-07-28-july-2023-releases"
-description: |
-    Conda 23.7.0, 23.7.1, 23.7.2, and conda-build 3.26.0 have been released! 🎉
 authors: [beeankha]
 tags: [announcement, conda, conda-build]
+description: |
+    Conda 23.7.0, 23.7.1, 23.7.2, and conda-build 3.26.0 have been released! 🎉
 image: img/blog/2023-07-28-july-releases/banner.jpg
 ---
 

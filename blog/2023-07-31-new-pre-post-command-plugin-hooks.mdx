@@ -1,32 +1,20 @@
 ---
 title: "New pre and post command plugin hooks"
 slug: "2023-07-31-latest-conda-release-includes-new-plugin-hooks"
+authors: [travishathaway]
+tags: [conda, plugins]
 description: |
   The latest release of conda introduces two new plugin hooks: pre and post command. These hooks allow plugin
   authors to execute code before and after any conda command. Learn more about how and why you would use
   these in this post.
-authors: [travishathaway]
-tags: [conda, plugins]
 image: img/blog/2023-07-31-new-pre-post-command-plugin-hooks/pre-post-command-image.jpg
+image_credit: <a href="https://unsplash.com/photos/7d8pxcMVl7A">Kier in Sight Archives on Unsplash</a>
 ---
 
 [conda-issue]: https://github.com/conda/conda/issues/12138
 [conda-protect]: https://github.com/travishathaway/conda-protect
 [conda-plugin-docs]: https://docs.conda.io/projects/conda/en/stable/dev-guide/plugins/index.html
 [matrix]: https://matrix.to/#/#conda:matrix.org
-
-import Image from '@theme/IdealImage';
-import banner from '@site/static/img/blog/2023-07-31-new-pre-post-command-plugin-hooks/pre-post-command-image.jpg';
-
-<Image img={banner} alt="Banner image for blog post; New pre and post command plugin hooks - picture of a plugin outlet"/>
-
-<p>
-    <i>
-        <small>
-            Image credit: <a href="https://unsplash.com/photos/7d8pxcMVl7A">Kier in Sight Archives on Unsplash</a>
-        </small>
-    </i>
-</p>
 
 With the latest conda release (`23.7.2` at the time this post was written), the ability to define
 two new plugin hooks was introduced: "pre command" and "post command". These two new plugin hooks give

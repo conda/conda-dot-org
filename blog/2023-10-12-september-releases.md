@@ -1,10 +1,10 @@
 ---
 title: "September 2023 Releases"
 slug: "2023-10-12-september-releases"
-description: |
-    Conda 23.9.0, conda-build 3.27.0, conda-libmamba-solver 23.9.0/23.9.1, conda-index 0.3.0, and pycosat 0.6.5/0.6.6 have been released! 🎉
 authors: [kenodegard]
 tags: [announcement, conda, conda-build, conda-libmamba-solver, conda-index, pycosat]
+description: |
+    Conda 23.9.0, conda-build 3.27.0, conda-libmamba-solver 23.9.0/23.9.1, conda-index 0.3.0, and pycosat 0.6.5/0.6.6 have been released! 🎉
 ---
 
 The September 2023 releases included updates to five conda community projects: conda, conda-build, conda-libmamba-solver, conda-index, and pycosat! 🎉 Each of these have been released to both `main` and `conda-forge`.
