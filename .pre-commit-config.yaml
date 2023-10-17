@@ -41,7 +41,14 @@ repos:
     rev: v3.0.3
     hooks:
       - id: prettier
-        types_or: [jsx, mdx]
+        types_or: [jsx, javascript, mdx, markdown]
+        exclude: ^static/js/count.js$
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.0.291
+    hooks:
+      - id: ruff
+        args: [--fix]
+        files: ^bin/(sort-authors|update-news)$
   - repo: local
     hooks:
       - id: generate-news
