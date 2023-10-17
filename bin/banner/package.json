@@ -1,9 +1,9 @@
 {
-  "name": "backdrop",
+  "name": "banner",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "backdrop": "node -- ./backdrop.js"
+    "banner": "node -- ./banner.js"
   },
   "dependencies": {
     "canvas": "^2.11.2",
