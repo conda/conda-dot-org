@@ -247,7 +247,7 @@ image: Cover or thumbnail image for your blog display.
 Consider the following "Cool Project" example. Its file will begin with the following metadata, set off
 with three dashes, followed by the actual blog text.
 
-```
+```yaml
 ---
 title: Cool Project V1 Released!
 description: The release of Cool Project version 1
@@ -270,7 +270,7 @@ The project contains the following cool things:
 See [the Docusaurus blog frontmatter documentation](docusaurus-blog-docs) for more information
 on your blog creation options.
 
-#### Storing and using images
+### Storing and using images
 
 If your blog post has images, please put them in the following folder: `static/img/blog/<blog-file-name>/`
 where `<blog-file-name>` is the same name as the initial blog post (e.g. `static/img/blog/2023-04-22-cool-project-v1-release/`).
@@ -285,6 +285,36 @@ import bannerImage from "@site/static/img/blog/2023-04-22-cool-project-v1-releas
 
 <Image img={bannerImage} />;
 ```
+
+### Adding banners and credits
+
+Blog posts often include a banner image (and optionally an image credit to properly attribute the image).
+
+Since this is a common pattern, we have dual-purposed the frontmatter `image` to also add a banner image:
+
+```yaml
+---
+image: img/blog/<post>/banner.jpg
+image_credit: <a href="<url>">Someone</a>
+---
+```
+
+This will automatically add a banner image to the top of the blog post and optionally add a credit below it.
+
+#### Auto-generated banners
+
+Sometimes coming up with an engaging and relevant banner image is hard (if not impossible).
+
+As an alternative we offer the ability to generate randomized banners overlaid with the conda C logo:
+
+```bash
+$ npm run -- banner --output static/img/blog/<post>/banner.png
+```
+
+This will produce banners like the following:
+
+<img src="static/img/blog/2023-10-12-september-releases/banner.jpg" width=300 />
+<img src="static/img/blog/2023-07-28-july-releases/banner.jpg" width=300 />
 
 ## Technical contributors
 
