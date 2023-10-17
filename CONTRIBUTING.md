@@ -23,10 +23,10 @@ to get up and running as a contributor to [conda.org][conda-dot-org]. This is a 
 for two kinds of contributors:
 
 - **Content contributors**
-    - Contributors writing content for the website, which can include news and blog posts.
+  - Contributors writing content for the website, which can include news and blog posts.
 - **Technical contributors**
-    - Contributors writing HTML, CSS, or Javascript for the website that modifies the way
-      it looks or behaves.
+  - Contributors writing HTML, CSS, or Javascript for the website that modifies the way
+    it looks or behaves.
 
 In this guide, we start off by explaining contribution steps that apply
 to both kinds of contributors. Then, the guide branches off to explain specifics for each.
@@ -160,6 +160,7 @@ by running the following command:
 ```
 git push --set-upstream origin my-new-contribution
 ```
+
 > **Note**
 > Any further push commands will only need to be `git push`.
 
@@ -170,7 +171,7 @@ be sure that the "base" branch is the "main" branch for conda-dot-org.
 
 That completes the entire workflow for submitting new changes. After you submit your pull
 request, we will try our best to review it in a timely manner. If you need to make any more
-edits or changes based on these reviews, repeat steps four and five (but using ```git push```
+edits or changes based on these reviews, repeat steps four and five (but using `git push`
 only to push any more changes).
 
 ## Setting up a local version of the site
@@ -279,12 +280,12 @@ import it at the top of the file. You should also used the included image plugin
 available. An example of this is shown below:
 
 ```javascript
-import Image from '@theme/IdealImage';
-import bannerImage from '@site/static/img/blog/2023-04-22-cool-project-v1-release/banner-image.png';
+import Image from "@theme/IdealImage";
+import bannerImage from "@site/static/img/blog/2023-04-22-cool-project-v1-release/banner-image.png";
 
-<Image img={bannerImage} />
+<Image img={bannerImage} />;
 ```
 
 ## Technical contributors
 
-*Coming soon! We are still figuring out exactly how this will look*
+_Coming soon! We are still figuring out exactly how this will look_

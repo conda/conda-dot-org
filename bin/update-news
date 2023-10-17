@@ -12,10 +12,9 @@ import json
 import os
 import pathlib
 import re
-from typing import Sequence, Any, Iterator
+from typing import Any, Iterator, Sequence
 
 import ruamel.yaml as yaml
-
 
 #: Directory where blog posts are located
 BLOGS_DIR = pathlib.Path("./blog")

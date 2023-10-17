@@ -26,12 +26,11 @@ Using conda provides a streamlined approach to package management, platform comp
 
 To start using conda, specifically Miniconda, there are various options available to you. Follow these steps to begin your conda journey and explore the rich ecosystem of packages:
 
-1. **Installation:** Visit the [installation guide](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) for detailed instructions on **how to install conda via Miniconda**. It provides step-by-step guidance to get conda up and running on your system. (*[Miniconda](https://docs.conda.io/en/latest/miniconda.html) is a minimal version of conda that includes only the essential components, allowing for a more customized and lightweight installation.*)
+1. **Installation:** Visit the [installation guide](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) for detailed instructions on **how to install conda via Miniconda**. It provides step-by-step guidance to get conda up and running on your system. (_[Miniconda](https://docs.conda.io/en/latest/miniconda.html) is a minimal version of conda that includes only the essential components, allowing for a more customized and lightweight installation._)
 
-2. **Package Search:** Once you have conda installed, you can search for the packages you need. Use the built-in `conda search` functionality to find packages based on your requirements. **For a faster and more comprehensive package search experience, you can visit [Anaconda.org](https://anaconda.org/anaconda/repo)**. (*Anaconda.org is a platform that hosts a vast collection of packages from different channels, allowing you to easily explore and discover the packages you need*).
+2. **Package Search:** Once you have conda installed, you can search for the packages you need. Use the built-in `conda search` functionality to find packages based on your requirements. **For a faster and more comprehensive package search experience, you can visit [Anaconda.org](https://anaconda.org/anaconda/repo)**. (_Anaconda.org is a platform that hosts a vast collection of packages from different channels, allowing you to easily explore and discover the packages you need_).
 
-    Refer to our [FAQ section](./faq.md) for more information on how to search for packages effectively.
-
+   Refer to our [FAQ section](./faq.md) for more information on how to search for packages effectively.
 
 3. **Conda Channels:** Discover the power of conda channels. They are repositories that contain pre-built packages for conda users. Learn more about conda channels and how to use them effectively in our [FAQ section](https://conda.org/learn/faq#what-is-a-conda-channel).
 
@@ -89,7 +88,7 @@ In different contexts, the term "conda" can refer to various aspects:
 - **Conda as a tool**: Conda is an open-source, cross-platform package manager used for managing software packages.
 
 - [**Conda packages**](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/packages.html): These are compressed tarballs or .conda files containing system-level libraries, modules, executables, and metadata, installed into the designated prefix.
-(Here, "prefix" refers to the installation directory where the packages are installed. It represents the target location on your system where the package files are placed.)
+  (Here, "prefix" refers to the installation directory where the packages are installed. It represents the target location on your system where the package files are placed.)
 
 - [**Conda environments**](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/environments.html): Conda environments are directories that contain specific collections of conda packages installed for a particular project or use case.
 
@@ -109,6 +108,7 @@ In different contexts, the term "conda" can refer to various aspects:
 - **Installing conda or packages**: This context refers to the process of installing conda itself or using conda to install other packages.
 
 You can find more about this [here](https://conda.org/community#the-many-meanings-of-conda).
+
 ## What is a feedstock?
 
 A feedstock is a conda package repository.
@@ -159,8 +159,7 @@ This command exports the environment to an `environment.yml` file.
 
 2. **Sharing the environment file:** Once you have the `environment.yml` file, you can share it with others through various means, such as email, file sharing services, or version control systems like Git.
 
-The `environment.yml` file contains information about the dependencies required for the environment, including packages, versions, and channels. Make sure to communicate any specific instructions or requirements related to the environment, such as additional dependencies or channels.
-3. **Creating the environment from the file:** To create an identical environment on another machine, the other person can use the following command in their terminal or command prompt:
+The `environment.yml` file contains information about the dependencies required for the environment, including packages, versions, and channels. Make sure to communicate any specific instructions or requirements related to the environment, such as additional dependencies or channels. 3. **Creating the environment from the file:** To create an identical environment on another machine, the other person can use the following command in their terminal or command prompt:
 
 ```
 conda env create -f environment.yml
@@ -257,6 +256,7 @@ The conda community offers diverse events and meetings for engagement:
 - **Mamba** also organizes biweekly developer meetings. [Get more information here](https://github.com/mamba-org/mamba#biweekly-dev-meeting).
 
 Participating in these events and meetings provides valuable opportunities to connect and contribute to the conda community.
+
 ## I see a problem with the website. How do I report it?
 
 Please create an [issue](https://github.com/conda-incubator/conda-dot-org/issues) in GitHub to report any problems with the website. We also welcome pull requests!
