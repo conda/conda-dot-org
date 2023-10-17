@@ -2,33 +2,35 @@
 title: How we reduced conda's index fetch bandwidth by 99%
 slug: "2023-05-05-how-we-reduced-the-conda-index-fetch-bandwidth"
 description: |
-   The new conda 23.3.1 release from March, 2023 includes an --experimental=jlap
-   flag or experimental: ["jlap"] .condarc setting that can reduce repdata.json
-   fetch bandwidth by orders of magnitude. This is how we developed conda's new
-   incremental repodata feature.
+  The new conda 23.3.1 release from March, 2023 includes an --experimental=jlap
+  flag or experimental: ["jlap"] .condarc setting that can reduce repdata.json
+  fetch bandwidth by orders of magnitude. This is how we developed conda's new
+  incremental repodata feature.
 authors: [dholth]
 tags: [conda, python]
 image: img/blog/2023-05-05-how-we-reduced-the-conda-index-fetch-bandwidth/banner-image.jpg
 ---
 
-import Image from '@theme/IdealImage';
-import bannerImage from '@site/static/img/blog/2023-05-05-how-we-reduced-the-conda-index-fetch-bandwidth/banner-image.jpg';
+import Image from "@theme/IdealImage";
+import bannerImage from "@site/static/img/blog/2023-05-05-how-we-reduced-the-conda-index-fetch-bandwidth/banner-image.jpg";
 
-<Image img={bannerImage} alt="Banner image for blog post; picture of a rabbit" />
+<Image
+  img={bannerImage}
+  alt="Banner image for blog post; picture of a rabbit"
+/>
 
 <hr />
 
 <p>
-    <i>
-        Photo by <a href="https://unsplash.com/@ninjason">Jason Leung</a> on <a href="https://unsplash.com/photos/uFm25D3XxI0">Unsplash</a>
-    </i>
+  <i>
+    Photo by <a href="https://unsplash.com/@ninjason">Jason Leung</a> on{" "}
+    <a href="https://unsplash.com/photos/uFm25D3XxI0">Unsplash</a>
+  </i>
 </p>
-
-
 
 > The new conda 23.3.1 release from March, 2023 includes an `--experimental=jlap` flag or `experimental: ["jlap"]` `.condarc` setting that can reduce repdata.json fetch bandwidth by orders of magnitude. This is how we developed conda's new incremental repodata feature.
 
-Conda is a cross-platform, language-agnostic binary package manager that includes a constraint solver to choose compatible sets of packages. Before conda can install a package, it downloads information about all available packages.  This allows the solver to make global decisions about which packages to install.  The time and bandwidth spent downloading this metadata can be significant, but we have improved this in conda 23.3.1. By enabling the `experimental: ["jlap"]` feature in `.condarc`, conda users can see more than a 99% reduction in index fetch bandwidth.
+Conda is a cross-platform, language-agnostic binary package manager that includes a constraint solver to choose compatible sets of packages. Before conda can install a package, it downloads information about all available packages. This allows the solver to make global decisions about which packages to install. The time and bandwidth spent downloading this metadata can be significant, but we have improved this in conda 23.3.1. By enabling the `experimental: ["jlap"]` feature in `.condarc`, conda users can see more than a 99% reduction in index fetch bandwidth.
 
 <!-- truncate -->
 
@@ -60,7 +62,7 @@ I wrote a Conda Enhancmenent Proposal (CEP) for a new [json lines based `.jlap` 
 
 > When `repodata.json` changes, the server will truncate the `metadata` line, appending new patches, a new metadata line and a new trailing checksum.
 
-We needed patch data to test this system. [I wrote a web service](https://github.com/dholth/repodata-fly) that would create that data.  The service checked `repodata.json` every five minutes, compared the current and previous versions, updated a patch file and hosted it separately from the main repository.
+We needed patch data to test this system. [I wrote a web service](https://github.com/dholth/repodata-fly) that would create that data. The service checked `repodata.json` every five minutes, compared the current and previous versions, updated a patch file and hosted it separately from the main repository.
 
 The initial demonstration used a [`repodata.json` proxy,](https://github.com/dholth/repodata-fly/blob/main/app/repodata_proxy.py) fetching patches from `repodata.fly.dev` while forwarding package requests to the upstream server. The user points conda at the proxy server instead of the default channel. Another prototype adds a similar proxy into conda's `requests`-based HTTP backend, but duplicates an extra local cache on top of the existing cache.
 
@@ -68,7 +70,7 @@ The initial demonstration used a [`repodata.json` proxy,](https://github.com/dho
 
 ## Server Side Improvements
 
-I became the [`conda-index`](https://github.com/conda/conda-index) maintainer, rewriting it from `conda-build index` to a new standalone package. We solved speed problems updating large repositories like `conda-forge` and `defaults`.  This involvement made it easy to control the server-side data so that we could improve the client and server together.
+I became the [`conda-index`](https://github.com/conda/conda-index) maintainer, rewriting it from `conda-build index` to a new standalone package. We solved speed problems updating large repositories like `conda-forge` and `defaults`. This involvement made it easy to control the server-side data so that we could improve the client and server together.
 
 ## Team Move
 

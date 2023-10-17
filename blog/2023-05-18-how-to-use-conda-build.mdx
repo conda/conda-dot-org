@@ -6,8 +6,9 @@ tags: [conda]
 image: img/blog/2023-05-18-how-to-use-conda-build/conda-build.png
 description: "We have created a blog to help you create your own Python package with Conda-build"
 ---
-import Image from '@theme/IdealImage';
-import condabuild from '@site/static/img/blog/2023-05-18-how-to-use-conda-build/conda-build.png';
+
+import Image from "@theme/IdealImage";
+import condabuild from "@site/static/img/blog/2023-05-18-how-to-use-conda-build/conda-build.png";
 
 <Image img={condabuild} />
 
@@ -50,6 +51,7 @@ For this tutorial, we'll be walking you through the process of building a recipe
 $ conda install grayskull
 $ grayskull pypi click
 ```
+
 :::note
 You can use any package available from PyPI instead of `click`
 :::
@@ -72,6 +74,7 @@ $ conda build click --output
 ```
 
 You can now install the package locally by running this command in the terminal:
+
 ```bash
 $ conda install --use-local click
 ```
@@ -95,14 +98,14 @@ requirements:
     - gcc
   run:
     - mylib
- ```
+```
 
 :::note
 This example is intentionally simplified for teaching purposes. It doesn't address `host` dependencies, build tools like `make`, ABI compatibility, etc.
 For example, conda-build users often rely on Jinja templating to obtain the correct compiler for the platform, instead of hardcoding the compiler (`gcc`) directly.
 
 Check the [documentation for the `compiler()` function](https://docs.conda.io/projects/conda-build/en/stable/resources/variants.html#self-consistent-package-ecosystems).
-For real-world examples, you can check some recipes in [this `conda-forge` search](https://github.com/search?q=org%3Aconda-forge%20compiler(%27c%27)%20path%3Ameta.yaml&type=code).
+For real-world examples, you can check some recipes in [this `conda-forge` search](<https://github.com/search?q=org%3Aconda-forge%20compiler(%27c%27)%20path%3Ameta.yaml&type=code>).
 :::
 
 ## Testing the package

@@ -1,6 +1,5 @@
-import CondaCSVG from '@site/static/img/conda_c.svg';
-import CondaLogoSVG from '@site/static/img/conda_logo.svg';
-
+import CondaCSVG from "@site/static/img/conda_c.svg";
+import CondaLogoSVG from "@site/static/img/conda_logo.svg";
 
 # Style Guide
 
@@ -15,7 +14,6 @@ branded content or websites.
 Below are various typography elements. The header font for [conda.org](https://conda.org) is
 [Nunito](https://fonts.google.com/specimen/Nunito) and the body font is
 [Open Sans](https://fonts.google.com/specimen/Open+Sans).
-
 
 ### Headings
 
@@ -65,26 +63,26 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 ### Tables
 
 <table>
-    <thead>
-        <tr>
-            <th>Fruits</th>
-            <th>Available?</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Bananas 🍌</td>
-            <td>✅</td>
-        </tr>
-        <tr>
-            <td>Apples 🍏</td>
-            <td>✅</td>
-        </tr>
-        <tr>
-            <td>Cherries 🍒</td>
-            <td>❌</td>
-        </tr>
-    </tbody>
+  <thead>
+    <tr>
+      <th>Fruits</th>
+      <th>Available?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Bananas 🍌</td>
+      <td>✅</td>
+    </tr>
+    <tr>
+      <td>Apples 🍏</td>
+      <td>✅</td>
+    </tr>
+    <tr>
+      <td>Cherries 🍒</td>
+      <td>❌</td>
+    </tr>
+  </tbody>
 </table>
 
 ---
@@ -116,61 +114,89 @@ if __name__ == "__main__":
 ### Light theme
 
 <div className="color-palette-light-theme-container margin-bottom--lg">
-    <div className="row margin-bottom--md">
-        <div className="col col--3">
-            <span className="text--bold">Primary color and background color</span>
-        </div>
-        <div className="col">
-            <div className="color-container">
-                <div className="color" style={{"backgroundColor": "var(--ifm-color-primary)"}}></div>
-                <div className="color-text">#348721</div>
-            </div>
-            <div className="color-container">
-                <div className="color" style={{"backgroundColor": "#FFFFFF", "border": "var(--ifm-color-gray-400) solid 1px"}}></div>
-                <div className="color-text">#ffffff</div>
-            </div>
-        </div>
-        <div className="col">
-            <p>
-                This color combination passes accessibility tests ✅
-            </p>
-        </div>
+  <div className="row margin-bottom--md">
+    <div className="col col--3">
+      <span className="text--bold">Primary color and background color</span>
     </div>
-    <div className="row">
-        <div className="col col--3">
-            <span className="text--bold">Color variations (light to dark)</span>
-        </div>
-        <div className="col">
-            <div className="color-container">
-                <div className="color" style={{"backgroundColor": "var(--ifm-color-primary-lightest)"}}></div>
-                <div className="color-text">#44b02b</div>
-            </div>
-            <div className="color-container">
-                <div className="color" style={{"backgroundColor": "var(--ifm-color-primary-lighter)"}}></div>
-                <div className="color-text">#3c9b26</div>
-            </div>
-            <div className="color-container">
-                <div className="color" style={{"backgroundColor": "var(--ifm-color-primary-light)"}}></div>
-                <div className="color-text">#399524</div>
-            </div>
-            <div className="color-container">
-                <div className="color" style={{"backgroundColor": "var(--ifm-color-primary)"}}></div>
-                <div className="color-text">#348721</div>
-            </div>
-            <div className="color-container">
-                <div className="color" style={{"backgroundColor": "var(--ifm-color-primary-dark)"}}></div>
-                <div className="color-text">#2f7a1e</div>
-            </div>
-            <div className="color-container">
-                <div className="color" style={{"backgroundColor": "var(--ifm-color-primary-darker)"}}></div>
-                <div className="color-text">#2c731c</div>
-            </div>
-            <div className="color-container">
-                <div className="color" style={{"backgroundColor": "var(--ifm-color-primary-darkest)"}}></div>
-                <div className="color-text ">#245e17</div>
-            </div>
-        </div>
+    <div className="col">
+      <div className="color-container">
+        <div
+          className="color"
+          style={{ backgroundColor: "var(--ifm-color-primary)" }}
+        ></div>
+        <div className="color-text">#348721</div>
+      </div>
+      <div className="color-container">
+        <div
+          className="color"
+          style={{
+            backgroundColor: "#FFFFFF",
+            border: "var(--ifm-color-gray-400) solid 1px",
+          }}
+        ></div>
+        <div className="color-text">#ffffff</div>
+      </div>
     </div>
+    <div className="col">
+      <p>This color combination passes accessibility tests ✅</p>
+    </div>
+  </div>
+  <div className="row">
+    <div className="col col--3">
+      <span className="text--bold">Color variations (light to dark)</span>
+    </div>
+    <div className="col">
+      <div className="color-container">
+        <div
+          className="color"
+          style={{ backgroundColor: "var(--ifm-color-primary-lightest)" }}
+        ></div>
+        <div className="color-text">#44b02b</div>
+      </div>
+      <div className="color-container">
+        <div
+          className="color"
+          style={{ backgroundColor: "var(--ifm-color-primary-lighter)" }}
+        ></div>
+        <div className="color-text">#3c9b26</div>
+      </div>
+      <div className="color-container">
+        <div
+          className="color"
+          style={{ backgroundColor: "var(--ifm-color-primary-light)" }}
+        ></div>
+        <div className="color-text">#399524</div>
+      </div>
+      <div className="color-container">
+        <div
+          className="color"
+          style={{ backgroundColor: "var(--ifm-color-primary)" }}
+        ></div>
+        <div className="color-text">#348721</div>
+      </div>
+      <div className="color-container">
+        <div
+          className="color"
+          style={{ backgroundColor: "var(--ifm-color-primary-dark)" }}
+        ></div>
+        <div className="color-text">#2f7a1e</div>
+      </div>
+      <div className="color-container">
+        <div
+          className="color"
+          style={{ backgroundColor: "var(--ifm-color-primary-darker)" }}
+        ></div>
+        <div className="color-text">#2c731c</div>
+      </div>
+      <div className="color-container">
+        <div
+          className="color"
+          style={{ backgroundColor: "var(--ifm-color-primary-darkest)" }}
+        ></div>
+        <div className="color-text ">#245e17</div>
+      </div>
+    </div>
+  </div>
 </div>
 
 ---
@@ -178,61 +204,89 @@ if __name__ == "__main__":
 ### Dark theme
 
 <div className="color-palette-dark-theme-container">
-    <div className="row margin-bottom--md">
-        <div className="col col--3">
-            <span className="text--bold">Primary color and background color</span>
-        </div>
-        <div className="col">
-            <div className="color-container">
-                <div className="color" style={{"backgroundColor": "var(--ifm-color-primary)"}}></div>
-                <div className="color-text">#43b02a</div>
-            </div>
-            <div className="color-container">
-                <div className="color" style={{"backgroundColor": "#1b1b1b", "border": "var(--ifm-color-gray-400) solid 1px"}}></div>
-                <div className="color-text">#1b1b1b</div>
-            </div>
-        </div>
-        <div className="col">
-            <p>
-                This color combination passes accessibility tests ✅
-            </p>
-        </div>
+  <div className="row margin-bottom--md">
+    <div className="col col--3">
+      <span className="text--bold">Primary color and background color</span>
     </div>
-    <div className="row">
-        <div className="col col--3">
-            <span className="text--bold">Color variations (light to dark)</span>
-        </div>
-        <div className="col">
-            <div className="color-container">
-                <div className="color" style={{"backgroundColor": "var(--ifm-color-primary-lightest)"}}></div>
-                <div className="color-text">#62d348</div>
-            </div>
-            <div className="color-container">
-                <div className="color" style={{"backgroundColor": "var(--ifm-color-primary-lighter)"}}></div>
-                <div className="color-text">#4dca30</div>
-            </div>
-            <div className="color-container">
-                <div className="color" style={{"backgroundColor": "var(--ifm-color-primary-light)"}}></div>
-                <div className="color-text">#4ac22e</div>
-            </div>
-            <div className="color-container">
-                <div className="color" style={{"backgroundColor": "var(--ifm-color-primary)"}}></div>
-                <div className="color-text">#43b02a</div>
-            </div>
-            <div className="color-container">
-                <div className="color" style={{"backgroundColor": "var(--ifm-color-primary-dark)"}}></div>
-                <div className="color-text">#3c9e26</div>
-            </div>
-            <div className="color-container">
-                <div className="color" style={{"backgroundColor": "var(--ifm-color-primary-darker)"}}></div>
-                <div className="color-text">#399624</div>
-            </div>
-            <div className="color-container">
-                <div className="color" style={{"backgroundColor": "var(--ifm-color-primary-darkest)"}}></div>
-                <div className="color-text">#2f7b1d</div>
-            </div>
-        </div>
+    <div className="col">
+      <div className="color-container">
+        <div
+          className="color"
+          style={{ backgroundColor: "var(--ifm-color-primary)" }}
+        ></div>
+        <div className="color-text">#43b02a</div>
+      </div>
+      <div className="color-container">
+        <div
+          className="color"
+          style={{
+            backgroundColor: "#1b1b1b",
+            border: "var(--ifm-color-gray-400) solid 1px",
+          }}
+        ></div>
+        <div className="color-text">#1b1b1b</div>
+      </div>
     </div>
+    <div className="col">
+      <p>This color combination passes accessibility tests ✅</p>
+    </div>
+  </div>
+  <div className="row">
+    <div className="col col--3">
+      <span className="text--bold">Color variations (light to dark)</span>
+    </div>
+    <div className="col">
+      <div className="color-container">
+        <div
+          className="color"
+          style={{ backgroundColor: "var(--ifm-color-primary-lightest)" }}
+        ></div>
+        <div className="color-text">#62d348</div>
+      </div>
+      <div className="color-container">
+        <div
+          className="color"
+          style={{ backgroundColor: "var(--ifm-color-primary-lighter)" }}
+        ></div>
+        <div className="color-text">#4dca30</div>
+      </div>
+      <div className="color-container">
+        <div
+          className="color"
+          style={{ backgroundColor: "var(--ifm-color-primary-light)" }}
+        ></div>
+        <div className="color-text">#4ac22e</div>
+      </div>
+      <div className="color-container">
+        <div
+          className="color"
+          style={{ backgroundColor: "var(--ifm-color-primary)" }}
+        ></div>
+        <div className="color-text">#43b02a</div>
+      </div>
+      <div className="color-container">
+        <div
+          className="color"
+          style={{ backgroundColor: "var(--ifm-color-primary-dark)" }}
+        ></div>
+        <div className="color-text">#3c9e26</div>
+      </div>
+      <div className="color-container">
+        <div
+          className="color"
+          style={{ backgroundColor: "var(--ifm-color-primary-darker)" }}
+        ></div>
+        <div className="color-text">#399624</div>
+      </div>
+      <div className="color-container">
+        <div
+          className="color"
+          style={{ backgroundColor: "var(--ifm-color-primary-darkest)" }}
+        ></div>
+        <div className="color-text">#2f7b1d</div>
+      </div>
+    </div>
+  </div>
 </div>
 
 ---
@@ -240,25 +294,25 @@ if __name__ == "__main__":
 ## Logos
 
 <div className="col">
-    <div className="row margin-bottom--xl">
-        <div className="col--4">
-            <h3>Conda "C" logo</h3>
-        </div>
-        <div className="col--offset-1 col--4">
-            <CondaCSVG width="50%" />
-        </div>
+  <div className="row margin-bottom--xl">
+    <div className="col--4">
+      <h3>Conda "C" logo</h3>
     </div>
+    <div className="col--offset-1 col--4">
+      <CondaCSVG width="50%" />
+    </div>
+  </div>
 </div>
 
 ---
 
 <div className="col">
-    <div className="row margin-bottom--xl">
-        <div className="col--4">
-            <h3>Full conda logo</h3>
-        </div>
-        <div className="col--offset-1 col--3">
-            <CondaLogoSVG width='100%'/>
-        </div>
+  <div className="row margin-bottom--xl">
+    <div className="col--4">
+      <h3>Full conda logo</h3>
     </div>
+    <div className="col--offset-1 col--3">
+      <CondaLogoSVG width="100%" />
+    </div>
+  </div>
 </div>
