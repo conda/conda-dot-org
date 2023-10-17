@@ -1,16 +1,15 @@
 ---
 name: Spike
 about: Issues used for researching new technologies or creating prototypes
-title: ''
+title: ""
 labels: spike
-assignees: ''
-
+assignees: ""
 ---
 
 ## Description
 
-*Please add a detailed description of the spike issue here with any necessary background information*
+_Please add a detailed description of the spike issue here with any necessary background information_
 
 ## Tasks
 
-- [ ] *Add the tasks to be completed as part of this issue here*
+- [ ] _Add the tasks to be completed as part of this issue here_

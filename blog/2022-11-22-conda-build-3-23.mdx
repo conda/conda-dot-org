@@ -1,0 +1,32 @@
+---
+title: "Conda-build 3.23 Released"
+slug: "conda-build-3-23"
+tags: [conda-build, release]
+description: |
+  The newest version of conda-build is now available. Find out exactly
+  what's changed and how to upgrade.
+---
+
+`conda-build` is a conda package for building your own packages for `conda` and other package managers.
+
+To install `conda-build` run
+
+```Bash
+conda install conda-build
+```
+
+If you already have it installed, you can upgrade to the newest version with
+
+```Bash
+conda upgrade conda-build
+```
+
+The 3.23.0 and 3.23.1 releases have several updates:
+
+- Outputs now support both script and files arguments. When both script and an explicit file list are given, the script is run first and then the files given in the explicit file list are packaged. ([#4281](https://github.com/conda/conda-build/pull/4281))
+- Add `overlinking_ignore_patterns` build parameter to speed up recipes where it is not helpful. ([#4576](https://github.com/conda/conda-build/pull/4576))
+- Add `win-arm64` as a recognized platform (subdir). ([#4579](https://github.com/conda/conda-build/pull/4579))
+- Add opt-in environment variable to run `conda` in isolated mode (`python -I -m conda`) when invoked from `conda-build`. This is necessary to fix an issue when packaging conda itself. Alternative solutions (see [#4628](https://github.com/conda/conda-build/pull/4628)) are under investigation, so the current implementation will likely change. ([#4604](https://github.com/conda/conda-build/pull/4604), [#4625](https://github.com/conda/conda-build/pull/4625))
+- Refactored `conda_build.convert.update_lib_contents` to use `pathlib.Path`. Mark `test_cli.test_convert` as `xfail` on Windows (something with the GitHub Windows Runner makes this particularly flaky). ([#4619](https://github.com/conda/conda-build/pull/4619), [#4626](https://github.com/conda/conda-build/pull/4626))
+
+See the [`conda-build` documentation](https://docs.conda.io/projects/conda-build/en/latest/index.html) for more on how to use it to create packages.

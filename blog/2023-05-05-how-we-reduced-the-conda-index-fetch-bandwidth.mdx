@@ -4,17 +4,17 @@ slug: "2023-05-05-how-we-reduced-the-conda-index-fetch-bandwidth"
 authors: [dholth]
 tags: [conda, python]
 description: |
-   The new conda 23.3.1 release from March, 2023 includes an --experimental=jlap
-   flag or experimental: ["jlap"] .condarc setting that can reduce repdata.json
-   fetch bandwidth by orders of magnitude. This is how we developed conda's new
-   incremental repodata feature.
+  The new conda 23.3.1 release from March, 2023 includes an --experimental=jlap
+  flag or experimental: ["jlap"] .condarc setting that can reduce repdata.json
+  fetch bandwidth by orders of magnitude. This is how we developed conda's new
+  incremental repodata feature.
 image: img/blog/2023-05-05-how-we-reduced-the-conda-index-fetch-bandwidth/banner-image.jpg
 image_credit: <a href="https://unsplash.com/photos/uFm25D3XxI0">Jason Leung on Unsplash</a>
 ---
 
 > The new conda 23.3.1 release from March, 2023 includes an `--experimental=jlap` flag or `experimental: ["jlap"]` `.condarc` setting that can reduce repdata.json fetch bandwidth by orders of magnitude. This is how we developed conda's new incremental repodata feature.
 
-Conda is a cross-platform, language-agnostic binary package manager that includes a constraint solver to choose compatible sets of packages. Before conda can install a package, it downloads information about all available packages.  This allows the solver to make global decisions about which packages to install.  The time and bandwidth spent downloading this metadata can be significant, but we have improved this in conda 23.3.1. By enabling the `experimental: ["jlap"]` feature in `.condarc`, conda users can see more than a 99% reduction in index fetch bandwith.
+Conda is a cross-platform, language-agnostic binary package manager that includes a constraint solver to choose compatible sets of packages. Before conda can install a package, it downloads information about all available packages. This allows the solver to make global decisions about which packages to install. The time and bandwidth spent downloading this metadata can be significant, but we have improved this in conda 23.3.1. By enabling the `experimental: ["jlap"]` feature in `.condarc`, conda users can see more than a 99% reduction in index fetch bandwidth.
 
 <!-- truncate -->
 
@@ -44,9 +44,9 @@ I wrote a Conda Enhancmenent Proposal (CEP) for a new [json lines based `.jlap` 
 
 > The checksums are constructed in such a way that the trailing checksum can be re-verified without re-reading (or retaining) the beginning of the file, if the client remembers an intermediate checksum. The trailing checksum is used to make sure the rest of the remote file was not changed.
 
-> When `repodata.json` changes, the server wil truncate the `metadata` line, appending new patches, a new metadata line and a new trailing checksum.
+> When `repodata.json` changes, the server will truncate the `metadata` line, appending new patches, a new metadata line and a new trailing checksum.
 
-We needed patch data to test this system. [I wrote a web service](https://github.com/dholth/repodata-fly) that would create that data.  The service checked `repodata.json` every five minutes, compared the current and previous versions, updated a patch file and hosted it separately from the main repository.
+We needed patch data to test this system. [I wrote a web service](https://github.com/dholth/repodata-fly) that would create that data. The service checked `repodata.json` every five minutes, compared the current and previous versions, updated a patch file and hosted it separately from the main repository.
 
 The initial demonstration used a [`repodata.json` proxy,](https://github.com/dholth/repodata-fly/blob/main/app/repodata_proxy.py) fetching patches from `repodata.fly.dev` while forwarding package requests to the upstream server. The user points conda at the proxy server instead of the default channel. Another prototype adds a similar proxy into conda's `requests`-based HTTP backend, but duplicates an extra local cache on top of the existing cache.
 
@@ -54,7 +54,7 @@ The initial demonstration used a [`repodata.json` proxy,](https://github.com/dho
 
 ## Server Side Improvements
 
-I became the [`conda-index`](https://github.com/conda/conda-index) maintainer, rewriting it from `conda-build index` to a new standalone package. We solved speed problems updating large repositories like `conda-forge` and `defaults`.  This involvement made it easy to control the server-side data so that we could improve the client and server together.
+I became the [`conda-index`](https://github.com/conda/conda-index) maintainer, rewriting it from `conda-build index` to a new standalone package. We solved speed problems updating large repositories like `conda-forge` and `defaults`. This involvement made it easy to control the server-side data so that we could improve the client and server together.
 
 ## Team Move
 
@@ -72,7 +72,7 @@ We shipped zstd-compressed repodata to `conda-forge` and `defaults` on December 
 
 ## Refactor cache
 
-January's 23.1.0 conda release included a refactor of its cache that was important for incremental `repodata.json` support. Instead of inlining cache metadata into a modified `repodata.json`, conda stores unmodified `repodata.json` in its cache, and stores cache metadata in a separate file. We avoid having to reserialize `repodata.json` in many cases and can preserve its orginal content and formatting.
+January's 23.1.0 conda release included a refactor of its cache that was important for incremental `repodata.json` support. Instead of inlining cache metadata into a modified `repodata.json`, conda stores unmodified `repodata.json` in its cache, and stores cache metadata in a separate file. We avoid having to reserialize `repodata.json` in many cases and can preserve its original content and formatting.
 
 Wolf Vollprecht submitted a draft CEP to standardize the cache format between conda and mamba. We continue to converge on a shared format.
 
@@ -91,4 +91,3 @@ On subsequent fetches, conda will use a HTTP Range request to download new bytes
 [This screen capture of a conda-forge/noarch search](https://asciinema.org/a/574800) shows that were able to download a single update to the channel in 1464 bytes for what would have otherwise have been a 10358799-byte download of the complete index. The patch size is proportional to the amount of change that has happened since the last time you ran conda.
 
 When `--experimental=jlap` is enabled, frequent conda users will see much faster index updates, especially when bandwidth is limited.
-

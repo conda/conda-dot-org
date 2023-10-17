@@ -4,20 +4,18 @@ slug: "2023-07-05-conda-libmamba-solver-rollout"
 authors: [jezdez, jaimergp]
 tags: [conda-libmamba-solver, solvers, performance]
 description: |
-    Learn about the upcoming rollout plan for the conda-libmamba-solver, bringing enhanced performance and user experience to conda.
+  Learn about the upcoming rollout plan for the conda-libmamba-solver, bringing enhanced performance and user experience to conda.
 ---
 
 Over a year ago, the conda team at Anaconda, together with conda developers at Quansight and QuantStack, [announced the release](https://www.anaconda.com/blog/a-faster-conda-for-a-growing-community) of a new solver for conda based on the libraries that the [mamba project](https://mamba.readthedocs.io/) had developed on top of the venerable libsolv project.
 
 :::caution Update
 
-The default solver change for conda will be occurring in a __special 23.10.0 release__ (not in 23.9.0). See the special announcement [here](https://github.com/conda/conda/blob/main/CHANGELOG.md#2390-2023-09-27).
+The default solver change for conda will be occurring in a **special 23.10.0 release** (not in 23.9.0). See the special announcement [here](https://github.com/conda/conda/blob/main/CHANGELOG.md#2390-2023-09-27).
 
 :::
 
-
 ## TL;DR
-
 
 - From July 2023 on, `conda-libmamba-solver` will be part of the various installers. The default conda solver is still `classic`. Look out for the release of miniconda, Anaconda Distribution and miniforge soon.
 - From September 2023 on, the default conda solver will be `libmamba`. `classic` will be available via `--solver=classic`, if needed.
@@ -33,9 +31,7 @@ The dependency solver can be considered one of the main pillars in the `conda` c
 
 ## Roll-out Plan
 
-
 We're happy to announce the roll-out plan for the next phase for the solver, to get the conda-libmamba-solver in the hands of more people.
-
 
 The July 2023 editions of the [Anaconda Distribution](https://www.anaconda.com/download/) and [miniconda](https://docs.conda.io/en/latest/miniconda.html) installers will include the [conda-libmamba-solver](https://conda.github.io/conda-libmamba-solver/) package in the `base` environment.
 
@@ -45,9 +41,7 @@ We expect many more users to try it out that way to get more feedback where we c
 
 ## Changing the default solver
 
-
 Afterwards, in the September 2023 release window for conda (`23.9.0` per [CEP 8](https://github.com/conda-incubator/ceps/blob/main/cep-8.md)), we'll also:
-
 
 - switch the default solver configuration to `libmamba` (no need to use the `--solver=libmamba` CLI flag anymore),
 - keep the `classic` solver code included in `conda`, to be able to "switch back”, if circumstances require it, via `--solver=classic`, and

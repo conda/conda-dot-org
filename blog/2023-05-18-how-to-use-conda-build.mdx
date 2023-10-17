@@ -22,7 +22,7 @@ In this article, we will guide you through the process of building your Python p
 
 <!-- truncate -->
 
-## Getting Started 
+## Getting Started
 
 ### Prerequisites
 
@@ -44,6 +44,7 @@ For this tutorial, we'll be walking you through the process of building a recipe
 $ conda install grayskull
 $ grayskull pypi click
 ```
+
 :::note
 You can use any package available from PyPI instead of `click`
 :::
@@ -61,15 +62,16 @@ $ conda build click
 After the build process is finished, conda-build will generate a package file in the `conda-bld` directory.
 To locate this file, you can use this command from the terminal:
 
-```bash 
+```bash
 $ conda build click --output
 ```
 
 You can now install the package locally by running this command in the terminal:
-```bash 
+
+```bash
 $ conda install --use-local click
 ```
- 
+
 Congrats 🎊🎉, you have successfully downloaded your own package! You can modify this package and upload it to <a href="https://anaconda.org/">Anaconda.org</a>.
 
 ### Building a package with C/C++ dependency
@@ -80,23 +82,23 @@ In the `meta.yaml` file, you can include the following and build the package aga
 
 ```yaml
 build:
-  script: 
+  script:
     - g++ -o mylib.so -shared -fPIC mylib.cpp
     - cp mylib.so "{{ PREFIX }}/lib"
 
 requirements:
   build:
-    - gcc  
+    - gcc
   run:
-    - mylib 
- ```   
+    - mylib
+```
 
 :::note
 This example is intentionally simplified for teaching purposes. It doesn't address `host` dependencies, build tools like `make`, ABI compatibility, etc.
 For example, conda-build users often rely on Jinja templating to obtain the correct compiler for the platform, instead of hardcoding the compiler (`gcc`) directly.
 
 Check the [documentation for the `compiler()` function](https://docs.conda.io/projects/conda-build/en/stable/resources/variants.html#self-consistent-package-ecosystems).
-For real-world examples, you can check some recipes in [this `conda-forge` search](https://github.com/search?q=org%3Aconda-forge%20compiler(%27c%27)%20path%3Ameta.yaml&type=code).
+For real-world examples, you can check some recipes in [this `conda-forge` search](<https://github.com/search?q=org%3Aconda-forge%20compiler(%27c%27)%20path%3Ameta.yaml&type=code>).
 :::
 
 ## Testing the package
@@ -122,4 +124,4 @@ You can upload your package to any existing channel you have access to, includin
 
 ## Conclusion
 
-In conclusion, using conda-build to create and manage Python packages can simplify the process of distribution and installation of software packages. With conda-build, you don't have to reinvent the wheel or write code from scratch - instead, you can rely on pre-built packages and easily integrate any non-Python dependencies into your projects. Conda-build can be used as a one-stop solution for all your package management needs. 
+In conclusion, using conda-build to create and manage Python packages can simplify the process of distribution and installation of software packages. With conda-build, you don't have to reinvent the wheel or write code from scratch - instead, you can rely on pre-built packages and easily integrate any non-Python dependencies into your projects. Conda-build can be used as a one-stop solution for all your package management needs.

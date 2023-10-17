@@ -1,12 +1,10 @@
-import React from 'react';
-import styles from './styles.module.css';
-import NewsCard from '../NewsCard';
-import NewsData from '../../../blog/news';
+import React from "react";
+import styles from "./styles.module.css";
+import NewsCard from "../NewsCard";
+import NewsData from "../../../blog/news";
 
 export default function News() {
-
   const cards = NewsData.map((item, index) => {
-
     return (
       <NewsCard
         index={index}
@@ -17,13 +15,18 @@ export default function News() {
         imageUrl={item.image}
         first={index === 0}
       />
-    )
-  })
+    );
+  });
 
   return (
-    <div className={[styles.header, styles.section_padding].join(' ')} id="blog">
+    <div
+      className={[styles.header, styles.section_padding].join(" ")}
+      id="blog"
+    >
       <div className={styles.news_heading}>
-        <h1 className={styles.gradient_text}>Discover the latest news and learn more in our blog</h1>
+        <h1 className={styles.gradient_text}>
+          Discover the latest news and learn more in our blog
+        </h1>
       </div>
       <div className={styles.news_container}>
         <div className={styles.news_container_group_highlighted}>
@@ -38,9 +41,11 @@ export default function News() {
       </div>
       <div className={styles.news_read_more}>
         <div>
-          <a className="button button--primary button--lg col" href="/blog">View Full Blog</a>
+          <a className="button button--primary button--lg col" href="/blog">
+            View Full Blog
+          </a>
         </div>
       </div>
     </div>
-  )
+  );
 }
