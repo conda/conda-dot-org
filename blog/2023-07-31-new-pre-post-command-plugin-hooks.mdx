@@ -15,17 +15,23 @@ image: img/blog/2023-07-31-new-pre-post-command-plugin-hooks/pre-post-command-im
 [conda-plugin-docs]: https://docs.conda.io/projects/conda/en/stable/dev-guide/plugins/index.html
 [matrix]: https://matrix.to/#/#conda:matrix.org
 
-import Image from '@theme/IdealImage';
-import banner from '@site/static/img/blog/2023-07-31-new-pre-post-command-plugin-hooks/pre-post-command-image.jpg';
+import Image from "@theme/IdealImage";
+import banner from "@site/static/img/blog/2023-07-31-new-pre-post-command-plugin-hooks/pre-post-command-image.jpg";
 
-<Image img={banner} alt="Banner image for blog post; New pre and post command plugin hooks - picture of a plugin outlet"/>
+<Image
+  img={banner}
+  alt="Banner image for blog post; New pre and post command plugin hooks - picture of a plugin outlet"
+/>
 
 <p>
-    <i>
-        <small>
-            Image credit: <a href="https://unsplash.com/photos/7d8pxcMVl7A">Kier in Sight Archives on Unsplash</a>
-        </small>
-    </i>
+  <i>
+    <small>
+      Image credit:{" "}
+      <a href="https://unsplash.com/photos/7d8pxcMVl7A">
+        Kier in Sight Archives on Unsplash
+      </a>
+    </small>
+  </i>
 </p>
 
 With the latest conda release (`23.7.2` at the time this post was written), the ability to define
@@ -42,14 +48,13 @@ check out the [conda-protect][conda-protect] project.
 
 :::
 
-
 ---
 
 To explain how these plugin hooks can be used, we will cover two examples.
 
 ## Conda protect and the "pre command" hook
 
-The project linked to above is called [`conda-protect`][conda-protect], and it extends conda by adding functionality 
+The project linked to above is called [`conda-protect`][conda-protect], and it extends conda by adding functionality
 to "protect" a conda environment from being changed. Sometimes users may want to do this to protect themselves
 from [unintentionally modifying their base environments][conda-issue].
 
@@ -63,7 +68,7 @@ from conda import plugins
 def conda_protect_pre_commands_action(command: str) -> None:
     """Checks to see if the current environment is protected"""
     environment = get_current_environment()
-    
+
     if is_guarded(environment):
         raise CondaError(
             f"Current environment is protect. Run `conda guard {environment}` to "
@@ -118,7 +123,7 @@ from conda.cli.conda_argparse import BUILTIN_COMMANDS
 from conda import plugins
 
 ENV_COMMANDS = {
-    "env_config", "env_create", 
+    "env_config", "env_create",
     "env_export", "env_list",
     "env_remove", "env_update"
 }
@@ -138,10 +143,10 @@ def conda_post_commands():
 ```
 
 The example above registers our "post command" hook by defining a function called
-`conda_post_commands`. Very similarly to the "pre command" hook, this returns a 
+`conda_post_commands`. Very similarly to the "pre command" hook, this returns a
 `CondaPostCommand` object which defines `name`, `action` and `run_for`. The `action`
 function counts the usage of the command each time it is run and the `run_for` property
-is configured to run for every built-in conda command, including the `conda env *` 
+is configured to run for every built-in conda command, including the `conda env *`
 commands.
 
 :::note
@@ -153,7 +158,7 @@ falls out of scope of this blog post (implement it yourself for fun! 😅).
 
 ## Wrapping up
 
-If you would like to get started with using these new plugins, please check out the 
+If you would like to get started with using these new plugins, please check out the
 [conda-protect][conda-protect] project. This project can also be used as a starting template
 for your plugins.
 

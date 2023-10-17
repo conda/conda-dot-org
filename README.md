@@ -2,9 +2,9 @@
 
 This is the repository for the conda.org community website. To become involved:
 
-* Join the [conda.org chat room](https://app.element.io/#/room/#conda.org:matrix.org), which is part of the [conda space on Matrix](https://app.element.io/#/room/#conda:matrix.org)
-* Visit the [Root HackMD page](https://hackmd.io/DGtozSlsSjSokpYAK5-9hw), which links to everything in HackMD.
-* We meet every two weeks on Monday at 9am US Central time / 16:00 Central European Time. Please join the [Matrix room](https://app.element.io/#/room/#conda.org:matrix.org) and we will invite you.
+- Join the [conda.org chat room](https://app.element.io/#/room/#conda.org:matrix.org), which is part of the [conda space on Matrix](https://app.element.io/#/room/#conda:matrix.org)
+- Visit the [Root HackMD page](https://hackmd.io/DGtozSlsSjSokpYAK5-9hw), which links to everything in HackMD.
+- We meet every two weeks on Monday at 9am US Central time / 16:00 Central European Time. Please join the [Matrix room](https://app.element.io/#/room/#conda.org:matrix.org) and we will invite you.
 
 ## Code of Conduct
 
@@ -17,10 +17,10 @@ contents are structured like this:
 
 - `.github/`: Workflows for deployment.
 - `blog/`: Blog posts. Can use `.md` (Markdown), `.mdx` (Markdown with react) or `.js` extensions.
-   Complex posts can use its own directory.
+  Complex posts can use its own directory.
 - `docs/`: Documentation with navigation and sidebars.
-- `src/`: Resources (React components, custom CSS)  and logic for standalone pages
-   - `src/pages`: Standalone pages. This directory contains the homepage (`index.js`) and other simpler pages (`community.md`).
+- `src/`: Resources (React components, custom CSS) and logic for standalone pages
+  - `src/pages`: Standalone pages. This directory contains the homepage (`index.js`) and other simpler pages (`community.md`).
 - `static/`: Static resources like images and icons.
 - `babel.config.js`: Configuration to install `docusaurus`.
 - `docusaurus.config.js`: Configuration for `docusaurus`. Includes variables like title and description, navigation menu items, etc.
@@ -44,4 +44,3 @@ Most changes are reflected live without having to restart the server.
 ## Deployment
 
 <a href="https://www.netlify.com"> <img src="https://www.netlify.com/v3/img/components/netlify-color-accent.svg" alt="Deploys by Netlify" /> </a>
-

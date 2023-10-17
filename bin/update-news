@@ -12,10 +12,9 @@ import json
 import os
 import pathlib
 import re
-from typing import Sequence, Any, Iterator
+from typing import Any, Iterator, Sequence
 
 import ruamel.yaml as yaml
-
 
 #: Directory where blog posts are located
 BLOGS_DIR = pathlib.Path("./blog")
@@ -30,7 +29,7 @@ BLOGS_TITLE_PAT = re.compile(r"([0-9]{4}-[0-9]{2}-[0-9]{2})(.+)")
 def has_blog_title_pattern(item: str) -> bool:
     """
     Filter that checks whether the file or directory has the pattern we want
-    (see the above regex for more information). 
+    (see the above regex for more information).
 
     Example:
         - 2023-04-02-blog-post.md
