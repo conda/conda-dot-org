@@ -33,7 +33,7 @@ export default function NewsCard({
     <div className={styles.news_container_blog}>
       <div className={styles.news_container_content}>
         <div>
-          {image && <Link to={url}>{image}</Link>}
+          {first && image && <Link to={url}>{image}</Link>}
           <h3>
             <Link to={url}>{title}</Link>
           </h3>
