@@ -1,32 +1,16 @@
 ---
 title: How we reduced conda's index fetch bandwidth by 99%
 slug: "2023-05-05-how-we-reduced-the-conda-index-fetch-bandwidth"
+authors: [dholth]
+tags: [conda, python]
 description: |
   The new conda 23.3.1 release from March, 2023 includes an --experimental=jlap
   flag or experimental: ["jlap"] .condarc setting that can reduce repdata.json
   fetch bandwidth by orders of magnitude. This is how we developed conda's new
   incremental repodata feature.
-authors: [dholth]
-tags: [conda, python]
 image: img/blog/2023-05-05-how-we-reduced-the-conda-index-fetch-bandwidth/banner-image.jpg
+image_credit: <a href="https://unsplash.com/photos/uFm25D3XxI0">Jason Leung on Unsplash</a>
 ---
-
-import Image from "@theme/IdealImage";
-import bannerImage from "@site/static/img/blog/2023-05-05-how-we-reduced-the-conda-index-fetch-bandwidth/banner-image.jpg";
-
-<Image
-  img={bannerImage}
-  alt="Banner image for blog post; picture of a rabbit"
-/>
-
-<hr />
-
-<p>
-  <i>
-    Photo by <a href="https://unsplash.com/@ninjason">Jason Leung</a> on{" "}
-    <a href="https://unsplash.com/photos/uFm25D3XxI0">Unsplash</a>
-  </i>
-</p>
 
 > The new conda 23.3.1 release from March, 2023 includes an `--experimental=jlap` flag or `experimental: ["jlap"]` `.condarc` setting that can reduce repdata.json fetch bandwidth by orders of magnitude. This is how we developed conda's new incremental repodata feature.
 

@@ -1,6 +1,7 @@
 import React from "react";
 import CondaCSVG from "@site/static/img/conda_c.svg";
 import styles from "./styles.module.css";
+import Link from "@docusaurus/Link";
 
 export default function Header() {
   return (
@@ -16,19 +17,19 @@ export default function Header() {
             <br />
             COMMUNITY
           </b>
-          <br></br>
+          <br />
         </h1>
         <p>
           A community supporting a language-agnostic, multi-platform package
           management ecosystem for projects of any size and complexity.
         </p>
         <div className={styles.header_content_input}>
-          <a
+          <Link
+            to="/community"
             className="button button--primary button--lg col"
-            href="/community"
           >
             Learn More
-          </a>
+          </Link>
         </div>
       </div>
       <div className={styles.header_image}>

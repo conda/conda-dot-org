@@ -1,5 +1,5 @@
 [tool.codespell]
-ignore-words-list = "lief"
+ignore-words-list = "lief,repet"
 
 [tool.ruff]
 # E, W = pycodestyle errors and warnings

@@ -101,15 +101,8 @@ def get_file_data(files: Sequence[str]) -> Iterator[dict[str, Any]]:
                 yml_part = yml_part.strip("\n")
                 yml_obj = yaml.load(yml_part, yaml.Loader)
                 date = get_date_from_filename(file)
-
-                # We only want to have "image" present for the first listing
-                if idx == 0:
-                    image = yml_obj.get("image")
-                else:
-                    image = None
-
                 if date is not None:
-                    yield {**yml_obj, "date": date.isoformat(), "image": image}
+                    yield {**yml_obj, "date": date.isoformat()}
 
 
 def main():
