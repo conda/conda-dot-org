@@ -1,5 +1,5 @@
 ---
-title: "Conda 2023.10 Release: libmamba becomes the default solver for conda"
+title: "Conda 2023.10: libmamba is now the default solver"
 slug: "2023-11-02-conda-23-10-release"
 authors: [jaimergp, jezdez]
 tags: [announcement, conda, libmamba]
@@ -9,9 +9,10 @@ image: img/blog/2023-11-02-conda-23-10-release/speed.jpg
 image_credit: |
   <a href="https://unsplash.com/photos/time-lapse-photography-of-tunnel-sb7RUrRMaC4">Mathew Schwartz on Unsplash</a>
 ---
+
 ### **With this 23.10.0 release we are changing the default solver of conda to [`conda-libmamba-solver`](https://conda.github.io/conda-libmamba-solver/)!** 🥳 🚀
 
-The previously "classic" solver is based on [pycosat](https://github.com/conda/pycosat)/[Picosat](http://fmv.jku.at/picosat/) and will remain part of conda for the foreseeable future, a fallback is possible and available.
+libmamba builds on [libsolv](https://github.com/openSUSE/libsolv), a much faster solver from openSUSE. The previous "classic" solver is based on [pycosat](https://github.com/conda/pycosat)/[Picosat](http://fmv.jku.at/picosat/) and will remain part of conda for the foreseeable future. A [fallback is possible and available](/blog/2023-11-02-conda-23-10-release#what-can-i-do-if-this-update-doesnt-work-for-me).
 
 <!-- truncate -->
 
@@ -26,9 +27,8 @@ Since July 2023, the [`conda-libmamba-solver`](https://github.com/conda/conda-li
 ### What changes will I notice?
 
 * First, complex solves will run noticeably faster.  [Benchmarking](https://www.anaconda.com/blog/a-faster-conda-for-a-growing-community) predicts a 50 to 80% improvement in run times.
-* Second, the text output from running `conda` is changing slightly. If you parse that output then you may need to update your scripts.
-* Third, you will notice improved error messages when conda encounters problems.  libmamba's error messages give you more insight into what is triggering the problem.
-
+* Second, you will notice improved error messages when conda encounters problems.  [libmamba's error messages give you more insight into what is triggering the problem](https://medium.com/@AntoineProuvost/managing-conflicts-with-mamba-6a5fa10ed6a).
+* Third, the text output from running `conda` is changing slightly. In addition to some error messages being different, running conda may now produce a superset of text compared to what was previously produced. If you parse conda's output text then you may need to update your scripts.
 
 ### What can I do if this update doesn't work for me?
 
@@ -53,3 +53,4 @@ The libmamba integration is part of a larger effort to improve the run time of c
 
 * [How we reduced conda's index fetch bandwidth by 99%](https://conda.org/blog/2023-05-05-how-we-reduced-the-conda-index-fetch-bandwidth/)
 * [Conda now downloads and extracts packages in parallel](https://conda.org/blog/2022-12-06-conda-release-22-11-1), which greatly speeds up package downloads when latency is high.
+* conda-package-handling, a library and command line utility used by conda and conda-build to handle .conda and .tar.bz2, [is now twice as fast as it was before](https://conda.github.io/conda-package-handling/#a-new-major-version).
