@@ -28,7 +28,7 @@ Since July 2023, the [`conda-libmamba-solver`](https://github.com/conda/conda-li
 
 * First, complex solves will run noticeably faster.  [Benchmarking](https://www.anaconda.com/blog/a-faster-conda-for-a-growing-community) predicts a 50 to 80% improvement in run times.
 * Second, you will notice improved error messages when conda encounters problems.  [libmamba's error messages give you more insight into what is triggering the problem](https://medium.com/@AntoineProuvost/managing-conflicts-with-mamba-6a5fa10ed6a).
-* Third, the text output from running `conda` is changing slightly. In addition to some error messages being different, running conda may now produce a superset of text compared to what was previously produced. If you parse conda's output text then you may need to update your scripts.
+* Third, `conda-libmamba-solver` outputs more details about the channels in use and target platform at the beginning of the process. Mind these differences if you are parsing `stdout` (although we definitely recommend enabling the `--json` mode for programmatic usage!).
 
 ### What can I do if this update doesn't work for me?
 
