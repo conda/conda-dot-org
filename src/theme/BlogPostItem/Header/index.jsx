@@ -1,8 +1,8 @@
-import React from 'react';
-import BlogPostItemHeaderTitle from '@theme/BlogPostItem/Header/Title';
-import BlogPostItemHeaderInfo from '@theme/BlogPostItem/Header/Info';
-import BlogPostItemHeaderAuthors from '@theme/BlogPostItem/Header/Authors';
-import BlogPostItemHeaderBanner from './Banner';
+import React from "react";
+import BlogPostItemHeaderTitle from "@theme/BlogPostItem/Header/Title";
+import BlogPostItemHeaderInfo from "@theme/BlogPostItem/Header/Info";
+import BlogPostItemHeaderAuthors from "@theme/BlogPostItem/Header/Authors";
+import BlogPostItemHeaderBanner from "./Banner";
 export default function BlogPostItemHeader() {
   return (
     <header>
@@ -10,7 +10,7 @@ export default function BlogPostItemHeader() {
       <BlogPostItemHeaderInfo />
       <BlogPostItemHeaderAuthors />
       <BlogPostItemHeaderBanner />
-      <hr/>
+      <hr />
     </header>
   );
 }

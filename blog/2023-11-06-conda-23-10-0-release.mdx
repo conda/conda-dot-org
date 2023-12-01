@@ -4,7 +4,7 @@ slug: "2023-11-06-conda-23-10-0-release"
 authors: [jaimergp, jezdez]
 tags: [announcement, conda, libmamba]
 description: |
-    🚄 The speedy conda-libmamba-solver becomes the default solver in the Conda 23.10.0 release. Please fasten your seat belts.
+  🚄 The speedy conda-libmamba-solver becomes the default solver in the Conda 23.10.0 release. Please fasten your seat belts.
 image: img/blog/2023-11-06-conda-23-10-0-release/speed.jpg
 image_credit: |
   <a href="https://unsplash.com/photos/time-lapse-photography-of-tunnel-sb7RUrRMaC4">Mathew Schwartz on Unsplash</a>
@@ -26,20 +26,20 @@ Since July 2023, the [`conda-libmamba-solver`](https://github.com/conda/conda-li
 
 ### What changes will I notice?
 
-* First, complex solves will run noticeably faster.  [Benchmarking](https://www.anaconda.com/blog/a-faster-conda-for-a-growing-community) predicts a 50 to 80% improvement in run times.
-* Second, you will notice improved error messages when conda encounters problems.  [libmamba's error messages give you more insight into what is triggering the problem](https://medium.com/@AntoineProuvost/managing-conflicts-with-mamba-6a5fa10ed6a).
-* Third, `conda-libmamba-solver` outputs more details about the channels in use and target platform at the beginning of the process. Mind these differences if you are parsing `stdout` (although we definitely recommend enabling the `--json` mode for programmatic usage!).
+- First, complex solves will run noticeably faster. [Benchmarking](https://www.anaconda.com/blog/a-faster-conda-for-a-growing-community) predicts a 50 to 80% improvement in run times.
+- Second, you will notice improved error messages when conda encounters problems. [libmamba's error messages give you more insight into what is triggering the problem](https://medium.com/@AntoineProuvost/managing-conflicts-with-mamba-6a5fa10ed6a).
+- Third, `conda-libmamba-solver` outputs more details about the channels in use and target platform at the beginning of the process. Mind these differences if you are parsing `stdout` (although we definitely recommend enabling the `--json` mode for programmatic usage!).
 
 ### What can I do if this update doesn't work for me?
 
 If the new solver is not working as you expect:
 
-* Check if the behavior you are observing is a [known issue](https://github.com/conda/conda-libmamba-solver/issues/283) or a [deliberate change](https://conda.github.io/conda-libmamba-solver/libmamba-vs-classic/#intentional-deviations-from-classic).
-* If that's not the case, please consider submitting a bug report or feature request in the [conda-libmamba-solver repository](https://github.com/conda/conda-libmamba-solver/issues/new/choose).
-* If necessary, you can go back to using the `classic` solver without modifying your conda installation:
-  * When possible, pass the command line option `--solver=classic` to your `conda` calls.
-  * Otherwise (e.g. for `conda build ...` or `constructor ...`), set the environment variable `CONDA_SOLVER=classic`.
-  * For permanent changes, use the conda configuration system: `conda config --set solver classic`.
+- Check if the behavior you are observing is a [known issue](https://github.com/conda/conda-libmamba-solver/issues/283) or a [deliberate change](https://conda.github.io/conda-libmamba-solver/libmamba-vs-classic/#intentional-deviations-from-classic).
+- If that's not the case, please consider submitting a bug report or feature request in the [conda-libmamba-solver repository](https://github.com/conda/conda-libmamba-solver/issues/new/choose).
+- If necessary, you can go back to using the `classic` solver without modifying your conda installation:
+  - When possible, pass the command line option `--solver=classic` to your `conda` calls.
+  - Otherwise (e.g. for `conda build ...` or `constructor ...`), set the environment variable `CONDA_SOLVER=classic`.
+  - For permanent changes, use the conda configuration system: `conda config --set solver classic`.
 
 ### Where can I learn more about conda-libmamba-solver?
 
@@ -51,6 +51,6 @@ For more information about the `conda-libmamba-solver` rollout plan, please also
 
 The libmamba integration is part of a larger effort to improve the run time of conda. See also:
 
-* [How we reduced conda's index fetch bandwidth by 99%](https://conda.org/blog/2023-05-05-how-we-reduced-the-conda-index-fetch-bandwidth/).
-* [Conda now downloads and extracts packages in parallel](https://conda.org/blog/2022-12-06-conda-release-22-11-1), which greatly speeds up package downloads when latency is high.
-* conda-package-handling, a library and command line utility used by `conda` and `conda-build` to handle `.conda` and `.tar.bz2`, [is now twice as fast as it was before](https://conda.github.io/conda-package-handling/#a-new-major-version).
+- [How we reduced conda's index fetch bandwidth by 99%](https://conda.org/blog/2023-05-05-how-we-reduced-the-conda-index-fetch-bandwidth/).
+- [Conda now downloads and extracts packages in parallel](https://conda.org/blog/2022-12-06-conda-release-22-11-1), which greatly speeds up package downloads when latency is high.
+- conda-package-handling, a library and command line utility used by `conda` and `conda-build` to handle `.conda` and `.tar.bz2`, [is now twice as fast as it was before](https://conda.github.io/conda-package-handling/#a-new-major-version).

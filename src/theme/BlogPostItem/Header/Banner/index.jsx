@@ -1,6 +1,6 @@
-import React from 'react';
-import Image from '@theme/IdealImage';
-import { useBlogPost } from '@docusaurus/theme-common/internal';
+import React from "react";
+import Image from "@theme/IdealImage";
+import { useBlogPost } from "@docusaurus/theme-common/internal";
 
 export default function BlogPostItemHeaderBanner() {
   const { metadata } = useBlogPost();
@@ -11,7 +11,8 @@ export default function BlogPostItemHeaderBanner() {
     <p>
       <i>
         <small>
-          Image credit: <span dangerouslySetInnerHTML={{ __html: image_credit }} />
+          Image credit:{" "}
+          <span dangerouslySetInnerHTML={{ __html: image_credit }} />
         </small>
       </i>
     </p>
@@ -19,8 +20,13 @@ export default function BlogPostItemHeaderBanner() {
 
   return (
     <div>
-      {image && (<Image img={require(`@site/static/${image}`)} alt={`Banner image for ${title} blog post`} />)}
-      {image && image_credit && (<ImageCredit image_credit={image_credit} />)}
+      {image && (
+        <Image
+          img={require(`@site/static/${image}`)}
+          alt={`Banner image for ${title} blog post`}
+        />
+      )}
+      {image && image_credit && <ImageCredit image_credit={image_credit} />}
     </div>
   );
 }
