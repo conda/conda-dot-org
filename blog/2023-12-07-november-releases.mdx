@@ -1,0 +1,177 @@
+---
+title: "November 2023 Releases"
+slug: "2023-12-07-november-releases"
+authors: [kenodegard]
+tags: [announcement, conda, conda-build, conda-libmamba-solver]
+description: |
+  Conda 23.11.0, conda-build 3.28.0/3.28.1, and conda-libmamba-solver 23.11.0/23.11.1 have been released! 🎉
+image: img/blog/2023-12-07-november-releases/banner.jpg
+---
+
+The November 2023 releases included updates to three conda community projects: conda, conda-build, and conda-libmamba-solver! 🎉 Each of these have been released to both `main` and `conda-forge`.
+
+## Changes in Conda [23.11.0](https://github.com/conda/conda/releases/tag/23.11.0)
+
+To update conda, run:
+
+```bash
+conda install -n base conda=23.11.0
+```
+
+### 📢 Special Announcement 📢
+
+New [`menuinst` v2](https://github.com/conda/menuinst/releases/tag/2.0.0) support!
+
+<!-- truncate -->
+
+`conda` has supported Start menu items on Windows for a long time. This is what allows users to open up their Miniconda prompt on CMD (Command Prompt) with an initialized `conda` session. This menu item (or shortcut) creation logic is provided by the `menuinst` package.
+
+With the release of 23.11.0, `conda` now supports [`menuinst` v2](https://github.com/conda/menuinst/releases/tag/2.0.0), which enables the same experience across Windows, Linux, and macOS. This means package builders will be able to provide desktop icons across all operating systems, which can be especially useful for GUI applications. See the [documentation](https://conda.github.io/menuinst/) for more details.
+
+If you don't want `conda` to create shortcuts, you can disable it via:
+
+- `shortcuts: false` entry in your `.condarc` configuration
+- `CONDA_SHORTCUTS=false` environment variable
+- `--no-shortcuts` command-line flag
+
+### ✨ What's New? ✨
+
+- Introduce a new plugin hook, `CondaHealthCheck`, as part of `conda doctor`.
+- Include `activate` and `deactivate` in the `--help` command list.
+- Prioritize download of larger packages to prevent smaller ones from waiting.
+- Display the used solver in `conda info` output for debugging purposes.
+- Add `__conda` virtual package.
+- Implement resume capability for interrupted package downloads.
+
+### 🔧 What Got Fixed? 🔧
+
+- Log expected JLAP range-request errors at `info` level, occurring when the remote file has rolled over.
+- Fix a bug causing an error when options like `--debug` are used without specifying a command.
+- Improve CTRL-C (cancellation) handling for parallel download threads.
+- Allow overriding of `CONDA_FETCH_THREADS`/`fetch_threads` to set parallel package downloads besides the default `5`.
+- Require `requests >=2.28` for enhanced `response.json()` exception handling.
+- Apply `callback=reset_context` in `conda.plan` to resolve `conda-build` + `conda-libmamba-solver` incompatibilities.
+
+### 🌅 What's Marked for [Deprecation](https://github.com/conda-incubator/ceps/blob/main/cep-9.md)? 🌅
+
+- Remove `ruamel_yaml` fallback; use `ruamel.yaml` exclusively.
+- Mark `conda.plugins.subcommands.doctor.health_checks.display_health_checks` for pending deprecation.
+- Mark `conda.plugins.subcommands.doctor.health_checks.display_report_heading` for pending deprecation.
+- Mark `conda.gateways.anaconda_client.EnvAppDirs` for pending deprecation. Use `platformdirs` instead.
+- Mark `conda._vendor.cpuinfo` for pending deprecation.
+- Switch from `requests`/`pip`'s vendored `chardet` to `charset_normalizer`.
+- Switch from `conda._vendor.appdirs` to `platformdirs`.
+- Switch from `conda._vendor.distro` to `distro`.
+
+### 📄 What's New in Documentation? 📄
+
+The https://docs.conda.io/ docs have received a major overhaul! 🎉
+
+Go take a look and let us know what you think! 🤩
+
+---
+
+## Changes in Conda-Build [3.28.0](https://github.com/conda/conda-build/releases/tag/3.28.0)/[3.28.1](https://github.com/conda/conda-build/releases/tag/3.28.1)
+
+To update conda-build, run:
+
+```bash
+conda install -n base conda-build=3.28.1
+```
+
+### 📢 Special Announcement 📢
+
+In the upcoming January 2024 release of conda-build, significant changes are underway. We're set to transition to the [CalVer](https://calver.org/) versioning system. Additionally, we'll be formally embracing [CEP 8](https://github.com/conda-incubator/ceps/blob/main/cep-8.md) to manage our release schedule. Moreover, an expedited version of [CEP 9](https://github.com/conda-incubator/ceps/blob/main/cep-8.md) will be adopted for deprecation handling, omitting the pending deprecation phase and streamlining the period from deprecation to removal to a mere 2 months.
+
+### ✨ What's New? ✨
+
+- Add `stblib` jinja function similar to `compiler` to explicitly define sysroot dependencies.
+- Utilize conda-known subdirs for selector definitions, enabling `conda_build` to support new architectures with only an updated `conda` version. New OS support requires additional information for proper `conda_build` functionality, including UNIX-like platform designation, shared library prefix, and binary archive format for the platform.
+- Eliminate unnecessary cache clearing from `conda_build.build.test`.
+- Consolidate `which_package` implementations and replace `conda.models.dist.Dist` usage with `conda.models.records.PrefixRecords`.
+
+### 🔧 What Got Fixed? 🔧
+
+- Display package file name in `get_hash_input`.
+- Fall back to solved record filename to locate the downloaded tarball in `get_upstream_pins`.
+- Prevent overwriting of variants in high priority `cbc.yaml` entries when absent in lower priority `cbc.yaml`s.
+- Correct the check for a missing anaconda-client to display a useful error message.
+- Fix `conda_index.index` verbose `DEBUG`/`INFO` message logging.
+- (3.28.1) Relax metadata check for `package/version` when `outputs` are defined.
+
+### 🌅 What's Marked for [Deprecation](https://github.com/conda-incubator/ceps/blob/main/cep-9.md)? 🌅
+
+- Mark `conda_build.environ.clean_pkg_cache` for pending deprecation.
+- Mark `conda_build.conda_interface.IndexRecord` for pending deprecation. Use `conda.models.records.PackageRecord` instead.
+- Mark `conda_build.os_utils.pyldd.is_string` for pending deprecation. Use `isinstance(value, str)` instead.
+- Mark `conda_build.os_utils.pyldd.is_codefile` for pending deprecation. Use `conda_build.os_utils.pyldd.codefile_class` instead.
+- Mark `conda_build.os_utils.pyldd.codefile_type` for pending deprecation. Use `conda_build.os_utils.pyldd.codefile_class` instead.
+- Mark `conda_build.inspect_pkg.dist_files` for pending deprecation.
+- Mark `conda_build.inspect_pkg.which_package(avoid_canonical_channel_name)` for pending deprecation.
+- Mark `conda_build.inspect_pkg._installed` for pending deprecation.
+- Mark `conda_build.os_utils.ldd.get_package_files` for pending deprecation.
+- Mark `conda_build.os_utils.pyldd.mach_o_change` for pending deprecation.
+- Mark `conda_build.os_utils.pyldd.inspect_rpath` for pending deprecation.
+- Mark `conda_build.os_utils.pyldd.get_runpaths` for pending deprecation.
+- Mark `conda_build.os_utils.pyldd.otool_sys` for pending deprecation.
+- Mark `conda_build.os_utils.pyldd.ldd_sys` for pending deprecation.
+- Mark `conda_build.post.determine_package_nature` for pending deprecation. Use `conda_build.post.get_dsos` and `conda_build.post.get_run_exports` instead.
+- Mark `conda_build.post.library_nature(subdir, bldpkgs_dirs, output_folder, channel_urls)` for pending deprecation.
+- Mark `conda_build.post.dist_from_names` for pending deprecation. Query `conda.core.prefix_data.PrefixData` instead.
+- Mark `conda_build.post.FakeDist` for pending deprecation. Use `conda.models.records.PrefixRecord` instead.
+- Mark `conda_build.post._get_fake_pkg_dist` for pending deprecation. Use `conda.models.records.PrefixRecord` instead.
+- Mark `conda_build.utils.relative` for pending deprecation. Use `os.path.relpath` or `pathlib.Path.relative_to` instead.
+
+### 📄 What's New in Documentation? 📄
+
+The https://docs.conda.io/ docs have received a major overhaul! 🎉
+
+Go take a look and let us know what you think! 🤩
+
+---
+
+## Changes in Conda-Libmamba-Solver [23.11.0](https://github.com/conda/conda-libmamba-solver/releases/tag/23.11.0)/[23.11.1](https://github.com/conda/conda-libmamba-solver/releases/tag/23.11.1)
+
+To update conda-libmamba-solver, run:
+
+```bash
+conda install -n base conda-libmamba-solver=23.11.1
+```
+
+### ✨ What's New? ✨
+
+- (23.11.1) Raise a friendlier `InvalidSpec` error instead of `RuntimeError` when libmamba detects a problem in the configured solver jobs.
+- (23.11.1) Ensure specs, `SolverInputState.installed` and `SolverInputState.virtual` containers, are consistently sorted.
+
+### 🔧 What Got Fixed? 🔧
+
+- Do not use `libmamba`'s default signal handler so users can `Ctrl-C` from `conda`.
+- Defer conda-build-specific exception definition and import until it is needed by the solver.
+- Interpret "excluded by strict priority" solver errors as proper satisfiability conflicts and avoid printing related yet uninformative warnings.
+- Ensure that historic specs are kept in the environment, even if that means raising a conflict.
+- (23.11.1) Configure pinned specs just once to avoid solver bugs related with their persistence (i.e. inability to downgrade environments if pinned specs are present and a transient dependency needs to be removed).
+- (23.11.1) Detect whether a channel is part of a multichannel so the latter is used in the `PackageRecord` entries for conda-build. Fixes an issue with conda-build and custom multichannels.
+- (23.11.1) Allow authenticated URLs in `default_channels` and other multichannels.
+- (23.11.1) Preserve authentication while reloading local channels.
+
+### 📄 What's New in Documentation? 📄
+
+The https://conda.github.io/conda-libmamba-solver/ docs have received a major overhaul! 🎉
+
+Go take a look and let us know what you think! 🤩
+
+---
+
+### We ❤️ Our Community
+
+Altogether, we had 7 (!) new contributors this release cycle; thank you to all of our open source community members for helping making these improvements possible.
+
+- [@13rac1](https://github.com/13rac1) made their first contribution in [conda#13191](https://github.com/conda/conda/pull/13191)
+- [@AniketP04](https://github.com/AniketP04) made their first contribution in [conda#13224](https://github.com/conda/conda/pull/13224)
+- [@danpetry](https://github.com/danpetry) made their first contribution in [conda-build#5039](https://github.com/conda/conda-build/pull/5039)
+- [@gfggithubleet](https://github.com/gfggithubleet) made their first contribution in [conda#13270](https://github.com/conda/conda/pull/13270)
+- [@h-vetinari](https://github.com/h-vetinari) made their first contribution in [conda-build#4999](https://github.com/conda/conda-build/pull/4999)
+- [@kennethlaskoski](https://github.com/kennethlaskoski) made their first contribution in [conda#13322](https://github.com/conda/conda/pull/13322)
+- [@scruel](https://github.com/scruel) made their first contribution in [conda#13274](https://github.com/conda/conda/pull/13274)
+
+If you have ideas or want to help improve any of the conda community projects, we love to see new (and returning) contributors! 😄
