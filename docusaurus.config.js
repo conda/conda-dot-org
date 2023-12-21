@@ -111,8 +111,8 @@ const config = {
                 href: "https://fosstodon.org/@conda",
               },
               {
-                label: "Twitter",
-                href: "https://twitter.com/condaproject",
+                label: "LinkedIn",
+                href: "https://linkedin.com/company/condacommunity/",
               },
               {
                 label: "Stack Overflow",
