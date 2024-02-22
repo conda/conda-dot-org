@@ -4,18 +4,18 @@ slug: "2024-01-31-january-releases"
 authors: [kenodegard]
 tags: [announcement, conda, conda-build, conda-libmamba-solver, conda-index]
 description: |
-  Conda 24.1.0/.1, conda-build 24.1.0/.1/.2, conda-libmamba-solver 24.1.0, and conda-index 0.4.0 have been released! 🎉
+  Conda 24.1.0/.1/.2, conda-build 24.1.0/.1/.2, conda-libmamba-solver 24.1.0, and conda-index 0.4.0 have been released! 🎉
 image: img/blog/2024-01-31-january-releases/banner.jpg
 ---
 
 The January 2024 releases included updates to four conda community projects: conda, conda-build, conda-libmamba-solver, and conda-index! 🎉 Each of these have been released to both `main` and `conda-forge`.
 
-## Changes in Conda [24.1.0](https://github.com/conda/conda/releases/tag/24.1.0)/[24.1.1](https://github.com/conda/conda/releases/tag/24.1.1)
+## Changes in Conda [24.1.0](https://github.com/conda/conda/releases/tag/24.1.0)/[24.1.1](https://github.com/conda/conda/releases/tag/24.1.1)/[24.1.2](https://github.com/conda/conda/releases/tag/24.1.2)
 
 To update conda, run:
 
 ```bash
-conda install -n base conda=24.1.1
+conda install -n base conda=24.1.2
 ```
 
 ### ✨ What's New? ✨
@@ -39,6 +39,7 @@ conda install -n base conda=24.1.1
 - Interpret missing `Cache-Control` header as `max-age=0` instead of exception.
 - (24.1.1) Fallback to `repodata.json` if `repodata.json.zst` cannot be decompressed as zstandard.
 - (24.1.1) Fallback to `repodata.json` from `repodata.json.zst` on most 4xx error codes.
+- (24.1.2) Fix `conda.core.subdir_data.fetch_repodata_remote_request` failure when `repodata_use_zst` is enabled.
 
 ### 🌅 What's Marked for [Deprecation](https://github.com/conda-incubator/ceps/blob/main/cep-9.md)? 🌅
 
@@ -76,6 +77,8 @@ conda install -n base conda-build=24.1.2
 ### 🔧 What Got Fixed? 🔧
 
 - (24.1.1) Fix nonzero exitcode on success.
+- (24.1.2) Fix rpaths patcher being run on symbolic links.
+- (24.1.2) Fix corrupted package cache for outputs in subpackage tests.
 
 ### 🌅 What's Marked for [Deprecation](https://github.com/conda-incubator/ceps/blob/main/cep-9.md)? 🌅
 
