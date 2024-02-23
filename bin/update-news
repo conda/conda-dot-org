@@ -14,7 +14,7 @@ import pathlib
 import re
 from typing import Any, Iterator, Sequence
 
-import ruamel.yaml as yaml
+from ruamel.yaml import YAML
 
 #: Directory where blog posts are located
 BLOGS_DIR = pathlib.Path("./blog")
@@ -99,7 +99,7 @@ def get_file_data(files: Sequence[str]) -> Iterator[dict[str, Any]]:
             if len(parts) > 1:
                 yml_part = parts[1]
                 yml_part = yml_part.strip("\n")
-                yml_obj = yaml.load(yml_part, yaml.Loader)
+                yml_obj = YAML().load(yml_part)
                 date = get_date_from_filename(file)
                 if date is not None:
                     yield {**yml_obj, "date": date.isoformat()}
