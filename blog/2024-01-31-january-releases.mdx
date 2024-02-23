@@ -28,7 +28,7 @@ conda install -n base conda=24.1.2
 - Provide a more useful warning when attempting to rename a non-existent prefix.
 - Add a new flag `--keep-env` to be used with `conda remove --all`. It allows users to delete all packages in the environment while retaining the environment itself.
 - Add a Y/N prompt warning users that `conda env remove` and `conda remove --all` deletes not only the conda packages but the entirety of the specified environment.
-- Add `--repodata-use-zst/--no-repodata-use-zst` flag to control `repodata.json.zst` check; corresponding `repodata_use_zst: true/false` for `.condarc`. Default is to check for `repodata.json.zst`. Disable if remote returns unparsable `repodata.json.zst` instead of correct data or 404.
+- Add `--repodata-use-zst/--no-repodata-use-zst` flag to control `repodata.json.zst` check; corresponding `repodata_use_zst: true/false` setting for `.condarc`. Default is to check for `repodata.json.zst`. Disable if remote returns unparsable `repodata.json.zst` instead of correct data or 404.
 
 ### 🔧 What Got Fixed? 🔧
 
@@ -71,13 +71,13 @@ conda install -n base conda-build=24.1.2
 - Update `conda inspect channels` to use updated solver/transaction logic.
 - Relax `script_env` error in outputs when variable referenced in `script_env` is not defined. This unifies current behavior with the top-level build.
 - Add support for Python 3.12.
-- Adopt calendar versioning (CalVer) per CEP-8 for consistency with conda.
-- Adopt expedited CEP-9 deprecation policy.
+- Adopt calendar versioning (CalVer) per [CEP-8](https://github.com/conda-incubator/ceps/blob/main/cep-8.md) for consistency with conda.
+- Adopt expedited [CEP-9](https://github.com/conda-incubator/ceps/blob/main/cep-9.md) deprecation policy.
 
 ### 🔧 What Got Fixed? 🔧
 
 - (24.1.1) Fix nonzero exitcode on success.
-- (24.1.2) Fix rpaths patcher being run on symbolic links.
+- (24.1.2) Fix `rpaths` patcher being run on symbolic links.
 - (24.1.2) Fix corrupted package cache for outputs in subpackage tests.
 
 ### 🌅 What's Marked for [Deprecation](https://github.com/conda-incubator/ceps/blob/main/cep-9.md)? 🌅
@@ -137,7 +137,7 @@ This is the first release of conda-build removing code previously marked as depr
 - `conda_build.utils.relative`
 - `conda_build.utils.samefile`
 
-In addition we continued with the effort to remove any remaining usage of the legacy `conda.models.dist.Dist` object:
+In addition, we continued with the effort to remove any remaining usage of the legacy `conda.models.dist.Dist` object:
 
 - Mark `conda inspect channels --test-installable` as pending deprecation.
 - Mark `conda_build.inspect_pkg.check_install(package)` as pending deprecation in favor of `conda_build.inspect_pkg.check_install(subdir)`.
