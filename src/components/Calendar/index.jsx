@@ -1,6 +1,7 @@
 import styles from "./styles.module.css";
 import React from "react";
 import Calendar from "@ericz1803/react-google-calendar";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import { useColorMode } from '@docusaurus/theme-common';
 
 let calendars = [
@@ -11,6 +12,11 @@ let calendars = [
 ];
 
 export default function GoogleCalendar() {
+  const { siteConfig } = useDocusaurusContext();
+  if (!siteConfig.GOOGLE_API_KEY) {
+    console.error("GOOGLE_API_KEY is not set.");
+    return <div>Error: GOOGLE_API_KEY is not set.</div>;
+  }
   const { colorMode } = useColorMode();
   let calendarStyles = {
     day: {
@@ -49,7 +55,7 @@ export default function GoogleCalendar() {
   return (
     <div className={styles.calendar}>
       <Calendar
-        apiKey={process.env.GOOGLE_API_KEY} calendars={calendars}
+        apiKey={siteConfig.GOOGLE_API_KEY} calendars={calendars}
         styles={calendarStyles}
         language="en"
       />

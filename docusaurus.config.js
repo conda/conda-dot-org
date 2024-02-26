@@ -201,6 +201,10 @@ const config = {
       },
     ],
   ],
+  customFields: {
+    // Freeform object to hold custom data to be accessed in your theme
+    GOOGLE_API_KEY: process.env.GOOGLE_API_KEY,
+  }
 };
 
 module.exports = config;
