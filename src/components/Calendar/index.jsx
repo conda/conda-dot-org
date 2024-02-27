@@ -13,7 +13,9 @@ let calendars = [
 
 export default function GoogleCalendar() {
   const { siteConfig } = useDocusaurusContext();
-  if (!siteConfig.GOOGLE_API_KEY) {
+  const { customFields } = siteConfig
+  const { GOOGLE_API_KEY } = customFields;
+  if (!GOOGLE_API_KEY) {
     console.error("GOOGLE_API_KEY is not set.");
     return <div>Error: GOOGLE_API_KEY is not set.</div>;
   }
@@ -55,7 +57,7 @@ export default function GoogleCalendar() {
   return (
     <div className={styles.calendar}>
       <Calendar
-        apiKey={siteConfig.GOOGLE_API_KEY} calendars={calendars}
+        apiKey={GOOGLE_API_KEY} calendars={calendars}
         styles={calendarStyles}
         language="en"
       />
