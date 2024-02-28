@@ -1,4 +1,3 @@
-import styles from "./styles.module.css";
 import React, { useState, useEffect } from "react";
 import Calendar from "@ericz1803/react-google-calendar";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
@@ -14,8 +13,7 @@ let calendars = [
 export default function GoogleCalendar() {
   const [loaded, setLoaded] = useState(false);
   const { siteConfig } = useDocusaurusContext();
-  const { customFields } = siteConfig
-  const { GOOGLE_API_KEY } = customFields;
+  const GOOGLE_API_KEY = siteConfig.customFields.GOOGLE_API_KEY;
 
   if (!GOOGLE_API_KEY) {
     console.error("GOOGLE_API_KEY is not set.");
@@ -34,28 +32,34 @@ export default function GoogleCalendar() {
     event: {
       fontSize: '0.65em',
     },
+    eventText:{
+      overflow: 'hidden',
+    },
     multiEvent: {
       fontSize: '0.65em',
     },
     today: {
       color: '#43b02a',
       fontWeight: 'bold'
+    },
+    calendar: {
+      padding: '5px'
     }
   }
   if (colorMode === 'dark') {
-    calendarStyles.calendar = {color: 'white'}
-    calendarStyles.eventText = {color: 'white'}
+    calendarStyles.calendar.color = 'white';
+    calendarStyles.eventText.color = 'white';
     calendarStyles.tooltip = {
       background: '#1b1a1c',
       borderColor: 'white',
-      borderWidht: '1px',
+      borderWidth: '1px',
       color: 'white',
       padding: '5px 15px 15px 15px',
 
     }
   } else {
-    calendarStyles.calendar = {color: '#555a64'}
-    calendarStyles.eventText = {color: '#555a64'}
+    calendarStyles.calendar.color = '#555a64';
+    calendarStyles.eventText.color = '#555a64';
     calendarStyles.tooltip = {
       background: 'white',
       padding: '5px 15px 15px 15px'
@@ -63,12 +67,12 @@ export default function GoogleCalendar() {
   }
   if(!loaded) return <div>loading...</div>
   return (
-    <div className={styles.calendar}>
-        {loaded &&      <Calendar
-         apiKey={GOOGLE_API_KEY} calendars={calendars}
+
+        <Calendar
+         apiKey={GOOGLE_API_KEY}
+         calendars={calendars}
          styles={calendarStyles}
          language="en"
-       />}
-    </div>
+       />
   );
 }
