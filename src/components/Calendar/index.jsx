@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Calendar from "@ericz1803/react-google-calendar";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-import { useColorMode } from '@docusaurus/theme-common';
+import { useColorMode } from "@docusaurus/theme-common";
 
 let calendars = [
   {
-    calendarId: "8805570a4e1ca2319842971db4380ed518c490577c06454adf2303734506f397@group.calendar.google.com",
+    calendarId:
+      "8805570a4e1ca2319842971db4380ed518c490577c06454adf2303734506f397@group.calendar.google.com",
     color: "#43b02a",
   },
 ];
@@ -21,58 +22,56 @@ export default function GoogleCalendar() {
   }
 
   useEffect(() => {
-      setLoaded(true);
+    setLoaded(true);
   }, []);
 
   const { colorMode } = useColorMode();
   let calendarStyles = {
     day: {
-      padding: '2px'
+      padding: "2px",
     },
     event: {
-      fontSize: '0.65em',
+      fontSize: "0.65em",
     },
-    eventText:{
-      overflow: 'hidden',
+    eventText: {
+      overflow: "hidden",
     },
     multiEvent: {
-      fontSize: '0.65em',
+      fontSize: "0.65em",
     },
     today: {
-      color: '#43b02a',
-      fontWeight: 'bold'
+      color: "#43b02a",
+      fontWeight: "bold",
     },
     calendar: {
-      padding: '5px'
-    }
-  }
-  if (colorMode === 'dark') {
-    calendarStyles.calendar.color = 'white';
-    calendarStyles.eventText.color = 'white';
+      padding: "5px",
+    },
+  };
+  if (colorMode === "dark") {
+    calendarStyles.calendar.color = "white";
+    calendarStyles.eventText.color = "white";
     calendarStyles.tooltip = {
-      background: '#1b1a1c',
-      borderColor: 'white',
-      borderWidth: '1px',
-      color: 'white',
-      padding: '5px 15px 15px 15px',
-
-    }
+      background: "#1b1a1c",
+      borderColor: "white",
+      borderWidth: "1px",
+      color: "white",
+      padding: "5px 15px 15px 15px",
+    };
   } else {
-    calendarStyles.calendar.color = '#555a64';
-    calendarStyles.eventText.color = '#555a64';
+    calendarStyles.calendar.color = "#555a64";
+    calendarStyles.eventText.color = "#555a64";
     calendarStyles.tooltip = {
-      background: 'white',
-      padding: '5px 15px 15px 15px'
-    }
+      background: "white",
+      padding: "5px 15px 15px 15px",
+    };
   }
-  if(!loaded) return <div>loading...</div>
+  if (!loaded) return <div>loading...</div>;
   return (
-
-        <Calendar
-         apiKey={GOOGLE_API_KEY}
-         calendars={calendars}
-         styles={calendarStyles}
-         language="en"
-       />
+    <Calendar
+      apiKey={GOOGLE_API_KEY}
+      calendars={calendars}
+      styles={calendarStyles}
+      language="en"
+    />
   );
 }
