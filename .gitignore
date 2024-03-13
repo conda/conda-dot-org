@@ -8,6 +8,9 @@ node_modules/
 .docusaurus
 .cache-loader
 
+# Populated at build time
+/community/minutes/*.md
+
 # Misc
 .DS_Store
 .env.local

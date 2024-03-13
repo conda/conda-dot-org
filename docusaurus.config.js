@@ -35,6 +35,10 @@ const config = {
     },
   ],
 
+  markdown: {
+    format: "detect",
+  },
+
   presets: [
     [
       "classic",
