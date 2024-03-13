@@ -3,7 +3,7 @@ set -euo pipefail
 
 HERE=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
-rm ${HERE}/../community/minutes/*.md
+rm ${HERE}/../community/minutes/*.md || true
 pushd $(mktemp -d)
 curl -L https://github.com/conda-incubator/governance/archive/refs/heads/main.tar.gz -o governance.tar.gz
 tar -C "${HERE}/../community/minutes" -xf governance.tar.gz --strip-components 3 "governance-main/meetings/archive/"
