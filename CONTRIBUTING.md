@@ -311,7 +311,7 @@ As an alternative we offer the ability to generate randomized banners overlaid w
 $ npm run banner -- --output static/img/blog/<post>/banner.png
 ```
 
-> **Note**
+> [!NOTE]
 > `canvas` isn't compiled for `macOS-arm64`; navigate to the following page for compiling instructions:
 > https://www.npmjs.com/package/canvas#compiling
 
