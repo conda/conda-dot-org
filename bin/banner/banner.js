@@ -1,4 +1,4 @@
-// Usage: npm run banner --input path/to/icon.png --output path/to/output.png
+// Usage: npm run banner -- --input path/to/icon.png --output path/to/output.png
 // Warning: canvas isn't compiled for macOS-arm64, follow compiling instructions:
 //  https://www.npmjs.com/package/canvas#compiling
 const { existsSync, mkdirSync, createWriteStream } = require("fs");
