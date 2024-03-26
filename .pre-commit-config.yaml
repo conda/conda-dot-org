@@ -49,6 +49,8 @@ repos:
       - id: ruff
         args: [--fix]
         files: ^bin/(sort-authors|update-news)$
+      - id: ruff-format
+        files: ^bin/(sort-authors|update-news)$
   - repo: local
     hooks:
       - id: generate-news
