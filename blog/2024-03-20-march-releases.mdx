@@ -20,76 +20,75 @@ conda install -n base conda=24.3.0
 
 <!-- truncate -->
 
-
 ### ✨ What's New? ✨
 
-* Show the first few characters of undecodeable response if `repodata.json` raises `JSONDecodeError`.
-* Update `conda.gateways.subprocess.subprocess_call` to use `text=True` to avoid manual encoding/decoding.
-* Add a new plugin hook giving plugin authors the ability to define new settings.
-* Optimize module imports to speed up `conda activate`.
-* Move `conda env export` to `conda export` and alias the old command to the new command.
-* Report progress while running `conda install --revision <idx>`.
-* Add `conda.testing.tmp_channel` pytest fixture to create a temporary local channel for testing.
-* Upload stable release artifacts to GitHub releases during releases.
+- Show the first few characters of undecodeable response if `repodata.json` raises `JSONDecodeError`.
+- Update `conda.gateways.subprocess.subprocess_call` to use `text=True` to avoid manual encoding/decoding.
+- Add a new plugin hook giving plugin authors the ability to define new settings.
+- Optimize module imports to speed up `conda activate`.
+- Move `conda env export` to `conda export` and alias the old command to the new command.
+- Report progress while running `conda install --revision <idx>`.
+- Add `conda.testing.tmp_channel` pytest fixture to create a temporary local channel for testing.
+- Upload stable release artifacts to GitHub releases during releases.
 
 ### 🔧 What Got Fixed? 🔧
 
-* Print traceback on `KeyboardInterrupt` instead of raising another `AttributeError` exception, when conda debugging logs are enabled.
-* Parse integer channel notice IDs as `str` instead of raising an exception.
-* Add direct runtime dependency on `zstandard` for use when downloading `repodata.json.zst`.
-* Fallback to `repodata.json` if `repodata.json.zst` cannot be decompressed as `zstandard`.
-* `conda rename` command no longer throws an error when conda is not active.
-* Fallback to `repodata.json` from `repodata.json.zst` on most 4xx error codes.
-* Fix excess resource usage by log handling when fetching repodata.
-* Re-enable `--subdir` and `--platform` flags to be available for `conda env create` command.
-* Fix `__archspec` virtual package on Windows to return microarchitecture instead of the default `x86_64`.
+- Print traceback on `KeyboardInterrupt` instead of raising another `AttributeError` exception, when conda debugging logs are enabled.
+- Parse integer channel notice IDs as `str` instead of raising an exception.
+- Add direct runtime dependency on `zstandard` for use when downloading `repodata.json.zst`.
+- Fallback to `repodata.json` if `repodata.json.zst` cannot be decompressed as `zstandard`.
+- `conda rename` command no longer throws an error when conda is not active.
+- Fallback to `repodata.json` from `repodata.json.zst` on most 4xx error codes.
+- Fix excess resource usage by log handling when fetching repodata.
+- Re-enable `--subdir` and `--platform` flags to be available for `conda env create` command.
+- Fix `__archspec` virtual package on Windows to return microarchitecture instead of the default `x86_64`.
 
 ### 🌅 What's Marked for [Deprecation](https://github.com/conda-incubator/ceps/blob/main/cep-9.md)? 🌅
 
-* Discontinue custom docker images. Use images provided by [Anaconda Inc.](https://hub.docker.com/r/continuumio/miniconda3) or [conda-forge](https://hub.docker.com/r/condaforge/miniforge3) instead.
-* Mark `conda.testing.integration.make_temp_channel` as pending deprecation. Use `conda.testing.tmp_channel` fixture instead.
-* Mark `conda.testing.integration.running_a_python_capable_of_unicode_subprocessing` as pending deprecation.
-* Mark `conda.testing.integration.set_tmpdir` as pending deprecation. Use `tmp_path`, `conda.testing.path_factory`, or `conda.testing.tmp_env` instead.
-* Mark `conda.testing.integration._get_temp_prefix` as pending deprecation. Use `tmp_path`, `conda.testing.path_factory`, or `conda.testing.tmp_env` instead.
-* Mark `conda.testing.integration.make_temp_prefix` as pending deprecation. Use `tmp_path`, `conda.testing.path_factory`, or `conda.testing.tmp_env` instead.
-* Mark `conda.testing.integration.FORCE_temp_prefix` as pending deprecation. Use `tmp_path`, `conda.testing.path_factory`, or `conda.testing.tmp_env` instead.
-* Mark `conda.testing.integration.create_temp_location` as pending deprecation. Use `tmp_path` or `conda.testing.path_factory` instead.
-* Mark `conda.testing.integration.tempdir` as pending deprecation. Use `tmp_path` or `conda.testing.path_factory` instead.
-* Mark `conda.testing.integration.reload_config` as pending deprecation. Use `conda.base.context.reset_context` instead.
-* Remove `conda.export.handle_proxy_407`.
-* Remove vendored `conda._vendor.boltons`. Use `boltons` package instead.
-* Remove `conda.auxlib.packaging`. Use a modern build system instead; see https://packaging.python.org/en/latest/tutorials/packaging-projects#creating-pyproject-toml for more details.
-* Remove `conda env create --force`. Use `conda env create --yes` instead.
-* Remove `conda info PACKAGE`. Use `conda search PACKAGE --info` instead.
-* Remove `conda.core.subdir_data.fetch_repodata_remote_request`. Use `conda.core.subdir_data.SubdirData.repo_fetch.fetch_latest_parsed` instead."
-* Remove `conda.exports.memoized`. Use `functools.lru_cache` instead.
-* Remove `conda.gateways.disk.read._digest_path`. Use `conda.gateways.disk.read.compute_sum` instead.
-* Remove `conda.gateways.disk.read.compute_md5sum`. Use `conda.gateways.disk.read.compute_sum(path, "md5")` instead.
-* Remove `conda.gateways.disk.read.compute_sha256sum`. Use `conda.gateways.disk.read.compute_sum(path, "sha256")` instead.
-* Remove `conda.instructions.PREFIX`.
-* Remove `conda.instructions.PREFIX_CMD`.
-* Remove `conda.testing.encode_for_env_var`.
-* Remove `conda.testing.conda_check_versions_aligned`.
-* Remove `conda.testing.helpers.run_inprocess_conda_command`. Use `conda.testing.tmp_env` instead.
-* Remove `conda.testing.helpers.capture_json_with_argv`.
-* Remove `conda.testing.integration.get_conda_list_tuple`. Use `conda.core.prefix_data.PrefixData.get` instead.
-* Remove `conda.utils.md5_file`. Use `conda.gateways.disk.read.compute_sum(path, "md5")` instead.
-* Remove `conda.utils.hashsum_file`. Use `conda.gateways.disk.read.compute_sum` instead.
-* Remove `conda.utils.safe_open`. Use `open` instead.
-* Remove `python -m conda_env`. Use `conda env` or `python -m conda env` instead.
-* Remove `conda_env.env.load_from_directory`.
-* Remove `conda_env.pip_util.get_pip_version`.
-* Remove `conda_env.pip_util.PipPackage`.
-* Remove `conda_env.pip_util.installed`.
-* Remove `conda_env.pip_util._canonicalize_name`.
-* Remove `conda_env.pip_util.add_pip_installed`.
-* Postpone `conda.base.context.Context.conda_exe` deprecation to `conda 24.9`.
-* Postpone `conda.testing.integration.run_command` deprecation to `conda 25.3`.
-* Postpone loading subcommands from executables deprecation to `conda 25.3`.
+- Discontinue custom docker images. Use images provided by [Anaconda Inc.](https://hub.docker.com/r/continuumio/miniconda3) or [conda-forge](https://hub.docker.com/r/condaforge/miniforge3) instead.
+- Mark `conda.testing.integration.make_temp_channel` as pending deprecation. Use `conda.testing.tmp_channel` fixture instead.
+- Mark `conda.testing.integration.running_a_python_capable_of_unicode_subprocessing` as pending deprecation.
+- Mark `conda.testing.integration.set_tmpdir` as pending deprecation. Use `tmp_path`, `conda.testing.path_factory`, or `conda.testing.tmp_env` instead.
+- Mark `conda.testing.integration._get_temp_prefix` as pending deprecation. Use `tmp_path`, `conda.testing.path_factory`, or `conda.testing.tmp_env` instead.
+- Mark `conda.testing.integration.make_temp_prefix` as pending deprecation. Use `tmp_path`, `conda.testing.path_factory`, or `conda.testing.tmp_env` instead.
+- Mark `conda.testing.integration.FORCE_temp_prefix` as pending deprecation. Use `tmp_path`, `conda.testing.path_factory`, or `conda.testing.tmp_env` instead.
+- Mark `conda.testing.integration.create_temp_location` as pending deprecation. Use `tmp_path` or `conda.testing.path_factory` instead.
+- Mark `conda.testing.integration.tempdir` as pending deprecation. Use `tmp_path` or `conda.testing.path_factory` instead.
+- Mark `conda.testing.integration.reload_config` as pending deprecation. Use `conda.base.context.reset_context` instead.
+- Remove `conda.export.handle_proxy_407`.
+- Remove vendored `conda._vendor.boltons`. Use `boltons` package instead.
+- Remove `conda.auxlib.packaging`. Use a modern build system instead; see https://packaging.python.org/en/latest/tutorials/packaging-projects#creating-pyproject-toml for more details.
+- Remove `conda env create --force`. Use `conda env create --yes` instead.
+- Remove `conda info PACKAGE`. Use `conda search PACKAGE --info` instead.
+- Remove `conda.core.subdir_data.fetch_repodata_remote_request`. Use `conda.core.subdir_data.SubdirData.repo_fetch.fetch_latest_parsed` instead."
+- Remove `conda.exports.memoized`. Use `functools.lru_cache` instead.
+- Remove `conda.gateways.disk.read._digest_path`. Use `conda.gateways.disk.read.compute_sum` instead.
+- Remove `conda.gateways.disk.read.compute_md5sum`. Use `conda.gateways.disk.read.compute_sum(path, "md5")` instead.
+- Remove `conda.gateways.disk.read.compute_sha256sum`. Use `conda.gateways.disk.read.compute_sum(path, "sha256")` instead.
+- Remove `conda.instructions.PREFIX`.
+- Remove `conda.instructions.PREFIX_CMD`.
+- Remove `conda.testing.encode_for_env_var`.
+- Remove `conda.testing.conda_check_versions_aligned`.
+- Remove `conda.testing.helpers.run_inprocess_conda_command`. Use `conda.testing.tmp_env` instead.
+- Remove `conda.testing.helpers.capture_json_with_argv`.
+- Remove `conda.testing.integration.get_conda_list_tuple`. Use `conda.core.prefix_data.PrefixData.get` instead.
+- Remove `conda.utils.md5_file`. Use `conda.gateways.disk.read.compute_sum(path, "md5")` instead.
+- Remove `conda.utils.hashsum_file`. Use `conda.gateways.disk.read.compute_sum` instead.
+- Remove `conda.utils.safe_open`. Use `open` instead.
+- Remove `python -m conda_env`. Use `conda env` or `python -m conda env` instead.
+- Remove `conda_env.env.load_from_directory`.
+- Remove `conda_env.pip_util.get_pip_version`.
+- Remove `conda_env.pip_util.PipPackage`.
+- Remove `conda_env.pip_util.installed`.
+- Remove `conda_env.pip_util._canonicalize_name`.
+- Remove `conda_env.pip_util.add_pip_installed`.
+- Postpone `conda.base.context.Context.conda_exe` deprecation to `conda 24.9`.
+- Postpone `conda.testing.integration.run_command` deprecation to `conda 25.3`.
+- Postpone loading subcommands from executables deprecation to `conda 25.3`.
 
 ### 📄 What's New in Documentation? 📄
 
-* Update the navigation links for Miniconda.
+- Update the navigation links for Miniconda.
 
 ---
 
@@ -103,86 +102,86 @@ conda install -n base conda-build=24.3.0
 
 ### ✨ What's New? ✨
 
-* Add compatibility for `LIEF=0.14`.
-* Add a check to print an additional warning and return an empty string when bits is "arm64" in `msvc_env_cmd`.
+- Add compatibility for `LIEF=0.14`.
+- Add a check to print an additional warning and return an empty string when bits is "arm64" in `msvc_env_cmd`.
 
 ### 🔧 What Got Fixed? 🔧
 
-* Fix `stdlib` being recognized in variant hash inputs.
+- Fix `stdlib` being recognized in variant hash inputs.
 
 ### 🌅 What's Marked for [Deprecation](https://github.com/conda-incubator/ceps/blob/main/cep-9.md)? 🌅
 
-* Mark `conda_build.bdist_conda` module as pending deprecation.
-* Mark `conda_build.build.have_prefix_files` as deprecated.
-* Mark `conda_build.conda_interface.handle_proxy_407` as deprecated. Handled by `conda.gateways.connection.session.CondaSession`.
-* Mark `conda_build.conda_interface.hashsum_file` as deprecated. Use `conda.gateways.disk.read.compute_sum` instead.
-* Mark `conda_build.conda_interface.md5_file` as deprecated. Use `conda.gateways.disk.read.compute_sum(path, 'md5')` instead.
-* Mark `conda_build.environ.PREFIX_ACTION` as deprecated.
-* Mark `conda_build.environ.LINK_ACTION` as deprecated.
-* Mark `conda_build.environ.cache_actions` as deprecated.
-* Mark `conda_build.index.DummyExecutor` as deprecated.
-* Mark `conda_build.index.MAX_THREADS_DEFAULT` as deprecated.
-* Mark `conda_build.index.LOCK_TIMEOUT_SECS` as deprecated.
-* Mark `conda_build.index.LOCKFILE_NAME` as deprecated.
-* Mark `conda_build.api.get_output_file_path` as deprecated. Use `conda_build.api.get_output_file_paths` instead.
-* Mark `conda_build.environ.Environment` as deprecated. Use `conda.core.prefix_data.PrefixData` instead.
-* Mark `conda_build.conda_interface.get_version_from_git_tag` as deprecated. Use `conda_build.environ.get_version_from_git_tag` instead.
-* Rename `conda_build.environ.create_env('specs_or_actions' -> 'specs_or_precs')`.
-* Rename `conda_build.environ._execute_actions('actions' -> 'precs')`.
-* Rename `conda_build.environ._display_actions('actions' -> 'precs')`.
-* Rename `conda_build.inspect.check_install('platform' -> 'subdir')`.
-* Rename `conda_build.render.execute_download_actions('actions' -> 'precs')`.
-* Rename `conda_build.render.get_upstream_pins('actions' -> 'precs')`.
-* Remove `conda_build.cli.main_render.execute(print_results)`.
-* Remove `conda_build.conda_interface.Dist`.
-* Remove `conda_build.conda_interface.display_actions`.
-* Remove `conda_build.conda_interface.execute_actions`.
-* Remove `conda_build.conda_interface.execute_plan`.
-* Remove `conda_build.conda_interface.install_actions`.
-* Remove `conda_build.conda_interface.linked`.
-* Remove `conda_build.conda_interface.linked_data`.
-* Remove `conda_build.conda_interface.package_cache`.
-* Remove `conda_build.environ.get_install_actions`. Use `conda_build.environ.get_package_records` instead.
-* Remove `conda_build.index._determine_namespace`.
-* Remove `conda_build.index._make_seconds`.
-* Remove `conda_build.index.REPODATA_VERSION`.
-* Remove `conda_build.index.CHANNELDATA_VERSION`.
-* Remove `conda_build.index.REPODATA_JSON_FN`.
-* Remove `conda_build.index.REPODATA_FROM_PKGS_JSON_FN`.
-* Remove `conda_build.index.CHANNELDATA_FIELDS`.
-* Remove `conda_build.index._clear_newline_chars`.
-* Remove `conda_build.index._get_jinja2_environment`.
-* Remove `conda_build.index._maybe_write`.
-* Remove `conda_build.index._make_build_string`.
-* Remove `conda_build.index._warn_on_missing_dependencies`.
-* Remove `conda_build.index._cache_post_install_details`.
-* Remove `conda_build.index._cache_recipe`.
-* Remove `conda_build.index._cache_run_exports`.
-* Remove `conda_build.index._cache_icon`.
-* Remove `conda_build.index._make_subdir_index_html`.
-* Remove `conda_build.index._make_channeldata_index_html`.
-* Remove `conda_build.index._get_source_repo_git_info`.
-* Remove `conda_build.index._cache_info_file`.
-* Remove `conda_build.index._alternate_file_extension`.
-* Remove `conda_build.index._get_resolve_object`.
-* Remove `conda_build.index._get_newest_versions`.
-* Remove `conda_build.index._add_missing_deps`.
-* Remove `conda_build.index._add_prev_ver_for_features`.
-* Remove `conda_build.index._shard_newest_packages`.
-* Remove `conda_build.index._build_current_repodata`.
-* Remove `conda_build.index.ChannelIndex`.
-* Remove `conda_build.inspect.check_install('prepend')`.
-* Remove `conda_build.inspect.check_install('minimal_hint')`.
-* Remove `conda_build.noarch_python.ISWIN`. Use `conda_build.utils.on_win` instead.
-* Remove `conda_build.noarch_python._force_dir`. Use `os.makedirs(exist_ok=True)` instead.
-* Remove `conda_build.noarch_python._error_exit`.
-* Remove `conda_build.render.actions_to_pins`.
-* Remove `conda_build.utils.linked_data_no_multichannels`.
-* Postpone `conda_build.index.channel_data` deprecation.
+- Mark `conda_build.bdist_conda` module as pending deprecation.
+- Mark `conda_build.build.have_prefix_files` as deprecated.
+- Mark `conda_build.conda_interface.handle_proxy_407` as deprecated. Handled by `conda.gateways.connection.session.CondaSession`.
+- Mark `conda_build.conda_interface.hashsum_file` as deprecated. Use `conda.gateways.disk.read.compute_sum` instead.
+- Mark `conda_build.conda_interface.md5_file` as deprecated. Use `conda.gateways.disk.read.compute_sum(path, 'md5')` instead.
+- Mark `conda_build.environ.PREFIX_ACTION` as deprecated.
+- Mark `conda_build.environ.LINK_ACTION` as deprecated.
+- Mark `conda_build.environ.cache_actions` as deprecated.
+- Mark `conda_build.index.DummyExecutor` as deprecated.
+- Mark `conda_build.index.MAX_THREADS_DEFAULT` as deprecated.
+- Mark `conda_build.index.LOCK_TIMEOUT_SECS` as deprecated.
+- Mark `conda_build.index.LOCKFILE_NAME` as deprecated.
+- Mark `conda_build.api.get_output_file_path` as deprecated. Use `conda_build.api.get_output_file_paths` instead.
+- Mark `conda_build.environ.Environment` as deprecated. Use `conda.core.prefix_data.PrefixData` instead.
+- Mark `conda_build.conda_interface.get_version_from_git_tag` as deprecated. Use `conda_build.environ.get_version_from_git_tag` instead.
+- Rename `conda_build.environ.create_env('specs_or_actions' -> 'specs_or_precs')`.
+- Rename `conda_build.environ._execute_actions('actions' -> 'precs')`.
+- Rename `conda_build.environ._display_actions('actions' -> 'precs')`.
+- Rename `conda_build.inspect.check_install('platform' -> 'subdir')`.
+- Rename `conda_build.render.execute_download_actions('actions' -> 'precs')`.
+- Rename `conda_build.render.get_upstream_pins('actions' -> 'precs')`.
+- Remove `conda_build.cli.main_render.execute(print_results)`.
+- Remove `conda_build.conda_interface.Dist`.
+- Remove `conda_build.conda_interface.display_actions`.
+- Remove `conda_build.conda_interface.execute_actions`.
+- Remove `conda_build.conda_interface.execute_plan`.
+- Remove `conda_build.conda_interface.install_actions`.
+- Remove `conda_build.conda_interface.linked`.
+- Remove `conda_build.conda_interface.linked_data`.
+- Remove `conda_build.conda_interface.package_cache`.
+- Remove `conda_build.environ.get_install_actions`. Use `conda_build.environ.get_package_records` instead.
+- Remove `conda_build.index._determine_namespace`.
+- Remove `conda_build.index._make_seconds`.
+- Remove `conda_build.index.REPODATA_VERSION`.
+- Remove `conda_build.index.CHANNELDATA_VERSION`.
+- Remove `conda_build.index.REPODATA_JSON_FN`.
+- Remove `conda_build.index.REPODATA_FROM_PKGS_JSON_FN`.
+- Remove `conda_build.index.CHANNELDATA_FIELDS`.
+- Remove `conda_build.index._clear_newline_chars`.
+- Remove `conda_build.index._get_jinja2_environment`.
+- Remove `conda_build.index._maybe_write`.
+- Remove `conda_build.index._make_build_string`.
+- Remove `conda_build.index._warn_on_missing_dependencies`.
+- Remove `conda_build.index._cache_post_install_details`.
+- Remove `conda_build.index._cache_recipe`.
+- Remove `conda_build.index._cache_run_exports`.
+- Remove `conda_build.index._cache_icon`.
+- Remove `conda_build.index._make_subdir_index_html`.
+- Remove `conda_build.index._make_channeldata_index_html`.
+- Remove `conda_build.index._get_source_repo_git_info`.
+- Remove `conda_build.index._cache_info_file`.
+- Remove `conda_build.index._alternate_file_extension`.
+- Remove `conda_build.index._get_resolve_object`.
+- Remove `conda_build.index._get_newest_versions`.
+- Remove `conda_build.index._add_missing_deps`.
+- Remove `conda_build.index._add_prev_ver_for_features`.
+- Remove `conda_build.index._shard_newest_packages`.
+- Remove `conda_build.index._build_current_repodata`.
+- Remove `conda_build.index.ChannelIndex`.
+- Remove `conda_build.inspect.check_install('prepend')`.
+- Remove `conda_build.inspect.check_install('minimal_hint')`.
+- Remove `conda_build.noarch_python.ISWIN`. Use `conda_build.utils.on_win` instead.
+- Remove `conda_build.noarch_python._force_dir`. Use `os.makedirs(exist_ok=True)` instead.
+- Remove `conda_build.noarch_python._error_exit`.
+- Remove `conda_build.render.actions_to_pins`.
+- Remove `conda_build.utils.linked_data_no_multichannels`.
+- Postpone `conda_build.index.channel_data` deprecation.
 
 ### 📄 What's New in Documentation? 📄
 
-* Update advice for installing conda-build into base environment.
+- Update advice for installing conda-build into base environment.
 
 ---
 
