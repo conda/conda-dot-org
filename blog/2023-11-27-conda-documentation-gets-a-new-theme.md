@@ -14,9 +14,9 @@ image: img/blog/2023-11-27-conda-documentation-gets-a-new-theme/conda-documentat
 [conda-incubator]: https://github.com/conda-incubator
 [conda-org]: https://github.com/conda
 
-We recently pushed out a new theme to the documentation sites for 
+We recently pushed out a new theme to the documentation sites for
 [conda][conda] and [conda-build][conda-build]. This theme is also available
-for all conda related projects to use as a Sphinx theme (check out the 
+for all conda related projects to use as a Sphinx theme (check out the
 [conda-sphinx-theme][conda-sphinx-theme] project).
 
 <!-- truncate -->
@@ -34,7 +34,7 @@ team to choose what is best for them.
 For any feature requests or bug reports regarding the new theme, please file them in the issues
 section of the [conda-sphinx-theme project on GitHub][conda-sphinx-theme].
 
-The theme itself is currently installable either by `pip install conda-sphinx-theme` or 
+The theme itself is currently installable either by `pip install conda-sphinx-theme` or
 by `conda install -c conda-forge conda-sphinx-theme`.
 
 We hope you all enjoy a better looking conda documentation experience!
