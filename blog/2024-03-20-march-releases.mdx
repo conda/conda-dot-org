@@ -30,6 +30,7 @@ conda install -n base conda=24.3.0
 * Move `conda env export` to `conda export` and alias the old command to the new command.
 * Report progress while running `conda install --revision <idx>`.
 * Add `conda.testing.tmp_channel` pytest fixture to create a temporary local channel for testing.
+* Upload stable release artifacts to GitHub releases during releases.
 
 ### 🔧 What Got Fixed? 🔧
 
@@ -45,6 +46,7 @@ conda install -n base conda=24.3.0
 
 ### 🌅 What's Marked for [Deprecation](https://github.com/conda-incubator/ceps/blob/main/cep-9.md)? 🌅
 
+* Discontinue custom docker images. Use images provided by [Anaconda Inc.](https://hub.docker.com/r/continuumio/miniconda3) or [conda-forge](https://hub.docker.com/r/condaforge/miniforge3) instead.
 * Mark `conda.testing.integration.make_temp_channel` as pending deprecation. Use `conda.testing.tmp_channel` fixture instead.
 * Mark `conda.testing.integration.running_a_python_capable_of_unicode_subprocessing` as pending deprecation.
 * Mark `conda.testing.integration.set_tmpdir` as pending deprecation. Use `tmp_path`, `conda.testing.path_factory`, or `conda.testing.tmp_env` instead.
