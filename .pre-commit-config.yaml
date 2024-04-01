@@ -27,7 +27,7 @@ repos:
         # ruamel.yaml doesn't line wrap correctly (?) so set width to 1M to avoid issues
         args: [--mapping, '2', --offset, '2', --sequence, '4', --width, '1000000']
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.28.0
+    rev: 0.28.1
     hooks:
       # verify github syntaxes
       - id: check-github-workflows
@@ -44,12 +44,10 @@ repos:
         types_or: [jsx, javascript, mdx, markdown]
         exclude: ^static/js/count.js$
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.3.4
+    rev: v0.3.5
     hooks:
       - id: ruff
         args: [--fix]
-        files: ^bin/(sort-authors|update-news)$
-      - id: ruff-format
         files: ^bin/(sort-authors|update-news)$
   - repo: local
     hooks:
