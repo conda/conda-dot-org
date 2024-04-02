@@ -5,6 +5,7 @@ date. It will scan the "blog" directory, sort items by date (which
 is just title) and then read the metadata from the entries to update
 the "news.json" file.
 """
+
 from __future__ import annotations
 
 import datetime
@@ -53,8 +54,8 @@ def get_blog_files() -> tuple[str]:
     This is only the five newest according to the date in the title.
     """
     blogs_listing = tuple(
-        BLOGS_DIR.joinpath(item) for item in
-        filter(has_blog_title_pattern, os.listdir(BLOGS_DIR))
+        BLOGS_DIR.joinpath(item)
+        for item in filter(has_blog_title_pattern, os.listdir(BLOGS_DIR))
     )
     blogs_dirs = filter(os.path.isdir, blogs_listing)
     blogs_files = filter(os.path.isfile, blogs_listing)
@@ -67,8 +68,9 @@ def get_blog_files() -> tuple[str]:
     )
 
     return sorted(
-        tuple(blogs_files) + tuple(blogs_dirs_files), reverse=True,
-        key=lambda item: item.name
+        tuple(blogs_files) + tuple(blogs_dirs_files),
+        reverse=True,
+        key=lambda item: item.name,
     )[:5]
 
 
