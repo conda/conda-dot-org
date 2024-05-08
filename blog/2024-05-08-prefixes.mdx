@@ -41,69 +41,69 @@ non-linear the development of the prefix system has been, explaining many of the
 complexities of trying to wrestle with the prefixes or trying to find ways to
 simplify them.
 
-#### `conda.base.context.context.conda_prefix`
+1. `conda.base.context.context.conda_prefix`
 
-Introduced in `conda 4.2.0` (see https://github.com/conda/conda/commit/6e730cc)
-as part of the private environment effort which has since been abandoned and
-deprecated.
+   Introduced in `conda 4.2.0` (see https://github.com/conda/conda/commit/6e730cc)
+   as part of the private environment effort which has since been abandoned and
+   deprecated.
 
-The `conda_prefix` lies at the heart of the prefix system, denoting the
-installation directory of `conda` itself. Typically, this aligns with the
-location of the `base` environment and is equivalent to Python's `sys.prefix`
-value.
+   The `conda_prefix` lies at the heart of the prefix system, denoting the
+   installation directory of `conda` itself. Typically, this aligns with the
+   location of the `base` environment and is equivalent to Python's `sys.prefix`
+   value.
 
-**Use this anytime you need to interact with the `conda` installation itself.**
+   **Use this anytime you need to interact with the `conda` installation itself.**
 
-#### `conda.base.context.context.root_prefix`
+2. `conda.base.context.context.root_prefix`
 
-> Previously `conda.config.root_dir` → `conda.config.ROOT_DIR`.
+   > Previously `conda.config.root_dir` → `conda.config.ROOT_DIR`.
 
-Introduced in `conda 1.1.0` (see https://github.com/conda/conda/commit/d2b370a)
-and was originally intended for testing purposes only.
+   Introduced in `conda 1.1.0` (see https://github.com/conda/conda/commit/d2b370a)
+   and was originally intended for testing purposes only.
 
-The `root_prefix` serves as a [configurable value][condarc], most easily
-configurable in the user's `~/.condarc` file. In the absence of user-defined
-preferences, it defaults to the `conda_prefix`.
+   The `root_prefix` serves as a [configurable value][condarc], most easily
+   configurable in the user's `~/.condarc` file. In the absence of user-defined
+   preferences, it defaults to the `conda_prefix`.
 
-**Avoid using this. This is a contender for deprecation.**
+   **Avoid using this. This is a contender for deprecation.**
 
-#### `conda.base.context.context.active_prefix`
+3. `conda.base.context.context.active_prefix`
 
-Introduced in `conda 4.4.0` (see https://github.com/conda/conda/commit/cbbe81f)
-as part of cleaning up the `conda info` output.
+   Introduced in `conda 4.4.0` (see https://github.com/conda/conda/commit/cbbe81f)
+   as part of cleaning up the `conda info` output.
 
-Reflecting the currently active environment, the `active_prefix` is determined
-by the `$CONDA_PREFIX` environment variable which is set by the `conda activate`
-and `conda deactivate` commands.
+   Reflecting the currently active environment, the `active_prefix` is determined
+   by the `$CONDA_PREFIX` environment variable which is set by the `conda activate`
+   and `conda deactivate` commands.
 
-**Avoid using this. Treat this as an internal value.**
+   **Avoid using this. Treat this as an internal value.**
 
-#### `conda.base.context.context.default_prefix`
+4. `conda.base.context.context.default_prefix`
 
-> Previously `conda.config.default_prefix` → `conda.config.DEFAULT_ENV_PREFIX` →
-> `conda.config.default_environment` → `conda.anaconda.default_environment`.
+   > Previously `conda.config.default_prefix` → `conda.config.DEFAULT_ENV_PREFIX` →
+   > `conda.config.default_environment` → `conda.anaconda.default_environment`.
 
-Introduced in `conda 1.1.0` (see https://github.com/conda/conda/commit/acd8144)
-as part of a larger configuration overhaul.
+   Introduced in `conda 1.1.0` (see https://github.com/conda/conda/commit/acd8144)
+   as part of a larger configuration overhaul.
 
-The `default_prefix` effectively aggregates `root_prefix` and `active_prefix`,
-embodying the default environment in the absence of CLI overrides.
+   The `default_prefix` effectively aggregates `root_prefix` and `active_prefix`,
+   embodying the default environment in the absence of CLI overrides.
 
-**Avoid using this. Treat this as an internal value.**
+   **Avoid using this. Treat this as an internal value.**
 
-#### `conda.base.context.context.target_prefix`
+5. `conda.base.context.context.target_prefix`
 
-> Previously `prefix` → `conda.cli.common.get_prefix()` →
-> `conda.cli.utils.get_prefix()`.
+   > Previously `prefix` → `conda.cli.common.get_prefix()` →
+   > `conda.cli.utils.get_prefix()`.
 
-Introduced in `conda 1.3.0` (see https://github.com/conda/conda/commit/9fd0f4b)
-to abstract out the `--name`/`--prefix` logic from the CLI implementations.
+   Introduced in `conda 1.3.0` (see https://github.com/conda/conda/commit/9fd0f4b)
+   to abstract out the `--name`/`--prefix` logic from the CLI implementations.
 
-The `target_prefix` is the final prefix and first reflects the user input via
-the CLI options, `--name` or `--prefix`. In the absence of CLI overrides, it
-defaults to the `default_prefix`.
+   The `target_prefix` is the final prefix and first reflects the user input via
+   the CLI options, `--name` or `--prefix`. In the absence of CLI overrides, it
+   defaults to the `default_prefix`.
 
-**Use this when you need to interact with the current environment.**
+   **Use this when you need to interact with the current environment.**
 
 In essence, `conda` prefix system serves as the cornerstone of its environment
 management capabilities, facilitating seamless navigation and interaction within
