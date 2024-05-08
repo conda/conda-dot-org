@@ -1,0 +1,66 @@
+---
+title: "Navigating Change in Conda-Build Recipe Formats: Balancing Legacy and Innovation"
+slug: "2024-05-08-v0-format-modifications"
+authors: [kenodegard]
+tags: [announcement, conda, conda-build, recipe, cep13, cep14]
+description: >
+  The recent approval of the new recipe format (v1) does not mean the end of the
+  old format (v0). The conda community must balance innovation with support for
+  legacy systems.
+image: img/blog/2024-05-08-v0-format-modifications/banner.png
+---
+
+[cep13]: https://github.com/conda/ceps/blob/main/cep-13.md
+[cep14]: https://github.com/conda/ceps/blob/main/cep-14.md
+[rattler-build]: https://prefix-dev.github.io/rattler-build/latest/
+
+The recent approval of a new recipe format (v1) by the Conda Steering Council
+via [CEP13][cep13] and [CEP14][cep14] marks an important milestone in the
+evolution of package management in the conda ecosystem. While the community
+embraces the potential improvements that come with the new format, it's
+essential to acknowledge that the v1 format is still under development and is
+being prototyped in [rattler-build][rattler-build]. Consequently, the v0 format
+remains widely in use, emphasizing the need to balance innovation with support
+for legacy systems.
+
+In any evolving ecosystem, such as conda, change is inevitable, requiring a
+delicate balance between progress and continuity. While the acceptance of the v1
+format signals a step forward, it also highlights the importance of ensuring
+that updates to the existing v0 format align with proposals made in the new
+format. Despite the approval of the v1 format, the transition to this new
+standard will take time. In the interim, the v0 format continues to serve as the
+backbone of many conda-build recipes, emphasizing the necessity of providing
+ongoing support and updates to meet the evolving needs of the community.
+
+The decision to introduce changes to the v0 format should be driven by the needs
+of the user community. While the focus is on innovating with the v1 format, it's
+essential to remain responsive to the challenges and requirements of those who
+rely on the v0 format for their packaging needs. Updates to the v0 format should
+be guided by user feedback and aimed at addressing pain points and enhancing
+usability.
+
+To initiate changes to the v0 conda-build recipe format, the following workflow
+can be followed:
+
+1. Proposal: Any proposed modifications to the v0 format should also be proposed
+   in the v1 format. The rational here being, if it's necessary for v0 it should
+   also be necessary for v1.
+2. Approval: The proposed modification should undergo the same review and
+   approval expected for the v1 format.
+3. Implementation: Once approved, the changes can be implemented in the v0
+   format, ensuring alignment with the corresponding features in the v1 format.
+
+As the community navigates the transition from v0 to v1, clear communication and
+guidance are paramount. Developers and maintainers need to be equipped with the
+resources and support necessary to understand the implications of the new format
+and make informed decisions about when and how to migrate. Additionally, robust
+documentation and educational materials will play a crucial role in facilitating
+this transition seamlessly.
+
+The approval of the v1 format represents an exciting step forward for the conda
+ecosystem. However, it's essential to recognize that change takes time, and the
+transition to the new format will be gradual. In the interim, the v0 format
+remains a critical component of many conda-build recipes, necessitating ongoing
+support and updates. By striking a balance between innovation and continuity,
+the conda community can ensure a smooth transition to the new standard while
+continuing to meet the evolving needs of users.
