@@ -9,6 +9,11 @@ beeankha:
   title: Conda maintainer 🐍📦
   url: https://github.com/beeankha
   image_url: https://github.com/beeankha.png
+chatgpt:
+  name: OpenAI ChatGPT
+  title: Large Language Model 🤖
+  url: https://chatgpt.com/
+  image_url: /img/authors/openai.png
 dholth:
   name: Daniel Holth
   title: Conda maintainer
