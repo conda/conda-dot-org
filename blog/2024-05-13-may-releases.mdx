@@ -27,50 +27,46 @@ for more details.
 
 ### ✨ What's New? ✨
 
-* Report which `MatchSpec` item caused `Invalid*Spec` exceptions for more informative error messages.
-* Remove `setuptools` remainings (`MANIFEST.in`, `wheel` build dependency) not required since the move to `hatch` in [pull request #12509](https://github.com/conda/conda/pull/12509).
-* Remove and update any imports inside conda that is importing from `conda/exports.py`.
-
+- Report which `MatchSpec` item caused `Invalid*Spec` exceptions for more informative error messages.
+- Remove `setuptools` remainings (`MANIFEST.in`, `wheel` build dependency) not required since the move to `hatch` in [pull request #12509](https://github.com/conda/conda/pull/12509).
+- Remove and update any imports inside conda that is importing from `conda/exports.py`.
 
 ### 🔧 What Got Fixed? 🔧
 
-* Fix `conda notices --json` to correctly output JSON.
-* Fix prefix replacement for Windows `subdir` on Unix.
-
+- Fix `conda notices --json` to correctly output JSON.
+- Fix prefix replacement for Windows `subdir` on Unix.
 
 ### 🌅 What's Marked for [Deprecation](https://github.com/conda-incubator/ceps/blob/main/cep-9.md)? 🌅
 
-* Mark `conda.plan._get_best_prec_match` as pending deprecation. Use `conda.misc._get_best_prec_match` instead.
-* Mark `conda.plan._handle_menuinst` as pending deprecation.
-* Mark `conda.plan._inject_UNLINKLINKTRANSACTION` as pending deprecation.
-* Mark `conda.plan._plan_from_actions` as pending deprecation.
-* Mark `conda.plan.add_defaults_to_specs` as pending deprecation.
-* Mark `conda.plan.add_unlink` as pending deprecation.
-* Mark `conda.plan.display_actions` as pending deprecation.
-* Mark `conda.plan.execute_actions` as pending deprecation.
-* Mark `conda.plan.get_blank_actions` as pending deprecation.
-* Mark `conda.plan.install_actions` as pending deprecation.
-* Mark `conda.plan.print_dists` as pending deprecation.
-* Mark `conda.plan.revert_actions` as pending deprecation. Use `conda.cli.install.revert_actions` instead.
-* Mark `conda.plan` as an entrypoint as pending deprecation.
-* Mark `conda.activate._Activator.add_export_unset_vars` as pending deprecation. Use `conda.activate._Activator.get_export_unset_vars` instead.
-* Mark `conda.activate._Activator.get_scripts_export_unset_vars` as pending deprecation. Use `get_scripts_export_unset_vars` helper function in `test_activate.py` instead.
-* Mark `conda.activate._Activator._get_path_dirs(extra_library_bin)` as pending deprecation.
-* Mark `conda.activate.JSONFormatMixin.get_scripts_export_unset_vars` as pending deprecation. Use `conda.activate._Activator.get_export_unset_vars` instead.
-* Mark `conda.gateways.logging.trace` as pending deprecation. Use `Logger.log(conda.common.constants.TRACE, msg)` instead.
-* Mark `conda create --mkdir` as pending deprecation. The argument is redundant and unnecessary.
-* Mark `conda install --mkdir` as pending deprecation. Use `conda create` instead.
-* Mark `conda._vendor.frozendict` as pending deprecation. Use `frozendict` instead.
-* Mark `conda.auxlib.collection.make_immutable` as pending deprecation. Use `frozendict.deepfreeze` instead.
-* Mark `conda.plan.execute_plan` as pending deprecation.
-* Mark `conda.plan.execute_instructions` as pending deprecation.
-* Mark `conda.plan._update_old_plan` as pending deprecation.
-
+- Mark `conda.plan._get_best_prec_match` as pending deprecation. Use `conda.misc._get_best_prec_match` instead.
+- Mark `conda.plan._handle_menuinst` as pending deprecation.
+- Mark `conda.plan._inject_UNLINKLINKTRANSACTION` as pending deprecation.
+- Mark `conda.plan._plan_from_actions` as pending deprecation.
+- Mark `conda.plan.add_defaults_to_specs` as pending deprecation.
+- Mark `conda.plan.add_unlink` as pending deprecation.
+- Mark `conda.plan.display_actions` as pending deprecation.
+- Mark `conda.plan.execute_actions` as pending deprecation.
+- Mark `conda.plan.get_blank_actions` as pending deprecation.
+- Mark `conda.plan.install_actions` as pending deprecation.
+- Mark `conda.plan.print_dists` as pending deprecation.
+- Mark `conda.plan.revert_actions` as pending deprecation. Use `conda.cli.install.revert_actions` instead.
+- Mark `conda.plan` as an entrypoint as pending deprecation.
+- Mark `conda.activate._Activator.add_export_unset_vars` as pending deprecation. Use `conda.activate._Activator.get_export_unset_vars` instead.
+- Mark `conda.activate._Activator.get_scripts_export_unset_vars` as pending deprecation. Use `get_scripts_export_unset_vars` helper function in `test_activate.py` instead.
+- Mark `conda.activate._Activator._get_path_dirs(extra_library_bin)` as pending deprecation.
+- Mark `conda.activate.JSONFormatMixin.get_scripts_export_unset_vars` as pending deprecation. Use `conda.activate._Activator.get_export_unset_vars` instead.
+- Mark `conda.gateways.logging.trace` as pending deprecation. Use `Logger.log(conda.common.constants.TRACE, msg)` instead.
+- Mark `conda create --mkdir` as pending deprecation. The argument is redundant and unnecessary.
+- Mark `conda install --mkdir` as pending deprecation. Use `conda create` instead.
+- Mark `conda._vendor.frozendict` as pending deprecation. Use `frozendict` instead.
+- Mark `conda.auxlib.collection.make_immutable` as pending deprecation. Use `frozendict.deepfreeze` instead.
+- Mark `conda.plan.execute_plan` as pending deprecation.
+- Mark `conda.plan.execute_instructions` as pending deprecation.
+- Mark `conda.plan._update_old_plan` as pending deprecation.
 
 ### 📄 What's New in Documentation? 📄
 
-* Add type hints and doc strings to `conda.core.index`.
-
+- Add type hints and doc strings to `conda.core.index`.
 
 ---
 
@@ -86,117 +82,113 @@ The May 2024 release of conda-build adds `conda_build.metadata._split_line_selec
 `lfs` files for specific `git_ref`, and enables CodSpeed benchmarks for select tests. See the list below or the [release notes](https://github.com/conda/conda-build/releases/tag/24.5.0)
 for more details.
 
-
 ### ✨ What's New? ✨
 
-* Add `conda_build.render.open_recipe` context manager to detect the recipe type (file/`meta.yaml`, directory/recipe, or tarball/package) and properly handling any exit/close behavior.
-* For Windows users, the stub executables used for Python entrypoints in packages are now codesigned.
-* Require `conda >=23.7.0`.
-
+- Add `conda_build.render.open_recipe` context manager to detect the recipe type (file/`meta.yaml`, directory/recipe, or tarball/package) and properly handling any exit/close behavior.
+- For Windows users, the stub executables used for Python entrypoints in packages are now codesigned.
+- Require `conda >=23.7.0`.
 
 ### 🔧 What Got Fixed? 🔧
 
-* Fix all CLI arguments to properly initialize `conda.base.context.context` with parsed arguments. Fixes issue with arguments not being processed (e.g., `--override-channels` was previously ignored).
-
+- Fix all CLI arguments to properly initialize `conda.base.context.context` with parsed arguments. Fixes issue with arguments not being processed (e.g., `--override-channels` was previously ignored).
 
 ### 🌅 What's Marked for [Deprecation](https://github.com/conda-incubator/ceps/blob/main/cep-9.md)? 🌅
 
-* Deprecate `conda_build.conda_interface.CONDA_VERSION` constant. Use `conda.__version__` instead.
-* Deprecate `conda_build.conda_interface.binstar_upload` constant. Use `conda.base.context.context.binstar_upload` instead.
-* Deprecate `conda_build.conda_interface.default_python` constant. Use `conda.base.context.context.default_python` instead.
-* Deprecate `conda_build.conda_interface.envs_dirs` constant. Use `conda.base.context.context.envs_dirs` instead.
-* Deprecate `conda_build.conda_interface.pkgs_dirs` constant. Use `conda.base.context.context.pkgs_dirs` instead.
-* Deprecate `conda_build.conda_interface.cc_platform` constant. Use `conda.base.context.context.platform` instead.
-* Deprecate `conda_build.conda_interface.root_dir` constant. Use `conda.base.context.context.root_prefix` instead.
-* Deprecate `conda_build.conda_interface.root_writable` constant. Use `conda.base.context.context.root_writable` instead.
-* Deprecate `conda_build.conda_interface.subdir` constant. Use `conda.base.context.context.subdir` instead.
-* Deprecate `conda_build.conda_interface.create_default_packages` constant. Use `conda.base.context.context.create_default_packages` instead.
-* Deprecate `conda_build.conda_interface.get_rc_urls` function. Use `conda.base.context.context.channels` instead.
-* Deprecate `conda_build.conda_interface.get_prefix` function. Use `conda.base.context.context.target_prefix` instead.
-* Deprecate `conda_build.conda_interface.get_conda_channel` function. Use `conda.models.channel.Channel.from_value` instead.
-* Deprecate `conda_build.conda_interface.reset_context` function. Use `conda.base.context.reset_context` instead.
-* Deprecate `conda_build.conda_interface.context` singleton. Use `conda.base.context.context` instead.
-* Deprecate `conda_build.conda_interface.configparser` module. Use `configparser` instead.
-* Deprecate `conda_build.conda_interface.os` module. Use `os` instead.
-* Deprecate `conda_build.conda_interface.partial` function. Use `functools.partial` instead.
-* Deprecate `conda_build.conda_interface.import_module` function. Use `importlib.import_module` instead.
-* Deprecate `conda_build.conda_interface.determine_target_prefix` function. Use `conda.base.context.determine_target_prefix` instead.
-* Deprecate `conda_build.conda_interface.non_x86_linux_machines` constant. Use `conda.base.context.non_x86_machines` instead.
-* Deprecate `conda_build.conda_interface.ProgressiveFetchExtract` class. Use `conda.core.package_cache.ProgressiveFetchExtract` instead.
-* Deprecate `conda_build.conda_interface.CondaError` class. Use `conda.exceptions.CondaError` instead.
-* Deprecate `conda_build.conda_interface.CondaHTTPError` class. Use `conda.exceptions.CondaHTTPError` instead.
-* Deprecate `conda_build.conda_interface.LinkError` class. Use `conda.exceptions.LinkError` instead.
-* Deprecate `conda_build.conda_interface.LockError` class. Use `conda.exceptions.LockError` instead.
-* Deprecate `conda_build.conda_interface.NoPackagesFoundError` class. Use `conda.exceptions.NoPackagesFoundError` instead.
-* Deprecate `conda_build.conda_interface.PaddingError` class. Use `conda.exceptions.PaddingError` instead.
-* Deprecate `conda_build.conda_interface.UnsatisfiableError` class. Use `conda.exceptions.UnsatisfiableError` instead.
-* Deprecate `conda_build.conda_interface.get_conda_build_local_url` class. Use `conda.models.channel.get_conda_build_local_url` instead.
-* Deprecate `conda_build.config.Config.override_channels`. Defer to `conda.base.context.context.channels` instead.
-* Deprecate `conda_build.conda_interface._toposort`. Use `conda.common.toposort._toposort` instead.
-* Deprecate `conda_build.conda_interface.add_parser_channels`. Use `conda.cli.helpers.add_parser_channels` instead.
-* Deprecate `conda_build.conda_interface.add_parser_prefix`. Use `conda.cli.helpers.add_parser_prefix` instead.
-* Deprecate `conda_build.conda_interface.ArgumentParser`. Use `conda.cli.conda_argparse.ArgumentParser` instead.
-* Deprecate `conda_build.conda_interface.cc_conda_build`. Use `conda.base.context.context.conda_build` instead.
-* Deprecate `conda_build.conda_interface.Channel`. Use `conda.models.channel.Channel` instead.
-* Deprecate `conda_build.conda_interface.Completer`.
-* Deprecate `conda_build.conda_interface.CondaSession`. Use `conda.gateways.connection.session.CondaSession` instead.
-* Deprecate `conda_build.conda_interface.download`. Use `conda.gateways.connection.download.download` instead.
-* Deprecate `conda_build.conda_interface.EntityEncoder`. Use `conda.auxlib.entity.EntityEncoder` instead.
-* Deprecate `conda_build.conda_interface.env_path_backup_var_exists`.
-* Deprecate `conda_build.conda_interface.FileMode`. Use `conda.models.enums.FileMode` instead.
-* Deprecate `conda_build.conda_interface.human_bytes`. Use `conda.utils.human_bytes` instead.
-* Deprecate `conda_build.conda_interface.input`. Use `input` instead.
-* Deprecate `conda_build.conda_interface.InstalledPackages`.
-* Deprecate `conda_build.conda_interface.lchmod`. Use `conda.gateways.disk.link.lchmod` instead.
-* Deprecate `conda_build.conda_interface.MatchSpec`. Use `conda.models.match_spec.MatchSpec` instead.
-* Deprecate `conda_build.conda_interface.NoPackagesFound`. Use `conda.exceptions.ResolvePackageNotFound` instead.
-* Deprecate `conda_build.conda_interface.normalized_version`. Use `conda.models.version.normalized_version` instead.
-* Deprecate `conda_build.conda_interface.PackageRecord`. Use `conda.models.records.PackageRecord` instead.
-* Deprecate `conda_build.conda_interface.PathType`. Use `conda.models.enums.PathType` instead.
-* Deprecate `conda_build.conda_interface.prefix_placeholder`. Use `conda.base.constants.PREFIX_PLACEHOLDER` instead.
-* Deprecate `conda_build.conda_interface.Resolve`. Use `conda.resolve.Resolve` instead.
-* Deprecate `conda_build.conda_interface.rm_rf`. Use `conda_build.utils.rm_rf` instead.
-* Deprecate `conda_build.conda_interface.spec_from_line`. Use `conda.cli.common.spec_from_line` instead.
-* Deprecate `conda_build.conda_interface.specs_from_args`. Use `conda.cli.common.specs_from_args` instead.
-* Deprecate `conda_build.conda_interface.specs_from_url`. Use `conda.cli.common.specs_from_url` instead.
-* Deprecate `conda_build.conda_interface.StringIO`. Use `io.StringIO` instead.
-* Deprecate `conda_build.conda_interface.symlink_conda`.
-* Deprecate `conda_build.conda_interface.TempDirectory`. Use `conda.gateways.disk.create.TemporaryDirectory` instead.
-* Deprecate `conda_build.conda_interface.TmpDownload`. Use `conda.gateways.connection.download.TmpDownload` instead.
-* Deprecate `conda_build.conda_interface.unix_path_to_win`. Use `conda.utils.unix_path_to_win` instead.
-* Deprecate `conda_build.conda_interface.Unsatisfiable`. Use `conda.exceptions.UnsatisfiableError` instead.
-* Deprecate `conda_build.conda_interface.untracked`. Use `conda.misc.untracked` instead.
-* Deprecate `conda_build.conda_interface.url_path`. Use `conda.utils.url_path` instead.
-* Deprecate `conda_build.conda_interface.VersionOrder`. Use `conda.models.version.VersionOrder` instead.
-* Deprecate `conda_build.conda_interface.walk_prefix`. Use `conda.misc.walk_prefix` instead.
-* Deprecate `conda_build.conda_interface.win_path_to_unix`. Use `conda.common.path.win_path_to_unix` instead.
-* Deprecate `conda_build.variants.get_vars(loop_only)`.
-* Deprecate `conda_build.utils.HashableDict`. Use `frozendict.deepfreeze` instead.
-* Deprecate `conda_build.utils._convert_lists_to_sets`. Use `frozendict.deepfreeze` instead.
-* Deprecate `conda_build.utils.represent_hashabledict`. Use `frozendict.deepfreeze` instead.
-* Deprecate `conda_build.config.noarch_python_build_age_default`.
-* Postpone `conda_build.index.channel_data` deprecation.
-* Remove `conda_build.api.get_output_file_path`. Use `conda_build.api.get_output_file_paths` instead.
-* Remove `conda_build.bdist_conda`.
-* Remove `conda_build.build.have_prefix_files`.
-* Remove `conda_build.conda_interface.get_index`. Use `conda.core.index.get_index` instead.
-* Remove `conda_build.conda_interface.get_version_from_git_tag`. Use `conda_build.environ.get_version_from_git_tag` instead.
-* Remove `conda_build.conda_interface.handle_proxy_407`. Handled by `conda.gateways.connection.session.CondaSession`.
-* Remove `conda_build.conda_interface.hashsum_file`. Use `conda.gateways.disk.read.compute_sum` instead.
-* Remove `conda_build.conda_interface.md5_file`. Use `conda.gateways.disk.read.compute_sum(path, 'md5')` instead.
-* Remove `conda_build.environ._load_all_json`.
-* Remove `conda_build.environ._load_json`.
-* Remove `conda_build.environ.cached_actions`.
-* Remove `conda_build.environ.Environment`. Use `conda.core.prefix_data.PrefixData` instead.
-* Remove `conda_build.environ.InvalidEnvironment`.
-* Remove `conda_build.environ.LINK_ACTION`.
-* Remove `conda_build.environ.PREFIX_ACTION`.
-* Remove `conda_build.index._apply_instructions`. Use `conda_index._apply_instructions` instead.
-* Remove `conda_build.index.DummyExecutor`.
-* Remove `conda_build.index.LOCK_TIMEOUT_SECS`.
-* Remove `conda_build.index.LOCKFILE_NAME`.
-* Remove `conda_build.index.MAX_THREADS_DEFAULT`.
-
+- Deprecate `conda_build.conda_interface.CONDA_VERSION` constant. Use `conda.__version__` instead.
+- Deprecate `conda_build.conda_interface.binstar_upload` constant. Use `conda.base.context.context.binstar_upload` instead.
+- Deprecate `conda_build.conda_interface.default_python` constant. Use `conda.base.context.context.default_python` instead.
+- Deprecate `conda_build.conda_interface.envs_dirs` constant. Use `conda.base.context.context.envs_dirs` instead.
+- Deprecate `conda_build.conda_interface.pkgs_dirs` constant. Use `conda.base.context.context.pkgs_dirs` instead.
+- Deprecate `conda_build.conda_interface.cc_platform` constant. Use `conda.base.context.context.platform` instead.
+- Deprecate `conda_build.conda_interface.root_dir` constant. Use `conda.base.context.context.root_prefix` instead.
+- Deprecate `conda_build.conda_interface.root_writable` constant. Use `conda.base.context.context.root_writable` instead.
+- Deprecate `conda_build.conda_interface.subdir` constant. Use `conda.base.context.context.subdir` instead.
+- Deprecate `conda_build.conda_interface.create_default_packages` constant. Use `conda.base.context.context.create_default_packages` instead.
+- Deprecate `conda_build.conda_interface.get_rc_urls` function. Use `conda.base.context.context.channels` instead.
+- Deprecate `conda_build.conda_interface.get_prefix` function. Use `conda.base.context.context.target_prefix` instead.
+- Deprecate `conda_build.conda_interface.get_conda_channel` function. Use `conda.models.channel.Channel.from_value` instead.
+- Deprecate `conda_build.conda_interface.reset_context` function. Use `conda.base.context.reset_context` instead.
+- Deprecate `conda_build.conda_interface.context` singleton. Use `conda.base.context.context` instead.
+- Deprecate `conda_build.conda_interface.configparser` module. Use `configparser` instead.
+- Deprecate `conda_build.conda_interface.os` module. Use `os` instead.
+- Deprecate `conda_build.conda_interface.partial` function. Use `functools.partial` instead.
+- Deprecate `conda_build.conda_interface.import_module` function. Use `importlib.import_module` instead.
+- Deprecate `conda_build.conda_interface.determine_target_prefix` function. Use `conda.base.context.determine_target_prefix` instead.
+- Deprecate `conda_build.conda_interface.non_x86_linux_machines` constant. Use `conda.base.context.non_x86_machines` instead.
+- Deprecate `conda_build.conda_interface.ProgressiveFetchExtract` class. Use `conda.core.package_cache.ProgressiveFetchExtract` instead.
+- Deprecate `conda_build.conda_interface.CondaError` class. Use `conda.exceptions.CondaError` instead.
+- Deprecate `conda_build.conda_interface.CondaHTTPError` class. Use `conda.exceptions.CondaHTTPError` instead.
+- Deprecate `conda_build.conda_interface.LinkError` class. Use `conda.exceptions.LinkError` instead.
+- Deprecate `conda_build.conda_interface.LockError` class. Use `conda.exceptions.LockError` instead.
+- Deprecate `conda_build.conda_interface.NoPackagesFoundError` class. Use `conda.exceptions.NoPackagesFoundError` instead.
+- Deprecate `conda_build.conda_interface.PaddingError` class. Use `conda.exceptions.PaddingError` instead.
+- Deprecate `conda_build.conda_interface.UnsatisfiableError` class. Use `conda.exceptions.UnsatisfiableError` instead.
+- Deprecate `conda_build.conda_interface.get_conda_build_local_url` class. Use `conda.models.channel.get_conda_build_local_url` instead.
+- Deprecate `conda_build.config.Config.override_channels`. Defer to `conda.base.context.context.channels` instead.
+- Deprecate `conda_build.conda_interface._toposort`. Use `conda.common.toposort._toposort` instead.
+- Deprecate `conda_build.conda_interface.add_parser_channels`. Use `conda.cli.helpers.add_parser_channels` instead.
+- Deprecate `conda_build.conda_interface.add_parser_prefix`. Use `conda.cli.helpers.add_parser_prefix` instead.
+- Deprecate `conda_build.conda_interface.ArgumentParser`. Use `conda.cli.conda_argparse.ArgumentParser` instead.
+- Deprecate `conda_build.conda_interface.cc_conda_build`. Use `conda.base.context.context.conda_build` instead.
+- Deprecate `conda_build.conda_interface.Channel`. Use `conda.models.channel.Channel` instead.
+- Deprecate `conda_build.conda_interface.Completer`.
+- Deprecate `conda_build.conda_interface.CondaSession`. Use `conda.gateways.connection.session.CondaSession` instead.
+- Deprecate `conda_build.conda_interface.download`. Use `conda.gateways.connection.download.download` instead.
+- Deprecate `conda_build.conda_interface.EntityEncoder`. Use `conda.auxlib.entity.EntityEncoder` instead.
+- Deprecate `conda_build.conda_interface.env_path_backup_var_exists`.
+- Deprecate `conda_build.conda_interface.FileMode`. Use `conda.models.enums.FileMode` instead.
+- Deprecate `conda_build.conda_interface.human_bytes`. Use `conda.utils.human_bytes` instead.
+- Deprecate `conda_build.conda_interface.input`. Use `input` instead.
+- Deprecate `conda_build.conda_interface.InstalledPackages`.
+- Deprecate `conda_build.conda_interface.lchmod`. Use `conda.gateways.disk.link.lchmod` instead.
+- Deprecate `conda_build.conda_interface.MatchSpec`. Use `conda.models.match_spec.MatchSpec` instead.
+- Deprecate `conda_build.conda_interface.NoPackagesFound`. Use `conda.exceptions.ResolvePackageNotFound` instead.
+- Deprecate `conda_build.conda_interface.normalized_version`. Use `conda.models.version.normalized_version` instead.
+- Deprecate `conda_build.conda_interface.PackageRecord`. Use `conda.models.records.PackageRecord` instead.
+- Deprecate `conda_build.conda_interface.PathType`. Use `conda.models.enums.PathType` instead.
+- Deprecate `conda_build.conda_interface.prefix_placeholder`. Use `conda.base.constants.PREFIX_PLACEHOLDER` instead.
+- Deprecate `conda_build.conda_interface.Resolve`. Use `conda.resolve.Resolve` instead.
+- Deprecate `conda_build.conda_interface.rm_rf`. Use `conda_build.utils.rm_rf` instead.
+- Deprecate `conda_build.conda_interface.spec_from_line`. Use `conda.cli.common.spec_from_line` instead.
+- Deprecate `conda_build.conda_interface.specs_from_args`. Use `conda.cli.common.specs_from_args` instead.
+- Deprecate `conda_build.conda_interface.specs_from_url`. Use `conda.cli.common.specs_from_url` instead.
+- Deprecate `conda_build.conda_interface.StringIO`. Use `io.StringIO` instead.
+- Deprecate `conda_build.conda_interface.symlink_conda`.
+- Deprecate `conda_build.conda_interface.TempDirectory`. Use `conda.gateways.disk.create.TemporaryDirectory` instead.
+- Deprecate `conda_build.conda_interface.TmpDownload`. Use `conda.gateways.connection.download.TmpDownload` instead.
+- Deprecate `conda_build.conda_interface.unix_path_to_win`. Use `conda.utils.unix_path_to_win` instead.
+- Deprecate `conda_build.conda_interface.Unsatisfiable`. Use `conda.exceptions.UnsatisfiableError` instead.
+- Deprecate `conda_build.conda_interface.untracked`. Use `conda.misc.untracked` instead.
+- Deprecate `conda_build.conda_interface.url_path`. Use `conda.utils.url_path` instead.
+- Deprecate `conda_build.conda_interface.VersionOrder`. Use `conda.models.version.VersionOrder` instead.
+- Deprecate `conda_build.conda_interface.walk_prefix`. Use `conda.misc.walk_prefix` instead.
+- Deprecate `conda_build.conda_interface.win_path_to_unix`. Use `conda.common.path.win_path_to_unix` instead.
+- Deprecate `conda_build.variants.get_vars(loop_only)`.
+- Deprecate `conda_build.utils.HashableDict`. Use `frozendict.deepfreeze` instead.
+- Deprecate `conda_build.utils._convert_lists_to_sets`. Use `frozendict.deepfreeze` instead.
+- Deprecate `conda_build.utils.represent_hashabledict`. Use `frozendict.deepfreeze` instead.
+- Deprecate `conda_build.config.noarch_python_build_age_default`.
+- Postpone `conda_build.index.channel_data` deprecation.
+- Remove `conda_build.api.get_output_file_path`. Use `conda_build.api.get_output_file_paths` instead.
+- Remove `conda_build.bdist_conda`.
+- Remove `conda_build.build.have_prefix_files`.
+- Remove `conda_build.conda_interface.get_index`. Use `conda.core.index.get_index` instead.
+- Remove `conda_build.conda_interface.get_version_from_git_tag`. Use `conda_build.environ.get_version_from_git_tag` instead.
+- Remove `conda_build.conda_interface.handle_proxy_407`. Handled by `conda.gateways.connection.session.CondaSession`.
+- Remove `conda_build.conda_interface.hashsum_file`. Use `conda.gateways.disk.read.compute_sum` instead.
+- Remove `conda_build.conda_interface.md5_file`. Use `conda.gateways.disk.read.compute_sum(path, 'md5')` instead.
+- Remove `conda_build.environ._load_all_json`.
+- Remove `conda_build.environ._load_json`.
+- Remove `conda_build.environ.cached_actions`.
+- Remove `conda_build.environ.Environment`. Use `conda.core.prefix_data.PrefixData` instead.
+- Remove `conda_build.environ.InvalidEnvironment`.
+- Remove `conda_build.environ.LINK_ACTION`.
+- Remove `conda_build.environ.PREFIX_ACTION`.
+- Remove `conda_build.index._apply_instructions`. Use `conda_index._apply_instructions` instead.
+- Remove `conda_build.index.DummyExecutor`.
+- Remove `conda_build.index.LOCK_TIMEOUT_SECS`.
+- Remove `conda_build.index.LOCKFILE_NAME`.
+- Remove `conda_build.index.MAX_THREADS_DEFAULT`.
 
 ---
 
@@ -204,11 +196,11 @@ for more details.
 
 Altogether, we had 6 new contributors this release cycle; thank you to all of our open source community members for helping making these improvements possible.
 
-* @ifitchet made their first contribution in https://github.com/conda/conda/pull/13649
-* @Nathann03 made their first contribution in https://github.com/conda/conda/pull/13816
-* @dwr-psandhu made their first contribution in https://github.com/conda/conda/pull/13770
-* @Callek made their first contribution in https://github.com/conda/conda-build/pull/5252
-* @Tobias-Fischer made their first contribution in https://github.com/conda/conda-build/pull/5202
-* @ytausch made their first contribution in https://github.com/conda/conda-build/pull/5214
+- @ifitchet made their first contribution in https://github.com/conda/conda/pull/13649
+- @Nathann03 made their first contribution in https://github.com/conda/conda/pull/13816
+- @dwr-psandhu made their first contribution in https://github.com/conda/conda/pull/13770
+- @Callek made their first contribution in https://github.com/conda/conda-build/pull/5252
+- @Tobias-Fischer made their first contribution in https://github.com/conda/conda-build/pull/5202
+- @ytausch made their first contribution in https://github.com/conda/conda-build/pull/5214
 
 If you have ideas or want to help improve any of the conda community projects, we love to see new (and returning) contributors! 😄
