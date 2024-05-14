@@ -10,30 +10,24 @@ image: img/blog/2024-05-13-april-and-may-releases/banner.png
 
 The April and May 2024 releases included updates to conda and conda-build! 🎉 All of these new releases have been released to both `main` and `conda-forge`.
 
-## Changes in Conda [24.4.0](https://github.com/conda/conda/releases/tag/24.4.0)
+## Changes in Conda [24.4.0](https://github.com/conda/conda/releases/tag/24.4.0)/[24.5.0](https://github.com/conda/conda/releases/tag/24.5.0)
 
-Conda's release cycle is typically every two months per [CEP 8](https://github.com/conda/ceps/blob/main/cep-8.md), however, when a new standalone
-feature is added in between the bimonthly cadence, a separate release is published with the new changes.
-
-The April 2024 release of conda introduces a new enhancement for Windows users. Specifically, the stub executables used for Python entrypoints in
-packages are now codesigned as a result of [pull request #13721](https://github.com/conda/conda/pull/13721).
-
-<!-- truncate -->
-
----
-
-## Changes in Conda [24.5.0](https://github.com/conda/conda/releases/tag/24.5.0)
-
-To update conda, run:
+To update conda to the latest version, run:
 
 ```bash
 conda install -n base conda=24.5.0
 ```
 
-Amongst other changes, this new version of conda enables MSYS2 packages to utilize upstream installation prefixes, adds support for
-CEP-15 `base_url` field in `repodata.json`, and allows specification of channel URLs using a glob-like wildcard pattern in custom
-channel settings (_e.g._, for user with auth handler plugins). See the list below or the [release notes](https://github.com/conda/conda/releases/tag/24.5.0)
-for more details.
+<!-- truncate -->
+
+Conda's release cycle is typically every two months per [CEP 8](https://github.com/conda/ceps/blob/main/cep-8.md); however, when a new standalone
+feature is added in between the bimonthly cadence, a separate release is published with the new changes. The April 2024 release of conda introduces
+a new enhancement for Windows users. Specifically, the stub executables used for Python entrypoints in packages are now codesigned as a result of
+[pull request #13721](https://github.com/conda/conda/pull/13721).
+
+Amongst other updates, the most recent `24.5.0` version of conda enables MSYS2 packages to utilize upstream installation prefixes, adds support for
+CEP-15 `base_url` field in `repodata.json`, and allows specification of channel URLs using a glob-like wildcard pattern in custom channel settings
+(_e.g._, for user with auth handler plugins). See the list below or the [release notes](https://github.com/conda/conda/releases/tag/24.5.0) for more details.
 
 ### ✨ What's New? ✨
 
@@ -103,6 +97,8 @@ for more details.
 - Fix all CLI arguments to properly initialize `conda.base.context.context` with parsed arguments. Fixes issue with arguments not being processed (e.g., `--override-channels` was previously ignored).
 
 ### 🌅 What's Marked for [Deprecation](https://github.com/conda-incubator/ceps/blob/main/cep-9.md)? 🌅
+
+- Postpone `conda_build.index.channel_data` deprecation.
 
 The following code was marked as deprecated:
 
@@ -180,8 +176,6 @@ The following code was marked as deprecated:
 - `conda_build.utils._convert_lists_to_sets` (use `frozendict.deepfreeze` instead)
 - `conda_build.utils.represent_hashabledict` (use `frozendict.deepfreeze` instead)
 - `conda_build.variants.get_vars(loop_only)`
-
-- Postpone `conda_build.index.channel_data` deprecation.
 
 The following code was removed:
 
