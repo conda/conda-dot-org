@@ -14,7 +14,7 @@ image: img/blog/2024-05-14-prefixes/banner.png
 In the realm of package management and environment configuration, `conda` has
 emerged as a versatile tool empowering developers with environment management. A
 pivotal aspect of `conda`'s architecture lies in its prefix system, which
-underwent a significant evolution over its versions, transforming `conda` from a
+underwent a significant evolution over its previous versions, transforming `conda` from a
 simple package manager into a sprawling environment manager. In this technical
 discourse, we delve into the intricacies of `conda`'s prefix system, shedding
 light on its evolution and the five distinct prefixes delineated within the
@@ -37,13 +37,13 @@ modularity and flexibility in development workflows.
 
 Delving into `conda`'s Git history via `git blame` provides invaluable insights
 into the timeline of the prefix system evolution. By tracing the commit history,
-we unearth pivotal moments that introduced and refined the various prefixes
+we unearthed pivotal moments that introduced and refined the various prefixes
 integral to `conda`'s architecture. The history reveals two distinct phases in
 the evolution of `conda`'s prefix system. The first phase occurred early on in
 `conda 1.x` and the second phase much later in `conda 4.x` with the merging of
 `conda-env` with `conda`.
 
-The five prefixes defined within conda, ordered from the lowest level (system-level
+Here are the five prefixes defined within conda, ordered from the lowest level (system-level
 and least configurable) to the highest level (user-level and most configurable):
 
 ### `conda.base.context.context.conda_prefix`
