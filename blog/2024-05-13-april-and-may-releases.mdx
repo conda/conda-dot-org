@@ -20,10 +20,10 @@ conda install -n base conda=24.5.0
 
 <!-- truncate -->
 
-Conda's release cycle is typically every two months per [CEP 8](https://github.com/conda/ceps/blob/main/cep-8.md); however, when a new standalone
-feature is added in between the bimonthly cadence, a separate release is published with the new changes. The April 2024 release of conda introduces
-a new enhancement for Windows users. Specifically, the stub executables used for Python entrypoints in packages are now codesigned as a result of
-[pull request #13721](https://github.com/conda/conda/pull/13721).
+Per conda's release schedule ([CEP 8](https://github.com/conda/ceps/blob/main/cep-8.md)) there is an expected and official release every two months;
+occasionally however, new  features may be added that are significant enough to warrant a separate release in between the bimonthly cadence. The
+April 2024 release of conda introduces a new enhancement for Windows users. Specifically, the stub executables used for Python entrypoints in
+packages are now codesigned as a result of [pull request #13721](https://github.com/conda/conda/pull/13721).
 
 Amongst other updates, the most recent `24.5.0` version of conda enables MSYS2 packages to utilize upstream installation prefixes, adds support for
 CEP-15 `base_url` field in `repodata.json`, and allows specification of channel URLs using a glob-like wildcard pattern in custom channel settings
