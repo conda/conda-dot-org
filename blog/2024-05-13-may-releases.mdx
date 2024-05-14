@@ -183,27 +183,28 @@ The following code was marked as deprecated:
 
 - Postpone `conda_build.index.channel_data` deprecation.
 
-- The following code was removed:
-  - `conda_build.api.get_output_file_path` (use `conda_build.api.get_output_file_paths` instead)
-  - `conda_build.bdist_conda`
-  - `conda_build.build.have_prefix_files`
-  - `conda_build.conda_interface.get_index` (use `conda.core.index.get_index` instead)
-  - `conda_build.conda_interface.get_version_from_git_tag` (use `conda_build.environ.get_version_from_git_tag` instead)
-  - `conda_build.conda_interface.handle_proxy_407` Handled by `conda.gateways.connection.session.CondaSession`
-  - `conda_build.conda_interface.hashsum_file` (use `conda.gateways.disk.read.compute_sum` instead)
-  - `conda_build.conda_interface.md5_file` (use `conda.gateways.disk.read.compute_sum(path, 'md5')` instead)
-  - `conda_build.environ._load_all_json`
-  - `conda_build.environ._load_json`
-  - `conda_build.environ.cached_actions`
-  - `conda_build.environ.Environment` (use `conda.core.prefix_data.PrefixData` instead)
-  - `conda_build.environ.InvalidEnvironment`
-  - `conda_build.environ.LINK_ACTION`
-  - `conda_build.environ.PREFIX_ACTION`
-  - `conda_build.index._apply_instructions` (use `conda_index._apply_instructions` instead)
-  - `conda_build.index.DummyExecutor`
-  - `conda_build.index.LOCK_TIMEOUT_SECS`
-  - `conda_build.index.LOCKFILE_NAME`
-  - `conda_build.index.MAX_THREADS_DEFAULT`
+The following code was removed:
+
+- `conda_build.api.get_output_file_path` (use `conda_build.api.get_output_file_paths` instead)
+- `conda_build.bdist_conda`
+- `conda_build.build.have_prefix_files`
+- `conda_build.conda_interface.get_index` (use `conda.core.index.get_index` instead)
+- `conda_build.conda_interface.get_version_from_git_tag` (use `conda_build.environ.get_version_from_git_tag` instead)
+- `conda_build.conda_interface.handle_proxy_407` Handled by `conda.gateways.connection.session.CondaSession`
+- `conda_build.conda_interface.hashsum_file` (use `conda.gateways.disk.read.compute_sum` instead)
+- `conda_build.conda_interface.md5_file` (use `conda.gateways.disk.read.compute_sum(path, 'md5')` instead)
+- `conda_build.environ._load_all_json`
+- `conda_build.environ._load_json`
+- `conda_build.environ.cached_actions`
+- `conda_build.environ.Environment` (use `conda.core.prefix_data.PrefixData` instead)
+- `conda_build.environ.InvalidEnvironment`
+- `conda_build.environ.LINK_ACTION`
+- `conda_build.environ.PREFIX_ACTION`
+- `conda_build.index._apply_instructions` (use `conda_index._apply_instructions` instead)
+- `conda_build.index.DummyExecutor`
+- `conda_build.index.LOCK_TIMEOUT_SECS`
+- `conda_build.index.LOCKFILE_NAME`
+- `conda_build.index.MAX_THREADS_DEFAULT`
 
 ---
 
