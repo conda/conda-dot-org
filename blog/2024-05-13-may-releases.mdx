@@ -1,14 +1,26 @@
 ---
-title: "May 2024 Releases"
-slug: "2024-05-13-march-releases"
+title: "April and May 2024 Releases"
+slug: "2024-05-13-may-releases"
 authors: [beeankha]
 tags: [announcement, conda, conda-build]
 description: |
-  Conda 24.5.0 and conda-build 24.5.0 have been released! 🎉
+  Conda 24.4.0, conda 24.5.0, and conda-build 24.5.0 have been released! 🎉
 image: img/blog/2024-05-13-may-releases/banner.png
 ---
 
-The May 2024 releases included updates to conda and conda-build! 🎉 Both of these have been released to both `main` and `conda-forge`.
+The April and May 2024 releases included updates to conda and conda-build! 🎉 Both of these have been released to both `main` and `conda-forge`.
+
+## Changes in Conda [24.4.0](https://github.com/conda/conda/releases/tag/24.4.0)
+
+Conda's release cycle is typically every two months per [CEP 8](https://github.com/conda/ceps/blob/main/cep-8.md), however, when a new standalone
+feature is added in between the bimonthly cadence, a separate release is published with the new changes.
+
+The April 2024 release of conda introduces a new enhancement for Windows users. Specifically, the stub executables used for Python entrypoints in
+packages are now codesigned as a result of [pull request #13721](https://github.com/conda/conda/pull/13721).
+
+<!-- truncate -->
+
+---
 
 ## Changes in Conda [24.5.0](https://github.com/conda/conda/releases/tag/24.5.0)
 
@@ -22,8 +34,6 @@ Amongst other changes, this new version of conda enables MSYS2 packages to utili
 CEP-15 `base_url` field in `repodata.json`, and allows specification of channel URLs using a glob-like wildcard pattern in custom
 channel settings (_e.g._, for user with auth handler plugins). See the list below or the [release notes](https://github.com/conda/conda/releases/tag/24.5.0)
 for more details.
-
-<!-- truncate -->
 
 ### ✨ What's New? ✨
 
@@ -200,10 +210,10 @@ The following code was marked as deprecated:
 
 Altogether, we had 6 new contributors this release cycle; thank you to all of our open source community members for helping making these improvements possible.
 
+- [@Callek](https://github.com/Callek) made their first contribution in [conda #13721](https://github.com/conda/conda/pull/13721)
+- [@dwr-psandhu](https://github.com/dwr-psandhu) made their first contribution in [conda #13770](https://github.com/conda/conda/pull/13770)
 - [@ifitchet](https://github.com/ifitchet) made their first contribution in [conda #13649](https://github.com/conda/conda/pull/13649)
 - [@Nathann03](https://github.com/Nathann03) made their first contribution in [conda #13816](https://github.com/conda/conda/pull/13816)
-- [@dwr-psandhu](https://github.com/dwr-psandhu) made their first contribution in [conda #13770](https://github.com/conda/conda/pull/13770)
-- [@Callek](https://github.com/Callek) made their first contribution in [conda-build #5252](https://github.com/conda/conda-build/pull/5252)
 - [@Tobias-Fischer](https://github.com/Tobias-Fischer) made their first contribution in [conda-build #5202]https://github.com/conda/conda-build/pull/5202
 - [@ytausch](https://github.com/ytausch) made their first contribution in [conda-build #5214]https://github.com/conda/conda-build/pull/5214
 
