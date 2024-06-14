@@ -2,7 +2,8 @@
 title: "June 2024 Releases"
 slug: "2024-06-14-june-releases"
 authors: [dashagurova]
-tags: [announcement, conda-index, conda-package-handling, conda-package-streaming]
+tags:
+  [announcement, conda-index, conda-package-handling, conda-package-streaming]
 description: |
   Conda-index 0.5.0, conda-package-handling 2.3.0 and conda-package-streaming 0.10.0 have been released! 🎉
 image: img/blog/2024-06-14-june-releases/banner.png
@@ -20,22 +21,20 @@ conda install -n base conda-index=0.5.0
 
 <!-- truncate -->
 
-
-
 ### ✨ What's New? ✨
 
 - Add experimental python `-m conda_index.json2jlap` script to run after indexing, to create `repodata.jlap` patch sets for incremental repodata downloads.
 - Add `--current-repodata/--no-current-repodata` flags to control whether
-`current_repodata.json` is generated.
+  `current_repodata.json` is generated.
 - Add support for CEP-15 `base_url` to host packages separate from repodata.
 - Support fsspec (in the API only) to index any fsspec-supported remote
-filesystem. Also enables the input packages folder to be separate from the
-cache and output folders.
+  filesystem. Also enables the input packages folder to be separate from the
+  cache and output folders.
 
 ### 🔧 What Got Fixed? 🔧
 
 - Move `run_exports.json` query into cache, instead of directly using SQL in
-`ChannelIndex`.
+  `ChannelIndex`.
 - Create parents when creating `<subdir>/.cache`.
 
 ### ⚙️ Other Updates ⚙️
@@ -53,8 +52,6 @@ conda install -n base conda-package-handling=2.3.0
 ```
 
 <!-- truncate -->
-
-
 
 ### ✨ What's New? ✨
 
@@ -84,10 +81,6 @@ conda install -n base conda-package-streaming=0.10.0
 
 <!-- truncate -->
 
-
-
 ### ✨ What's New? ✨
 
 - Use zip64 extensions when converting .tar.bz2 to .conda, if uncompressed size is close to the 2GB ZIP64_LIMIT.
-
-
