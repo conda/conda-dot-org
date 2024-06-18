@@ -9,7 +9,7 @@ description: |
 image: img/blog/2024-06-14-june-releases/banner.png
 ---
 
-The June 2024 releases included updates to conda-index, conda-package-streaming and conda-package-handling! 🎉 All of these new releases have been released to both `main` and `conda-forge`.
+The June 2024 releases included updates to [conda-index](https://github.com/conda/conda-index), [conda-package-streaming](https://github.com/conda/conda-package-streaming) and [conda-package-handling](https://github.com/conda/conda-package-handling)! 🎉 All of these new releases have been released to both `main` and `conda-forge`.
 
 ## Changes in conda-index [0.5.0](https://github.com/conda/conda-index/releases/tag/0.5.0)
 
@@ -26,8 +26,8 @@ conda install -n base conda-index=0.5.0
 - Add experimental `python -m conda_index.json2jlap` script to run after indexing, to create `repodata.jlap` patch sets for incremental repodata downloads.
 - Add `--current-repodata/--no-current-repodata` flags to control whether
   `current_repodata.json` is generated.
-- Add support for CEP-15 `base_url` to host packages separate from repodata.
-- Support fsspec (in the API only) to index any fsspec-supported remote
+- Add support for [CEP-15](https://github.com/conda/ceps/blob/main/cep-15.md) `base_url` to host packages separate from repodata.
+- Support `fsspec` (in the API only) to index any `fsspec`-supported remote
   filesystem. Also enables the input packages folder to be separate from the
   cache and output folders.
 
@@ -39,7 +39,7 @@ conda install -n base conda-index=0.5.0
 
 ### ⚙️ Other Updates ⚙️
 
-- Approach 100% code coverage in test suite; reformat with ruff.
+- Approach 100% code coverage in test suite; reformat with `ruff`.
 - Update CI configuration to test on more platforms.
 - Drop support for Python 3.7; support Python 3.8+ only.
 
@@ -68,7 +68,7 @@ conda install -n base conda-package-handling=2.3.0
 
 ### ⚙️ Other Updates ⚙️
 
-- Remove MANIFEST.in, used for Python sdists, which referenced non-existent files. Source distributions appear correct without MANIFEST.in.
+- Remove `MANIFEST.in`, used for Python `sdist`s, which referenced non-existent files. Source distributions appear correct without `MANIFEST.in`.
 - Add explicit `zstandard` dependency.
 
 ## Changes in conda-package-streaming [0.10.0](https://github.com/conda/conda-package-streaming/releases/tag/v0.10.0)
@@ -83,4 +83,4 @@ conda install -n base conda-package-streaming=0.10.0
 
 ### ✨ What's New? ✨
 
-- Use zip64 extensions when converting .tar.bz2 to .conda, if uncompressed size is close to the 2GB ZIP64_LIMIT.
+- Use `zip64` extensions when converting `.tar.bz2` to `.conda`, if uncompressed size is close to the 2GB `ZIP64_LIMIT`.
