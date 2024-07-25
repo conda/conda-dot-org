@@ -10,12 +10,12 @@ image: img/blog/2024-07-23-july-releases/banner.png
 
 The July 2024 releases included updates to conda, conda-build, and conda-libmamba-solver! 🎉 All of these have been released to both `main` and `conda-forge` channels.
 
-## Changes in Conda [24.7.0](https://github.com/conda/conda/releases/tag/24.7.0)
+## Changes in Conda [24.7.0/.1](https://github.com/conda/conda/releases/tag/24.7.0)
 
 To update conda, run:
 
 ```bash
-conda install -n base conda=24.7.0
+conda install -n base conda=24.7.1
 ```
 
 <!-- truncate -->
@@ -40,7 +40,6 @@ conda install -n base conda=24.7.0
 - Fix parsing error when history file only contains a single commented line.
 - Add missing `emscripten` and `wasi` entries to the recognized platforms, and `wasm32` to the recognized architectures.
 - Fix checksum comparisons in `conda.gateways.connection.download.download()` to be case insensitive.
-- Disallow some more characters in Windows for prefix names (`^`, `%`, `!`, `=`, `(`, `)`, `\`). These characters complicate or prevent environment activation if present.
 - Fix caching when `repodata.json` contains `\r\n` line endings.
 - Fix `conda.core.portability.binary_replace` not matching chunks that end with `\n`.
 
