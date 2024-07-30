@@ -1,8 +1,9 @@
+---
 name: Republish site
 
 on:
   schedule:
-    - cron: "0 0 * * 4" # Every Thursday (after biweekly Wednesdays)
+    - cron: 0 0 * * 4   # Every Thursday (after biweekly Wednesdays)
   workflow_dispatch:
 
 jobs:
@@ -10,5 +11,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: >
-          curl -X POST -d '{}' 
+          curl -X POST -d '{}'
           https://api.netlify.com/build_hooks/${{ secrets.NETLIFY_BUILD_HOOK_ID }}?trigger_title=Triggered+by+Github+Actions
