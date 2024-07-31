@@ -1,0 +1,2 @@
+This directory is populated at build time by downloading all the minutes
+from conda-incubator/governance. See `/bin/populate-minutes`. Do not edit manually.
