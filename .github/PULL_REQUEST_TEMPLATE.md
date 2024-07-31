@@ -23,3 +23,5 @@
      Helpful links:
        - Conda Org COC: https://github.com/conda-incubator/governance/blob/main/CODE_OF_CONDUCT.md
        - Contributing docs: ../blob/main/CONTRIBUTING.md -->
+
+- [ ] If I have added a new page to `learn/` or `community/`, I have added it to the corresponding `_sidebar.json` file.
