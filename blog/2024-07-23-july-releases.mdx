@@ -10,7 +10,7 @@ image: img/blog/2024-07-23-july-releases/banner.png
 
 The July 2024 releases included updates to conda, conda-build, and conda-libmamba-solver! 🎉 All of these have been released to both `main` and `conda-forge` channels.
 
-## Changes in Conda [24.7.0/.1](https://github.com/conda/conda/releases/tag/24.7.0)
+## Changes in Conda [24.7.0](https://github.com/conda/conda/releases/tag/24.7.0)/[24.7.1](https://github.com/conda/conda/releases/tag/24.7.1)
 
 To update conda, run:
 
@@ -42,6 +42,7 @@ conda install -n base conda=24.7.1
 - Fix checksum comparisons in `conda.gateways.connection.download.download()` to be case insensitive.
 - Fix caching when `repodata.json` contains `\r\n` line endings.
 - Fix `conda.core.portability.binary_replace` not matching chunks that end with `\n`.
+- (24.7.1) Revert increased restrictions on allowed environment name characters. The previously forbidden characters (^, %, !, =, (, ), \) are allowed again until the impact is assessed.
 
 ### 🌅 What's Marked for [Deprecation](https://github.com/conda-incubator/ceps/blob/main/cep-9.md)? 🌅
 
@@ -79,7 +80,7 @@ conda install -n base conda=24.7.1
 
 ---
 
-## Changes in Conda-Build [24.7.0](https://github.com/conda/conda-build/releases/tag/24.7.0)
+## Changes in Conda-Build [24.7.0](https://github.com/conda/conda-build/releases/tag/24.7.0)/[24.7.1](https://github.com/conda/conda-build/releases/tag/24.7.1)
 
 To update conda-build, run:
 
@@ -106,6 +107,7 @@ conda install -n base conda-build=24.7.0
 - Error handling when `LIEF` fails is now consistent with `patchelf`.
 - Ensure cross-building recipes select the correct noarch package variants.
 - On Linux platforms, prefer the sysroot matching the target_platform when cross-compiling.
+- (24.7.1) Check for WSL existence before calling `pathlib.Path.samefile`/`os.stat`.
 
 ### 🌅 What's Marked for [Deprecation](https://github.com/conda-incubator/ceps/blob/main/cep-9.md)? 🌅
 
