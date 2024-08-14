@@ -1,0 +1,63 @@
+---
+title: "Conda Ecosystem Explained"
+slug: "2024-08-14-conda-ecosystem-explained"
+authors: [dashagurova, jezdez]
+tags: [conda, community, governance]
+description: |
+  Conda Ecosystem Explained
+---
+
+## What is the conda ecosystem?
+
+At its core, the conda ecosystem is a community supporting an open-source, language-agnostic, and multi-platform package management system.
+
+But what does a "package management ecosystem" really mean? Without diving too deep into every detail, here are the three main components conda community maintains:
+
+* **CLI Tools for Package Management**: conda command-line tools make it easy to install and manage dependencies in isolated development environments across Linux, Windows, and macOS. Conda works with packages written in any language, e.g.  Python, R, C, or Fortran.
+* **Package Repository**: most publicly available conda packages are hosted on **anaconda.org**, organized into channels. Channels are like remote warehouses where packages are stored and can be pulled from. You can find channels maintained by community, companies, or individuals.
+* **Build Tools**: If you want to create and share your own conda packages, the ecosystem provides tools to help you build and distribute them efficiently.
+
+This system is bolstered by various other supporting projects, all of which you can explore on conda's [GitHub](https://github.com/conda).
+
+## Conda package & environment manager
+
+The cornerstone of this entire ecosystem is the [conda](https://github.com/conda/conda) package and environment manager. Originally developed by Anaconda, Inc. and implemented in Python, conda is not limited to Python \- it's a fully capable package manager that handles dependencies across multiple languages and platforms. Whether you're a data scientist working with Python, R, or a machine learning engineer dealing with libraries in C or Fortran, conda has you covered.
+
+Conda was open-source from the start and has grown significantly thanks to support from a broad community. Today, it's [governed by a multi-stakeholder steering council](https://github.com/conda/governance) under the fiscal sponsorship of the [NumFOCUS](https://numfocus.org) non-profit, ensuring it remains a balanced, community-driven project.
+
+And yes, conda is free. Always has been, always will be. This commitment to open-source has led to the development of several compatible alternatives within the conda ecosystem, like [Mamba](https://mamba.readthedocs.io/) — a faster reimplementation in C++ \- and [Pixi](https://pixi.sh/), a newer, Rust-based package management tool.
+
+All of which use the same conda standards and formats, that are collaboratively improved through the [Conda Enhancement Proposal (CEP)](https://github.com/conda/ceps/blob/main/cep-1.md) process.
+
+## Conda Package Repository and Channels
+
+When it comes to managing packages with conda or conda-compatible tools, understanding where these packages come from is key. Anaconda.org serves as a central hub for conda packages, organized into various channels. While anyone can create their own channel on anaconda.org to host conda packages, we'll focus on the largest and most significant channels within the conda ecosystem.
+
+### `conda-forge`
+
+[conda-forge](https://conda-forge.org) is one of the largest and impactful channels in the conda ecosystem. Entirely community-driven, this channel hosts over 25,000 packages, making it a go-to resource for developers across the globe. Conda-forge is open-source, free to use, and maintained by a group of dedicated volunteers. The governance model ensures that the channel remains reliable and accessible to everyone.
+
+### Bioconda
+
+If your work involves computational biology, [Bioconda](https://bioconda.github.io) is the channel you’ll want to explore. Unlike conda-forge, which covers a wide variety of packages, Bioconda is focused on bioinformatics. It offers over 8,000 packages that cater to subdomains like genomics, proteomics, structural biology, and biomass analysis. Like conda-forge, bioconda is open-source and free to use, maintaned by a community of volunteers.
+
+### `Defaults`
+
+The `defaults` channel is maintained by Anaconda, Inc. It's important to note that this channel comes with [Terms of Service](https://legal.anaconda.com/policies/en/). While largely free for individual users, students, and small companies, there are scenarios where a license might be required.
+
+## Getting Started with conda tools
+
+There are a few different ways to install and get started with conda:
+
+1. **Miniconda**: an installer developed by Anaconda, Inc. that installs conda and its dependencies. It is preconfigured to pull packages from the \`defaults\` channel, which has its own Terms of Service (as mentioned in conda channels section). You can always reconfigure conda after installation to use community channels like conda-forge or bioconda \[LINK to docs on how to do it\].
+2. **Miniforge**: developed by the conda-forge community, this installer comes with both conda and Mamba, and by default, it pulls packages from the conda-forge channel. It's a great option if you prefer a community-driven setup right from the start.
+3. **Micromamba:** developed by the Mamba developers at Quantstack, it’s a statically linked self-contained conda-like package and environment manager, distributed as a standalone executable without a preconfiguration of a default channel.
+4. **Pixi**: If you're looking for something a bit different, Pixi is a newer and opinionated conda-compatible package & environment manager written in Rust. Pixi is preconfigured to pull packages from the conda-forge channel.
+
+Each of these installers offers a different path into the conda ecosystem, allowing you to tailor your setup based on your preferences.
+
+## Anaconda's Role in Supporting the conda ecosystem
+
+Anaconda, Inc. plays a vital role in keeping the conda ecosystem strong and sustainable. Anaconda Inc. contributes through regular donations to NumFOCUS, providing engineering resources, and generously covering hosting fees for anaconda.org. This support is essential for keeping community channels like conda-forge and Bioconda free and accessible.
+
+However, it's important to clarify that the conda ecosystem is governed by an independent, diverse community committed to offering free and open source tools and unrestricted package repositories for all users.
