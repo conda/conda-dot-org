@@ -49,10 +49,42 @@ The `defaults` channel is maintained by Anaconda, Inc. It's important to note th
 
 There are a few different ways to install and get started with conda:
 
-1. **Miniconda**: an installer developed by Anaconda, Inc. that installs conda and its dependencies. It is preconfigured to pull packages from the \`defaults\` channel, which has its own Terms of Service (as mentioned in conda channels section). You can always reconfigure conda after installation to use community channels like conda-forge or bioconda \[LINK to docs on how to do it\].
-2. **Miniforge**: developed by the conda-forge community, this installer comes with both conda and Mamba, and by default, it pulls packages from the conda-forge channel. It's a great option if you prefer a community-driven setup right from the start.
-3. **Micromamba:** developed by the Mamba developers at Quantstack, it’s a statically linked self-contained conda-like package and environment manager, distributed as a standalone executable without a preconfiguration of a default channel.
-4. **Pixi**: If you're looking for something a bit different, Pixi is a newer and opinionated conda-compatible package & environment manager written in Rust. Pixi is preconfigured to pull packages from the conda-forge channel.
+<table>
+  <thead>
+    <tr>
+      <th>Installer</th>
+      <th>Package manager included</th>
+      <th>Automatically sets channel as:</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://docs.anaconda.com/miniconda/miniconda-install/">Miniconda</a></td>
+      <td>conda</td>
+      <td>`defaults`</td>
+      <td>Stable</td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/conda-forge/miniforge">Miniforge</a></td>
+      <td>conda/mamba</td>
+      <td>`conda-forge`</td>
+      <td>Stable</td>
+    </tr>
+    <tr>
+      <td><a href="https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html">Micromamba</a></td>
+      <td>mamba</td>
+      <td>None</td>
+      <td>Stable</td>
+    </tr>
+    <tr>
+      <td><a href="https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html">Pixi</a></td>
+      <td>pixi</td>
+      <td>`conda-forge`</td>
+      <td>Emerging</td>
+    </tr>
+  </tbody>
+</table>
 
 Each of these installers offers a different path into the conda ecosystem, allowing you to tailor your setup based on your preferences.
 
