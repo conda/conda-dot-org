@@ -35,7 +35,7 @@ When it comes to managing packages with `conda` or conda-compatible tools, under
 
 ### `conda-forge`
 
-[conda-forge](https://conda-forge.org) is one of the largest and most impactful channels in the conda ecosystem. Entirely community-driven, this channel hosts over 25,000 packages, making it a go-to resource for developers across the globe. conda-forge is open-source, free to use, and maintained by a group of dedicated volunteers. The governance model ensures that the channel remains reliable and accessible to everyone.
+[conda-forge](https://conda-forge.org) is one of the largest and most impactful channels in the conda ecosystem. Entirely community-driven, this channel hosts over 25,000 packages, making it a go-to resource for developers across the globe. conda-forge is open-source, free to use, and maintained by a group of dedicated volunteers. The [governance model](https://conda-forge.org/community/governance/) ensures that the channel remains reliable and accessible to everyone.
 
 ### `bioconda`
 
@@ -45,25 +45,23 @@ If your work involves computational biology, [Bioconda](https://bioconda.github.
 
 The `defaults` channel is maintained by [Anaconda, Inc](https://www.anaconda.com/). It's important to note that this channel comes with [Terms of Service](https://legal.anaconda.com/policies/en/). While largely free for individual users, students, and small companies, there are scenarios where a license might be required. For more information, feel free to review [frequently asked questions about Anaconda’s Terms of Service](https://www.anaconda.com/pricing/terms-of-service-faqs).
 
-## Getting Started with conda and conda-based tools
+## Getting Started with conda and conda-compatible tools
 
-There are a few different ways to install and get started with conda:
+There are a few different ways to install and get started with conda (at the time of writing this article):
 
 <table>
   <thead>
     <tr>
-      <th>Installer</th>
+      <th>Installer name</th>
       <th>Package manager included</th>
-      <th>Automatically sets channel as:</th>
+      <th>Automatically sets channel as</th>
       <th>Status</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>
-        <a href="https://docs.anaconda.com/miniconda/miniconda-install/">
-          Miniconda
-        </a>
+        <a href="https://docs.anaconda.com/miniconda/miniconda-install/">Miniconda</a>
       </td>
       <td>conda</td>
       <td>`defaults`</td>
@@ -79,9 +77,7 @@ There are a few different ways to install and get started with conda:
     </tr>
     <tr>
       <td>
-        <a href="https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html">
-          Micromamba
-        </a>
+        <a href="https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html">Micromamba</a>
       </td>
       <td>mamba</td>
       <td>None</td>
@@ -89,9 +85,7 @@ There are a few different ways to install and get started with conda:
     </tr>
     <tr>
       <td>
-        <a href="https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html">
-          Pixi
-        </a>
+        <a href="https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html">Pixi</a>
       </td>
       <td>pixi</td>
       <td>`conda-forge`</td>
@@ -105,12 +99,9 @@ Each of these installers offers a different path into the conda ecosystem, allow
 <div className="alert alert--primary" role="alert">
   If you choose Miniconda, which defaults to the `defaults` channel, you can
   easily reconfigure conda after installation to use only free community
-  channels like `conda-forge` or `bioconda` by editing your `.condarc file`.{" "}
-  <a href="https://conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html">
-    {" "}
-    Check the documentation for instructions
-  </a>
-  .
+  channels like `conda-forge` or `bioconda` by editing your `.condarc file`.
+
+  <a href="https://conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html">Check the documentation for instructions</a>.
 </div>
 ## Anaconda's Role in Supporting the conda ecosystem
 
