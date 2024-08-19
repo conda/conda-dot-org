@@ -41,7 +41,7 @@ repos:
     rev: v4.0.0-alpha.8
     hooks:
       - id: prettier
-        types_or: [jsx, javascript, mdx, markdown]
+        types_or: [jsx, javascript]
         exclude: ^static/js/count.js$
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.5.4
