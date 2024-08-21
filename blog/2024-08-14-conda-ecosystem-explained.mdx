@@ -48,6 +48,14 @@ If your work involves computational biology, [Bioconda](https://bioconda.github.
 
 The `defaults` channel (sometimes referred to as `main`) is maintained by [Anaconda, Inc](https://www.anaconda.com/). It's important to note that this channel comes with [Terms of Service](https://legal.anaconda.com/policies/en/). While largely free for individual users, students, and small companies, there are scenarios where a license might be required. For more information, feel free to review [frequently asked questions about Anaconda’s Terms of Service](https://www.anaconda.com/pricing/terms-of-service-faqs).
 
+## Other conda packaging servers
+
+While anaconda.org is the central package repository for a large part of the community, it's by far not the only option to host conda packages:
+
+- A Conda Enhancement Proposal about using Open Container Images (OCI) [for storing conda packages and repodata](https://github.com/conda/ceps/pull/70) is currently discussed, and the [tooling to mirror channels](https://github.com/channel-mirrors/conda-oci-mirror) exists. A proof of concept mirroring project exists at [github.com/channel-mirrors](http://github.com/channel-mirrors) which currently mirrors conda-forge packages to GitHub's OCI registry.
+- [conda-subchannel](https://github.com/conda-incubator/conda-subchannel) is another community prototype to evolve the way how conda channels can be served through self-hosting or public cloud hosting (e.g. GitHub Pages).
+- Ecosystem stakeholder [Prefix.dev](https://prefix.dev/) runs various mirrors on its web platform, including conda-forge's channel.
+- Universities and research institutes, as well as many corporate users of conda have been hosting their own packages or mirrors of existing channels within their own infrastructure for various reasons.
 ## Getting Started with conda and conda-compatible tools
 
 There are a few different ways to install and get started with conda (at the time of writing this article):
