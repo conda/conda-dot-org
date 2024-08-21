@@ -6,7 +6,7 @@ exclude: |
   )$
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0
+    rev: v4.6.0
     hooks:
       # standard end of line/end of file cleanup
       - id: mixed-line-ending
@@ -27,24 +27,24 @@ repos:
         # ruamel.yaml doesn't line wrap correctly (?) so set width to 1M to avoid issues
         args: [--mapping, '2', --offset, '2', --sequence, '4', --width, '1000000']
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.27.0
+    rev: 0.29.1
     hooks:
       # verify github syntaxes
       - id: check-github-workflows
   - repo: https://github.com/codespell-project/codespell
     # see setup.cfg
-    rev: v2.2.6
+    rev: v2.3.0
     hooks:
       - id: codespell
         args: [--write-changes]
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v3.0.3
+    rev: v4.0.0-alpha.8
     hooks:
       - id: prettier
         types_or: [jsx, javascript, mdx, markdown]
         exclude: ^static/js/count.js$
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.0.291
+    rev: v0.6.1
     hooks:
       - id: ruff
         args: [--fix]

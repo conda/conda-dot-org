@@ -2,6 +2,7 @@
 """
 This is a script to help us keep our "blog/authors.yml" file alphabetically sorted.
 """
+
 import pathlib
 from io import StringIO
 

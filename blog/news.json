@@ -1,1 +1,82 @@
-[{"title": "January 2024 Releases", "slug": "2024-01-31-january-releases", "authors": ["kenodegard"], "tags": ["announcement", "conda", "conda-build", "conda-libmamba-solver", "conda-index"], "description": "Conda 24.1.0/.1/.2, conda-build 24.1.0/.1/.2, conda-libmamba-solver 24.1.0, and conda-index 0.4.0 have been released! \ud83c\udf89\n", "image": "img/blog/2024-01-31-january-releases/banner.jpg", "date": "2024-01-31T00:00:00"}, {"title": "Conda is moving to Mastodon & LinkedIn", "slug": "2023-12-27-social-move", "authors": ["tnabtaf"], "tags": ["announcement", "conda", "twitter", "mastodon", "linkein"], "description": "Conda is retiring its Twitter account. Please join us on Mastodon and LinkedIn\n", "image": "img/blog/2023-12-27-social-move/banner.png", "date": "2023-12-27T00:00:00"}, {"title": "November 2023 Releases", "slug": "2023-12-07-november-releases", "authors": ["kenodegard"], "tags": ["announcement", "conda", "conda-build", "conda-libmamba-solver"], "description": "Conda 23.11.0, conda-build 3.28.0/3.28.1, and conda-libmamba-solver 23.11.0/23.11.1 have been released! \ud83c\udf89\n", "image": "img/blog/2023-12-07-november-releases/banner.jpg", "date": "2023-12-07T00:00:00"}, {"title": "Conda 23.10.0: libmamba is now the default solver", "slug": "2023-11-06-conda-23-10-0-release", "authors": ["jaimergp", "jezdez"], "tags": ["announcement", "conda", "libmamba"], "description": "\ud83d\ude84 The speedy conda-libmamba-solver becomes the default solver in the Conda 23.10.0 release. Please fasten your seat belts.\n", "image": "img/blog/2023-11-06-conda-23-10-0-release/speed.jpg", "image_credit": "<a href=\"https://unsplash.com/photos/time-lapse-photography-of-tunnel-sb7RUrRMaC4\">Mathew Schwartz on Unsplash</a>", "date": "2023-11-06T00:00:00"}, {"title": "September 2023 Releases", "slug": "2023-10-12-september-releases", "authors": ["kenodegard"], "tags": ["announcement", "conda", "conda-build", "conda-libmamba-solver", "conda-index", "pycosat"], "description": "Conda 23.9.0, conda-build 3.27.0, conda-libmamba-solver 23.9.0/23.9.1, conda-index 0.3.0, and pycosat 0.6.5/0.6.6 have been released! \ud83c\udf89\n", "image": "img/blog/2023-10-12-september-releases/banner.jpg", "date": "2023-10-12T00:00:00"}]
+[
+  {
+    "title": "July 2024 Releases",
+    "slug": "2024-07-23-july-releases",
+    "authors": [
+      "beeankha"
+    ],
+    "tags": [
+      "announcement",
+      "conda",
+      "conda-build",
+      "conda-libmamba-solver"
+    ],
+    "description": "Conda 24.7.0/.1, conda-build 24.7.0, and conda-libmamba-solver 24.7.0 have been released! \ud83c\udf89\n",
+    "image": "img/blog/2024-07-23-july-releases/banner.png",
+    "date": "2024-07-23T00:00:00"
+  },
+  {
+    "title": "June 2024 Releases",
+    "slug": "2024-06-14-june-releases",
+    "authors": [
+      "dashagurova"
+    ],
+    "tags": [
+      "announcement",
+      "conda-index",
+      "conda-package-handling",
+      "conda-package-streaming"
+    ],
+    "description": "Conda-index 0.5.0, conda-package-handling 2.3.0 and conda-package-streaming 0.10.0 have been released! \ud83c\udf89\n",
+    "image": "img/blog/2024-06-14-june-releases/banner.png",
+    "date": "2024-06-14T00:00:00"
+  },
+  {
+    "title": "Developer Guide: A Tale of Five Prefixes",
+    "slug": "2024-05-20-prefixes",
+    "authors": [
+      "kenodegard",
+      "chatgpt"
+    ],
+    "tags": [
+      "conda",
+      "context",
+      "prefix",
+      "prefixes",
+      "api"
+    ],
+    "description": "Prefixes, prefixes, prefixes! All the prefixes!",
+    "image": "img/blog/2024-05-20-prefixes/banner.png",
+    "date": "2024-05-20T00:00:00"
+  },
+  {
+    "title": "April and May 2024 Releases",
+    "slug": "2024-05-13-april-and-may-releases",
+    "authors": [
+      "beeankha"
+    ],
+    "tags": [
+      "announcement",
+      "conda",
+      "conda-build"
+    ],
+    "description": "Conda 24.4.0, conda 24.5.0, and conda-build 24.5.0 have been released! \ud83c\udf89\n",
+    "image": "img/blog/2024-05-13-april-and-may-releases/banner.png",
+    "date": "2024-05-13T00:00:00"
+  },
+  {
+    "title": "March 2024 Releases",
+    "slug": "2024-03-20-march-releases",
+    "authors": [
+      "beeankha"
+    ],
+    "tags": [
+      "announcement",
+      "conda",
+      "conda-build"
+    ],
+    "description": "Conda 24.3.0 and conda-build 24.3.0 have been released! \ud83c\udf89\n",
+    "image": "img/blog/2024-03-20-march-releases/banner.png",
+    "date": "2024-03-20T00:00:00"
+  }
+]

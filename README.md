@@ -1,5 +1,7 @@
 # conda-dot-org
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2db454b7-f4c7-409c-8f0d-29bcb5029577/deploy-status)](https://app.netlify.com/sites/conda-dot-org/deploys)
+
 This is the repository for the conda.org community website. To become involved:
 
 - Join the [conda.org chat room](https://app.element.io/#/room/#conda.org:matrix.org), which is part of the [conda space on Matrix](https://app.element.io/#/room/#conda:matrix.org)

@@ -1,0 +1,216 @@
+---
+title: "April and May 2024 Releases"
+slug: "2024-05-13-april-and-may-releases"
+authors: [beeankha]
+tags: [announcement, conda, conda-build]
+description: |
+  Conda 24.4.0, conda 24.5.0, and conda-build 24.5.0 have been released! 🎉
+image: img/blog/2024-05-13-april-and-may-releases/banner.png
+---
+
+The April and May 2024 releases included updates to conda and conda-build! 🎉 All of these new releases have been released to both `main` and `conda-forge`.
+
+## Changes in Conda [24.4.0](https://github.com/conda/conda/releases/tag/24.4.0) and [24.5.0](https://github.com/conda/conda/releases/tag/24.5.0)
+
+To update conda to the latest version, run:
+
+```bash
+conda install -n base conda=24.5.0
+```
+
+<!-- truncate -->
+
+Per conda's release schedule ([CEP 8](https://github.com/conda/ceps/blob/main/cep-8.md)) there is an expected and official release every two months;
+occasionally however, new features may be added that are significant enough to warrant a separate release in between the bimonthly cadence. The
+April 2024 release of conda introduces a new enhancement for Windows users. Specifically, the stub executables used for Python entrypoints in
+packages are now codesigned as a result of [pull request #13721](https://github.com/conda/conda/pull/13721).
+
+Amongst other updates, the most recent `24.5.0` version of conda enables MSYS2 packages to utilize upstream installation prefixes, adds support for
+CEP-15 `base_url` field in `repodata.json`, and allows specification of channel URLs using a glob-like wildcard pattern in custom channel settings
+(_e.g._, for user with auth handler plugins). See the list below or the [release notes](https://github.com/conda/conda/releases/tag/24.5.0) for more details.
+
+### ✨ What's New? ✨
+
+- Report which `MatchSpec` item caused `Invalid*Spec` exceptions for more informative error messages.
+- Remove `setuptools` remainings (`MANIFEST.in`, `wheel` build dependency) not required since the move to `hatch` in [pull request #12509](https://github.com/conda/conda/pull/12509).
+- Remove and update any imports inside conda that is importing from `conda/exports.py`.
+
+### 🔧 What Got Fixed? 🔧
+
+- Fix `conda notices --json` to correctly output JSON.
+- Fix prefix replacement for Windows `subdir` on Unix.
+
+### 🌅 What's Marked for [Deprecation](https://github.com/conda-incubator/ceps/blob/main/cep-9.md)? 🌅
+
+- `conda.activate._Activator.add_export_unset_vars` (use `conda.activate._Activator.get_export_unset_vars` instead)
+- `conda.activate._Activator.get_scripts_export_unset_vars` (use `get_scripts_export_unset_vars` helper function in `test_activate.py` instead)
+- `conda.activate._Activator._get_path_dirs(extra_library_bin)`
+- `conda.activate.JSONFormatMixin.get_scripts_export_unset_vars` (use `conda.activate._Activator.get_export_unset_vars` instead)
+- `conda.auxlib.collection.make_immutable` (use `frozendict.deepfreeze` instead)
+- `conda.gateways.logging.trace` (use `Logger.log(conda.common.constants.TRACE, msg)` instead)
+- `conda.plan` as an entrypoint
+- `conda.plan.add_defaults_to_specs`
+- `conda.plan.add_unlink`
+- `conda.plan.display_actions`
+- `conda.plan.execute_actions`
+- `conda.plan.execute_instructions`
+- `conda.plan.execute_plan`
+- `conda.plan._get_best_prec_match` (use `conda.misc._get_best_prec_match` instead)
+- `conda.plan.get_blank_actions`
+- `conda.plan._handle_menuinst`
+- `conda.plan._inject_UNLINKLINKTRANSACTION`
+- `conda.plan.install_actions`
+- `conda.plan._plan_from_actions`
+- `conda.plan.print_dists`
+- `conda.plan.revert_actions` (use `conda.cli.install.revert_actions` instead)
+- `conda.plan._update_old_plan`
+- `conda._vendor.frozendict` (use `frozendict` instead)
+- `conda create --mkdir` command
+- `conda install --mkdir` (use `conda create` instead)
+
+### 📄 What's New in Documentation? 📄
+
+- Add type hints and doc strings to `conda.core.index`.
+
+---
+
+## Changes in Conda-Build [24.5.0](https://github.com/conda/conda-build/releases/tag/24.5.0)
+
+To update conda-build, run:
+
+```bash
+conda install -n base conda-build=24.5.0
+```
+
+The May 2024 release of conda-build adds `conda_build.metadata._split_line_selector` to cache line-selector parsed text, exclusively fetches
+`lfs` files for specific `git_ref`, and enables CodSpeed benchmarks for select tests. See the list below or the [release notes](https://github.com/conda/conda-build/releases/tag/24.5.0)
+for more details.
+
+### ✨ What's New? ✨
+
+- Add `conda_build.render.open_recipe` context manager to detect the recipe type (file/`meta.yaml`, directory/recipe, or tarball/package) and properly handling any exit/close behavior.
+- For Windows users, the stub executables used for Python entrypoints in packages are now codesigned.
+- Require `conda >=23.7.0`.
+
+### 🔧 What Got Fixed? 🔧
+
+- Fix all CLI arguments to properly initialize `conda.base.context.context` with parsed arguments. Fixes issue with arguments not being processed (e.g., `--override-channels` was previously ignored).
+
+### 🌅 What's Marked for [Deprecation](https://github.com/conda-incubator/ceps/blob/main/cep-9.md)? 🌅
+
+- Postpone `conda_build.index.channel_data` deprecation.
+
+The following code was marked as deprecated:
+
+- `conda_build.config.Config.override_channels` (defer to `conda.base.context.context.channels` instead)
+- `conda_build.config.noarch_python_build_age_default`
+- `conda_build.conda_interface.add_parser_channels` (use `conda.cli.helpers.add_parser_channels` instead)
+- `conda_build.conda_interface.add_parser_prefix` (use `conda.cli.helpers.add_parser_prefix` instead)
+- `conda_build.conda_interface.ArgumentParser` (use `conda.cli.conda_argparse.ArgumentParser` instead)
+- `conda_build.conda_interface.binstar_upload` constant (use `conda.base.context.context.binstar_upload` instead)
+- `conda_build.conda_interface.cc_conda_build` (use `conda.base.context.context.conda_build` instead)
+- `conda_build.conda_interface.cc_platform` constant (use `conda.base.context.context.platform` instead)
+- `conda_build.conda_interface.Channel` (use `conda.models.channel.Channel` instead)
+- `conda_build.conda_interface.Completer`
+- `conda_build.conda_interface.configparser` module (use `configparser` instead)
+- `conda_build.conda_interface.CondaError` class (use `conda.exceptions.CondaError` instead)
+- `conda_build.conda_interface.CondaHTTPError` class (use `conda.exceptions.CondaHTTPError` instead)
+- `conda_build.conda_interface.CondaSession` (use `conda.gateways.connection.session.CondaSession` instead)
+- `conda_build.conda_interface.CONDA_VERSION` constant (use `conda.__version__` instead)
+- `conda_build.conda_interface.context` singleton (use `conda.base.context.context` instead)
+- `conda_build.conda_interface.create_default_packages` constant (use `conda.base.context.context.create_default_packages` instead)
+- `conda_build.conda_interface.default_python` constant (use `conda.base.context.context.default_python` instead)
+- `conda_build.conda_interface.determine_target_prefix` function (use `conda.base.context.determine_target_prefix` instead)
+- `conda_build.conda_interface.download` (use `conda.gateways.connection.download.download` instead)
+- `conda_build.conda_interface.env_path_backup_var_exists`
+- `conda_build.conda_interface.envs_dirs` constant (use `conda.base.context.context.envs_dirs` instead)
+- `conda_build.conda_interface.EntityEncoder` (use `conda.auxlib.entity.EntityEncoder` instead)
+- `conda_build.conda_interface.FileMode` (use `conda.models.enums.FileMode` instead)
+- `conda_build.conda_interface.get_conda_build_local_url` class (use `conda.models.channel.get_conda_build_local_url` instead)
+- `conda_build.conda_interface.get_conda_channel` function (use `conda.models.channel.Channel.from_value` instead)
+- `conda_build.conda_interface.get_prefix` function (use `conda.base.context.context.target_prefix` instead)
+- `conda_build.conda_interface.get_rc_urls` function (use `conda.base.context.context.channels` instead)
+- `conda_build.conda_interface.human_bytes` (use `conda.utils.human_bytes` instead)
+- `conda_build.conda_interface.import_module` function (use `importlib.import_module` instead)
+- `conda_build.conda_interface.input` (use `input` instead)
+- `conda_build.conda_interface.InstalledPackages`
+- `conda_build.conda_interface.lchmod` (use `conda.gateways.disk.link.lchmod` instead)
+- `conda_build.conda_interface.LinkError` class (use `conda.exceptions.LinkError` instead)
+- `conda_build.conda_interface.LockError` class (use `conda.exceptions.LockError` instead)
+- `conda_build.conda_interface.MatchSpec` (use `conda.models.match_spec.MatchSpec` instead)
+- `conda_build.conda_interface.non_x86_linux_machines` constant (use `conda.base.context.non_x86_machines` instead)
+- `conda_build.conda_interface.NoPackagesFound` (use `conda.exceptions.ResolvePackageNotFound` instead)
+- `conda_build.conda_interface.NoPackagesFoundError` class (use `conda.exceptions.NoPackagesFoundError` instead)
+- `conda_build.conda_interface.normalized_version` (use `conda.models.version.normalized_version` instead)
+- `conda_build.conda_interface.os` module (use `os` instead)
+- `conda_build.conda_interface.PackageRecord` (use `conda.models.records.PackageRecord` instead)
+- `conda_build.conda_interface.PaddingError` class (use `conda.exceptions.PaddingError` instead)
+- `conda_build.conda_interface.partial` function (use `functools.partial` instead)
+- `conda_build.conda_interface.PathType` (use `conda.models.enums.PathType` instead)
+- `conda_build.conda_interface.pkgs_dirs` constant (use `conda.base.context.context.pkgs_dirs` instead)
+- `conda_build.conda_interface.prefix_placeholder` (use `conda.base.constants.PREFIX_PLACEHOLDER` instead)
+- `conda_build.conda_interface.ProgressiveFetchExtract` class (use `conda.core.package_cache.ProgressiveFetchExtract` instead)
+- `conda_build.conda_interface.reset_context` function (use `conda.base.context.reset_context` instead)
+- `conda_build.conda_interface.Resolve` (use `conda.resolve.Resolve` instead)
+- `conda_build.conda_interface.rm_rf` (use `conda_build.utils.rm_rf` instead)
+- `conda_build.conda_interface.root_dir` constant (use `conda.base.context.context.root_prefix` instead)
+- `conda_build.conda_interface.root_writable` constant (use `conda.base.context.context.root_writable` instead)
+- `conda_build.conda_interface.spec_from_line` (use `conda.cli.common.spec_from_line` instead)
+- `conda_build.conda_interface.specs_from_args` (use `conda.cli.common.specs_from_args` instead)
+- `conda_build.conda_interface.specs_from_url` (use `conda.cli.common.specs_from_url` instead)
+- `conda_build.conda_interface.StringIO` (use `io.StringIO` instead)
+- `conda_build.conda_interface.subdir` constant (use `conda.base.context.context.subdir` instead)
+- `conda_build.conda_interface.symlink_conda`
+- `conda_build.conda_interface.TempDirectory` (use `conda.gateways.disk.create.TemporaryDirectory` instead)
+- `conda_build.conda_interface.TmpDownload` (use `conda.gateways.connection.download.TmpDownload` instead)
+- `conda_build.conda_interface.toposort` (use `conda.common.toposort._toposort` instead)
+- `conda_build.conda_interface.unix_path_to_win` (use `conda.utils.unix_path_to_win` instead)
+- `conda_build.conda_interface.Unsatisfiable` (use `conda.exceptions.UnsatisfiableError` instead)
+- `conda_build.conda_interface.untracked` (use `conda.misc.untracked` instead)
+- `conda_build.conda_interface.UnsatisfiableError` class (use `conda.exceptions.UnsatisfiableError` instead)
+- `conda_build.conda_interface.url_path` (use `conda.utils.url_path` instead)
+- `conda_build.conda_interface.VersionOrder` (use `conda.models.version.VersionOrder` instead)
+- `conda_build.conda_interface.walk_prefix` (use `conda.misc.walk_prefix` instead)
+- `conda_build.conda_interface.win_path_to_unix` (use `conda.common.path.win_path_to_unix` instead)
+- `conda_build.utils.HashableDict` (use `frozendict.deepfreeze` instead)
+- `conda_build.utils._convert_lists_to_sets` (use `frozendict.deepfreeze` instead)
+- `conda_build.utils.represent_hashabledict` (use `frozendict.deepfreeze` instead)
+- `conda_build.variants.get_vars(loop_only)`
+
+The following code was removed:
+
+- `conda_build.api.get_output_file_path` (use `conda_build.api.get_output_file_paths` instead)
+- `conda_build.bdist_conda`
+- `conda_build.build.have_prefix_files`
+- `conda_build.conda_interface.get_index` (use `conda.core.index.get_index` instead)
+- `conda_build.conda_interface.get_version_from_git_tag` (use `conda_build.environ.get_version_from_git_tag` instead)
+- `conda_build.conda_interface.handle_proxy_407` Handled by `conda.gateways.connection.session.CondaSession`
+- `conda_build.conda_interface.hashsum_file` (use `conda.gateways.disk.read.compute_sum` instead)
+- `conda_build.conda_interface.md5_file` (use `conda.gateways.disk.read.compute_sum(path, 'md5')` instead)
+- `conda_build.environ._load_all_json`
+- `conda_build.environ._load_json`
+- `conda_build.environ.cached_actions`
+- `conda_build.environ.Environment` (use `conda.core.prefix_data.PrefixData` instead)
+- `conda_build.environ.InvalidEnvironment`
+- `conda_build.environ.LINK_ACTION`
+- `conda_build.environ.PREFIX_ACTION`
+- `conda_build.index._apply_instructions` (use `conda_index._apply_instructions` instead)
+- `conda_build.index.DummyExecutor`
+- `conda_build.index.LOCK_TIMEOUT_SECS`
+- `conda_build.index.LOCKFILE_NAME`
+- `conda_build.index.MAX_THREADS_DEFAULT`
+
+---
+
+### We ❤️ Our Community
+
+Altogether, we had 6 new contributors this release cycle; thank you to all of our open source community members for helping making these improvements possible.
+
+- [@Callek](https://github.com/Callek) made their first contribution in [conda #13721](https://github.com/conda/conda/pull/13721)
+- [@dwr-psandhu](https://github.com/dwr-psandhu) made their first contribution in [conda #13770](https://github.com/conda/conda/pull/13770)
+- [@ifitchet](https://github.com/ifitchet) made their first contribution in [conda #13649](https://github.com/conda/conda/pull/13649)
+- [@Nathann03](https://github.com/Nathann03) made their first contribution in [conda #13816](https://github.com/conda/conda/pull/13816)
+- [@Tobias-Fischer](https://github.com/Tobias-Fischer) made their first contribution in [conda-build #5202](https://github.com/conda/conda-build/pull/5202)
+- [@ytausch](https://github.com/ytausch) made their first contribution in [conda-build #5214](https://github.com/conda/conda-build/pull/5214)
+
+If you have ideas or want to help improve any of the conda community projects, we love to see new (and returning) contributors! 😄

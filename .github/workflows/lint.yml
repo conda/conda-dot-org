@@ -29,7 +29,7 @@ jobs:
         run: npm install
 
       - name: Lint Javascript
-        run: npx eslint docusaurus.config.js src/**/*.js --fix
+        run: npx eslint docusaurus.config.js --fix
 
       - name: Lint CSS
         run: npx stylelint '**/*.css'

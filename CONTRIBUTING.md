@@ -308,8 +308,14 @@ Sometimes coming up with an engaging and relevant banner image is hard (if not i
 As an alternative we offer the ability to generate randomized banners overlaid with the conda C logo:
 
 ```bash
-$ npm run -- banner --output static/img/blog/<post>/banner.png
+$ npm run banner -- --output static/img/blog/<post>/banner.png
 ```
+
+<!-- prettier-ignore-start -->
+> [!NOTE]
+> `canvas` isn't compiled for `macOS-arm64`; navigate to the following page for compiling instructions:
+> https://www.npmjs.com/package/canvas#compiling
+<!-- prettier-ignore-end -->
 
 This will produce banners like the following:
 
