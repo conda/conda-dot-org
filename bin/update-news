@@ -112,7 +112,7 @@ def main():
     file_data = tuple(get_file_data(blog_files))
 
     with NEWS_FILE.open("w") as handle:
-        json.dump(file_data, handle)
+        json.dump(file_data, handle, indent=2)
 
 
 if __name__ == "__main__":
