@@ -24,17 +24,17 @@ This system is bolstered by various other supporting projects, all of which you 
 
 ## Conda package & environment manager
 
-The cornerstone of this entire ecosystem is the [`conda`](https://github.com/conda/conda) package and environment manager. Originally developed by Anaconda, Inc. and implemented in Python, `conda` is not limited to Python \- it's a fully capable package manager that handles dependencies across multiple languages and platforms. Whether you're a data scientist working with Python or R or you're a machine learning engineer dealing with libraries in C or Fortran, `conda` has you covered.
+The cornerstone of this entire ecosystem is the [conda](https://github.com/conda/conda) package and environment manager. Originally developed by Anaconda, Inc. and implemented in Python, conda is not limited to Python \- it's a fully capable package manager that handles dependencies across multiple languages and platforms. Whether you're a data scientist working with Python or R or you're a machine learning engineer dealing with libraries in C or Fortran, conda has you covered.
 
-`conda` was open-source from the start and has grown significantly thanks to support from a broad community. Today, it's [governed by a multi-stakeholder steering council](https://github.com/conda/governance) under the fiscal sponsorship of the [NumFOCUS](https://numfocus.org) non-profit, ensuring it remains a balanced, community-driven project.
+Conda was open-source from the start and has grown significantly thanks to support from a broad community. Today, it's [governed by a multi-stakeholder steering council](https://github.com/conda/governance) under the fiscal sponsorship of the [NumFOCUS](https://numfocus.org) non-profit, ensuring it remains a balanced, community-driven project.
 
-And yes, `conda` is free. Always has been, always will be. This commitment to open-source has spurred the development of several compatible alternatives within the conda ecosystem, as well as enhancements to the core `conda` package manager. One notable example is [Mamba](https://mamba.readthedocs.io/), a faster reimplementation in C++. Mamba's speedy solver has been contributed to the core `conda` package manager and is now the [default solver shipped with conda](https://conda.org/blog/2023-11-06-conda-23-10-0-release/). Another emerging tool is [Pixi](https://pixi.sh/), a Rust-based package manager that works seamlessly with conda packages while offering its own unique take on traditional conda workflows.
+And yes, conda is free. Always has been, always will be. This commitment to open-source has spurred the development of several compatible alternatives within the conda ecosystem, as well as enhancements to the core conda package manager. One notable example is [Mamba](https://mamba.readthedocs.io/), a faster reimplementation in C++. Mamba's speedy solver has been contributed to the core conda package manager and is now the [default solver shipped with conda](https://conda.org/blog/2023-11-06-conda-23-10-0-release/). Another emerging tool is [Pixi](https://pixi.sh/), a Rust-based package manager that works seamlessly with conda packages while offering its own unique take on traditional conda workflows.
 
 Furthermore, all of these tools use the same conda standards and formats, which are collaboratively improved through the [Conda Enhancement Proposal (CEP)](https://github.com/conda/ceps/blob/main/cep-1.md) process.
 
 ## Conda Package Repository and Channels
 
-When it comes to managing packages with `conda` or conda-compatible tools, understanding where these packages come from is key. [Anaconda.org](https://anaconda.org/) serves as a central hub for conda packages, organized into various channels. While anyone can create their own channel on anaconda.org to host conda packages or even run their own package index, we'll focus on the largest and most significant channels within the conda ecosystem.
+When it comes to managing packages with conda or conda-compatible tools, understanding where these packages come from is key. [Anaconda.org](https://anaconda.org/) serves as a central hub for conda packages, organized into various [channels](https://docs.conda.io/projects/conda/en/stable/user-guide/concepts/channels.html). While anyone can create their own channel on [anaconda.org](https://anaconda.org/) to host conda packages or even run their own package index, we'll focus on the largest and most significant channels within the conda ecosystem.
 
 ### `conda-forge`
 
@@ -50,7 +50,7 @@ The `defaults` channel (sometimes referred to as `main`) is maintained by [Anaco
 
 ## Other conda packaging servers
 
-While anaconda.org is the central package repository for a large part of the community, it's by far not the only option to host conda packages:
+While [anaconda.org](https://anaconda.org/) is the central package repository for a large part of the community, it's by far not the only option to host conda packages:
 
 - A Conda Enhancement Proposal about using Open Container Images (OCI) [for storing conda packages and repodata](https://github.com/conda/ceps/pull/70) is currently discussed, and the [tooling to mirror channels](https://github.com/channel-mirrors/conda-oci-mirror) exists. A proof of concept mirroring project exists at [github.com/channel-mirrors](http://github.com/channel-mirrors) which currently mirrors conda-forge packages to GitHub's OCI registry.
 - [conda-subchannel](https://github.com/conda-incubator/conda-subchannel) is another community prototype to evolve the way how conda channels can be served through self-hosting or public cloud hosting (e.g. GitHub Pages).
@@ -117,7 +117,7 @@ Each of these installers offers a different path into the conda ecosystem, allow
 
 ## Anaconda's Role in Supporting the conda ecosystem
 
-Anaconda, Inc. (alongside other organizations) plays a vital role in keeping the conda ecosystem strong and sustainable. Anaconda Inc. contributes through regular donations to NumFOCUS, providing engineering resources, and generously covering hosting fees for anaconda.org. This support is essential for keeping community channels like conda-forge and Bioconda free and accessible.
+Anaconda, Inc. (alongside other organizations) plays a vital role in keeping the conda ecosystem strong and sustainable. Anaconda Inc. contributes through regular donations to NumFOCUS, providing engineering resources, and generously covering hosting fees for [anaconda.org](https://anaconda.org/). This support is essential for keeping community channels like conda-forge and Bioconda free and accessible.
 
 However, it's important to clarify that the conda ecosystem is governed by an independent, diverse community committed to offering free and open-source tools and unrestricted package repositories for all users.
 See:
