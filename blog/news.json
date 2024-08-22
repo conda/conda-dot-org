@@ -1,17 +1,18 @@
 [
   {
-    "title": "New video on conda-forge origins",
-    "slug": "chatting-with-the-conda-community-1",
+    "title": "Conda Ecosystem Explained",
+    "slug": "2024-08-14-conda-ecosystem-explained",
     "authors": [
-      "wolfv"
+      "dashagurova",
+      "jezdez"
     ],
     "tags": [
-      "announcement",
-      "conda-community-update"
+      "conda",
+      "community",
+      "governance"
     ],
-    "description": "The first \"chatting with the conda community\" is talking about the origins of conda-forge - with Filipe Fernandes.",
-    "image": "img/blog/2024-08-21-chatting-with-conda-community/banner.png",
-    "date": "2024-08-21T00:00:00"
+    "description": "Get to know the conda ecosystem\u2014a vibrant community supporting an open-source, language-agnostic, and multi-platform package management system. Discover conda CLI tools for managing packages and environments, and explore key repositories like conda-forge, bioconda and defaults. You will learn how to get started with conda tools, the important things to keep in mind, and how multistakeholder governance ensures the ecosystem remains reliable and accessible to all.",
+    "date": "2024-08-14T00:00:00"
   },
   {
     "title": "July 2024 Releases",

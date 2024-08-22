@@ -1,0 +1,123 @@
+---
+title: "Conda Ecosystem Explained"
+slug: "2024-08-14-conda-ecosystem-explained"
+authors: [dashagurova, jezdez]
+tags: [conda, community, governance]
+description: |
+  Get to know the conda ecosystem—a vibrant community supporting an open-source, language-agnostic, and multi-platform package management system. Discover conda CLI tools for managing packages and environments, and explore key repositories like conda-forge, bioconda and defaults. You will learn how to get started with conda tools, the important things to keep in mind, and how multistakeholder governance ensures the ecosystem remains reliable and accessible to all.
+---
+
+Get to know the conda ecosystem—a vibrant community supporting an open-source, language-agnostic, and multi-platform package management system. Discover conda CLI tools for managing packages and environments, and explore key repositories like conda-forge, bioconda and defaults. You will learn how to get started with conda tools, the important things to keep in mind, and how multistakeholder governance ensures the ecosystem remains reliable and accessible to all.
+
+<!-- truncate -->
+## What is the conda ecosystem?
+
+At its core, the conda ecosystem is a community supporting an open-source, language-agnostic, and multi-platform package management system.
+
+But what does a "package management ecosystem" really mean? Without diving too deep into every detail, here are the three main components the conda community maintains:
+
+- **CLI Tools for Package Management**: conda command-line tools make it easy to install and manage dependencies in isolated development environments across Linux, Windows, and macOS. Conda works with packages written in any language, e.g. Python, R, C, or Fortran.
+- **Package Repository**: most publicly available conda packages are hosted on **[anaconda.org](https://anaconda.org/)**, organized into channels. Channels are like remote warehouses where packages are stored and can be pulled from. You can find channels maintained by the community, companies, or individuals.
+- **Build Tools**: If you want to create and share your own conda packages, the ecosystem provides tools to help you build and distribute them efficiently.
+
+This system is bolstered by various other supporting projects, all of which you can explore on [conda's GitHub organization](https://github.com/conda) or emerging projects in the [conda-incubator](https://github.com/conda-incubator).
+
+## Conda package & environment manager
+
+The cornerstone of this entire ecosystem is the [conda](https://github.com/conda/conda) package and environment manager. Originally developed by Anaconda, Inc. and implemented in Python, conda is not limited to Python \- it's a fully capable package manager that handles dependencies across multiple languages and platforms. Whether you're a data scientist working with Python or R or you're a machine learning engineer dealing with libraries in C or Fortran, conda has you covered.
+
+Conda was open-source from the start and has grown significantly thanks to support from a broad community. Today, it's [governed by a multi-stakeholder steering council](https://github.com/conda/governance) under the fiscal sponsorship of the [NumFOCUS](https://numfocus.org) non-profit, ensuring it remains a balanced, community-driven project.
+
+And yes, conda is free. Always has been, always will be. This commitment to open-source has spurred the development of several compatible alternatives within the conda ecosystem, as well as enhancements to the core conda package manager. One notable example is [Mamba](https://mamba.readthedocs.io/), a faster reimplementation in C++. Mamba's speedy solver has been contributed to the core conda package manager and is now the [default solver shipped with conda](https://conda.org/blog/2023-11-06-conda-23-10-0-release/). Another emerging tool is [Pixi](https://pixi.sh/), a Rust-based package manager that works seamlessly with conda packages while offering its own unique take on traditional conda workflows.
+
+Furthermore, all of these tools use the same conda standards and formats, which are collaboratively improved through the [Conda Enhancement Proposal (CEP)](https://github.com/conda/ceps/blob/main/cep-1.md) process.
+
+## Conda Package Repository and Channels
+
+When it comes to managing packages with conda or conda-compatible tools, understanding where these packages come from is key. [Anaconda.org](https://anaconda.org/) serves as a central hub for conda packages, organized into various [channels](https://docs.conda.io/projects/conda/en/stable/user-guide/concepts/channels.html). While anyone can create their own channel on [anaconda.org](https://anaconda.org/) to host conda packages or even run their own package index, we'll focus on the largest and most significant channels within the conda ecosystem.
+
+### `conda-forge`
+
+[conda-forge](https://conda-forge.org) is one of the largest and most impactful channels in the conda ecosystem. Entirely community-driven, this channel hosts over 26,000 projects and 2,000,000 artifacts, making it a go-to resource for developers across the globe. conda-forge is open-source, free to use, and maintained by a group of dedicated volunteers. The [governance model](https://conda-forge.org/community/governance/) ensures that the channel remains reliable and accessible to everyone.
+
+### `bioconda`
+
+If your work involves computational biology, [Bioconda](https://bioconda.github.io) is the channel you’ll want to explore. Unlike conda-forge, which covers a wide variety of packages, Bioconda is focused on bioinformatics. It offers over 8,000 packages that cater to subdomains like genomics, proteomics, structural biology, and biomass analysis. Like conda-forge, bioconda is open-source and free to use, maintained by a community of volunteers.
+
+### `defaults`
+
+The `defaults` channel (sometimes referred to as `main`) is maintained by [Anaconda, Inc](https://www.anaconda.com/). It's important to note that this channel comes with [Terms of Service](https://legal.anaconda.com/policies/en/). While largely free for individual users, students, and small companies, there are scenarios where a license might be required. For more information, feel free to review [frequently asked questions about Anaconda’s Terms of Service](https://www.anaconda.com/pricing/terms-of-service-faqs).
+
+## Other conda packaging servers
+
+While [anaconda.org](https://anaconda.org/) is the central package repository for a large part of the community, it's by far not the only option to host conda packages:
+
+- A Conda Enhancement Proposal about using Open Container Images (OCI) [for storing conda packages and repodata](https://github.com/conda/ceps/pull/70) is currently discussed, and the [tooling to mirror channels](https://github.com/channel-mirrors/conda-oci-mirror) exists. A proof of concept mirroring project exists at [github.com/channel-mirrors](http://github.com/channel-mirrors) which currently mirrors conda-forge packages to GitHub's OCI registry.
+- [conda-subchannel](https://github.com/conda-incubator/conda-subchannel) is another community prototype to evolve the way how conda channels can be served through self-hosting or public cloud hosting (e.g. GitHub Pages).
+- Ecosystem stakeholder [Prefix.dev](https://prefix.dev/) runs various mirrors on its web platform, including conda-forge's channel.
+- Universities and research institutes, as well as many corporate users of conda have been hosting their own packages or mirrors of existing channels within their own infrastructure for various reasons.
+
+## Getting Started with conda and conda-compatible tools
+
+There are a few different ways to install and get started with conda (at the time of writing this article):
+
+<table>
+  <thead>
+    <tr>
+      <th>Installer name</th>
+      <th>Package manager included</th>
+      <th>Automatically sets channel as</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <a href="https://docs.anaconda.com/miniconda/miniconda-install/">Miniconda</a>
+      </td>
+      <td>conda</td>
+      <td>`defaults`</td>
+    </tr>
+    <tr>
+      <td>
+        <a href="https://github.com/conda-forge/miniforge">Miniforge</a>
+      </td>
+      <td>conda & mamba</td>
+      <td>`conda-forge`</td>
+    </tr>
+    <tr>
+      <td>
+        <a href="https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html">Micromamba</a>
+      </td>
+      <td>mamba</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>
+        <a href="https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html">Pixi</a>
+      </td>
+      <td>pixi</td>
+      <td>`conda-forge`</td>
+    </tr>
+  </tbody>
+</table>
+
+Each of these installers offers a different path into the conda ecosystem, allowing you to tailor your setup based on your preferences.
+
+<div className="alert alert--primary" role="alert">
+  If you choose Miniconda, which defaults to the `defaults` channel, you can
+  easily reconfigure conda after installation to use only free community
+  channels like `conda-forge` or `bioconda` by editing your `.condarc` file.
+
+  <a href="https://conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html">Check the documentation for instructions</a>.
+</div>
+
+## Anaconda's Role in Supporting the conda ecosystem
+
+Anaconda, Inc. (alongside other organizations) plays a vital role in keeping the conda ecosystem strong and sustainable. Anaconda Inc. contributes through regular donations to NumFOCUS, providing engineering resources, and generously covering hosting fees for [anaconda.org](https://anaconda.org/). This support is essential for keeping community channels like conda-forge and Bioconda free and accessible.
+
+However, it's important to clarify that the conda ecosystem is governed by an independent, diverse community committed to offering free and open-source tools and unrestricted package repositories for all users.
+See:
+
+- [conda/conda-incubator governance](https://github.com/conda/governance)
+- [conda-forge governance](https://conda-forge.org/community/governance/)
+- [bioconda core team](https://bioconda.github.io/#core)
