@@ -48,6 +48,25 @@
     "date": "2024-06-14T00:00:00"
   },
   {
+    "title": "Navigating Change in Conda-Build Recipe Formats: Balancing Legacy and Innovation",
+    "slug": "2024-09-04-v0-format-modifications",
+    "authors": [
+      "kenodegard",
+      "chatgpt"
+    ],
+    "tags": [
+      "announcement",
+      "conda",
+      "conda-build",
+      "recipe",
+      "cep-13",
+      "cep-14"
+    ],
+    "description": "The recent approval of the new recipe format (`recipe.yaml`, v1) does not mean the end of the old format (`meta.yaml`, v0). The conda community must balance innovation with support for legacy systems.\n",
+    "image": "img/blog/2024-09-04-v0-format-modifications/banner.png",
+    "date": "2024-05-20T00:00:00"
+  },
+  {
     "title": "Developer Guide: A Tale of Five Prefixes",
     "slug": "2024-05-20-prefixes",
     "authors": [
@@ -64,20 +83,5 @@
     "description": "Prefixes, prefixes, prefixes! All the prefixes!",
     "image": "img/blog/2024-05-20-prefixes/banner.png",
     "date": "2024-05-20T00:00:00"
-  },
-  {
-    "title": "April and May 2024 Releases",
-    "slug": "2024-05-13-april-and-may-releases",
-    "authors": [
-      "beeankha"
-    ],
-    "tags": [
-      "announcement",
-      "conda",
-      "conda-build"
-    ],
-    "description": "Conda 24.4.0, conda 24.5.0, and conda-build 24.5.0 have been released! \ud83c\udf89\n",
-    "image": "img/blog/2024-05-13-april-and-may-releases/banner.png",
-    "date": "2024-05-13T00:00:00"
   }
 ]
