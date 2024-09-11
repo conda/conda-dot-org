@@ -6,11 +6,12 @@
       "wolfv"
     ],
     "tags": [
-      "announcement"
+      "announcement",
+      "chatting-with-the-conda-community"
     ],
     "description": "The first \"chatting with the conda community\" is talking about the origins of conda-forge - with Filipe Fernandes.",
-    "image": "img/blog/2024-08-21-chatting-with-conda-community/banner.png",
-    "date": "2024-09-02T00:00:00"
+    "image": "img/blog/2024-09-chatting-with-conda-community/banner.png",
+    "date": "2024-09-12T00:00:00"
   },
   {
     "title": "Conda Ecosystem Explained",
