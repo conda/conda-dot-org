@@ -25,7 +25,8 @@
       "community",
       "governance"
     ],
-    "description": "Get to know the conda ecosystem\u2014a vibrant community supporting an open-source, language-agnostic, and multi-platform package management system. Discover conda CLI tools for managing packages and environments, and explore key repositories like conda-forge, bioconda and defaults. You will learn how to get started with conda tools, the important things to keep in mind, and how multistakeholder governance ensures the ecosystem remains reliable and accessible to all.",
+    "description": "Get to know the conda ecosystem\u2014a vibrant community supporting an open-source, language-agnostic, and multi-platform package management system. Discover conda CLI tools for managing packages and environments, and explore key repositories like conda-forge, bioconda and defaults. You will learn how to get started with conda tools, the important things to keep in mind, and how multistakeholder governance ensures the ecosystem remains reliable and accessible to all.\n",
+    "image": "img/blog/2024-08-14-conda-ecosystem-explained/banner.png",
     "date": "2024-08-14T00:00:00"
   },
   {
