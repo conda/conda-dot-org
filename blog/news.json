@@ -1,5 +1,19 @@
 [
   {
+    "title": "New video on conda-forge origins",
+    "slug": "2024-09-12-chatting-with-the-conda-community-1",
+    "authors": [
+      "wolfv"
+    ],
+    "tags": [
+      "announcement",
+      "chatting-with-the-conda-community"
+    ],
+    "description": "The first \"chatting with the conda community\" is talking about the origins of conda-forge - with Filipe Fernandes.",
+    "image": "img/blog/2024-09-chatting-with-conda-community/banner.png",
+    "date": "2024-09-12T00:00:00"
+  },
+  {
     "title": "Conda Ecosystem Explained",
     "slug": "2024-08-14-conda-ecosystem-explained",
     "authors": [
@@ -64,20 +78,5 @@
     "description": "Prefixes, prefixes, prefixes! All the prefixes!",
     "image": "img/blog/2024-05-20-prefixes/banner.png",
     "date": "2024-05-20T00:00:00"
-  },
-  {
-    "title": "April and May 2024 Releases",
-    "slug": "2024-05-13-april-and-may-releases",
-    "authors": [
-      "beeankha"
-    ],
-    "tags": [
-      "announcement",
-      "conda",
-      "conda-build"
-    ],
-    "description": "Conda 24.4.0, conda 24.5.0, and conda-build 24.5.0 have been released! \ud83c\udf89\n",
-    "image": "img/blog/2024-05-13-april-and-may-releases/banner.png",
-    "date": "2024-05-13T00:00:00"
   }
 ]
