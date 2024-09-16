@@ -1,5 +1,19 @@
 [
   {
+    "title": "Rattler is moving to the conda organization",
+    "slug": "rattler-moving-to-conda-org",
+    "authors": [
+      "wolfv",
+      "baszalmstra"
+    ],
+    "tags": [
+      "announcement"
+    ],
+    "description": "Rattler, a set of Rust libraries for managing conda environments, is moving to the conda organization.",
+    "image": "img/blog/2024-09-rattler/banner.png",
+    "date": "2024-09-23T00:00:00"
+  },
+  {
     "title": "New video on conda-forge origins",
     "slug": "2024-09-12-chatting-with-the-conda-community-1",
     "authors": [
@@ -60,23 +74,5 @@
     "description": "Conda-index 0.5.0, conda-package-handling 2.3.0 and conda-package-streaming 0.10.0 have been released! \ud83c\udf89\n",
     "image": "img/blog/2024-06-14-june-releases/banner.png",
     "date": "2024-06-14T00:00:00"
-  },
-  {
-    "title": "Developer Guide: A Tale of Five Prefixes",
-    "slug": "2024-05-20-prefixes",
-    "authors": [
-      "kenodegard",
-      "chatgpt"
-    ],
-    "tags": [
-      "conda",
-      "context",
-      "prefix",
-      "prefixes",
-      "api"
-    ],
-    "description": "Prefixes, prefixes, prefixes! All the prefixes!",
-    "image": "img/blog/2024-05-20-prefixes/banner.png",
-    "date": "2024-05-20T00:00:00"
   }
 ]
