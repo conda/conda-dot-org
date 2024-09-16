@@ -1,0 +1,80 @@
+---
+title: "Rattler is moving to the conda organization"
+slug: "rattler-moving-to-conda-org"
+authors: [wolfv, baszalmstra]
+tags: [announcement]
+description: Rattler, a set of Rust libraries for managing conda environments, is moving to the conda organization.
+image: img/blog/2024-09-rattler/banner.png
+---
+
+We're happy to announce that Rattler, a suite of essential Rust crates for Conda package management, has officially joined the Conda Community organization. This move marks a significant milestone in the evolution of the Conda ecosystem. The Conda Community is a multi-stakeholder organization for the Conda ecosystem, and the defining body that sets forth new standards.
+
+## What is `rattler`?
+
+ The rattler crates were originally conceived by [Bas Zalmstra](https://github.com/baszalmstra) and further developed at [prefix.dev](https://prefix.dev).
+
+Originally created by Bas Zalmstra, rattler is a collection of Rust crates that provide powerful tools for handling Conda packages. 
+Its key features include:
+
+- A clean, expressive API for Rust developers
+- Well-designed Python bindings and documentation
+- The fastest SAT solver in the Conda ecosystem
+
+Rattler's functionality spans from reading index metadata and searching packages to resolving, downloading, installing, and even writing packages. At [prefix.dev](https://prefix.dev) all next-generation tools for the Conda ecosystem are built upon rattler, such as:
+
+- [Pixi](https://pixi.sh): A modern package manager for Conda & PyPI packages
+- [rattler-build](https://prefix-dev.github.io/rattler-build)): A new and very fast tool for building Conda packages with a community-designed, revamped recipe format
+
+## Adoption and Python bindings
+
+Rattler is already widely used to build custom tooling (as is done by large organizations such as [Palantir](https://www.palantir.com/docs/foundry/announcements/2024-06/), [QuantCo](https://github.com/quantco/pixi-pack) and the [Chicago Trading Company](https://github.com/AaronOpfer/conda_curation) among others).
+
+The Python bindings to rattler, originally developed by [Tarun Pratap Singh](https://github.com/Wackyator) are one of the easiest way to programmatically deal with Conda packages. They can be installed from [`conda-forge`](https://prefix.dev/channels/conda-forge/packages/py-rattler) or [`pypi`](https://pypi.org/project/py-rattler/)!
+
+Let's have a look at an example:
+
+```python
+import asyncio
+import tempfile
+from rattler import solve, install, VirtualPackage
+
+async def main() -> None:
+    # Let's solve the environment
+    print("started solving the environment")
+    solved_records = await solve(
+        # Channels to use for solving
+        channels=["conda-forge"],
+        # The specs to solve for
+        specs=["python ~=3.12.0", "pip", "requests 2.31.0"],
+        # Virtual packages define the specifications of the environment
+        virtual_packages=VirtualPackage.detect(),
+    )
+    print("solved required dependencies")
+
+    # Install the packages into a new environment (or updates it if it already existed).
+    env_path = tempfile.mkdtemp()
+    await install(
+        records=solved_records,
+        target_prefix=env_path,
+    )
+
+    print(f"created environment: {env_path}")
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+## The move to the Conda Community
+
+By joining the Conda Community, Rattler now falls under community governance. This transition opens up new opportunities for the wider Conda ecosystem to leverage and contribute to this powerful toolset. The development continues to be led by the team at prefix.dev, ensuring ongoing innovation and support.
+
+## What is the Conda Community
+
+The Conda Community is an open source software community that is engaged in the development of the tooling around conda packages. Members of the conda community are employees of prefix.dev, Anaconda, Quansight, NVidia, Voltron Data and other companies that have a vested interest in the Conda ecosystem.
+
+If you are a tool developer and interested in the capabilities of rattler or py-rattler, you can find the documentation here:
+
+- [Rust documentation for rattler](https://docs.rs/rattler). Note: each crate has its own documentation.
+- [Documentation for the Python bindings to rattler](https://conda.github.io/rattler/py-rattler/)
+
+You can find the authors of rattler on the [prefix.dev Discord](https://discord.gg/kKV8ZxyzY4) - feel free to connect and ask questions! We are – of course – also active on the Conda community channels (such as Element).
