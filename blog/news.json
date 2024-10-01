@@ -1,17 +1,19 @@
 [
   {
-    "title": "Rattler is moving to the conda organization",
-    "slug": "2024-10-01-rattler-to-conda",
+    "title": "September 2024 Releases",
+    "slug": "2024-09-30-september-releases",
     "authors": [
-      "wolfv",
-      "baszalmstra"
+      "ForgottenProgramme"
     ],
     "tags": [
-      "announcement"
+      "announcement",
+      "conda",
+      "conda-build",
+      "conda-libmamba-solver"
     ],
-    "description": "Rattler, a set of Rust libraries for managing conda environments, is moving to the conda organization.",
-    "image": "img/blog/2024-10-rattler/banner.png",
-    "date": "2024-10-01T00:00:00"
+    "description": "Conda 24.9.0, conda-build 24.9.0, and conda-libmamba-solver 24.9.0 have been released! \ud83c\udf89\n",
+    "image": "img/blog/2024-09-30-september-releases/banner.png",
+    "date": "2024-09-30T00:00:00"
   },
   {
     "title": "New video on conda-forge origins",
