@@ -10,7 +10,7 @@ image: img/blog/24-09-30-conda-releases/banner.png
 
 The September 2024 releases included updates to conda, conda-build, and conda-libmamba-solver! 🎉 All of these have been released to both `main` and `conda-forge` channels.
 
-## Changes in Conda [24.9.0](https://github.com/conda/conda/releases/tag/24.9.0)
+## Changes in Conda [24.9.0](https://github.com/conda/conda/releases/tag/24.9.0)/[24.9.1](https://github.com/conda/conda/releases/tag/24.9.1)
 
 To update conda, run:
 
@@ -45,6 +45,7 @@ conda install -n base conda=24.9.0
 - Add pre-/post-command hooks to activation subcommands (`activate`, `deactivate`, `reactivate`, `hooks`, and `commands`).
 - Replace extensions from end of filename only, not `str.replace()`, in two places.
 - Fix PowerShell activation/deactivation to properly unset environment variables using `$Env:VARIABLE = $null` instead of `$Env:VARIABLE = ""`.
+- Tweak pending deprecation warning for the upcoming changes in channel defaults.
 
 ### 🌅 What Got Deprecated or Got Marked for Future [Deprecation](https://github.com/conda-incubator/ceps/blob/main/cep-9.md)? 🌅
 
@@ -159,6 +160,7 @@ conda install -n base conda=24.9.0
 - Mark `conda.testing.context_aware_monkeypatch` as pending deprecation. Use `conda.testing.fixtures.context_aware_monkeypatch` instead.
 - Mark `conda.testing.tmp_pkgs_dir` as pending deprecation. Use `conda.testing.fixtures.tmp_pkgs_dir` instead.
 - Mark `conda.testing.tmp_envs_dir` as pending deprecation. Use `conda.testing.fixtures.tmp_envs_dir` instead.
+- Remove deprecated testing entrypoint `shell/bin/conda`. Use `dev/start[.bat]` instead.
 
 ### 📄 What's New in Documentation? 📄
 
