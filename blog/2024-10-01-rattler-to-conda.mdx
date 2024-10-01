@@ -7,7 +7,7 @@ description: Rattler, a set of Rust libraries for managing conda environments, i
 image: img/blog/2024-10-rattler/banner.png
 ---
 
-We're happy to announce that Rattler, a suite of Rust crates with Python bindings for conda package management, has officially joined the conda community organization. This move marks a significant milestone in the evolution of the conda ecosystem. The conda community is a multi-stakeholder organization for the Conda ecosystem, and the defining body that sets forth new standards.
+We're happy to announce that Rattler, a suite of Rust crates with Python bindings for conda package management, has officially joined the conda community organization. This move marks a significant milestone in the evolution of the conda ecosystem. The conda community is a multi-stakeholder organization for the conda ecosystem, and the defining body that sets forth new standards.
 
 ## What is `rattler`?
 
@@ -17,18 +17,18 @@ Its key features include:
 
 - A clean, expressive API for Rust developers
 - Well-designed Python bindings and documentation
-- The fastest SAT solver in the Conda ecosystem (resolvo)
+- The fastest SAT solver in the conda ecosystem (resolvo)
 
-Rattler's functionality spans from reading index metadata and searching packages to resolving, downloading, installing, and even writing packages. At [prefix.dev](https://prefix.dev) all next-generation tools for the Conda ecosystem are built upon rattler, such as:
+Rattler's functionality spans from reading index metadata and searching packages to resolving, downloading, installing, and even writing packages. At [prefix.dev](https://prefix.dev) all next-generation tools for the conda ecosystem are built upon rattler, such as:
 
-- [Pixi](https://pixi.sh): A modern package manager for Conda & PyPI packages
-- [rattler-build](https://prefix-dev.github.io/rattler-build): A new and very fast tool for building Conda packages with a community-designed, revamped recipe format
+- [Pixi](https://pixi.sh): A modern package manager for conda & PyPI packages
+- [rattler-build](https://prefix-dev.github.io/rattler-build): A new and very fast tool for building conda packages with a community-designed, revamped recipe format
 
 ## Adoption and Python bindings
 
 Rattler is already widely used to build custom tooling (as is done by large organizations such as [Palantir](https://www.palantir.com/docs/foundry/announcements/2024-06/), [QuantCo](https://github.com/quantco/pixi-pack) and the [Chicago Trading Company](https://github.com/AaronOpfer/conda_curation) among others).
 
-The Python bindings to Rattler, originally developed by [Tarun Pratap Singh](https://github.com/Wackyator) are one of the easiest ways to programmatically deal with Conda packages. They can be installed from [`conda-forge`](https://prefix.dev/channels/conda-forge/packages/py-rattler) or [`PyPI`](https://pypi.org/project/py-rattler/)!
+The Python bindings to rattler, originally developed by [Tarun Pratap Singh](https://github.com/Wackyator) are one of the easiest ways to programmatically deal with conda packages. They can be installed from [`conda-forge`](https://prefix.dev/channels/conda-forge/packages/py-rattler) or [`PyPI`](https://pypi.org/project/py-rattler/)!
 
 ```python
 import asyncio
