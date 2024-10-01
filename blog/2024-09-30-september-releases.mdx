@@ -20,16 +20,6 @@ conda install -n base conda=24.9.0
 
 <!-- truncate -->
 
-### ✨ Special announcement ✨
-
-This is an announcement about an important and positive **future** change in conda's functionality:
-
-Following feedback from conda users about the pre-configuration of the conda code base to favor channels from Anaconda Inc, we've [started the process to deprecate](https://github.com/conda/conda/issues/14178) hardcoding Anaconda's channels as the default set of channels in the conda source code, which is a remnant of conda's incubation at the company.
-
-In the future, we will rely on providers of conda distributions, such as [miniforge](https://github.com/conda-forge/miniforge) or Anaconda (including miniconda), to pre-configure their preferred channels, e.g. by running the necessary ``conda config --set channels`` command.
-
-We're also going to continue to [work on improving channel management](https://github.com/conda/conda/issues/14217) in the foreseeable future and would love to get your feedback.
-
 ### ✨ What's New? ✨
 
 - Add `conda.core.index.Index` as a faster drop-in replacement of the realized dictionary index. Note: The loggers are no longer implicitly initialized when fetching the index. Instead, you must explicitly call `conda.gateways.logging.initialize_logging`. (#13880, #14267)
@@ -180,6 +170,7 @@ We're also going to continue to [work on improving channel management](https://g
 
 - Update `xonsh` support to accommodate deprecated import path.
 
+
 ## Changes in Conda-Build [24.9.0](https://github.com/conda/conda-build/releases/tag/24.9.0)
 
 To update conda-build, run:
@@ -204,9 +195,32 @@ conda install -n base conda-build=24.9.0
 - Remove `conda_build.metadata._get_env_path`. Use `conda.base.context.locate_prefix_by_name` instead.
 - Remove `conda_build.build._construct_metadata_for_test_from_recipe`. Test built packages instead, not recipes (e.g., `conda build --test package` instead of `conda build --test recipe/`).
 
+
+## Changes in Conda-Libmamba-Solver [24.9.0](https://github.com/conda/conda-libmamba-solver/releases/tag/24.9.0)
+
+To update conda-libmamba-solver, run:
+
+```bash
+conda install -n base conda-libmamba-solver=24.9.0
+```
+
+### 🔧 What Got Fixed? 🔧
+
+- Use Solver instance configuration to initialize the libmamba context without implicitly relying on the conda context settings.
+- Fix conda-build compatibility regression where arch-specific outputs can't be found in the test phase if a noarch output was built first.
+
+### 📄 What's New in Documentation? 📄
+
+- Add installation workarounds FAQ with conda-standalone.
+- Update user guide to reflect conda-libmamba-solver being the default solver in conda.
+- Include mamba-org/mamba as a required cloned repository for setting up a dev environment.
+
+
 ### We ❤️ Our Community
 
-Altogether, we had 9 (!) new contributors this release cycle; thank you to all of our open source community members for helping making these improvements possible.
+Altogether, we had 4 new contributors this release cycle; thank you to all of our open source community members for helping making these improvements possible.
 
 - @anki-code made their first contribution in [conda#14047](https://github.com/conda/conda/pull/14047)
 - @SylvainCorlay made their first contribution in [conda#14226](https://github.com/conda/conda/pull/14226)
+- @jjhelmus made their first contribution in [conda-libmamba-solver#528](https://github.com/conda/conda-libmamba-solver/pull/528)
+- @justmarkham made their first contribution in [conda-libmamba-solver#510](https://github.com/conda/conda-libmamba-solver/pull/510)
