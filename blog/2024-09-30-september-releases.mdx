@@ -23,7 +23,7 @@ conda install -n base conda=24.9.0
 ### ✨ What's New? ✨
 
 - Add `conda.core.index.Index` as a faster drop-in replacement of the realized dictionary index. Note: The loggers are no longer implicitly initialized when fetching the index. Instead, you must explicitly call `conda.gateways.logging.initialize_logging`. (#13880, #14267)
-- Alias `conda env remove` command to `conda remove --all`. 
+- Alias `conda env remove` command to `conda remove --all`.
 - Add a new health check to `conda doctor` that detects if the `REQUESTS_CA_BUNDLE` env var points to a non-existent file.
 - Add `--sha256` flag to `conda list --explicit` so it lists URLs with a SHA256 hash instead of MD5 and make `conda install|create` compatible with these inputs.
 - Report `conda` version used to generate a `@EXPLICIT` text file.
@@ -88,31 +88,31 @@ conda install -n base conda=24.9.0
 - Remove `conda.cli.main.init_loggers(context)`.
 - Remove `conda.cli.main_rename.validate_src(name)`.
 - Remove `conda.cli.main_rename.validate_src(prefix)`.
-- Remove `conda.common.configuration.load_file_configs`. 
-- Remove `conda.common.decorators.env_override`. 
-- Remove `conda.common.decorators`. 
-- Remove `conda.common.disk.temporary_content_in_file`. Use `tempfile` instead. 
-- Remove `conda.core.package_cache_data.download`. Use `conda.gateways.connection.download.download` instead. 
-- Remove `conda.core.package_cache_data.rm_fetched`. 
-- Remove `conda.core.package_cache`. Use `conda.core.package_cache_data` instead. 
-- Remove `conda.core.prefix_data.PrefixData._has_python`. 
-- Remove `conda.core.subdir_data.get_cache_control_max_age`. Use `conda.gateways.repodata.get_cache_control_max_age` instead. 
-- Remove `conda.exports.fetch_index`. Use `conda.core.index.fetch_index` instead. 
-- Remove `conda.exports.IndexRecord`. Use `conda.models.records.PackageRecord` instead. 
-- Remove `conda.gateways.anaconda_client.EnvAppDirs`. Use `platformdirs` instead. 
-- Remove `conda.gateways.connection.adapters.ftp.FTPAdapter.stor`. 
-- Remove `conda.gateways.connection.adapters.ftp.parse_multipart_files` 
-- Remove `conda.gateways.logging.set_verbosity`. Use `conda.gateways.logging.set_log_level` instead. 
-- Remove `conda.gateways.logging.VERBOSITY_LEVELS`. 
-- Remove `conda.models.dist.IndexRecord`. Use `conda.models.records.PackageRecord` instead. 
-- Remove `conda.models.enums.LeasedPathType`. 
-- Remove `conda.models.leased_path_entry.LeasedPathEntry`. 
-- Remove `conda.plugins.subcommands.doctor.get_prefix`. Use `conda.base.context.context.target_prefix` instead. 
-- Remove `conda.plugins.subcommands.doctor.health_checks.display_health_checks`. 
-- Remove `conda.plugins.subcommands.doctor.health_checks.display_report_heading`. 
-- Remove `conda.testing.helpers.set_active_prefix`. Use `mocker.patch('conda.base.context.Context.active_prefix')` instead. 
-- Remove `tests.env.utils.run_command`. Use `conda_cli` fixture instead. 
-- Mark `tests.env.utils.make_temp_envs_dir` as pending deprecation. Use `tmp_envs_dir` fixture instead.  
+- Remove `conda.common.configuration.load_file_configs`.
+- Remove `conda.common.decorators.env_override`.
+- Remove `conda.common.decorators`.
+- Remove `conda.common.disk.temporary_content_in_file`. Use `tempfile` instead.
+- Remove `conda.core.package_cache_data.download`. Use `conda.gateways.connection.download.download` instead.
+- Remove `conda.core.package_cache_data.rm_fetched`.
+- Remove `conda.core.package_cache`. Use `conda.core.package_cache_data` instead.
+- Remove `conda.core.prefix_data.PrefixData._has_python`.
+- Remove `conda.core.subdir_data.get_cache_control_max_age`. Use `conda.gateways.repodata.get_cache_control_max_age` instead.
+- Remove `conda.exports.fetch_index`. Use `conda.core.index.fetch_index` instead.
+- Remove `conda.exports.IndexRecord`. Use `conda.models.records.PackageRecord` instead.
+- Remove `conda.gateways.anaconda_client.EnvAppDirs`. Use `platformdirs` instead.
+- Remove `conda.gateways.connection.adapters.ftp.FTPAdapter.stor`.
+- Remove `conda.gateways.connection.adapters.ftp.parse_multipart_files`
+- Remove `conda.gateways.logging.set_verbosity`. Use `conda.gateways.logging.set_log_level` instead.
+- Remove `conda.gateways.logging.VERBOSITY_LEVELS`.
+- Remove `conda.models.dist.IndexRecord`. Use `conda.models.records.PackageRecord` instead.
+- Remove `conda.models.enums.LeasedPathType`.
+- Remove `conda.models.leased_path_entry.LeasedPathEntry`.
+- Remove `conda.plugins.subcommands.doctor.get_prefix`. Use `conda.base.context.context.target_prefix` instead.
+- Remove `conda.plugins.subcommands.doctor.health_checks.display_health_checks`.
+- Remove `conda.plugins.subcommands.doctor.health_checks.display_report_heading`.
+- Remove `conda.testing.helpers.set_active_prefix`. Use `mocker.patch('conda.base.context.Context.active_prefix')` instead.
+- Remove `tests.env.utils.run_command`. Use `conda_cli` fixture instead.
+- Mark `tests.env.utils.make_temp_envs_dir` as pending deprecation. Use `tmp_envs_dir` fixture instead.
 - Mark `conda.gateways.disk.delete.rm_rf(max_retries)` as pending deprecated.
 - Mark `conda.gateways.disk.delete.rm_rf(trash)` as pending deprecated.
 - Mark `conda.gateways.disk.delete.try_rmdir_all_empty` as pending deprecated. Use `conda.gateways.disk.delete.rm_rf` instead.
