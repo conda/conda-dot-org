@@ -1,6 +1,7 @@
 [
   {
     "title": "Rattler is moving to the conda organization",
+    "slug": "2024-10-01-rattler-to-conda",
     "authors": [
       "wolfv",
       "baszalmstra"
