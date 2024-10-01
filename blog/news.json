@@ -1,7 +1,6 @@
 [
   {
     "title": "Rattler is moving to the conda organization",
-    "slug": "rattler-moving-to-conda-org",
     "authors": [
       "wolfv",
       "baszalmstra"
@@ -10,8 +9,8 @@
       "announcement"
     ],
     "description": "Rattler, a set of Rust libraries for managing conda environments, is moving to the conda organization.",
-    "image": "img/blog/2024-09-rattler/banner.png",
-    "date": "2024-09-23T00:00:00"
+    "image": "img/blog/2024-10-rattler/banner.png",
+    "date": "2024-10-01T00:00:00"
   },
   {
     "title": "New video on conda-forge origins",
