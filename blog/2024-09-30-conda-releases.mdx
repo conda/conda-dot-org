@@ -164,3 +164,31 @@ conda install -n base conda=24.0.0
 
 - Document `--platform` flag for `conda [env] create`.
 
+### Other
+
+- Update `xonsh` support to accomodate deprecated import path.
+
+## Changes in Conda-Build [24.9.0](https://github.com/conda/conda-build/releases/tag/24.9.0)
+
+### ✨ What's New? ✨
+
+- Reduce render time when there is a large number of unused variants.
+
+### 🔧 What Got Fixed? 🔧
+
+- Ensure variables mentioned in `script_env` are undefined in the multi-output build environment if they are undefined in the environment that `conda-build` is invoked from.
+- Variables used in single-line jinja2 `for` and `set` statements are now properly included in the variant matrix for some edge cases.
+- Allow undefined jinja variables when a particular metadata block evaluates as skipped.
+
+### 🌅 What Got Deprecated or Got Marked for Future [Deprecation](https://github.com/conda-incubator/ceps/blob/main/cep-9.md)? 🌅
+
+- Remove `conda_build.build.check_external`. `patchelf` is an explicit conda-build dependency on Linux, so it will always be installed.
+- Remove `conda_build.metadata._get_env_path`. Use `conda.base.context.locate_prefix_by_name` instead.
+- Remove `conda_build.build._construct_metadata_for_test_from_recipe`. Test built packages instead, not recipes (e.g., `conda build --test package` instead of `conda build --test recipe/`).
+
+### We ❤️ Our Community
+
+Altogether, we had 9 (!) new contributors this release cycle; thank you to all of our open source community members for helping making these improvements possible.
+
+- @anki-code made their first contribution in [conda#14047](https://github.com/conda/conda/pull/14047)
+- @SylvainCorlay made their first contribution in [conda#14226](https://github.com/conda/conda/pull/14226)
