@@ -5,7 +5,7 @@ authors: [forgottenprogramme]
 tags: [announcement, conda, conda-build, conda-libmamba-solver]
 description: |
   Conda 24.9.0, conda-build 24.9.0, and conda-libmamba-solver 24.9.0 have been released! 🎉
-image: img/blog/24-09-30-september-releases/banner.png
+image: img/blog/2024-09-30-september-releases/banner.png
 ---
 
 The September 2024 releases included updates to conda, conda-build, and conda-libmamba-solver! 🎉 All of these have been released to both `main` and `conda-forge` channels.
@@ -17,6 +17,17 @@ To update conda, run:
 ```bash
 conda install -n base conda=24.9.0
 ```
+
+
+### ✨ Special announcement ✨
+
+This is an announcement about an important and positive **future** change in conda's functionality:
+
+Following feedback from conda users about the pre-configuration of the conda code base to favor channels from Anaconda Inc, we've [started the process to deprecate](https://github.com/conda/conda/issues/14178) hardcoding Anaconda's channels as the default set of channels in the conda source code, which is a remnant of conda's incubation at the company.
+
+In the future, we will rely on providers of conda distributions, such as [miniforge](https://github.com/conda-forge/miniforge) or Anaconda (including miniconda), to pre-configure their preferred channels, e.g. by running the necessary ``conda config --set channels`` command.
+
+We're also going to continue to [work on improving channel management](https://github.com/conda/conda/issues/14217) in the foreseeable future and would love to get your feedback.
 
 <!-- truncate -->
 
