@@ -11,8 +11,8 @@
       "conda-build",
       "conda-libmamba-solver"
     ],
-    "description": "Conda 24.9.0, conda-build 24.9.0, and conda-libmamba-solver 24.9.0 have been released! \ud83c\udf89\n",
-    "image": "img/blog/2024-09-30-september-releases/banner.png",
+    "image": "static/img/blog/24-09-30-conda-releases/banner.png",
+    "description": "Conda 24.9.0, conda-build 24.9.0, and conda-libmamba-solver 24.9.0 have been released! \ud83c\udf89",
     "date": "2024-09-30T00:00:00"
   },
   {
@@ -57,7 +57,8 @@
       "conda-build",
       "conda-libmamba-solver"
     ],
-    "description": "Conda 24.7.0/.1, conda-build 24.7.0, and conda-libmamba-solver 24.7.0 have been released! \ud83c\udf89",
+    "description": "Conda 24.7.0/.1, conda-build 24.7.0, and conda-libmamba-solver 24.7.0 have been released! \ud83c\udf89\n",
+    "image": "img/blog/2024-07-23-july-releases/banner.png",
     "date": "2024-07-23T00:00:00"
   },
   {
