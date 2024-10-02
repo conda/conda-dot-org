@@ -1,7 +1,7 @@
 [tool.codespell]
 ignore-words-list = "lief,repet"
 
-[tool.ruff]
+[tool.ruff.lint]
 # E, W = pycodestyle errors and warnings
 # F = pyflakes
 # I = isort
