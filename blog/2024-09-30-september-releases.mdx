@@ -15,7 +15,7 @@ The September 2024 releases included updates to conda, conda-build, and conda-li
 To update conda, run:
 
 ```bash
-conda install -n base conda=24.9.0
+conda install -n base conda=24.9.1
 ```
 
 
@@ -33,7 +33,7 @@ We're also going to continue to [work on improving channel management](https://g
 
 ### ✨ What's New? ✨
 
-- Add `conda.core.index.Index` as a faster drop-in replacement of the realized dictionary index. Note: The loggers are no longer implicitly initialized when fetching the index. Instead, you must explicitly call `conda.gateways.logging.initialize_logging`. (#13880, #14267)
+- Add `conda.core.index.Index` as a faster drop-in replacement of the realized dictionary index. Note: The loggers are no longer implicitly initialized when fetching the index. Instead, you must explicitly call `conda.gateways.logging.initialize_logging`.
 - Alias `conda env remove` command to `conda remove --all`.
 - Add a new health check to `conda doctor` that detects if the `REQUESTS_CA_BUNDLE` env var points to a non-existent file.
 - Add `--sha256` flag to `conda list --explicit` so it lists URLs with a SHA256 hash instead of MD5 and make `conda install|create` compatible with these inputs.
@@ -56,7 +56,7 @@ We're also going to continue to [work on improving channel management](https://g
 - Add pre-/post-command hooks to activation subcommands (`activate`, `deactivate`, `reactivate`, `hooks`, and `commands`).
 - Replace extensions from end of filename only, not `str.replace()`, in two places.
 - Fix PowerShell activation/deactivation to properly unset environment variables using `$Env:VARIABLE = $null` instead of `$Env:VARIABLE = ""`.
-- Tweak pending deprecation warning for the upcoming changes in channel defaults.
+- (24.9.1) Tweak pending deprecation warning for the upcoming changes in channel defaults.
 
 ### 🌅 What Got Deprecated or Got Marked for Future [Deprecation](https://github.com/conda-incubator/ceps/blob/main/cep-9.md)? 🌅
 
@@ -171,7 +171,7 @@ We're also going to continue to [work on improving channel management](https://g
 - Mark `conda.testing.context_aware_monkeypatch` as pending deprecation. Use `conda.testing.fixtures.context_aware_monkeypatch` instead.
 - Mark `conda.testing.tmp_pkgs_dir` as pending deprecation. Use `conda.testing.fixtures.tmp_pkgs_dir` instead.
 - Mark `conda.testing.tmp_envs_dir` as pending deprecation. Use `conda.testing.fixtures.tmp_envs_dir` instead.
-- Remove deprecated testing entrypoint `shell/bin/conda`. Use `dev/start[.bat]` instead.
+- (24.9.1) Remove deprecated testing entrypoint `shell/bin/conda`. Use `dev/start[.bat]` instead.
 
 ### 📄 What's New in Documentation? 📄
 
