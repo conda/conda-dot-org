@@ -27,7 +27,7 @@ repos:
         # ruamel.yaml doesn't line wrap correctly (?) so set width to 1M to avoid issues
         args: [--mapping, '2', --offset, '2', --sequence, '4', --width, '1000000']
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.29.3
+    rev: 0.29.4
     hooks:
       # verify github syntaxes
       - id: check-github-workflows
