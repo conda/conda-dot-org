@@ -1,5 +1,20 @@
 [
   {
+    "title": "October 2024 Releases",
+    "slug": "2024-10-21-october-releases",
+    "authors": [
+      "dashagurova"
+    ],
+    "tags": [
+      "announcement",
+      "conda-package-handling",
+      "conda-package-streaming"
+    ],
+    "description": "conda-package-handling 2.4.0 and conda-package-streaming 0.11.0 have been released! \ud83c\udf89\n",
+    "image": "img/blog/2024-10-21-october-releases/banner.png",
+    "date": "2024-10-21T00:00:00"
+  },
+  {
     "title": "September 2024 Releases",
     "slug": "2024-09-30-september-releases",
     "authors": [
@@ -58,21 +73,5 @@
     "description": "Get to know the conda ecosystem\u2014a vibrant community supporting an open-source, language-agnostic, and multi-platform package management system. Discover conda CLI tools for managing packages and environments, and explore key repositories like conda-forge, bioconda and defaults. You will learn how to get started with conda tools, the important things to keep in mind, and how multistakeholder governance ensures the ecosystem remains reliable and accessible to all.\n",
     "image": "img/blog/2024-08-14-conda-ecosystem-explained/banner.png",
     "date": "2024-08-14T00:00:00"
-  },
-  {
-    "title": "July 2024 Releases",
-    "slug": "2024-07-23-july-releases",
-    "authors": [
-      "beeankha"
-    ],
-    "tags": [
-      "announcement",
-      "conda",
-      "conda-build",
-      "conda-libmamba-solver"
-    ],
-    "description": "Conda 24.7.0/.1, conda-build 24.7.0, and conda-libmamba-solver 24.7.0 have been released! \ud83c\udf89\n",
-    "image": "img/blog/2024-07-23-july-releases/banner.png",
-    "date": "2024-07-23T00:00:00"
   }
 ]
