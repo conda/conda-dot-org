@@ -49,7 +49,7 @@ conda install -n base conda-package-streaming=0.11.0
 - Add Python 3.12 to test matrix.
 - Pass Python `tarfile.extractall(filter="fully_trusted")` in addition to
 internal filtering, when available, to avoid Python 3.12+ `DeprecationWarning`.
-- Improve umask handling.
+- Improve `umask` handling.
 - Add `transmute_stream(...)` to create `.conda` from `(TarFile, TarInfo)`
 iterators, allowing more creative data sources than just `.tar.bz2` inputs.
 - Add `create` module with `TarFile` interface for creating `.conda`
