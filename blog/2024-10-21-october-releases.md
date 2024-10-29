@@ -19,11 +19,10 @@ To update conda-package-handling to the latest version, run:
 ```bash
 conda install -n base conda-package-handling=2.4.0
 ```
-<!-- truncate -->
 
 ### ✨ What's New? ✨
 
-- Expose API and CLI for which components will be listed as part of `cph list`.
+- Expose API keyword and CLI argument to control which component(s) of the `.conda` artifact is listed in `cph list`.
 - Allow `cph list` on remote `.conda` artifact URLs.
 
 ### 🔧 What Got Fixed? 🔧
