@@ -10,6 +10,7 @@ node_modules/
 
 # Populated at build time
 /community/minutes/*.md
+/community/ceps/*.md
 
 # Misc
 .DS_Store

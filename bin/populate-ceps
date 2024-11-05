@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+HERE=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
+rm "${HERE}/../community/ceps/*.md" || true
+pushd $(mktemp -d)
+curl -L https://github.com/conda/ceps/archive/refs/heads/main.tar.gz -o ceps.tar.gz
+tar -xf ceps.tar.gz
+for f in ceps-main/cep-*.md; do
+    mv "$f" "${HERE}/../community/ceps"
+done
+popd
