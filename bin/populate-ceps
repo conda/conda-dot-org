@@ -3,7 +3,7 @@ set -euo pipefail
 
 HERE=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
-rm "${HERE}/../community/ceps/*.md" || true
+rm "${HERE}/../community/ceps/*.md" || mkdir -p "${HERE}/../community/ceps/"
 pushd $(mktemp -d)
 curl -L https://github.com/conda/ceps/archive/refs/heads/main.tar.gz -o ceps.tar.gz
 tar -xf ceps.tar.gz
