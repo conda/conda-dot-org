@@ -35,6 +35,4 @@ sed -i.bak \
     -e 's|](github.org)|](https://github.org)|g' \
     "2020-09-08.md"
 rm 2020-09-08.md.bak
-
-
 popd
