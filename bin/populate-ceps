@@ -16,6 +16,7 @@ for f in cep-*.md; do
         sidebar_label=$(echo "${f%.md}" | sed -re 's/cep-0+/CEP /')
     fi
     echo "sidebar_label: ${sidebar_label}" >> "${HERE}/../community/ceps/$f"
+    echo "tags: [ceps]" >> "${HERE}/../community/ceps/$f"
     echo "---" >> "${HERE}/../community/ceps/$f"
     cat "$f" >> "${HERE}/../community/ceps/$f"
 done
