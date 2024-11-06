@@ -12,7 +12,17 @@ popd
 pushd ${HERE}/../community/minutes
 for f in *.md; do
     # Rename files from YYYYMMDD_agenda_and_minutes.md to YYYY-MM-DD.md
-    mv "$f" "${f:0:4}-${f:4:2}-${f:6:2}.md"
+    datename="${f:0:4}-${f:4:2}-${f:6:2}"
+    echo "---" > "${datename}.md"
+    echo "sidebar_label: '${datename}'" >> "${datename}.md"
+    if [[ $(head -1 "$f") == --- ]]; then
+        tail -n+2 "$f" >> "${datename}.md"
+    else
+        echo "tags: [meeting-notes]" >> "${datename}.md"
+        echo "---" >> "${datename}.md"
+        cat "$f" >> "${datename}.md"
+    fi
+    rm "$f"
 done
 
 # Fix some markdown issues
@@ -25,5 +35,4 @@ sed -i.bak \
     -e 's|](github.org)|](https://github.org)|g' \
     "2020-09-08.md"
 rm 2020-09-08.md.bak
-
 popd
