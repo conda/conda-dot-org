@@ -8,10 +8,10 @@ export default function Calendar() {
   if (Intl) {
     useEffect(() => {
       const locale = Intl.DateTimeFormat().resolvedOptions().locale;
-      const firstDay = ((new Intl.Locale(locale))?.weekInfo?.firstDay ?? 0) + 1;
+      const firstDay = (new Intl.Locale(locale)?.weekInfo?.firstDay ?? 0) + 1;
       const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-      setState({firstDay: firstDay, timezone: timezone});
-    })
+      setState({ firstDay: firstDay, timezone: timezone });
+    });
   }
   return (
     <iframe
