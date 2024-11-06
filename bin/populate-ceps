@@ -5,9 +5,9 @@ HERE=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 rm "${HERE}/../community/ceps/*.md" || mkdir -p "${HERE}/../community/ceps/"
 pushd $(mktemp -d)
-curl -L https://github.com/jaimergp/ceps/archive/editorial-updates.tar.gz -o ceps.tar.gz
+curl -L https://github.com/conda/ceps/archive/main.tar.gz -o ceps.tar.gz
 tar -xf ceps.tar.gz
-cd ceps-editorial-updates
+cd ceps-main
 for f in cep-*.md; do
     echo "---" > "${HERE}/../community/ceps/$f"
     if [[ $f == cep-0000.md ]]; then
