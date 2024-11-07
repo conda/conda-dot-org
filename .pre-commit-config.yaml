@@ -32,7 +32,7 @@ repos:
       # verify github syntaxes
       - id: check-github-workflows
   - repo: https://github.com/codespell-project/codespell
-    # see setup.cfg
+    # see pyproject.toml
     rev: v2.3.0
     hooks:
       - id: codespell
