@@ -3,21 +3,21 @@ set -euo pipefail
 
 HERE=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
-rm "${HERE}/../community/ceps/*.md" || mkdir -p "${HERE}/../community/ceps/"
+rm "${HERE}/../learn/ceps/*.md" || mkdir -p "${HERE}/../learn/ceps/"
 pushd $(mktemp -d)
 curl -L https://github.com/conda/ceps/archive/main.tar.gz -o ceps.tar.gz
 tar -xf ceps.tar.gz
 cd ceps-main
 for f in cep-*.md; do
-    echo "---" > "${HERE}/../community/ceps/$f"
+    echo "---" > "${HERE}/../learn/ceps/$f"
     if [[ $f == cep-0000.md ]]; then
         sidebar_label="CEP 0"
     else
         sidebar_label=$(echo "${f%.md}" | sed -re 's/cep-0+/CEP /')
     fi
-    echo "sidebar_label: ${sidebar_label}" >> "${HERE}/../community/ceps/$f"
-    echo "tags: [ceps]" >> "${HERE}/../community/ceps/$f"
-    echo "---" >> "${HERE}/../community/ceps/$f"
-    cat "$f" >> "${HERE}/../community/ceps/$f"
+    echo "sidebar_label: ${sidebar_label}" >> "${HERE}/../learn/ceps/$f"
+    echo "tags: [ceps]" >> "${HERE}/../learn/ceps/$f"
+    echo "---" >> "${HERE}/../learn/ceps/$f"
+    cat "$f" >> "${HERE}/../learn/ceps/$f"
 done
 popd
