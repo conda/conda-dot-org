@@ -17,7 +17,7 @@ export default function CondaInstallerSelector() {
       name: "Anaconda",
       url: "https://docs.anaconda.com/anaconda/install/index.html",
       defaultChannel: "defaults",
-      description: "Complete distribution for scientific Python development",
+      description: "A Python/R data science distribution containing conda",
     },
     Miniconda: {
       name: "Miniconda",
