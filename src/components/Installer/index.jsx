@@ -21,7 +21,7 @@ export default function CondaInstallerSelector() {
     },
     Miniconda: {
       name: "Miniconda",
-      url: "https://docs.conda.io/en/latest/miniconda.html",
+      url: "https://docs.anaconda.com/miniconda/index.html",
       defaultChannel: "defaults",
       description: "Minimal conda installer with Python",
     },
