@@ -1,0 +1,72 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.selectorWrapper {
+  margin: 2rem 0;
+  padding: 1rem;
+  border: 1px solid green;
+  border-radius: 8px;
+  max-width: 600px;
+  width: 100%;
+}
+
+.title {
+  margin-bottom: 1rem;
+  color: green;
+}
+
+.description {
+  margin-bottom: 1rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.select {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.detailsWrapper {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+}
+
+.detailsList {
+  margin-top: 0.5rem;
+  padding-left: 1.5rem;
+}
+
+.description {
+  margin-top: 1rem;
+}
+
+.link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #0f6c12;
+  text-decoration: underline;
+}
+
+.standaloneWarning {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #e8f0fe;
+  border-radius: 4px;
+}
