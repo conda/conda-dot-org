@@ -14,7 +14,7 @@ export default function CondaInstallerSelector() {
 
   const installerData = {
     Anaconda: {
-      name: "Anaconda",
+      name: "Anaconda Distribution",
       url: "https://docs.anaconda.com/anaconda/install/index.html",
       defaultChannel: "defaults",
       description: "A Python/R data science distribution containing conda",
