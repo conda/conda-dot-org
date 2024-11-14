@@ -15,7 +15,7 @@ export default function CondaInstallerSelector() {
   const installerData = {
     Anaconda: {
       name: "Anaconda",
-      url: "https://docs.anaconda.com/free/anaconda/install/index.html",
+      url: "https://docs.anaconda.com/anaconda/install/index.html",
       defaultChannel: "defaults",
       description: "Complete distribution for scientific Python development",
     },
