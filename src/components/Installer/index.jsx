@@ -64,13 +64,13 @@ export default function CondaInstallerSelector() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.selectorWrapper}>
+      <div className={styles.selector_wrapper}>
         <h2 className={styles.title}>Conda Installer Selector</h2>
         <p className={styles.description}>
           Choose your operating system, architecture, and installer type
         </p>
 
-        <div className={styles.formGroup}>
+        <div className={styles.form_group}>
           <div>
             <label htmlFor="os-select" className={styles.label}>
               {' '}
@@ -132,10 +132,10 @@ export default function CondaInstallerSelector() {
           </div>
 
           {installerDetails && (
-            <div className={styles.detailsWrapper}>
+            <div className={styles.details_wrapper}>
               <div>
                 <strong>Selected Configuration:</strong>
-                <ul className={styles.detailsList}>
+                <ul className={styles.details_list}>
                   <li>
                     OS:
                     {os}
@@ -165,7 +165,7 @@ export default function CondaInstallerSelector() {
               </div>
 
               {installerDetails.isStandalone && (
-                <div className={styles.standaloneWarning}>
+                <div className={styles.standalone_warning}>
                   <p>
                     ⚠️ This is a standalone tool that does not require a full conda installation.
                   </p>
