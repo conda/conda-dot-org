@@ -23,7 +23,7 @@ export default function CondaInstallerSelector() {
       name: "Miniconda",
       url: "https://docs.anaconda.com/miniconda/index.html",
       defaultChannel: "defaults",
-      description: "Minimal conda installer with Python",
+      description: "Minimal installation of Anaconda Distribution",
     },
     Miniforge: {
       name: "Miniforge",
