@@ -3,7 +3,7 @@ baszalmstra:
   name: Bas Zalmstra
   title: prefix.dev
   url: https://github.com/baszalmstra
-  image_url: https://avatars.githubusercontent.com/u/4995967?v=4
+  image_url: https://github.com/baszalmstra.png
 beeankha:
   name: Bianca Henderson
   title: Conda maintainer 🐍📦
@@ -64,3 +64,8 @@ vasvi:
   title: Open Source Contributor
   url: https://github.com/vasvi-sood
   image_url: https://github.com/vasvi-sood.png
+wolfv:
+  name: Wolf Vollprecht
+  title: CEO of prefix.dev
+  url: https://github.com/wolfv
+  image_url: https://github.com/wolfv.png
