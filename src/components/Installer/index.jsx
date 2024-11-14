@@ -31,12 +31,6 @@ export default function CondaInstallerSelector() {
       defaultChannel: "conda-forge",
       description: "Community-driven minimal installer using conda-forge",
     },
-    Mambaforge: {
-      name: "Mambaforge",
-      url: "https://github.com/conda-forge/miniforge#mambaforge",
-      defaultChannel: "conda-forge",
-      description: "Miniforge variant with mamba as default package manager",
-    },
     Micromamba: {
       name: "Micromamba",
       url: "https://mamba.readthedocs.io/en/latest/installation.html#micromamba",
