@@ -47,7 +47,6 @@
   border-radius: 4px;
 }
 
-
 .details_list {
   margin-top: 0.5rem;
   padding-left: 1.5rem;
@@ -67,16 +66,16 @@
   border-radius: 4px;
 }
 
-@media(prefers-color-scheme: dark){
-    .details_wrapper {
-        background-color: #0f6c12;
-        color: white;
-    }
+@media (prefers-color-scheme: dark) {
+  .details_wrapper {
+    background-color: #0f6c12;
+    color: white;
+  }
 
-    .link {
-        color: white;
-        display: inline-block;
-        margin-top: 0.5rem;
-         text-decoration: underline;
-    }
+  .link {
+    color: white;
+    display: inline-block;
+    margin-top: 0.5rem;
+    text-decoration: underline;
+  }
 }
