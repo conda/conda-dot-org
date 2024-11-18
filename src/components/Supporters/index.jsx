@@ -138,7 +138,7 @@ export default function Supporters() {
             <div className={styles.card}>
               {financial.map(({ name, link, light, dark, width }, index) => (
                 <Link to={link} key={index}>
-                  <div className={styles.cardWrapper}>
+                  <div className={styles.card_wrapper}>
                     <ThemedImage
                       className={styles.image}
                       alt={`${name} logo`}
@@ -166,7 +166,7 @@ export default function Supporters() {
               {infrastructure.map(
                 ({ name, link, light, dark, width }, index) => (
                   <Link key={index} to={link}>
-                    <div className={styles.cardWrapper}>
+                    <div className={styles.card_wrapper}>
                       <ThemedImage
                         className={styles.image}
                         alt={`${name} logo`}
@@ -194,7 +194,7 @@ export default function Supporters() {
             <div className={styles.card}>
               {developer.map(({ name, link, light, dark, width }, index) => (
                 <Link key={index} to={link}>
-                  <div className={styles.cardWrapper}>
+                  <div className={styles.card_wrapper}>
                     <ThemedImage
                       className={styles.image}
                       alt={`${name} logo`}
