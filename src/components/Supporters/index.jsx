@@ -46,13 +46,13 @@ const developer = [
   //   dark: "img/supporters/ioos.png",
   //   width: 150,
   // },
-  {
-    name: "NVIDIA",
-    link: "https://www.nvidia.com/",
-    light: "img/supporters/nvidia_light.svg",
-    dark: "img/supporters/nvidia_dark.svg",
-    width: 250,
-  },
+  // {
+  //   name: "NVIDIA",
+  //   link: "https://www.nvidia.com/",
+  //   light: "img/supporters/nvidia_light.svg",
+  //   dark: "img/supporters/nvidia_dark.svg",
+  //   width: 250,
+  // },
   // {
   //   name: "Voltron Data",
   //   link: "https://voltrondata.com/",
