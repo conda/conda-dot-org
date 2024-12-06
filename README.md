@@ -4,9 +4,9 @@
 
 This is the repository for the conda.org community website. To become involved:
 
-- Join the [conda.org chat room](https://app.element.io/#/room/#conda.org:matrix.org), which is part of the [conda space on Matrix](https://app.element.io/#/room/#conda:matrix.org)
+- Join the [conda-dot-org channel](https://conda.zulipchat.com/#narrow/channel/471465-conda-dot-org), which is part of the [conda organization on Zulip(https://conda.zulipchat.com)
 - Visit the [Root HackMD page](https://hackmd.io/DGtozSlsSjSokpYAK5-9hw), which links to everything in HackMD.
-- We meet every two weeks on Monday at 9am US Central time / 16:00 Central European Time. Please join the [Matrix room](https://app.element.io/#/room/#conda.org:matrix.org) and we will invite you.
+- We meet every two weeks on Monday at 9am US Central time / 16:00 Central European Time. Please join the [Zulip channel](https://conda.zulipchat.com/#narrow/channel/471465-conda-dot-org) and we will invite you.
 
 ## Code of Conduct
 
