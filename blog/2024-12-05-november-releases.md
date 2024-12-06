@@ -24,9 +24,9 @@ conda install -n base conda=24.11.0
 
 - Add a new plugin hook for reporter backends for customizing conda's output.
 - Add support for CEP-17 that allows specifying the path to the site-packages directory of the the Python package via the `repodata.json`.
-- Adds progress bar support for reporter backends plugin hook.
-- Adds support for defining spinners for the reporter backends plugin hook.
-- Adds support for confirmation functions for reporter backends plugin hook.
+- Add progress bar support for reporter backends plugin hook.
+- Add support for defining spinners for the reporter backends plugin hook.
+- Add support for confirmation functions for reporter backends plugin hook.
 - Add new plugin hooks (`conda_session_headers` and `conda_request_headers`) to add headers to outgoing HTTP requests.
 
 ### 🔧 What Got Fixed? 🔧
