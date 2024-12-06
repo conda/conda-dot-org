@@ -22,7 +22,7 @@ conda install -n base conda=24.11.0
 
 ### ✨ What's New? ✨
 
-- Adds a new plugin hook for reporter backends.
+- Add a new plugin hook for reporter backends for customizing conda's output.
 - Add support for CEP-17 that allows specifying the path to the site-packages directory of the the Python package via the `repodata.json`.
 - Adds progress bar support for reporter backends plugin hook.
 - Adds support for defining spinners for the reporter backends plugin hook.
@@ -64,11 +64,11 @@ conda install -n base conda-build=24.11.2
 
 - Fix regex for Jinja2 `set` / `for` statements to be more specific.
 - Fix `ruamel.yaml` usage to use supported APIs.
-- Fix bug variant variables were not defined for the first parsing pass of a recipe.
+- Fix a bug where variant variables were not defined for the first parsing pass of a recipe.
 - Fix a bug where variants were incorrectly found as being used when they matched a leading substring of another variant.
 - Fix a bug where variants were not found when variables were used in `pin_*` statements.
 - (24.11.1) Fix `TypeError` when no CLI arguments are passed.
-- (24.11.2) Fix bug where `.copy()` was used on a string instead of `copy()` when processing variants.
+- (24.11.2) Fix a bug where `.copy()` was used on a string instead of `copy()` when processing variants.
 
 ### 🌅 What Got Deprecated or Got Marked for Future [Deprecation](https://github.com/conda-incubator/ceps/blob/main/cep-9.md)? 🌅
 
