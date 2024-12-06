@@ -111,6 +111,6 @@ conda install -n base conda-libmamba-solver=24.11.1
 
 Altogether, we had 3 new contributors this release cycle; thank you to all of our open source community members for helping making these improvements possible.
 
-- @muffato made their first contribution in [conda#14342](https://github.com/conda/conda/pull/14342)
-- @nilskch made their first contribution in [conda#14214](https://github.com/conda/conda/pull/14214)
-- @corneliusroemer made their first contribution in [conda-build#5417](https://github.com/conda/conda-build/pull/5417)
+- [@muffato](https://github.com/muffato) made their first contribution in [conda#14342](https://github.com/conda/conda/pull/14342)
+- [@nilskch](https://github.com/nilskch) made their first contribution in [conda#14214](https://github.com/conda/conda/pull/14214)
+- [@corneliusroemer](https://github.com/corneliusroemer) made their first contribution in [conda-build#5417](https://github.com/conda/conda-build/pull/5417)
