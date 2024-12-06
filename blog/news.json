@@ -1,5 +1,21 @@
 [
   {
+    "title": "November 2024 Releases",
+    "slug": "2024-12-05-november-releases",
+    "authors": [
+      "kenodegard"
+    ],
+    "tags": [
+      "announcement",
+      "conda",
+      "conda-build",
+      "conda-libmamba-solver"
+    ],
+    "description": "conda 24.11.0, conda-build 24.11.2, and conda-libmamba-solver 24.11.1 have been released! \ud83c\udf89\n",
+    "image": "img/blog/2024-12-05-november-releases/banner.png",
+    "date": "2024-12-05T00:00:00"
+  },
+  {
     "title": "Navigating Change in Conda-Build Recipe Formats: Balancing Legacy and Innovation",
     "slug": "2024-11-15-v0-format-modifications",
     "authors": [
@@ -61,19 +77,5 @@
     "description": "Rattler, a set of Rust libraries for managing conda environments, is moving to the conda organization.",
     "image": "img/blog/2024-10-rattler/banner.png",
     "date": "2024-10-01T00:00:00"
-  },
-  {
-    "title": "New video on conda-forge origins",
-    "slug": "2024-09-12-chatting-with-the-conda-community-1",
-    "authors": [
-      "wolfv"
-    ],
-    "tags": [
-      "announcement",
-      "chatting-with-the-conda-community"
-    ],
-    "description": "The first \"chatting with the conda community\" is talking about the origins of conda-forge - with Filipe Fernandes.",
-    "image": "img/blog/2024-09-chatting-with-conda-community/banner.png",
-    "date": "2024-09-12T00:00:00"
   }
 ]
