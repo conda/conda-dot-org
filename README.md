@@ -6,7 +6,6 @@ This is the repository for the conda.org community website. To become involved:
 
 - Join the [conda-dot-org channel](https://conda.zulipchat.com/#narrow/channel/471465-conda-dot-org), which is part of the [conda organization on Zulip(https://conda.zulipchat.com)
 - Visit the [Root HackMD page](https://hackmd.io/DGtozSlsSjSokpYAK5-9hw), which links to everything in HackMD.
-- We meet every two weeks on Monday at 9am US Central time / 16:00 Central European Time. Please join the [Zulip channel](https://conda.zulipchat.com/#narrow/channel/471465-conda-dot-org) and we will invite you.
 
 ## Code of Conduct
 
