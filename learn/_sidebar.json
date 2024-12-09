@@ -1,5 +1,6 @@
 [
     "faq",
+
     {
         "type": "category",
         "label": "CEPs",
@@ -13,5 +14,6 @@
             "dirName": "ceps"
           }
         ]
-      }
+      },
+      "installers"
 ]
