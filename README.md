@@ -33,6 +33,7 @@ contents are structured like this:
 
 ## Local Development
 
+### Using build commands
 ```bash
 $ git clone
 $ cd conda-dot-org
@@ -42,6 +43,15 @@ $ npm run start
 
 This command starts a local development server and opens up a browser window.
 Most changes are reflected live without having to restart the server.
+
+### Using Docker
+To use this application on your local machine, you need to have Docker installed. Docker is a platform for building, shipping, and running applications in containers.
+
+Once you have Docker installed, navigate to the `root` folder of the application and run the command `docker compose up`. This command will install all the necessary dependencies and start the development server at `localhost:3000`.
+
+Note that if you're running Docker on Windows, you may need to use `docker-compose` instead of `docker compose`.
+
+After running the command, you should see the output in your terminal indicating that the application is up and running. You can then access the application by navigating to `localhost:3000` in your web browser
 
 ## Deployment
 
