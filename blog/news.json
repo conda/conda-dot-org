@@ -1,5 +1,20 @@
 [
   {
+    "title": "January 2025 Releases",
+    "slug": "2025-01-22-january-releases",
+    "authors": [
+      "forgottenprogramme"
+    ],
+    "tags": [
+      "announcement",
+      "conda",
+      "conda-build"
+    ],
+    "description": "conda 25.1.0, conda-build 25.1.1, and conda-libmamba-solver 25.1.0 have been released! \ud83c\udf89\n",
+    "image": "img/blog/2024-12-05-november-releases/banner.png",
+    "date": "2025-01-20T00:00:00"
+  },
+  {
     "title": "November 2024 Releases",
     "slug": "2024-12-05-november-releases",
     "authors": [
@@ -63,19 +78,5 @@
     "description": "Conda 24.9.0/24.9.1, conda-build 24.9.0, and conda-libmamba-solver 24.9.0 have been released! \ud83c\udf89\n",
     "image": "img/blog/2024-10-02-september-releases/banner.png",
     "date": "2024-10-02T00:00:00"
-  },
-  {
-    "title": "Rattler is moving to the conda organization",
-    "slug": "2024-10-01-rattler-to-conda",
-    "authors": [
-      "wolfv",
-      "baszalmstra"
-    ],
-    "tags": [
-      "announcement"
-    ],
-    "description": "Rattler, a set of Rust libraries for managing conda environments, is moving to the conda organization.",
-    "image": "img/blog/2024-10-rattler/banner.png",
-    "date": "2024-10-01T00:00:00"
   }
 ]
