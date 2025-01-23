@@ -46,17 +46,21 @@ repos:
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.9.2
     hooks:
+      # lint & attempt to correct failures (e.g. pyupgrade)
       - id: ruff
         args: [--fix]
         files: ^bin/(sort-authors|update-news)$
+      # compatible replacement for black
+      - id: ruff-format
+        files: ^bin/(sort-authors|update-news)$
   - repo: local
     hooks:
-      - id: generate-news
+      - id: index-blog
         name: Regenerate news manifest
-        entry: bin/update-news
-        language: python
+        entry: npm run index-blog -- --ignore-modified
+        language: node
+        language_version: 20.17.0
         files: ^blog/
-        additional_dependencies: [ruamel.yaml]
       - id: sort-authors
         name: Alphabetically sort authors
         entry: bin/sort-authors
