@@ -59,6 +59,7 @@ repos:
         name: Regenerate news manifest
         entry: npm run index-blog
         language: node
+        language_version: 20.17.0
         files: ^blog/
         pass_filenames: false
       - id: sort-authors
