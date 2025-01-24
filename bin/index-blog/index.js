@@ -73,7 +73,7 @@ function serializeFrontmatter(metadata) {
 }
 
 // Function to update the frontmatter of the blog entries
-function updateMetadata(directory = BLOGS_DIR, verbose = false) {
+function updateMetadata(directory = BLOGS_DIR) {
   const metadata = [];
   const blogFiles = getBlogFiles(directory);
 
@@ -106,8 +106,8 @@ function updateMetadata(directory = BLOGS_DIR, verbose = false) {
   return metadata;
 }
 
-function indexBlog(directory = BLOGS_DIR, path = NEWS_FILE, verbose = false) {
-  const metadata = updateMetadata(directory, verbose);
+function indexBlog(directory = BLOGS_DIR, path = NEWS_FILE) {
+  const metadata = updateMetadata(directory);
   writeFileSync(path, JSON.stringify(metadata.slice(0, 5), null, 2), "utf8");
 }
 
@@ -120,12 +120,10 @@ function main() {
     )
     .option("-b, --blog <directory>", "Specify the blog directory", BLOGS_DIR)
     .option("-n, --news <filename>", "Specify the news file", NEWS_FILE)
-    .option("-v, --verbose", "Enable verbose mode")
-    .option("--ignore-modified [paths...]", "Consume all remaining arguments")
     .parse();
   const options = program.opts();
 
-  indexBlog(options.blog, options.verbose, options.news);
+  indexBlog(options.blog, options.news);
 }
 
 if (require.main === module) main();
