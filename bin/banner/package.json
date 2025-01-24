@@ -1,16 +1,17 @@
 {
   "name": "banner",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "banner": "node -- ./banner.js"
+    "banner": "node -- ./index.js"
   },
   "dependencies": {
     "canvas": "^2.11.2",
-    "commander": "^11.1.0",
+    "chalk": "^4.1.2",
+    "commander": "^13.1.0",
     "trianglify": "^4.1.1"
   },
   "engines": {
-    "node": ">=16.14"
+    "node": ">=18.0"
   }
 }
