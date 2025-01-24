@@ -1,15 +1,15 @@
 {
-  "name": "banner",
+  "name": "index-blog",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "banner": "node -- ./index.js"
+    "index-blogs": "node -- ./index.js"
   },
   "dependencies": {
-    "canvas": "^2.11.2",
+    "banner": "file:../banner",
     "chalk": "^4.1.2",
     "commander": "^13.1.0",
-    "trianglify": "^4.1.1"
+    "yaml": "^2.7.0"
   },
   "engines": {
     "node": ">=18.0"
