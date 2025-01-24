@@ -90,9 +90,7 @@ function updateMetadata(directory = BLOGS_DIR) {
 
     // Update the frontmatter metadata
     metadataObj.slug = slug;
-    if (!metadataObj.image) {
-      metadataObj.image = createBanner(slug);
-    }
+    if (!("image" in metadataObj)) metadataObj.image = createBanner(slug);
 
     // Write updated frontmatter back to the file
     const newFrontmatter = serializeFrontmatter(metadataObj);
