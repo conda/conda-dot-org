@@ -13,8 +13,8 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "lint": "stylelint '**/*.css' --fix --ignore-pattern build/**/*.css",
-    "update-news": "./bin/update-news",
-    "banner": "cd bin/banner && npm install --silent && npm run -- banner"
+    "index-blog": "npm install --silent --prefix ./bin/index-blog && node -- ./bin/index-blog/index.js",
+    "banner": "npm install --silent --prefix ./bin/banner && node -- ./bin/banner/index.js"
   },
   "dependencies": {
     "@docusaurus/core": "^3.3.2",
