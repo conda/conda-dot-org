@@ -5,14 +5,14 @@ authors: [forgottenprogramme]
 tags: [announcement, conda, conda-build,]
 description: |
   conda 25.1.0, conda-build 25.1.1, and conda-libmamba-solver 25.1.0 have been released! 🎉
-image: img/blog/2024-12-05-november-releases/banner.png
+image: img/blog/2025-01-22-january-releases/banner.png
 ---
 
 The January 2025 releases included updates to conda, conda-build, and conda-libmamba-solver! 🎉 All of these have been released to both `main` and `conda-forge` channels.
 
 <!-- truncate -->
 
-## Changes in conda [25.1.0](https://github.com/conda/conda/releases/tag/25.1.0)
+## Changes in conda [25.1.0](https://github.com/conda/conda/releases/tag/25.1.0)/[25.1.1](https://github.com/conda/conda/releases/tag/25.1.1)
 
 To update `conda` to the latest version, run:
 
@@ -35,6 +35,7 @@ conda install -n base conda=25.1.0
 - Retry failed downloads one time on `ChecksumMismatchError` as caused by bad
   partial downloads. Use `r+b` or `w+b` instead of "append" mode. Improve test
   coverage.
+- (25.1.1) Fix conda activation/deactivation issue in PowerShell 7.5.0 by properly unsetting `$env:_CE_M` and `$env:_CE_CONDA` environment variables.
 
 ## Changes in conda-build [25.1.0](https://github.com/conda/conda-build/releases/tag/25.1.0)/[25.1.1](https://github.com/conda/conda-build/releases/tag/25.1.1)
 
