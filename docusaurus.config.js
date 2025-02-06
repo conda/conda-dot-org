@@ -93,6 +93,11 @@ const config = {
           },
           { to: "/blog", label: "Blog", position: "left" },
           {
+            href: "https://docs.conda.io/",
+            label: "Docs",
+            position: "right",
+          },
+          {
             href: "https://github.com/conda",
             label: "GitHub",
             position: "right",
