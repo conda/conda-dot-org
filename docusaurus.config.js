@@ -94,7 +94,7 @@ const config = {
           { to: "/blog", label: "Blog", position: "left" },
           {
             href: "https://docs.conda.io/",
-            label: "Docs",
+            label: "Documentation",
             position: "right",
           },
           {
