@@ -95,7 +95,7 @@ const config = {
           {
             href: "https://docs.conda.io/",
             label: "Documentation",
-            position: "right",
+            position: "left",
           },
           {
             href: "https://github.com/conda",
