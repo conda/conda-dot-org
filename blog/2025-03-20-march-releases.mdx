@@ -2,13 +2,13 @@
 title: March 2025 Releases
 slug: 2025-03-20-march-releases
 authors: [kenodegard]
-tags: [announcement, conda, conda-build]
+tags: [announcement, conda, conda-build, conda-libmamba-solver, conda-index]
 description: |
-  conda 25.3.1, conda-build 25.3.2, and conda-libmamba-solver 25.3.0 have been released! 🎉
+  conda 25.3.1, conda-build 25.3.2, conda-libmamba-solver 25.3.0, and conda-index 0.6.0 have been released! 🎉
 image: img/blog/2025-03-20-march-releases/banner.png
 ---
 
-The March 2025 releases included updates to conda, conda-build, and conda-libmamba-solver! 🎉 All of these have been released to both `main` and `conda-forge` channels.
+The March 2025 releases included updates to conda, conda-build, conda-libmamba-solver, and conda-index! 🎉 All of these have been released to both `main` and `conda-forge` channels.
 
 <!-- truncate -->
 
@@ -50,6 +50,19 @@ conda install -n base conda-libmamba-solver=25.3.0
 ```
 
 Checkout the full changelog for more: [25.3.0](https://github.com/conda/conda-libmamba-solver/releases/tag/25.3.0)
+
+## Changes in conda-index [25.3.0](https://github.com/conda/conda-index/releases/tag/0.6.0)
+
+To update `conda-index` to the latest version, run:
+
+```bash
+conda install -n base conda-index=0.6.0
+```
+
+**Notable Changes:**
+- Add support for sharded repodata in accordance with [CEP-16](https://github.com/conda/ceps/blob/main/cep-0016.md).
+
+Checkout the full changelog for more: [0.6.0](https://github.com/conda/conda-index/releases/tag/0.6.0)
 
 ## We ❤️ Our Community
 

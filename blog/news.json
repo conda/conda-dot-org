@@ -8,9 +8,11 @@
     "tags": [
       "announcement",
       "conda",
-      "conda-build"
+      "conda-build",
+      "conda-libmamba-solver",
+      "conda-index"
     ],
-    "description": "conda 25.3.1, conda-build 25.3.2, and conda-libmamba-solver 25.3.0 have been released! \ud83c\udf89\n",
+    "description": "conda 25.3.1, conda-build 25.3.2, conda-libmamba-solver 25.3.0, and conda-index 0.6.0 have been released! \ud83c\udf89\n",
     "image": "img/blog/2025-03-20-march-releases/banner.png",
     "date": "2025-03-20T00:00:00"
   },
