@@ -136,8 +136,8 @@ const config = {
             title: "More",
             items: [
               {
-                label: "Blog",
-                to: "/blog",
+                label: "Blog archive",
+                to: "/blog/archive",
               },
               {
                 label: "Style Guide",
