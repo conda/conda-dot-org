@@ -20,15 +20,18 @@
   --conda-green-800: #112d0b;
   --conda-green-900: #0b1e07;
   --conda-green-950: #071204;
+
+  --conda-gradient-teal: #1eb59a;
+
   /* Shades 600-950 meet WCAG2 AA contrast (4.5:1) in light theme */
   --ifm-color-primary: var(--conda-green-600);
   --ifm-color-primary-dark: var(--conda-green-700);
   --ifm-color-primary-darker: var(--conda-green-800);
   --ifm-color-primary-contrast-background: var(--conda-green-50);
   --ifm-color-primary-contrast-foreground: var(--ifm-color-primary-darker);
-  --gradient-text: linear-gradient(94.57deg, var(--conda-green-400) 2.23%, #1eb59a 66.08%);
-  --gradient-bar: linear-gradient(94.57deg, var(--conda-green-400) 2.23%, #1eb59a 66.08%);
-  --gradient-news-card: linear-gradient(112deg, var(--conda-green-400) 0%, #1eb59a 90%);
+  --gradient-text: linear-gradient(94.57deg, var(--conda-green-400) 2.23%, var(--conda-gradient-teal) 66.08%);
+  --gradient-bar: linear-gradient(94.57deg, var(--conda-green-400) 2.23%, var(--conda-gradient-teal) 66.08%);
+  --gradient-news-card: linear-gradient(112deg, var(--conda-green-400) 0%, var(--conda-gradient-teal) 90%);
 
   /* ---------------- Custom foundational colours ---------------- */
   /* These are used for background and surfaces, for elevation */
