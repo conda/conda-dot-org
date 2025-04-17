@@ -24,15 +24,11 @@
   --ifm-color-primary: var(--conda-green-600);
   --ifm-color-primary-dark: var(--conda-green-700);
   --ifm-color-primary-darker: var(--conda-green-800);
-  /* --ifm-color-primary-darkest: #245e17; */
-  /* --ifm-color-primary-light: #399524; */
-  /* --ifm-color-primary-lighter: #3c9b26; */
-  /* --ifm-color-primary-lightest: #44b02b; */
   --ifm-color-primary-contrast-background: var(--conda-green-50);
   --ifm-color-primary-contrast-foreground: var(--ifm-color-primary-darker);
-  --gradient-text: linear-gradient(94.57deg, #43b02a 2.23%, #1eb59a 66.08%);
-  --gradient-bar: linear-gradient(94.57deg, #43b02a 2.23%, #1eb59a 66.08%);
-  --gradient-news-card: linear-gradient(112deg, #43b02a 0%, #1eb59a 90%);
+  --gradient-text: linear-gradient(94.57deg, var(--conda-green-400) 2.23%, #1eb59a 66.08%);
+  --gradient-bar: linear-gradient(94.57deg, var(--conda-green-400) 2.23%, #1eb59a 66.08%);
+  --gradient-news-card: linear-gradient(112deg, var(--conda-green-400) 0%, #1eb59a 90%);
 
   /* ---------------- Custom foundational colours ---------------- */
   /* These are used for background and surfaces, for elevation */
@@ -50,14 +46,17 @@
 
   /* ---------------- Colour customisation ---------------- */
   --docusaurus-highlighted-code-line-bg: rgb(0 0 0 / 10%);
-  --dark-theme-bg-color: #1b1b1d;
   --light-theme-bg-color: #fff;
   --ifm-background-color: var(--light-theme-bg-color);
-  --theme-card: #f6f6f6;
+  --dark-theme-bg-color: var(--foundation-grey-900);
+
+  /* Cards should use the same colour throughout */
+  --theme-card: var(--foundation-grey-50);
+  --theme-features-card: var(--foundation-grey-50);
   --theme-card-link-color: var(--ifm-color-primary-dark);
-  --theme-features-card: #f5f5f5;
   --ifm-footer-link-color: var(--conda-green-100);
   --ifm-footer-link-hover-color: var(--conda-green-300);
+
   /* ---------------- Font customisation ---------------- */
   --ifm-code-font-size: 95%;
   --ifm-font-family-base: open-sans, sans-serif;
@@ -83,14 +82,12 @@ html[data-theme="dark"] {
   --ifm-color-primary: var(--conda-green-300);
   --ifm-color-primary-dark: var(--conda-green-400);
   --ifm-color-primary-darker: var(--conda-green-500);
-  /* --ifm-color-primary-darkest: #2f7b1d; */
-  /* --ifm-color-primary-light: #4ac22e; */
-  /* --ifm-color-primary-lighter: #4dca30; */
-  /* --ifm-color-primary-lightest: #62d348; */
-  --ifm-color-primary-contrast-background: #245e17;
+  --ifm-color-primary-contrast-background: var(--conda-green-700);
   --docusaurus-highlighted-code-line-bg: rgb(0 0 0 / 30%);
-  --theme-features-card: #333;
-  --theme-card: #3a3a3a;
+
+  /* Cards should use the same colour throughout */
+  --theme-features-card: var(--foundation-grey-700);
+  --theme-card: var(--foundation-grey-700);
   --theme-card-link-color: var(--ifm-color-primary-light);
 
   /* ---------------- Theme customisation ---------------- */
