@@ -64,13 +64,6 @@
   --ifm-code-font-size: 95%;
   --ifm-font-family-base: open-sans, sans-serif;
   --ifm-heading-font-family: nunito, sans-serif;
-  --ifm-heading-font-weight: normal;
-  --ifm-h1-font-size: 2rem;
-  --ifm-h2-font-size: 1.5rem;
-  --ifm-h3-font-size: 1.25rem;
-  --ifm-h4-font-size: 1rem;
-  --ifm-h5-font-size: 0.875rem;
-  --ifm-h6-font-size: 0.85rem;
 
   /* ---------------- Theme customisation ---------------- */
   --show-on-light-theme: block;
@@ -215,6 +208,85 @@ article {
   color: var(--light-theme-bg-color);
   padding: 1rem;
   border-radius: 5px;
+}
+
+.color-table {
+  width: 90%;
+  max-width: 600px;
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+.color-table th,
+.color-table td {
+  padding: 12px;
+  text-align: left;
+}
+
+.color-table th {
+  background-color: var(--ifm-background-color);
+  font-weight: 800;
+}
+
+.color-table td {
+  font-size: 14px;
+}
+
+.color-conda-green-50 {
+  background-color: var(--conda-green-50);
+  color: #000000;
+}
+.color-conda-green-100 {
+  background-color: var(--conda-green-100);
+  color: #000000;
+}
+.color-conda-green-200 {
+  background-color: var(--conda-green-200);
+  color: #000000;
+}
+.color-conda-green-300 {
+  background-color: var(--conda-green-300);
+  color: #000000;
+}
+.color-conda-green-400 {
+  background-color: var(--conda-green-400);
+  color: #000000;
+}
+.color-conda-green-500 {
+  background-color: var(--conda-green-500);
+  color: #000000;
+}
+.color-conda-green-600 {
+  background-color: var(--conda-green-600);
+  color: #ffffff;
+}
+.color-conda-green-700 {
+  background-color: var(--conda-green-700);
+  color: #ffffff;
+}
+.color-conda-green-800 {
+  background-color: var(--conda-green-800);
+  color: #ffffff;
+}
+.color-conda-green-900 {
+  background-color: var(--conda-green-900);
+  color: #ffffff;
+}
+.color-conda-green-950 {
+  background-color: var(--conda-green-950);
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .color-table {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .color-table th,
+  .color-table td {
+    padding: 8px;
+  }
 }
 
 /**
