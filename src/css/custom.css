@@ -7,11 +7,13 @@
 /* See ./pages/style-guide.mdx for the style guide */
 :root {
   /* ---------------- Theme colour definitions ---------------- */
+
   /* Adding a single color palette as reusable CSS variables */
   --conda-green-50: #ebf7e9;
   --conda-green-100: #d6eed1;
   --conda-green-200: #bfe4b6;
   --conda-green-300: #a5d999;
+
   /* base conda green */
   --conda-green-400: #43b02a;
   --conda-green-500: #379022;
@@ -20,7 +22,6 @@
   --conda-green-800: #112d0b;
   --conda-green-900: #0b1e07;
   --conda-green-950: #071204;
-
   --conda-gradient-teal: #1eb59a;
 
   /* Shades 600-950 meet WCAG2 AA contrast (4.5:1) in light theme */
@@ -34,7 +35,8 @@
   --gradient-news-card: linear-gradient(112deg, var(--conda-green-400) 0%, var(--conda-gradient-teal) 90%);
 
   /* ---------------- Custom foundational colours ---------------- */
-  /* These are used for background and surfaces, for elevation */
+
+  /* These are used for background and surfaces (elevation) */
   --foundation-grey-50: #f3f3f4;
   --foundation-grey-100: #e7e7e7;
   --foundation-grey-200: #dadada;
@@ -73,6 +75,7 @@
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 html[data-theme="dark"] {
   /* ---------------- Colour customisation ---------------- */
+
   /* Shades 50-500 meet WCAG2 AA contrast (4.5:1) in dark theme */
   --ifm-background-color: var(--dark-theme-bg-color);
   --ifm-color-primary: var(--conda-green-300);
@@ -220,47 +223,57 @@ article {
 
 .color-conda-green-50 {
   background-color: var(--conda-green-50);
-  color: #000000;
+  color: #000;
 }
+
 .color-conda-green-100 {
   background-color: var(--conda-green-100);
-  color: #000000;
+  color: #000;
 }
+
 .color-conda-green-200 {
   background-color: var(--conda-green-200);
-  color: #000000;
+  color: #000;
 }
+
 .color-conda-green-300 {
   background-color: var(--conda-green-300);
-  color: #000000;
+  color: #000;
 }
+
 .color-conda-green-400 {
   background-color: var(--conda-green-400);
-  color: #000000;
+  color: #000;
 }
+
 .color-conda-green-500 {
   background-color: var(--conda-green-500);
-  color: #000000;
+  color: #000;
 }
+
 .color-conda-green-600 {
   background-color: var(--conda-green-600);
-  color: #ffffff;
+  color: #fff;
 }
+
 .color-conda-green-700 {
   background-color: var(--conda-green-700);
-  color: #ffffff;
+  color: #fff;
 }
+
 .color-conda-green-800 {
   background-color: var(--conda-green-800);
-  color: #ffffff;
+  color: #fff;
 }
+
 .color-conda-green-900 {
   background-color: var(--conda-green-900);
-  color: #ffffff;
+  color: #fff;
 }
+
 .color-conda-green-950 {
   background-color: var(--conda-green-950);
-  color: #ffffff;
+  color: #fff;
 }
 
 @media (max-width: 768px) {
@@ -269,6 +282,7 @@ article {
     margin-left: 0;
     margin-right: 0;
   }
+
   .color-table th,
   .color-table td {
     padding: 8px;

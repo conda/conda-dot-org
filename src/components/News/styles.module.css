@@ -37,6 +37,10 @@
   text-decoration: underline !important;
 }
 
+.news_container_group_highlighted a {
+  color: var(--conda-green-900);
+}
+
 .news_container a:hover {
   /* Not great, but otherwise underlines are not applied */
   text-decoration: underline !important;
@@ -52,10 +56,6 @@
 .news_container_group_highlighted > div {
   background: var(--gradient-news-card);
   color: #fff;
-}
-
-.news_container_group_highlighted a {
-  color: var(--conda-green-900);
 }
 
 .news_read_more {
