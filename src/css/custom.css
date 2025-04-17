@@ -196,20 +196,6 @@ article {
   display: inline-block;
 }
 
-.color-palette-light-theme-container {
-  background: var(--light-theme-bg-color);
-  color: var(--dark-theme-bg-color);
-  padding: 1rem;
-  border-radius: 5px;
-}
-
-.color-palette-dark-theme-container {
-  background: var(--dark-theme-bg-color);
-  color: var(--light-theme-bg-color);
-  padding: 1rem;
-  border-radius: 5px;
-}
-
 .color-table {
   width: 90%;
   max-width: 600px;
