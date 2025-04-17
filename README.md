@@ -30,17 +30,11 @@ The contents are structured as follows:
 
 > Non listed directories or files are generated automatically, so are not relevant for modifications.
 
-## Local Development
+## Contributing
 
-```bash
-$ git clone
-$ cd conda-dot-org
-$ npm install
-$ npm run start
-```
-
-This command starts a local development server and opens up a browser window.
-Most changes are reflected live without having to restart the server.
+To contribute to this repository, please follow the [contributing guidelines](CONTRIBUTING.md).
+This includes detailed step-by-step instructions to contribute to the website, including how to set up your development
+environment, run the website locally and contribute content.
 
 ## Deployment
 
