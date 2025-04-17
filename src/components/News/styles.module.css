@@ -79,7 +79,6 @@
 
 .news_container_group_not_highlighted > div {
   background: var(--theme-features-card);
-  border: 2px solid var(--ifm-color-primary);
 }
 
 @media screen and (max-width: 990px) {

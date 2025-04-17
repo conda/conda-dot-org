@@ -9,12 +9,12 @@ This is the repository for the conda.org community website. To become involved:
 
 ## Code of Conduct
 
-This repo and the web site it generates are governed by the [conda organization code of conduct](CODE_OF_CONDUCT.md).
+This repo and the website it generates are governed by the [conda organization code of conduct](CODE_OF_CONDUCT.md).
 
 ## Implementation details
 
-It is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator. The
-contents are structured like this:
+It is built using [Docusaurus 3](https://docusaurus.io/), a modern static website generator.
+The contents are structured as follows:
 
 - `.github/`: Workflows for deployment.
 - `blog/`: Blog posts. Can use `.md` (Markdown), `.mdx` (Markdown with react) or `.js` extensions.
@@ -28,7 +28,7 @@ contents are structured like this:
 - `package.json`: More configuration to install `docusaurus`.
 - `sidebars.js`: Support for sidebars. We use in automatic mode now.
 
-> Non listed directories or files are generated automatically are not relevant for modifications.
+> Non listed directories or files are generated automatically, so are not relevant for modifications.
 
 ## Local Development
 
@@ -44,4 +44,4 @@ Most changes are reflected live without having to restart the server.
 
 ## Deployment
 
-<a href="https://www.netlify.com"> <img src="https://www.netlify.com/v3/img/components/netlify-color-accent.svg" alt="Deploys by Netlify" /> </a>
+<a href="https://www.netlify.com"> <img src="https://www.netlify.com/v3/img/components/netlify-color-accent.svg" alt="Deploys by Netlify" /></a>
