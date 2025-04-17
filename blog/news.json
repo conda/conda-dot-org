@@ -1,5 +1,23 @@
 [
   {
+    "title": "March 2025 Releases",
+    "slug": "2025-03-20-march-releases",
+    "authors": [
+      "kenodegard"
+    ],
+    "tags": [
+      "announcement",
+      "conda",
+      "conda-build",
+      "conda-libmamba-solver",
+      "conda-index",
+      "constructor"
+    ],
+    "description": "conda 25.3.1, conda-build 25.3.2, conda-libmamba-solver 25.3.0, conda-index 0.6.0, and constructor 3.11.3 have been released! \ud83c\udf89\n",
+    "image": "img/blog/2025-03-20-march-releases/banner.png",
+    "date": "2025-03-20T00:00:00"
+  },
+  {
     "title": "January 2025 Releases",
     "slug": "2025-01-22-january-releases",
     "authors": [
@@ -62,21 +80,5 @@
     "description": "conda-package-handling 2.4.0 and conda-package-streaming 0.11.0 have been released! \ud83c\udf89\n",
     "image": "img/blog/2024-10-21-october-releases/banner.png",
     "date": "2024-10-21T00:00:00"
-  },
-  {
-    "title": "September 2024 Releases",
-    "slug": "2024-09-30-september-releases",
-    "authors": [
-      "forgottenprogramme"
-    ],
-    "tags": [
-      "announcement",
-      "conda",
-      "conda-build",
-      "conda-libmamba-solver"
-    ],
-    "description": "Conda 24.9.0/24.9.1, conda-build 24.9.0, and conda-libmamba-solver 24.9.0 have been released! \ud83c\udf89\n",
-    "image": "img/blog/2024-10-02-september-releases/banner.png",
-    "date": "2024-10-02T00:00:00"
   }
 ]
