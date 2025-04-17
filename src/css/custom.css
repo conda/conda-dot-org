@@ -220,3 +220,24 @@ article {
 /**
  * End style guide
  */
+
+/* Links: ensuring they are underlined to not only rely on colour */
+a {
+  text-decoration: underline;
+  text-decoration-color: inherit;
+  text-underline-offset: 3px;
+  transition-property: text-decoration;
+  transition-timing-function: ease-out;
+  transition-duration: 0.3s;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 3px !important;
+}
+
+.navbar__link:hover,
+.navbar__link--active,
+.menu__link:hover {
+  text-decoration: underline;
+}

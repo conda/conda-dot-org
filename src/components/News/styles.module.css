@@ -1,3 +1,4 @@
+/* General news cards styling */
 .news {
   display: flex;
   flex-direction: column;
@@ -31,6 +32,18 @@
   flex-direction: row;
 }
 
+.news_container a {
+  /* Not great, but otherwise underlines are not applied */
+  text-decoration: underline !important;
+}
+
+.news_container a:hover {
+  /* Not great, but otherwise underlines are not applied */
+  text-decoration: underline !important;
+  text-decoration-thickness: 3px !important;
+}
+
+/* Hihglighted card styling (most recent blogpost) */
 .news_container_group_highlighted {
   flex: 0.75;
   margin-right: 2rem;
@@ -41,23 +54,9 @@
   color: #fff;
 }
 
-/* .new_read_more a {
-    text-decoration: none;
-    flex: 0.2;
-    text-align: center;
-    width: 100%;
-    min-height: 50px;
-    font-size: 20px;
-    line-height: 27px;
-    background: var(--ifm-color-primary);
-    border-radius: 5px;
-    color: #fff;
-    font-weight: 700;
-    cursor: pointer;
-    outline: none;
-    padding: 0.5rem;
-    border: none;
-} */
+.news_container_group_highlighted a {
+  color: var(--conda-green-900);
+}
 
 .news_read_more {
   margin: 3rem 0 1rem;
@@ -66,9 +65,7 @@
   justify-content: center;
 }
 
-.news_container_group_highlighted > div > div > a {
-  color: #fff;
-}
+/* Default news card style (not highlighted) */
 
 .news_container_group_not_highlighted {
   flex: 1;
@@ -81,6 +78,7 @@
   background: var(--theme-features-card);
 }
 
+/* Layout */
 @media screen and (max-width: 990px) {
   .news_container {
     flex-direction: column;
