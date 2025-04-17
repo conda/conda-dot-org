@@ -12,7 +12,8 @@
   --conda-green-100: #d6eed1;
   --conda-green-200: #bfe4b6;
   --conda-green-300: #a5d999;
-  --conda-green-400: #4fb538;
+  /* base conda green */
+  --conda-green-400: #43b02a;
   --conda-green-500: #379022;
   --conda-green-600: #2a6f1b;
   --conda-green-700: #1e5013;
@@ -32,6 +33,20 @@
   --gradient-text: linear-gradient(94.57deg, #43b02a 2.23%, #1eb59a 66.08%);
   --gradient-bar: linear-gradient(94.57deg, #43b02a 2.23%, #1eb59a 66.08%);
   --gradient-news-card: linear-gradient(112deg, #43b02a 0%, #1eb59a 90%);
+
+  /* ---------------- Custom foundational colours ---------------- */
+  /* These are used for background and surfaces, for elevation */
+  --foundation-grey-50: #f3f3f4;
+  --foundation-grey-100: #e7e7e7;
+  --foundation-grey-200: #dadada;
+  --foundation-grey-300: #cbcbcc;
+  --foundation-grey-400: #a0a0a0;
+  --foundation-grey-500: #7e7e7f;
+  --foundation-grey-600: #616162;
+  --foundation-grey-700: #454547;
+  --foundation-grey-800: #272728;
+  --foundation-grey-900: #19191b;
+  --foundation-grey-950: #0f0f11;
 
   /* ---------------- Colour customisation ---------------- */
   --docusaurus-highlighted-code-line-bg: rgb(0 0 0 / 10%);
