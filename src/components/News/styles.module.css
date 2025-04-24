@@ -14,7 +14,8 @@
   margin-bottom: 4rem;
 }
 
-.news_heading h1 {
+/* Section heading should be h2 - it is suggested to have only one h1 per page */
+.news_heading h2 {
   font-weight: 700;
   font-size: 50px;
   line-height: 70px;
@@ -96,7 +97,7 @@
     width: 100%;
   }
 
-  .news_heading h1 {
+  .news_heading h2 {
     font-size: 46px;
     line-height: 52px;
   }
@@ -107,7 +108,7 @@
 }
 
 @media screen and (max-width: 550px) {
-  .news_heading h1 {
+  .news_heading h2 {
     font-size: 34px;
     line-height: 42px;
   }
