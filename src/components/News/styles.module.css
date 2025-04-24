@@ -32,19 +32,13 @@
   flex-direction: row;
 }
 
-.news_container a {
-  /* Not great, but otherwise underlines are not applied */
-  text-decoration: underline !important;
-}
-
 .news_container_group_highlighted a {
   color: var(--conda-green-900);
 }
 
 .news_container a:hover {
-  /* Not great, but otherwise underlines are not applied */
-  text-decoration: underline !important;
-  text-decoration-thickness: 3px !important;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
 }
 
 /* Hihglighted card styling (most recent blogpost) */

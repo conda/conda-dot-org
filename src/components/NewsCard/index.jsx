@@ -37,18 +37,16 @@ export default function NewsCard({
           <h3>
             <Link to={url}>{title}</Link>
           </h3>
+          <p>{description}</p>
+        </div>
+        <div className={styles.news_card_footer}>
+          <Link to={url} style={{ fontWeight: first ? "bold" : "normal" }}>
+            Read Full Blog
+          </Link>
           <h4>
             <FontAwesomeIcon icon={faCalendar} />
             <span>{getDateLocalString(date)}</span>
           </h4>
-          <p>{description}</p>
-          <Link
-            to={url}
-            className={styles.read_full_blog}
-            style={{ fontWeight: first ? "bold" : "normal" }}
-          >
-            Read Full Blog
-          </Link>
         </div>
       </div>
     </div>
