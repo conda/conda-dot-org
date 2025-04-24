@@ -72,6 +72,7 @@
   --show-on-dark-theme: none;
 
   /* ---------------- Accessibility related variables ---------------- */
+
   /* We use underline thickness as an affordance to signal a status change */
   --link-decoration-thickness: max(1px, 0.0625rem);
   --link-decoration-offset: 0.1578em;
@@ -311,6 +312,20 @@ a {
   text-underline-offset: var(--link-decoration-offset);
 }
 
+/* In some cases, we override the underlines because there are other elements that
+already report the state (e.g. borders, background colors, etc) */
+a[class^="sidebarItemLink"][aria-current="page"], /* No underline if this is the current page */
+a.navbar__link,
+.navbar-sidebar__item,
+.menu a,
+.navbar__items--right a,
+.pagination-nav__link,
+a.card, /* These cards are used in index-like documentation pages */
+a.card:hover,
+a.button {
+  text-decoration: none;
+}
+
 a:hover,
 /* We need to (re)override some of the infima rules to have proper states on
 navbar links, table of contents, and docs sidebar links, respectively */
@@ -329,20 +344,6 @@ a.table-of-contents__link:active,
 a[class^="sidebarItemLink"]:active {
   text-decoration: underline;
   text-decoration-thickness: var(--link-decoration-thickness);
-}
-
-/* In some cases, we override the underlines because there are other elements that
-already report the state (e.g. borders, background colors, etc) */
-a[class^="sidebarItemLink"][aria-current="page"], /* No underline if this is the current page */
-a.navbar__link,
-.navbar-sidebar__item,
-.menu a,
-.navbar__items--right a,
-.pagination-nav__link,
-a.card, /* These cards are used in index-like documentation pages */
-a.card:hover,
-a.button {
-  text-decoration: none;
 }
 
 .navbar__link:hover,

@@ -34,13 +34,14 @@
   margin-bottom: 1rem;
   cursor: pointer;
 }
-.news_container_content h3 a {
-  font-size: 27px;
-  color: var(--ifm-heading-color);
-}
 
 .news_container_content a {
   cursor: pointer;
+}
+
+.news_container_content h3 a {
+  font-size: 27px;
+  color: var(--ifm-heading-color);
 }
 
 .news_container_content p {
@@ -64,10 +65,12 @@
     font-size: 18px;
     line-height: 25px;
   }
+
   .news_card_footer {
     flex-direction: column;
     align-items: flex-start;
   }
+
   /* Publication date */
   .news_container_content h4 {
     display: block;
