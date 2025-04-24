@@ -322,6 +322,7 @@ a[class^="sidebarItemLink"]:hover /* The docs sidebar links do not have its own 
   text-decoration-skip-ink: none;
   text-decoration-skip: none;
 }
+
 a:active,
 a.navbar__link:active,
 a.table-of-contents__link:active,
@@ -354,4 +355,18 @@ a.button {
 
 .menu__link--active:not(.menu__link--sublist) {
   background-color: var(--ifm-menu-color-background-active);
+}
+
+a.footer-link {
+  color: var(--conda-green-100);
+  text-decoration: underline;
+  text-decoration-thickness: var(--link-decoration-thickness);
+  text-underline-offset: var(--link-decoration-offset);
+}
+
+a.footer-link:hover {
+  color: var(--conda-green-300);
+  text-decoration: underline;
+  text-decoration-color: var(--conda-green-300);
+  text-decoration-thickness: var(--link-hover-decoration-thickness);
 }

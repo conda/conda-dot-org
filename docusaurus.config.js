@@ -154,7 +154,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Conda Community. <br /> Built with Docusaurus. This site is powered by <a href="https://www.netlify.com/" style="color: #d6eed1" target="_blank" title="Powered by Netlify">Netlify</a>.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Conda Community. <br /> Built with Docusaurus. This site is powered by <a href="https://www.netlify.com/" target="_blank" class="footer-link" title="Powered by Netlify">Netlify</a>.`,
       },
       prism: {
         theme: lightCodeTheme,
