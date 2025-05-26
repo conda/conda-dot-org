@@ -21,7 +21,10 @@ conda install -n base conda=25.5.0
 ```
 
 **Notable Changes:**
-- TBD
+- Add `environment_specifiers` plugin hooks to allow plugin authors to read different file formats and sources.
+- Add a plugin hook for `PrefixData` loaders and use it to wrap the existing PyPI interoperability features. These are now present in `conda.plugins.prefix_data_loaders.pypi`. 
+- Add a `--fields` flag to conda list that allows to customize the content of the `human` output format (i.e. the default output format).
+- Add a plugin hook for adding actions during the transaction process.
 
 Check out the full changelog for more: [25.5.0](https://github.com/conda/conda/releases/tag/25.5.0)
 
@@ -34,7 +37,8 @@ conda install -n base conda-build=25.5.0
 ```
 
 **Notable Changes:**
-- TBD
+- Require `conda-libmamba-solver` 25.4.0 or greater to fix issues with spaces in `CONDA_BLD_PATH`.
+- Restore `is` and `is not` operators to selector mini-language.
 
 Check out the full changelog for more: [25.5.0](https://github.com/conda/conda-build/releases/tag/25.5.0)
 
@@ -45,6 +49,9 @@ To update `conda-libmamba-solver` to the latest version, run:
 ```bash
 conda install -n base conda-libmamba-solver=25.4.0
 ```
+
+**Notable Changes:**
+- Use `conda.reporters.get_spinner()` to support conda reporter plugins.
 
 Check out the full changelog for more: [25.4.0](https://github.com/conda/conda-libmamba-solver/releases/tag/25.4.0)
 
@@ -57,11 +64,11 @@ conda install -n base conda-index=0.6.1
 ```
 
 **Notable Changes:**
-- TBD
+- Sharded `repodata` bug fix
+- Automatic PyPI uploads
 
 Check out the full changelog for more: [0.6.1](https://github.com/conda/conda-index/releases/tag/0.6.1)
 
 ## We ❤️ Our Community
 
-Altogether, we had 4 new contributors this release cycle; thank you to all of our open source community members for helping making these improvements possible.
-
+Altogether, we had 2 new contributors this release cycle; thank you to all of our open source community members for helping making these improvements possible.
