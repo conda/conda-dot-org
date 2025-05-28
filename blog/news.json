@@ -1,5 +1,22 @@
 [
   {
+    "title": "May 2025 Releases",
+    "slug": "2025-05-27-may-releases",
+    "authors": [
+      "travishathaway"
+    ],
+    "tags": [
+      "announcement",
+      "conda",
+      "conda-build",
+      "conda-libmamba-solver",
+      "conda-index"
+    ],
+    "description": "conda 25.5.0, conda-build 25.5.0, conda-libmamba-solver 25.4.0 and conda-index 0.6.1 have been released! \ud83c\udf89\n",
+    "image": "img/blog/2025-05-27-may-releases/banner.png",
+    "date": "2025-05-27T00:00:00"
+  },
+  {
     "title": "March 2025 Releases",
     "slug": "2025-03-20-march-releases",
     "authors": [
@@ -65,20 +82,5 @@
     "description": "The recent approval of the new recipe format (`recipe.yaml`, v1) does not mean the end of the old format (`meta.yaml`, v0). The conda community must balance innovation with support for legacy systems.\n",
     "image": "img/blog/2024-11-15-v0-format-modifications/banner.png",
     "date": "2024-11-15T00:00:00"
-  },
-  {
-    "title": "October 2024 Releases",
-    "slug": "2024-10-21-october-releases",
-    "authors": [
-      "dashagurova"
-    ],
-    "tags": [
-      "announcement",
-      "conda-package-handling",
-      "conda-package-streaming"
-    ],
-    "description": "conda-package-handling 2.4.0 and conda-package-streaming 0.11.0 have been released! \ud83c\udf89\n",
-    "image": "img/blog/2024-10-21-october-releases/banner.png",
-    "date": "2024-10-21T00:00:00"
   }
 ]

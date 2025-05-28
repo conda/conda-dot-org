@@ -1,0 +1,80 @@
+---
+title: May 2025 Releases
+slug: 2025-05-27-may-releases
+authors: [travishathaway]
+tags: [announcement, conda, conda-build, conda-libmamba-solver, conda-index]
+description: |
+  conda 25.5.0, conda-build 25.5.0, conda-libmamba-solver 25.4.0 and conda-index 0.6.1 have been released! 🎉
+image: img/blog/2025-05-27-may-releases/banner.png
+---
+
+The May 2025 releases included updates to conda, conda-build, conda-libmamba-solver, and conda-index! 🎉 All of these have been released to both `main` and `conda-forge` channels.
+
+<!-- truncate -->
+
+## Changes in conda [25.5.0](https://github.com/conda/conda/releases/tag/25.5.0)
+
+To update `conda` to the latest version, run:
+
+```bash
+conda install -n base conda=25.5.0
+```
+
+**Notable Changes:**
+- Add `environment_specifiers` plugin hooks to allow plugin authors to read different file formats and sources.
+- Add a plugin hook for `PrefixData` loaders and use it to wrap the existing PyPI interoperability features. These are now present in `conda.plugins.prefix_data_loaders.pypi`.
+- Add a `--fields` flag to conda list that allows to customize the content of the `human` output format (i.e., the default output format).
+- Add a plugin hook for adding actions during the transaction process.
+- Add a `default_activation_env` config option to simplify environment activation after initialization and when running `conda activate` without parameter.
+- Add support for conda plugin settings to the `conda config` command.
+
+Check out the full changelog for more: [25.5.0](https://github.com/conda/conda/releases/tag/25.5.0)
+
+## Changes in conda-build [25.5.0](https://github.com/conda/conda-build/releases/tag/25.5.0)
+
+To update `conda-build` to the latest version, run:
+
+```bash
+conda install -n base conda-build=25.5.0
+```
+
+**Notable Changes:**
+- Require `conda-libmamba-solver` 25.4.0 or greater to fix issues with spaces in `CONDA_BLD_PATH`.
+- Restore `is` and `is not` operators to selector mini-language.
+
+Check out the full changelog for more: [25.5.0](https://github.com/conda/conda-build/releases/tag/25.5.0)
+
+## Changes in conda-libmamba-solver [25.4.0](https://github.com/conda/conda-libmamba-solver/releases/tag/25.4.0)
+
+To update `conda-libmamba-solver` to the latest version, run:
+
+```bash
+conda install -n base conda-libmamba-solver=25.4.0
+```
+
+**Notable Changes:**
+- Use `conda.reporters.get_spinner()` to support conda reporter plugins.
+
+Check out the full changelog for more: [25.4.0](https://github.com/conda/conda-libmamba-solver/releases/tag/25.4.0)
+
+## Changes in conda-index [0.6.1](https://github.com/conda/conda-index/releases/tag/0.6.1)
+
+To update `conda-index` to the latest version, run:
+
+```bash
+conda install -n base conda-index=0.6.1
+```
+
+**Notable Changes:**
+- Sharded `repodata` bug fix
+- Automatic PyPI uploads
+
+Check out the full changelog for more: [0.6.1](https://github.com/conda/conda-index/releases/tag/0.6.1)
+
+## We ❤️ Our Community
+
+Altogether, we had 3 new contributors this release cycle; thank you to all of our open source community members for helping making these improvements possible.
+
+- [@faithrider](https://github.com/faithrider) made their first contribution in [conda#13820](https://github.com/conda/conda/pull/13820)
+- [@peytondmurray](https://github/com/peytondmurray) made their first contribution in [conda#14754](https://github.com/conda/conda/pull/14754)
+- [@emmanuel-ferdman](https://github.com/emmanuel-ferdman) made their first contribution in [conda-build#5683](https://github.com/conda/conda-build/pull/5683)
