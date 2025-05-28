@@ -23,7 +23,7 @@ conda install -n base conda=25.5.0
 **Notable Changes:**
 - Add `environment_specifiers` plugin hooks to allow plugin authors to read different file formats and sources.
 - Add a plugin hook for `PrefixData` loaders and use it to wrap the existing PyPI interoperability features. These are now present in `conda.plugins.prefix_data_loaders.pypi`.
-- Add a `--fields` flag to conda list that allows to customize the content of the `human` output format (i.e. the default output format).
+- Add a `--fields` flag to conda list that allows to customize the content of the `human` output format (i.e., the default output format).
 - Add a plugin hook for adding actions during the transaction process.
 - Add a `default_activation_env` config option to simplify environment activation after initialization and when running `conda activate` without parameter.
 - Add support for conda plugin settings to the `conda config` command.
