@@ -1,0 +1,93 @@
+---
+title: How we reduced conda's index fetch bandwidth by 99%
+slug: "2023-05-05-how-we-reduced-the-conda-index-fetch-bandwidth"
+authors: [dholth]
+tags: [conda, python]
+description: |
+  The new conda 23.3.1 release from March, 2023 includes an --experimental=jlap
+  flag or experimental: ["jlap"] .condarc setting that can reduce repdata.json
+  fetch bandwidth by orders of magnitude. This is how we developed conda's new
+  incremental repodata feature.
+image: img/blog/2023-05-05-how-we-reduced-the-conda-index-fetch-bandwidth/banner-image.jpg
+image_credit: <a href="https://unsplash.com/photos/uFm25D3XxI0">Jason Leung on Unsplash</a>
+---
+
+> The new conda 23.3.1 release from March, 2023 includes an `--experimental=jlap` flag or `experimental: ["jlap"]` `.condarc` setting that can reduce repdata.json fetch bandwidth by orders of magnitude. This is how we developed conda's new incremental repodata feature.
+
+Conda is a cross-platform, language-agnostic binary package manager that includes a constraint solver to choose compatible sets of packages. Before conda can install a package, it downloads information about all available packages. This allows the solver to make global decisions about which packages to install. The time and bandwidth spent downloading this metadata can be significant, but we have improved this in conda 23.3.1. By enabling the `experimental: ["jlap"]` feature in `.condarc`, conda users can see more than a 99% reduction in index fetch bandwidth.
+
+<!-- truncate -->
+
+## Idea
+
+Traditionally, conda tries to fetch each channel's entire `repodata.json` or smaller `current_repodata.json` every time the cache expires, typically between 30 seconds to 20 minutes from the last remote request. If the channel has not changed this is a quick `304 Not Modified`, but very active channels will change several times an hour. Any change, usually only a few added packages, requires the user to re-download the entire index; most conda users will be familiar with this process. My manager said one of [Anaconda](https://www.anaconda.com/)'s customers wanted a better way to track changes in our repository and I became interested in solving the problem.
+
+I began to pursue a solution based on computing patches between successive versions of `repodata.json` to let users download only the changes, once they had an initial, complete copy of the index in their cache.
+
+## Initial Prototypes
+
+I chose [RFC 6902 JSON Patch](https://datatracker.ietf.org/doc/html/rfc6902), a generic patch format for `.json`. `JSON Patch` shows the logical difference between two `.json` files instead of comparing the files textually, saving space by discarding formatting.
+
+I wrote a [Rust implementation of a `.json` patchset format](https://github.com/dholth/jdiff) based on a single `.json` file with an array of patches.
+
+The Rust implementation helped to simplify the format and show that it could be language independent. In Python, we might have included optional or multiple-typed "string or null" fields without thinking about it. In Rust, "mandatory, always a single type" fields are easiest to specify. I was surprised to find that this change simplified the Python code as well.
+
+Experimentation showed that [PyPy](https://www.pypy.org/) was faster than Rust for comparing two large `repodata.json`; CPython's `json.loads` and `json.dumps` also perform shockingly well. Stopped development on the Rust implementation.
+
+I began writing a formal specification based on array-of-patches style.
+
+## Specification
+
+I wrote a Conda Enhancmenent Proposal (CEP) for a new [json lines based `.jlap` format](https://github.com/conda-incubator/ceps/pull/20/files). The earlier array-of-patches format has the same problem as `repodata.json` but in miniature, since the client has to download every patch each time. In contrast, [the new `.jlap` system](https://github.com/conda-incubator/ceps/pull/20/files) appends patches to the end of a file. It is designed to fetch new patches from a growing file using [HTTP Range requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Range). With this system, update bandwidth is proportional to the amount of change that has happened since last time.
+
+> The `.jlap` format allows clients to fetch the newest patches and only the newest patches with a single HTTP Range request. It consists of a leading checksum, any number of lines of patches, one per line in the [JSON Lines](https://jsonlines.readthedocs.io/en/latest/) format, and a trailing checksum.
+
+> The checksums are constructed in such a way that the trailing checksum can be re-verified without re-reading (or retaining) the beginning of the file, if the client remembers an intermediate checksum. The trailing checksum is used to make sure the rest of the remote file was not changed.
+
+> When `repodata.json` changes, the server will truncate the `metadata` line, appending new patches, a new metadata line and a new trailing checksum.
+
+We needed patch data to test this system. [I wrote a web service](https://github.com/dholth/repodata-fly) that would create that data. The service checked `repodata.json` every five minutes, compared the current and previous versions, updated a patch file and hosted it separately from the main repository.
+
+The initial demonstration used a [`repodata.json` proxy,](https://github.com/dholth/repodata-fly/blob/main/app/repodata_proxy.py) fetching patches from `repodata.fly.dev` while forwarding package requests to the upstream server. The user points conda at the proxy server instead of the default channel. Another prototype adds a similar proxy into conda's `requests`-based HTTP backend, but duplicates an extra local cache on top of the existing cache.
+
+> The `.jlap` format is generic over `JSON`. The underlying checksum/range request system is generic for any growing line-based file. Consider adapting it if you have a similar problem.
+
+## Server Side Improvements
+
+I became the [`conda-index`](https://github.com/conda/conda-index) maintainer, rewriting it from `conda-build index` to a new standalone package. We solved speed problems updating large repositories like `conda-forge` and `defaults`. This involvement made it easy to control the server-side data so that we could improve the client and server together.
+
+## Team Move
+
+I became a full-time member of the conda team, having transferred from Anaconda's packaging team. I slowly began understanding conda's internals enough to be able to produce a solution that could integrate with conda's existing cache, instead of a local caching proxy.
+
+## Implementation of zstandard-compressed repodata.json, parallel downloads
+
+On November 6, [a community member](https://github.com/conda/infrastructure/issues/648) noticed that fetching `repodata.json` with on-the-fly server compression was slower than fetching it uncompressed, if your connection was faster than the remote server's gzip compressor. We merged [server-side `repodata.json.zst` support](https://github.com/conda/conda-index/pull/65) into conda-index on November 14.
+
+November's conda release included parallel package downloads and extraction, a speed improvement that makes a difference proportional to your latency to the package server.
+
+## Ship `repodata.json.zst`
+
+We shipped zstd-compressed repodata to `conda-forge` and `defaults` on December 15.
+
+## Refactor cache
+
+January's 23.1.0 conda release included a refactor of its cache that was important for incremental `repodata.json` support. Instead of inlining cache metadata into a modified `repodata.json`, conda stores unmodified `repodata.json` in its cache, and stores cache metadata in a separate file. We avoid having to reserialize `repodata.json` in many cases and can preserve its original content and formatting.
+
+Wolf Vollprecht submitted a draft CEP to standardize the cache format between conda and mamba. We continue to converge on a shared format.
+
+## Ship `repodata.jlap` incremental repodata
+
+March's 23.3.1 conda release shipped support for `repodata.jlap` under the `--experimental=jlap` flag. This feature also includes support for `repodata.json.zst` with a fallback to `repodata.json` if unavailable.
+
+When the cache is empty, conda will try to download `repodata.json.zst`. This file is much faster to download and decompress compared to `Content-Encoding: gzip` and is slightly smaller.
+
+When the cache is primed, conda will look for `repodata.jlap`. It will download the entire file, apply any relevant patches (comparing to a content hash of `repodata.json`) and remember the length of the patch file.
+
+On subsequent fetches, conda will use a HTTP Range request to download new bytes, if any, added to `repodata.jlap`, and apply new patches.
+
+## Conclusion
+
+[This screen capture of a conda-forge/noarch search](https://asciinema.org/a/574800) shows that were able to download a single update to the channel in 1464 bytes for what would have otherwise have been a 10358799-byte download of the complete index. The patch size is proportional to the amount of change that has happened since the last time you ran conda.
+
+When `--experimental=jlap` is enabled, frequent conda users will see much faster index updates, especially when bandwidth is limited.

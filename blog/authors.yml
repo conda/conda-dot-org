@@ -1,16 +1,71 @@
-# Alphabetical by author ID please.
+---
 baszalmstra:
-  name: "Bas Zalmstra"
-  title: "prefix.dev"
+  name: Bas Zalmstra
+  title: prefix.dev
   url: https://github.com/baszalmstra
-  image_url: https://avatars.githubusercontent.com/u/4995967?v=4
+  image_url: https://github.com/baszalmstra.png
+beeankha:
+  name: Bianca Henderson
+  title: Conda maintainer 🐍📦
+  url: https://github.com/beeankha
+  image_url: https://github.com/beeankha.png
+chatgpt:
+  name: OpenAI ChatGPT
+  title: Large Language Model 🤖
+  url: https://chatgpt.com/
+  image_url: /img/authors/openai.png
+dashagurova:
+  name: Dasha Gurova
+  title: Open Source Community Manager
+  url: https://github.com/dashagurova
+  image_url: https://github.com/dashagurova.png
+dholth:
+  name: Daniel Holth
+  title: Conda maintainer
+  url: https://github.com/dholth
+  image_url: https://github.com/dholth.png
+forgottenprogramme:
+  name: Mahe Iram Khan
+  title: Conda Maintainer
+  url: https://github.com/forgottenprogramme
+  image_url: https://github.com/forgottenprogramme.png
 jaimergp:
   name: Jaime Rodríguez-Guerra
   title: Steering council member
   url: https://github.com/jaimergp
   image_url: https://github.com/jaimergp.png
+jezdez:
+  name: Jannis Leidel
+  title: Steering council member
+  url: https://github.com/jezdez
+  image_url: https://github.com/jezdez.png
+kenodegard:
+  name: Ken Odegard
+  title: Conda Maintainer
+  url: https://github.com/kenodegard
+  image_url: https://github.com/kenodegard.png
+pinak-datta:
+  name: Pinak Datta
+  title: Intern, Google Season of Docs
+  url: https://github.com/Pinak-Datta
+  image_url: https://avatars.githubusercontent.com/u/87294070?v=4
 tnabtaf:
   name: Dave Clements
   title: Open Source Community Manager
   url: https://github.com/tnabtaf
   image_url: https://github.com/tnabtaf.png
+travishathaway:
+  name: Travis Hathaway
+  title: Conda maintainer 👷🔧
+  url: https://github.com/travishathaway
+  image_url: https://github.com/travishathaway.png
+vasvi:
+  name: Vasvi Sood
+  title: Open Source Contributor
+  url: https://github.com/vasvi-sood
+  image_url: https://github.com/vasvi-sood.png
+wolfv:
+  name: Wolf Vollprecht
+  title: CEO of prefix.dev
+  url: https://github.com/wolfv
+  image_url: https://github.com/wolfv.png

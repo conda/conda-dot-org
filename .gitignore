@@ -1,5 +1,5 @@
 # Dependencies
-/node_modules
+node_modules/
 
 # Production
 /build
@@ -7,6 +7,10 @@
 # Generated files
 .docusaurus
 .cache-loader
+
+# Populated at build time
+/community/minutes/*.md
+/learn/ceps/*.md
 
 # Misc
 .DS_Store
@@ -18,3 +22,5 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+.idea

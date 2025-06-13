@@ -1,0 +1,162 @@
+---
+title: "Conda News, Issue #1!"
+slug: "2023-06-23-newsletter"
+authors: [tnabtaf, pinak-datta]
+tags: [conda, newsletter]
+description: |
+  Community gathering spaces, upcoming events, the new rattler library, channel updates from conda-forge and Bioconda, a summary or recent conda-related web content, and releases and announcements.
+image: img/blog/2023-06-23-newsletter/balloon_launch.jpg
+image_credit: <a href="https://unsplash.com/photos/sN40hKv8_cI">Road Trip with Raj on Unsplash</a>
+---
+
+import Image from "@theme/IdealImage";
+import scipybanner from "@site/static/img/blog/2023-06-23-newsletter/scipy_banner.png";
+import packagingcon from "@site/static/img/blog/2023-06-23-newsletter/packagingcon.jpg";
+import rattler from "@site/static/img/rattler.png";
+import youtube from "@site/static/img/blog/2023-06-23-newsletter/youtube.png";
+import cf from "@site/static/img/conda_forge_wide.png";
+import bioconda from "@site/static/img/bioconda_word_logo.png";
+import forum from "@site/static/img/blog/2023-06-23-newsletter/conda_community_forum.png";
+
+**Welcome to the first ever conda community newsletter!** The newsletter will highlight recent and upcoming activity that is relevant to the [conda community](https://conda.org/). This first issue highlights [community gathering spaces](#community-gathering-spaces), [upcoming events](#upcoming-events), the new [rattler library](#rattler), [channel updates from conda-forge and Bioconda](#community-channel-updates), a [summary or recent conda-related web content](#conda-on-the-web), and finally [releases and announcements](#releases--announcements).
+
+We are hoping these will become a semi-regular feature in the conda landscape going forward. If you have an item to include in a future newsletter, please let us know by posting it to the [Conda Communications Matrix Channel](https://matrix.to/#/%23conda-communications:matrix.org) or by creating an issue in the [Conda Communications GitHub Repo](https://github.com/conda/communications/issues).
+
+<!-- truncate -->
+
+Finally, if you want to be notified about these newsletters from the comfort of your inbox, **please sign up for the [Conda Announce Mailing list](https://lists.conda.org/wws/info/announce).**
+
+Happy reading,<br />
+The Editors
+
+---
+
+## Community Gathering Spaces
+
+It has been a busy year for creating and consolidating online gathering spaces for the conda community. We now have a community website, a Q&A/forum site, a unified chat platform, a mailing list, and more. See **[Pinak Datta's recent post](/blog/2023-06-22-conda-spaces-blogpost)** for a complete list and links.
+
+### Community calls
+
+Please join us every other week to learn what is going on in the conda community and to provide your input.
+
+- The Mamba project has [bi-weekly community calls](https://hackmd.io/iOgkxNMpTea6lWczjCov9Q?view) on Tuesdays. Our next call is on June 27.
+- The overall conda community has [bi-weekly calls](https://hackmd.io/@conda-community?tags=%5B%22meeting-notes%22%5D) on Wednesdays. The next one is on July 5.
+
+---
+
+## Upcoming events
+
+[<Image img={scipybanner} alt="Banner image for SciPy2023"/>](https://www.scipy2023.scipy.org/)
+
+### SciPy 2023 Conda & Friends Sprint, July 15-16, Austin
+
+<small>
+
+_Updated 2023/07/05_
+
+</small>
+
+We have proposed a sprint for SciPy, and SciPy has told us:
+
+> we aren't planning to reject any projects that submit an application prior to the conference.
+
+So...
+
+**The conda community will again be [meeting for a two day sprint](https://hackmd.io/efDeR0zQRJSWVKebiPu9Mw) at [SciPy 2023](https://www.scipy2023.scipy.org/) in Austin, Texas for two days of collaborative work.** Interested? Please [add your name and topic ideas here](https://hackmd.io/efDeR0zQRJSWVKebiPu9Mw).
+
+[Sprints](https://www.scipy2023.scipy.org/sprints) are open to everyone who is interested in contributing to the various projects in the conda ecosystem (e.g. projects under the [conda](https://github.com/conda), [conda-incubator](https://github.com/conda-incubator), [mamba-org](https://github.com/mamba-org), [conda-forge](https://github.com/conda-forge), etc.), what we call "conda and friends".
+
+First and foremost, **the goal of conda community sprints is to grow the conda contributor community**. We mean "contributor" in the broadest possible sense: not just code, but also documentation, bug reports, forum questions (and answers), community events, new tools and plugins, and of course, new pull requests for existing tools too.
+
+---
+
+[<Image img={packagingcon} alt="Banner image for PackagingCon 2023"/>](https://packaging-con.org/)
+
+### PackagingCon 2023, October 26-28, Berlin
+
+[**PackagingCon 2023**](https://packaging-con.org/) brings together the software packaging community to present and discuss common challenges and unique solutions to software packaging. The conference is open to all packaging communities, including language-specific, OS-specific, and broader solutions such as conda.
+
+**[Abstract submission](https://cfp.packaging-con.org/2023/cfp) and [early registration](https://ti.to/packagingcon/packagingcon-2023) are now open for PackagingCon**.
+
+PackagingCon 2023 will be held October 26-28 in Berlin, and will be a hybrid event. The call for submissions closes July 31. Early registration ends September 8, _but (in-person) space is limited and you are encouraged to register early._
+
+## Rattler!
+
+<Image img={rattler} alt="Banner image for Rattler, from GitHub project" />
+
+**[rattler](https://github.com/mamba-org/rattler) is a new collection of Rust libraries to work with conda packages made by the [prefix.dev](https://prefix.dev/) team!**
+
+- rattler 0.3.0 just came out with lots of highlights, such as JLAP support, local `file://` urls, and authenticated requests with the new `rattler_networking`. See the full (and impressive) [changelog](https://github.com/mamba-org/rattler/releases/tag/v0.3.0) for more.
+
+**[rattler-build](https://prefix.dev/blog/the_new_rattler_build)** is built on top of rattler to facilitate the creation of conda packages. It already _works_ very well and is much faster than conda-build. To push this effort forward, we started multiple conda enhancement proposals. Engage with us and the conda community on a forward-looking YAML format that is easy to parse (pure YAML) and keeps most of the conda-build functionalities!
+
+- A [new YAML format](https://github.com/conda-incubator/ceps/pull/54).
+- Integration with VSCode for the [new YAML format with automatic syntax linting](https://github.com/conda-incubator/ceps/pull/56#issuecomment-1593118521).
+- A new way to [define multiple outputs and tests](https://github.com/conda-incubator/ceps/pull/56).
+- A new test for [file existence inside of packages](https://github.com/conda-incubator/ceps/pull/57).
+
+---
+
+## Community channel updates
+
+[<Image img={cf} alt="conda-forge logo, with text"/>](https://conda-forge.org/)
+
+### conda-forge
+
+**conda-forge has a Google Summer of Code project to update the [project website](https://conda-forge.org/)**. [Asmit Malakannnawar](https://asmitbm.github.io/) will be working on the update for the next few months. The update will provide an intuitive and usable user experience that also passes SpeedPage and [WAVE](https://wave.webaim.org/) tests, and that moves the site closer to [WCAG 2](https://www.w3.org/WAI/standards-guidelines/wcag/) conformance. He'll also produce a site style guide. Have ideas? [Reach out to Asmit](https://asmit.bio.link/).
+
+---
+
+[<Image img={bioconda} alt="Bioconda logo"/>](https://bioconda.github.io/)
+
+### Bioconda
+
+The [Bioconda project](https://bioconda.github.io/) has conducted a major rebuild of its packages, updating to the latest dependency pinnings of conda-forge. This entails using gcc 12 on linux and clang 15 on macOS, as well as using openssl 3. While most packages could be updated flawlessly, there are various remainders that are currently being skipped. _Your help in fixing them would be greatly appreciated._ Just choose a recipe from **[this list](https://github.com/bioconda/bioconda-recipes/wiki/build-failures)**, check the provided build logs and create a PR with your solution to fix the failures. Sometimes, it could be as easy as updating to the latest upstream version.
+
+---
+
+## Conda on the web
+
+- [The sleight-of-hand trick that can simplify scientific computing](https://www.nature.com/articles/d41586-023-01469-0), _Nature_ post by Jeffrey M. Perkel.
+- Two conda-centric presentations from PyCon US 2023 are now available:
+  - [Publishing your Python project, the conda way](https://youtu.be/NSgTFf40vHQ)
+  - [Plug life into your codebase: Making established Python codebase pluggable](https://youtu.be/OeSv0_HesaU)
+- [How to use conda-build to build a Python package with C/C++ dependencies](https://conda.org/blog/2023-05-18-how-to-use-conda-build), blog post by Vasvi Sood
+- [How we reduced conda's index fetch bandwidth by 99%](https://conda.org/blog/2023-05-05-how-we-reduced-the-conda-index-fetch-bandwidth), blog post by Daniel Holth
+- [Conda equivalent of `pipenv run`](https://dev.to/mikolajbuchwald/conda-equivalent-of-pipenv-run-3min), blog post by [Mikołaj Buchwald](https://mikolajbuchwald.com/) on how `conda run` is your friend
+- [Conda survey results](https://conda.org/blog/2022-03-30-conda-survey/), blog post by Dave Clements summarizing last year's survey of conda users, integrated with relevant bits from the PyPA's survey
+- The [Conda Community Forum](https://conda.discourse.group/) saw navigation improvements with a new sidebar for navigating the site and a new top menu for navigating to other conda websites.
+
+---
+
+<Image img={youtube} alt="Montage showing screenshots from 4 videos." />
+
+### Conda, now starring on YouTube
+
+**Conda now has a [YouTube channel](https://www.youtube.com/channel/UCNc3BL-gO8hbx_7DdEDcofg)** with four playlists/videos to start you off: **[Packaging](https://youtu.be/6by8b2Ht200), [Presentations](https://youtu.be/OeSv0_HesaU), [Training](https://youtu.be/NSgTFf40vHQ)**, and **[Releases](https://youtu.be/VD5TXcbYgR4)**.
+
+---
+
+[<Image img={forum} alt="Conda Community Forum screenshot"/>](https://conda.discourse.group/)
+
+### Highlights from the Conda Community Forum
+
+- [Conda has to go more meta](https://conda.discourse.group/t/conda-has-to-go-more-meta/192)
+- [How to install a “bash completion script” for my conda-forge package?](https://conda.discourse.group/t/how-to-install-a-bash-completion-script-for-my-conda-forge-package/304)
+- [My miniconda3 installation is screwed up. Reinstall? something else?](https://conda.discourse.group/t/my-miniconda3-installation-is-screwed-up-reinstall-something-else/310)
+- [Miniconda - Channel conda-forge not working - Traceback message](https://conda.discourse.group/t/miniconda-channel-conda-forge-not-working-traceback-message/297)
+- [Install Miniconda for MacOS - Difference between bash and pkg](https://conda.discourse.group/t/install-miniconda-for-macos-difference-between-bash-and-pkg/292) (unanswered)
+
+And this thought provoking post from Ralf Gommers earlier this year:
+
+- [Defining and documenting how Pip should interact with Conda environments](https://conda.discourse.group/t/defining-and-documenting-how-pip-should-interact-with-conda-environments/200)
+
+## Releases & announcements
+
+- **[conda-lock 2.1](https://github.com/conda/conda-lock/releases/)** - A lightweight library for generating fully reproducible lock files for conda environments.
+- **[conda 23.5.0](https://conda.org/blog/2023-05-31-may-2023-releases#changes-in-conda)** - Python 3.11 support and the new [**conda doctor** subcommand plugin](https://conda.org/blog/2023-06-01-conda-doctor) for detecting corrupted installs.
+- **[conda-build 3.25.0](https://conda.org/blog/2023-05-31-may-2023-releases#changes-in-conda-build)** - an update to `conda`'s package builder.
+- **[conda-libmamba-solver 23.5.0](https://conda.org/blog/2023-05-31-may-2023-releases#changes-in-conda-libmamba-solver)** - An update to the fast `libmamba` solver in `conda`.
+- **[grayskull 2.3.1](https://github.com/conda/grayskull/releases/tag/v2.3.1)** - An automatic recipe generator for the conda ecosystem.
+- **[Prefix.dev Channels](https://prefix.dev/blog/introducing_channels)** - A new option for creating your own conda channels.
+- **[conda-package-streaming 0.8.0 & conda-package-handling 2.1.0](https://conda.discourse.group/t/conda-package-streaming-0-8-0-and-conda-package-handling-2-1-0-released/267)** - Read new & old formats (`.conda & .tar.bz2`) and create & extract conda packages.

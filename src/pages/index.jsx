@@ -1,10 +1,12 @@
-import React from 'react';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Layout from '@theme/Layout';
-import Header from '../components/Header';
-import Features from '../components/Features';
-import News from '../components/News'; 
-import styles from './index.module.css';
+import React from "react";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import Layout from "@theme/Layout";
+import Header from "../components/Header";
+import Info from "../components/Info";
+import Features from "../components/Features";
+import News from "../components/News";
+import Supporters from "@site/src/components/Supporters";
+import styles from "./index.module.css";
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
@@ -15,8 +17,10 @@ export default function Home() {
     >
       <main>
         <Header />
+        <Info />
         <Features />
         <News />
+        <Supporters />
       </main>
     </Layout>
   );

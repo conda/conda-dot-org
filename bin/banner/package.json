@@ -1,0 +1,16 @@
+{
+  "name": "banner",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "banner": "node -- ./banner.js"
+  },
+  "dependencies": {
+    "canvas": "^2.11.2",
+    "commander": "^11.1.0",
+    "trianglify": "^4.1.1"
+  },
+  "engines": {
+    "node": ">=16.14"
+  }
+}

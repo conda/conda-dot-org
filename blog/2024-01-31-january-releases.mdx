@@ -1,0 +1,248 @@
+---
+title: "January 2024 Releases"
+slug: "2024-01-31-january-releases"
+authors: [kenodegard]
+tags: [announcement, conda, conda-build, conda-libmamba-solver, conda-index]
+description: |
+  Conda 24.1.0/.1/.2, conda-build 24.1.0/.1/.2, conda-libmamba-solver 24.1.0, and conda-index 0.4.0 have been released! 🎉
+image: img/blog/2024-01-31-january-releases/banner.jpg
+---
+
+The January 2024 releases included updates to four conda community projects: conda, conda-build, conda-libmamba-solver, and conda-index! 🎉 Each of these have been released to both `main` and `conda-forge`.
+
+## Changes in Conda [24.1.0](https://github.com/conda/conda/releases/tag/24.1.0)/[24.1.1](https://github.com/conda/conda/releases/tag/24.1.1)/[24.1.2](https://github.com/conda/conda/releases/tag/24.1.2)
+
+To update conda, run:
+
+```bash
+conda install -n base conda=24.1.2
+```
+
+<!-- truncate -->
+
+### ✨ What's New? ✨
+
+- Verify signatures on to-be-installed packages instead of on all packages.
+- Add new `pre-solves` and `post-solves` plugin hooks.
+- Add support for Python 3.12.
+- Check `repodata.json.zst` for faster repodata downloads.
+- Add `--skip-flexible-search` option in `conda search` to skip flexible search.
+- Provide a more useful warning when attempting to rename a non-existent prefix.
+- Add a new flag `--keep-env` to be used with `conda remove --all`. It allows users to delete all packages in the environment while retaining the environment itself.
+- Add a Y/N prompt warning users that `conda env remove` and `conda remove --all` deletes not only the conda packages but the entirety of the specified environment.
+- Add `--repodata-use-zst/--no-repodata-use-zst` flag to control `repodata.json.zst` check; corresponding `repodata_use_zst: true/false` setting for `.condarc`. Default is to check for `repodata.json.zst`. Disable if remote returns unparsable `repodata.json.zst` instead of correct data or 404.
+
+### 🔧 What Got Fixed? 🔧
+
+- Create the `~/.conda` directory before trying to write to the `environments.txt` file.
+- Ensure `PackageRecord.timestamp` is dumped in milliseconds.
+- Fix error when setting a non-default repodata filename via `CONDA_REPODATA_FNS`.
+- Fix the config file location where the integrated Anaconda client gateway loads user configuration from. This is a regression introduced in conda 23.11.0 when the `platformdirs` library was adopted.
+- Interpret missing `Cache-Control` header as `max-age=0` instead of exception.
+- (24.1.1) Fallback to `repodata.json` if `repodata.json.zst` cannot be decompressed as zstandard.
+- (24.1.1) Fallback to `repodata.json` from `repodata.json.zst` on most 4xx error codes.
+- (24.1.2) Fix `conda.core.subdir_data.fetch_repodata_remote_request` failure when `repodata_use_zst` is enabled.
+
+### 🌅 What's Marked for [Deprecation](https://github.com/conda-incubator/ceps/blob/main/cep-9.md)? 🌅
+
+The `conda_env.*` modules have been merged into the `conda` package!
+
+To improve the integration of the `conda env` subcommand (previously standalone), we've moved its
+code into the `conda` package, while allowing old `conda env` commands to still work via Python
+import redirects. This is a first step of many to improving the user experience of the conda
+command line interface related to environment management.
+
+### 📄 What's New in Documentation? 📄
+
+- Update [Getting Started](https://docs.conda.io/projects/conda/en/stable/user-guide/getting-started.html) documentation in User Guide.
+- Add [GoatCounter](https://docs-conda-io.goatcounter.com/) for docs site analytics.
+- Improve type hints and doc strings.
+
+---
+
+## Changes in Conda-Build [24.1.0](https://github.com/conda/conda-build/releases/tag/24.1.0)/[24.1.1](https://github.com/conda/conda-build/releases/tag/24.1.1)/[24.1.2](https://github.com/conda/conda-build/releases/tag/24.1.2)
+
+To update conda-build, run:
+
+```bash
+conda install -n base conda-build=24.1.2
+```
+
+### ✨ What's New? ✨
+
+- Update `conda inspect channels` to use updated solver/transaction logic.
+- Relax `script_env` error in outputs when variable referenced in `script_env` is not defined. This unifies current behavior with the top-level build.
+- Add support for Python 3.12.
+- Adopt calendar versioning (CalVer) per [CEP-8](https://github.com/conda-incubator/ceps/blob/main/cep-8.md) for consistency with conda.
+- Adopt expedited [CEP-9](https://github.com/conda-incubator/ceps/blob/main/cep-9.md) deprecation policy.
+
+### 🔧 What Got Fixed? 🔧
+
+- (24.1.1) Fix nonzero exitcode on success.
+- (24.1.2) Fix `rpaths` patcher being run on symbolic links.
+- (24.1.2) Fix corrupted package cache for outputs in subpackage tests.
+
+### 🌅 What's Marked for [Deprecation](https://github.com/conda-incubator/ceps/blob/main/cep-9.md)? 🌅
+
+This is the first release of conda-build removing code previously marked as deprecated per the [expedited deprecation schedule](https://conda.org/blog/2023-12-07-november-releases#-special-announcement--1). The following is a list of what was removed:
+
+- `conda_build.api.update_index`
+- `conda_build.cli.main_build.main`
+- `conda_build.cli.main_convert.main`
+- `conda_build.cli.main_debug.main`
+- `conda_build.cli.main_develop.main`
+- `conda_build.cli.main_index`
+- `conda_build.cli.main_inspect.main`
+- `conda_build.cli.main_metapackage.main`
+- `conda_build.cli.main_render.main`
+- `conda_build.cli.main_skeleton.main`
+- `conda_build.conda_interface.IndexRecord`
+- `conda_build.conda_interface.CrossPlatformStLink`
+- `conda_build.conda_interface.SignatureError`
+- `conda_build.conda_interface.which_package`
+- `conda_build.conda_interface.which_prefix`
+- `conda_build.conda_interface.get_installed_version`
+- `conda_build.config.python2_fs_encode`
+- `conda_build.config._ensure_dir`
+- `conda_build.config.Config.CONDA_LUA`
+- `conda_build.config.Config.CONDA_PY`
+- `conda_build.config.Config.CONDA_NPY`
+- `conda_build.config.Config.CONDA_PERL`
+- `conda_build.config.Config.CONDA_R`
+- `conda_build.environ.clean_pkg_cache`
+- `conda_build.index.update_index`
+- `conda_build.inspect_pkg.dist_files`
+- `conda_build.inspect_pkg.which_package(avoid_canonical_channel_name)`
+- `conda_build.inspect_pkg._installed`
+- `conda_build.metadata.Metadata.name(fail_ok)`
+- `conda_build.os_utils.ldd.get_package_files`
+- `conda_build.os_utils.liefldd.is_string`
+- `conda_build.os_utils.liefldd.codefile_type_liefldd`
+- `conda_build.os_utils.liefldd.codefile_type_pyldd`
+- `conda_build.os_utils.liefldd.codefile_type`
+- `conda_build.os_utils.pyldd.mach_o_change`
+- `conda_build.os_utils.pyldd.is_codefile`
+- `conda_build.os_utils.pyldd.codefile_type`
+- `conda_build.os_utils.pyldd.inspect_rpaths`
+- `conda_build.os_utils.pyldd.get_runpaths`
+- `conda_build.os_utils.pyldd.otool_sys`
+- `conda_build.os_utils.pyldd.ldd_sys`
+- `conda_build.plugin.index`
+- `conda_build.post.determine_package_nature`
+- `conda_build.post.library_nature(subdir)`
+- `conda_build.post.library_nature(bldpkgs_dirs)`
+- `conda_build.post.library_nature(output_folder)`
+- `conda_build.post.library_nature(channel_urls)`
+- `conda_build.post.dists_from_names`
+- `conda_build.post.FakeDist`
+- `conda_build.post._get_fake_pkg_dist`
+- `conda_build.utils.relative`
+- `conda_build.utils.samefile`
+
+In addition, we continued with the effort to remove any remaining usage of the legacy `conda.models.dist.Dist` object:
+
+- Mark `conda inspect channels --test-installable` as pending deprecation.
+- Mark `conda_build.inspect_pkg.check_install(package)` as pending deprecation in favor of `conda_build.inspect_pkg.check_install(subdir)`.
+- Mark `conda_build.inspect_pkg.check_install(prepend)` as pending deprecation.
+- Mark `conda_build.inspect_pkg.check_install(minimal_hint)` as pending deprecation.
+- Mark `conda_build.conda_interface.Dist` as pending deprecation.
+- Mark `conda_build.conda_interface.display_actions` as pending deprecation.
+- Mark `conda_build.conda_interface.execute_actions` as pending deprecation.
+- Mark `conda_build.conda_interface.execute_plan` as pending deprecation.
+- Mark `conda_build.conda_interface.get_index` as pending deprecation.
+- Mark `conda_build.conda_interface.install_actions` as pending deprecation.
+- Mark `conda_build.conda_interface.linked` as pending deprecation.
+- Mark `conda_build.conda_interface.linked_data` as pending deprecation.
+- Mark `conda_build.utils.linked_data_no_multichannels` as pending deprecation.
+- Mark `conda_build.environ.get_install_actions` as pending deprecation in favor of `conda_build.environ.get_package_records`.
+- Mark `conda_build.environ.create_env(specs_or_actions)` as pending deprecation in favor of `conda_build.environ.create_env(specs_or_precs)`.
+- Mark `conda_build.index.channel_data` as pending deprecation.
+- Mark `conda_build.index._determine_namespace` as pending deprecation.
+- Mark `conda_build.index._make_seconds` as pending deprecation.
+- Mark `conda_build.index.REPODATA_VERSION` as pending deprecation.
+- Mark `conda_build.index.CHANNELDATA_VERSION` as pending deprecation.
+- Mark `conda_build.index.REPODATA_JSON_FN` as pending deprecation.
+- Mark `conda_build.index.REPODATA_FROM_PKGS_JSON_FN` as pending deprecation.
+- Mark `conda_build.index.CHANNELDATA_FIELDS` as pending deprecation.
+- Mark `conda_build.index._clear_newline_chars` as pending deprecation.
+- Mark `conda_build.index._apply_instructions` as pending deprecation.
+- Mark `conda_build.index._get_jinja2_environment` as pending deprecation.
+- Mark `conda_build.index._maybe_write` as pending deprecation.
+- Mark `conda_build.index._maybe_build_string` as pending deprecation.
+- Mark `conda_build.index._warn_on_missing_dependencies` as pending deprecation.
+- Mark `conda_build.index._cache_post_install_details` as pending deprecation.
+- Mark `conda_build.index._cache_recipe` as pending deprecation.
+- Mark `conda_build.index._cache_run_exports` as pending deprecation.
+- Mark `conda_build.index._cache_icon` as pending deprecation.
+- Mark `conda_build.index._make_subdir_index_html` as pending deprecation.
+- Mark `conda_build.index._make_channeldata_index_html` as pending deprecation.
+- Mark `conda_build.index._get_source_repo_git_info` as pending deprecation.
+- Mark `conda_build.index._cache_info_file` as pending deprecation.
+- Mark `conda_build.index._alternate_file_extension` as pending deprecation.
+- Mark `conda_build.index._get_resolve_object` as pending deprecation.
+- Mark `conda_build.index._get_newest_versions` as pending deprecation.
+- Mark `conda_build.index._add_missing_deps` as pending deprecation.
+- Mark `conda_build.index._add_prev_ver_for_features` as pending deprecation.
+- Mark `conda_build.index._shard_newest_packages` as pending deprecation.
+- Mark `conda_build.index._build_current_repodata` as pending deprecation.
+- Mark `conda_build.index.ChannelIndex` as pending deprecation.
+- Mark `conda_build.render.actions_to_pins` as pending deprecation.
+- Mark `conda_build.render.execute_download_actions(actions)` as pending deprecation in favor of `conda_build.render.execute_download_actions(precs)`.
+- Mark `conda_build.render.get_upstream_pins(actions)` as pending deprecation in favor of `conda_build.render.get_upstream_pins(precs)`.
+
+### 📄 What's New in Documentation? 📄
+
+- Add [GoatCounter](https://docs-conda-io.goatcounter.com/) for docs site analytics.
+
+---
+
+## Changes in Conda-Libmamba-Solver [24.1.0](https://github.com/conda/conda-libmamba-solver/releases/tag/24.1.0)
+
+To update conda-libmamba-solver, run:
+
+```bash
+conda install -n base conda-libmamba-solver=24.1.0
+```
+
+### ✨ What's New? ✨
+
+- Prioritize explicitly requested specs with stricter constraints over implicit ones or name-only specs (e.g. a CLI-specified `name=version=build` will be sent to the solver before CLI-specified `name=version` and `name`).
+- Load `pkgs_dirs` records when called in offline mode.
+
+### 🔧 What Got Fixed? 🔧
+
+- Fix a regression introduced in 23.11.1, where certain solves would hard crash due to the given specs input order.
+- Properly propagate customized local channels (conda-build workspaces). Requires `libmamba 1.5.6` or above.
+- Do not raise an error if an unsupported `MatchSpec` field can be safely dropped instead. Currently ignoring `url`, `md5` and `sha256`.
+- Do not crash if a stateless repodata cache is accessed with `--offline` or `--use-index-cache`.
+
+---
+
+## Changes in Conda-Index [0.4.0](https://github.com/conda/conda-libmamba-solver/releases/tag/0.4.0)
+
+To update conda-index, run:
+
+```bash
+conda install -n base conda-index=0.4.0
+```
+
+### ✨ What's New? ✨
+
+- Add `--compact-json`/`--no-compact-json` option, default to compact.
+- Add an `index` subcommand using conda's new subcommand plugin hook, allowing `conda index` instead of `python -m conda_index`. Note the [CLI has changed](https://conda.github.io/conda-index/cli.html) compared to old `conda-index`. When `conda-build < 24.1.0` is installed, the older `conda-index` code will still be used instead of this plugin.
+
+### 🔧 What Got Fixed? 🔧
+
+- Check size in addition to `mtime` when deciding which packages to index.
+- Update cached `index.json`, not just stat values, for changed packages that are already indexed.
+
+---
+
+### We ❤️ Our Community
+
+Altogether, we had 2 (!) new contributors this release cycle; thank you to all of our open source community members for helping making these improvements possible.
+
+- [@schuylermartin45](https://github.com/schuylermartin45) made their first contribution in [conda#13385](https://github.com/conda/conda/pull/13385)
+- [@samhaese](https://github.com/samhaese) made their first contribution in [conda#13465](https://github.com/conda/conda/pull/13465)
+
+If you have ideas or want to help improve any of the conda community projects, we love to see new (and returning) contributors! 😄

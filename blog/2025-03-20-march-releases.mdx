@@ -1,0 +1,84 @@
+---
+title: March 2025 Releases
+slug: 2025-03-20-march-releases
+authors: [kenodegard]
+tags: [announcement, conda, conda-build, conda-libmamba-solver, conda-index, constructor]
+description: |
+  conda 25.3.1, conda-build 25.3.2, conda-libmamba-solver 25.3.0, conda-index 0.6.0, and constructor 3.11.3 have been released! 🎉
+image: img/blog/2025-03-20-march-releases/banner.png
+---
+
+The March 2025 releases included updates to conda, conda-build, conda-libmamba-solver, conda-index, and constructor! 🎉 All of these have been released to both `main` and `conda-forge` channels.
+
+<!-- truncate -->
+
+## Changes in conda [25.3.0](https://github.com/conda/conda/releases/tag/25.3.0)/[25.3.1](https://github.com/conda/conda/releases/tag/25.3.1)
+
+To update `conda` to the latest version, run:
+
+```bash
+conda install -n base conda=25.3.1
+```
+
+**Notable Changes:**
+- Add support for Python 3.13.
+- Refactor CMD's activation process to use a static shell script instead of a dynamic temporary script. This resolves an issue where using `conda activate` would fail when Windows AppLocker script execution restrictions were enabled.
+- `conda 25.3.0` is a deprecation release (see [CEP-9](https://github.com/conda/ceps/blob/main/cep-0009.md) for details) so watch out for deprecated features (previously marked as pending deprecation), many of these deprecated features will be removed in `conda 25.9.0`.
+
+Check out the full changelog for more: [25.3.0](https://github.com/conda/conda/releases/tag/25.3.0)/[25.3.1](https://github.com/conda/conda/releases/tag/25.3.1)
+
+## Changes in conda-build [25.3.0](https://github.com/conda/conda-build/releases/tag/25.3.0)/[25.3.1](https://github.com/conda/conda-build/releases/tag/25.3.1)/[25.3.2](https://github.com/conda/conda-build/releases/tag/25.3.2)
+
+To update `conda-build` to the latest version, run:
+
+```bash
+conda install -n base conda-build=25.3.2
+```
+
+**Notable Changes:**
+- Add v0 recipe option `build.python_version_independent` to support building ABI3 for one CPython version and using the package in any later version.
+- Add `cdt_arch` and `cdt_name` as used vars when cdt jinja function is used.
+
+Check out the full changelog for more: [25.3.0](https://github.com/conda/conda-build/releases/tag/25.3.0)/[25.3.1](https://github.com/conda/conda-build/releases/tag/25.3.1)/[25.3.2](https://github.com/conda/conda-build/releases/tag/25.3.2)
+
+## Changes in conda-libmamba-solver [25.3.0](https://github.com/conda/conda-libmamba-solver/releases/tag/25.3.0)
+
+To update `conda-libmamba-solver` to the latest version, run:
+
+```bash
+conda install -n base conda-libmamba-solver=25.3.0
+```
+
+Check out the full changelog for more: [25.3.0](https://github.com/conda/conda-libmamba-solver/releases/tag/25.3.0)
+
+## Changes in conda-index [0.6.0](https://github.com/conda/conda-index/releases/tag/0.6.0)
+
+To update `conda-index` to the latest version, run:
+
+```bash
+conda install -n base conda-index=0.6.0
+```
+
+**Notable Changes:**
+- Add support for sharded repodata in accordance with [CEP-16](https://github.com/conda/ceps/blob/main/cep-0016.md).
+
+Check out the full changelog for more: [0.6.0](https://github.com/conda/conda-index/releases/tag/0.6.0)
+
+## Changes in constructor [3.11.2](https://github.com/conda/constructor/releases/tag/3.11.2)/[3.11.3](https://github.com/conda/constructor/releases/tag/3.11.3)
+
+To update `constructor` to the latest version, run:
+
+```bash
+conda install -n base constructor=3.11.3
+```
+
+Check out the full changelog for more: [3.11.2](https://github.com/conda/constructor/releases/tag/3.11.2)/[3.11.3](https://github.com/conda/constructor/releases/tag/3.11.3)
+
+## We ❤️ Our Community
+
+Altogether, we had 4 new contributors this release cycle; thank you to all of our open source community members for helping making these improvements possible.
+
+- [@v2thegreat](https://github.com/v2thegreat) made their first contribution in [conda#14581](https://github.com/conda/conda/pull/14581)
+- [@bernt-matthias](https://github.com/bernt-matthias) made their first contribution in [conda-build#5627](https://github.com/conda/conda-build/pull/5627)
+- [@vyasr](https://github.com/vyasr) made their first contribution in [conda-build#5575](https://github.com/conda/conda-build/pull/5575)
+- [@woutdenolf](https://github.com/woutdenolf) made their first contribution in [conda-build#4977](https://github.com/conda/conda-build/pull/4977)
