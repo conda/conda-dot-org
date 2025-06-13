@@ -74,7 +74,8 @@ const config = {
       navbar: {
         title: "",
         logo: {
-          alt: "The conda logo",
+          // Expanding the alt text to indicate this redirects to conda.org
+          alt: "The conda logo - Home conda.org",
           src: "img/conda_logo.svg",
         },
         items: [
