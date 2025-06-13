@@ -347,8 +347,7 @@ a[class^="sidebarItemLink"]:active {
 }
 
 .navbar__link:hover,
-.navbar__link--active,
-.menu__link:hover {
+.navbar__link--active {
   text-decoration: underline;
   text-decoration-color: inherit;
   text-decoration-thickness: var(--link-hover-decoration-thickness);
@@ -370,4 +369,12 @@ a.footer-link:hover {
   text-decoration: underline;
   text-decoration-color: var(--conda-green-300);
   text-decoration-thickness: var(--link-hover-decoration-thickness);
+}
+
+/* Animate the top navbar conda logo on hover */
+.navbar__logo img:hover {
+  transform: scale(1.05);
+}
+.navbar__logo img:active {
+  transform: scale(1);
 }
