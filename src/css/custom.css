@@ -375,6 +375,7 @@ a.footer-link:hover {
 .navbar__logo img:hover {
   transform: scale(1.05);
 }
+
 .navbar__logo img:active {
   transform: scale(1);
 }
