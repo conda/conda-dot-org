@@ -50,7 +50,9 @@
 
 .news_container_group_highlighted > div {
   background: var(--gradient-news-card);
-  color: #fff;
+  /* Using the same colour for content used in the light theme, this ensures there
+  is at least a 4.5:1 contrast against the background */
+  color: var(--ifm-color-gray-900);
 }
 
 .news_read_more {
