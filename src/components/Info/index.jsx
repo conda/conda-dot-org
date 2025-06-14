@@ -6,7 +6,7 @@ export default function Info() {
   return (
     <div className={[styles.info, styles.section_padding].join(" ")}>
       <div className={styles.info_heading}>
-        <h1 className={styles.gradient_text}>What is conda?</h1>
+        <h2 className={styles.gradient_text}>What is conda?</h2>
         <p>
           Initially started as a multi-platform package management tool, the
           term "conda" has since evolved to encompass an entire{" "}

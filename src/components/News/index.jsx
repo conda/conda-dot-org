@@ -24,9 +24,9 @@ export default function News() {
       id="blog"
     >
       <div className={styles.news_heading}>
-        <h1 className={styles.gradient_text}>
+        <h2 className={styles.gradient_text}>
           Discover the latest news and learn more in our blog
-        </h1>
+        </h2>
       </div>
       <div className={styles.news_container}>
         <div className={styles.news_container_group_highlighted}>

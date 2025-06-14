@@ -74,7 +74,8 @@ const config = {
       navbar: {
         title: "",
         logo: {
-          alt: "The conda logo",
+          // Expanding the alt text to indicate this redirects to conda.org
+          alt: "The conda logo - Home conda.org",
           src: "img/conda_logo.svg",
         },
         items: [
@@ -154,7 +155,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Conda Community. <br /> Built with Docusaurus. This site is powered by <a href="https://www.netlify.com/" target="_blank" title="Powered by Netlify">Netlify</a>.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Conda Community. <br /> Built with Docusaurus. This site is powered by <a href="https://www.netlify.com/" target="_blank" class="footer-link" title="Powered by Netlify">Netlify</a>.`,
       },
       prism: {
         theme: lightCodeTheme,

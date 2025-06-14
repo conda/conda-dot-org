@@ -33,16 +33,16 @@ to both kinds of contributors. Then, the guide branches off to explain specifics
 
 ## General guidelines for content on [conda.org][conda-dot-org]
 
-[conda.org][conda-dot-org] is a website that represents the entire conda community. To make sure that not any one project, company, or organization
-gets preferential treatment, we have defined the following guidelines to follow when contributing new content and updating
-existing content:
+[conda.org][conda-dot-org] is a website that represents the entire conda community.
+To make sure that not any one project, company, or organization gets preferential treatment, we have defined the
+following guidelines to follow when contributing new content and updating existing content:
 
 - Content not present in the blog should speak of the wider ecosystem and not prioritize any particular tool, channel, company, or organization.
 - The blog is an area where particular tools, channels, companies, or organizations may be promoted.
 
 ## Documentation tools
 
-[conda.org][conda-dot-org] is built with [Docusaurus 2][docusaurus], a modern static website generator that
+[conda.org][conda-dot-org] is built with [Docusaurus 3][docusaurus], a modern static website generator that
 uses a friendly Markdown format to create the website copy. If you are not familiar with
 Markdown, check out the [Markdown Guide project][markdown-guide].
 
@@ -52,12 +52,12 @@ The conda.org project has an [issue board][issue-board] from which contributors
 can choose issues. If there is an aspect of the website that you feel needs work, please
 create a new issue using the **Add item** button at the bottom of the appropriate column.
 
-For new contributors, please look for issues which have the https://github.com/conda-incubator/conda-dot-org/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22
+For new contributors, please look for issues which have the <https://github.com/conda-incubator/conda-dot-org/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22>
 label. If you want to work on an issue, please leave a comment saying so. The first person
 to comment on the issue will be assigned. If they are unable to work on it for any reason,
 the second person who comments on it will be assigned, and so on.
 
-## Github flow
+## GitHub flow
 
 ### Prerequisites
 
@@ -74,22 +74,20 @@ a very useful tool, especially for contributors utilizing Windows machines for d
 > For contributors who would prefer to use GitHub wrapped in a UI, [GitHub Desktop][github-desktop]
 > is recommended.
 
-### Github flow
-
-#### 1. Creating a fork
+### 1. Creating a fork
 
 The very first step to contributing is creating your own fork of the
 [conda-dot-org repository][conda-dot-org-repo]. If you have never done this before,
 we strongly encourage you to read the
 [Fork a repo][github-forking-how-to] guide from GitHub first.
 
-#### 2. Clone your repository
+### 2. Clone your repository
 
 After you have created your fork, you are ready to clone this repository to your
 local computer, where you can begin making edits. The commands for doing so will
-be different depending on your user name, but a typical example is shown below:
+be different depending on your username, but a typical example is shown below:
 
-```
+```sh
 $ git clone git@github.com:username/conda-dot-org.git
 ```
 
@@ -98,8 +96,8 @@ $ git clone git@github.com:username/conda-dot-org.git
 > SSH key, make sure to [generate an SSH key][ssh-key-instructions] and then
 > [add it to your GitHub account][adding-ssh-key] before running the command above.
 
-#### 3. Move to your newly-cloned directory
-
+Once you have a local copy of your fork, you can navigate to the directory
+where it is stored.
 Use the `cd` command to change your directory. Consider the following directory structure:
 
 ```
@@ -111,16 +109,16 @@ Use the `cd` command to change your directory. Consider the following directory 
 When you first open a CLI, it usually opens in your home directory. You
 can use `cd`, followed by a file path, to properly change your directory.
 
-```
+```sh
 $ cd conda-dot-org
 ```
 
-#### 3. Creating a new branch
+### 3. Creating a new branch
 
 Once you have cloned this repository, you now need to create a branch that will hold the
 work you are planning to contribute. You can do that with the following command:
 
-```
+```sh
 $ git checkout -b my-new-contribution
 ```
 
@@ -128,11 +126,11 @@ Name the branch something related to the work you are doing. If you're working f
 an issue on our issue board, consider adding the issue number to the branch name.
 This can make it easier to find your work again later. For example:
 
-```
+```sh
 $ git checkout -b 112-home-page-improvements
 ```
 
-#### 4. Making edits and committing your changes
+### 4. Making edits and committing your changes
 
 Running the clone command (see step two) creates a copy of the repo in your file system.
 You can then use a code editor of your choice (such as [VSCode][vscode-download],
@@ -145,19 +143,19 @@ Once you have made the necessary edits, you can commit these edits by running th
 following commands. Here, we assume that I have added a new file called "article.md"
 to the repository:
 
-```
+```sh
 $ git add article.md
 $ git commit -m "adding my new article"
 ```
 
-#### 5. Pushing your changes to GitHub
+### 5. Pushing your changes to GitHub
 
 Once that runs, you can "push" these changes to GitHub.
 
 The first time you push your changes, you will need to specify your upstream branch
 by running the following command:
 
-```
+```sh
 git push --set-upstream origin my-new-contribution
 ```
 
@@ -180,7 +178,7 @@ The above steps are great for adding your changes to git and submitting them for
 but what if you want to preview exactly what your changes will look like on the website?
 The answer to this involves running a local version of the website that automatically
 updates as you change and add files on your computer. Below, we will walk through the
-steps necessary to do just that.
+steps necessary to do that.
 
 ### Prerequisites
 
@@ -201,20 +199,20 @@ is installing all the necessary dependencies.
 
 If you aren't in the conda-dot-org repository folder, use the `cd` command to change your directory.
 
-```
+```sh
 cd conda-dot-org
 ```
 
 Then, use the following command to install your dependencies:
 
-```
+```sh
 npm install
 ```
 
 After this command finishes, you can run the following command to get the website running
 locally:
 
-```
+```sh
 npm run start
 ```
 
@@ -235,7 +233,7 @@ named something like `2023-04-22-cool-project-v1-release.md`.
 
 conda.org blog posts support the following metadata:
 
-```
+```yaml
 title: The title of your blog.
 description: A brief description of your blog's topic.
 slug: The name of your blog page within the conda.org url.
@@ -276,7 +274,7 @@ If your blog post has images, please put them in the following folder: `static/i
 where `<blog-file-name>` is the same name as the initial blog post (e.g. `static/img/blog/2023-04-22-cool-project-v1-release/`).
 
 To use these images in your blog post, make sure to first create the blog as a `*.mdx` file and then
-import it at the top of the file. You should also used the included image plugin that Docusaurus makes
+import it at the top of the file. You should also use the included image plugin that Docusaurus makes
 available. An example of this is shown below:
 
 ```javascript

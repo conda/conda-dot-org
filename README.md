@@ -9,12 +9,12 @@ This is the repository for the conda.org community website. To become involved:
 
 ## Code of Conduct
 
-This repo and the web site it generates are governed by the [conda organization code of conduct](CODE_OF_CONDUCT.md).
+This repo and the website it generates are governed by the [conda organization code of conduct](CODE_OF_CONDUCT.md).
 
 ## Implementation details
 
-It is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator. The
-contents are structured like this:
+It is built using [Docusaurus 3](https://docusaurus.io/), a modern static website generator.
+The contents are structured as follows:
 
 - `.github/`: Workflows for deployment.
 - `blog/`: Blog posts. Can use `.md` (Markdown), `.mdx` (Markdown with react) or `.js` extensions.
@@ -28,20 +28,14 @@ contents are structured like this:
 - `package.json`: More configuration to install `docusaurus`.
 - `sidebars.js`: Support for sidebars. We use in automatic mode now.
 
-> Non listed directories or files are generated automatically are not relevant for modifications.
+> Non listed directories or files are generated automatically, so are not relevant for modifications.
 
-## Local Development
+## Contributing
 
-```bash
-$ git clone
-$ cd conda-dot-org
-$ npm install
-$ npm run start
-```
-
-This command starts a local development server and opens up a browser window.
-Most changes are reflected live without having to restart the server.
+To contribute to this repository, please follow the [contributing guidelines](CONTRIBUTING.md).
+This includes detailed step-by-step instructions to contribute to the website, including how to set up your development
+environment, run the website locally and contribute content.
 
 ## Deployment
 
-<a href="https://www.netlify.com"> <img src="https://www.netlify.com/v3/img/components/netlify-color-accent.svg" alt="Deploys by Netlify" /> </a>
+<a href="https://www.netlify.com"> <img src="https://www.netlify.com/v3/img/components/netlify-color-accent.svg" alt="Deploys by Netlify" /></a>

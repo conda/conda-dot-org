@@ -94,7 +94,7 @@ export default function Supporters() {
   return (
     <div className={[styles.supporters, styles.section_padding].join(" ")}>
       <div className={styles.supporters_conda_org}>
-        <h1 className={styles.gradient_text}>Supporters</h1>
+        <h2 className={styles.gradient_text}>Supporters</h2>
         <p>
           If you like the conda community and want to support our mission,
           please consider making a{" "}
@@ -158,9 +158,9 @@ export default function Supporters() {
         {infrastructure.length > 0 ? (
           <div className={styles.supporters_card}>
             <div className={styles.supporters_conda_org}>
-              <h2>
+              <h3>
                 <span className="gradient_text">Infrastructure</span> Support
-              </h2>
+              </h3>
             </div>
             <div className={styles.card}>
               {infrastructure.map(
@@ -187,9 +187,9 @@ export default function Supporters() {
         {developer.length > 0 ? (
           <div className={styles.supporters_card}>
             <div className={styles.supporters_conda_org}>
-              <h2>
+              <h3>
                 <span className="gradient_text">Developer</span> Support
-              </h2>
+              </h3>
             </div>
             <div className={styles.card}>
               {developer.map(({ name, link, light, dark, width }, index) => (

@@ -1,3 +1,4 @@
+/* General news cards styling */
 .news {
   display: flex;
   flex-direction: column;
@@ -13,7 +14,8 @@
   margin-bottom: 4rem;
 }
 
-.news_heading h1 {
+/* Section heading should be h2 - it is suggested to have only one h1 per page */
+.news_heading h2 {
   font-weight: 700;
   font-size: 50px;
   line-height: 70px;
@@ -31,6 +33,16 @@
   flex-direction: row;
 }
 
+.news_container_group_highlighted a {
+  color: var(--conda-green-900);
+}
+
+.news_container a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+}
+
+/* Hihglighted card styling (most recent blogpost) */
 .news_container_group_highlighted {
   flex: 0.75;
   margin-right: 2rem;
@@ -38,26 +50,11 @@
 
 .news_container_group_highlighted > div {
   background: var(--gradient-news-card);
-  color: #fff;
-}
 
-/* .new_read_more a {
-    text-decoration: none;
-    flex: 0.2;
-    text-align: center;
-    width: 100%;
-    min-height: 50px;
-    font-size: 20px;
-    line-height: 27px;
-    background: var(--ifm-color-primary);
-    border-radius: 5px;
-    color: #fff;
-    font-weight: 700;
-    cursor: pointer;
-    outline: none;
-    padding: 0.5rem;
-    border: none;
-} */
+  /* Using the same colour for content used in the light theme, this ensures there
+  is at least a 4.5:1 contrast against the background */
+  color: var(--ifm-color-gray-900);
+}
 
 .news_read_more {
   margin: 3rem 0 1rem;
@@ -66,9 +63,7 @@
   justify-content: center;
 }
 
-.news_container_group_highlighted > div > div > a {
-  color: #fff;
-}
+/* Default news card style (not highlighted) */
 
 .news_container_group_not_highlighted {
   flex: 1;
@@ -79,9 +74,9 @@
 
 .news_container_group_not_highlighted > div {
   background: var(--theme-features-card);
-  border: 2px solid var(--ifm-color-primary);
 }
 
+/* Layout */
 @media screen and (max-width: 990px) {
   .news_container {
     flex-direction: column;
@@ -105,7 +100,7 @@
     width: 100%;
   }
 
-  .news_heading h1 {
+  .news_heading h2 {
     font-size: 46px;
     line-height: 52px;
   }
@@ -116,7 +111,7 @@
 }
 
 @media screen and (max-width: 550px) {
-  .news_heading h1 {
+  .news_heading h2 {
     font-size: 34px;
     line-height: 42px;
   }
