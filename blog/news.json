@@ -1,5 +1,22 @@
 [
   {
+    "title": "July 2025 Releases",
+    "slug": "2025-08-05-july-releases",
+    "authors": [
+      "travishathaway"
+    ],
+    "tags": [
+      "announcement",
+      "conda",
+      "conda-build",
+      "constructor",
+      "menu-inst"
+    ],
+    "description": "conda 25.7.0, conda-build 25.7.0, constructor 3.12.1 and menu-inst 2.3.1 have been released! \ud83c\udf89\n",
+    "image": "img/blog/2025-08-05-july-releases/banner.png",
+    "date": "2025-08-05T00:00:00"
+  },
+  {
     "title": "May 2025 Releases",
     "slug": "2025-05-27-may-releases",
     "authors": [
@@ -64,23 +81,5 @@
     "description": "conda 24.11.0, conda-build 24.11.2, and conda-libmamba-solver 24.11.1 have been released! \ud83c\udf89\n",
     "image": "img/blog/2024-12-05-november-releases/banner.png",
     "date": "2024-12-05T00:00:00"
-  },
-  {
-    "title": "Navigating Change in Conda-Build Recipe Formats: Balancing Legacy and Innovation",
-    "slug": "2024-11-15-v0-format-modifications",
-    "authors": [
-      "kenodegard"
-    ],
-    "tags": [
-      "announcement",
-      "conda",
-      "conda-build",
-      "recipe",
-      "cep-13",
-      "cep-14"
-    ],
-    "description": "The recent approval of the new recipe format (`recipe.yaml`, v1) does not mean the end of the old format (`meta.yaml`, v0). The conda community must balance innovation with support for legacy systems.\n",
-    "image": "img/blog/2024-11-15-v0-format-modifications/banner.png",
-    "date": "2024-11-15T00:00:00"
   }
 ]
