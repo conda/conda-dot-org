@@ -52,7 +52,8 @@ conda install -n base constructor=3.12.1
 
 **Notable Changes:**
 
-- TBD
+- Added support for `conda init --condabin`, `mamba`'s mirrored channels, and the faster `onedir` variant of `conda-standalone`.
+- EXE installers: fixed a permission issue for all-user installations for noarch package entry points.
 
 Check out the full changelog for more:
 - [3.12.0](https://github.com/conda/constructor/releases/tag/3.12.0)
@@ -68,7 +69,8 @@ conda install -n base menuinst=2.3.1
 
 **Notable Changes:**
 
-- TBD
+- Bug fix: shortcuts are now only created for platforms explicitly enabled in the metadata.
+- Added support for the new activation behavior of `conda` on Windows.
 
 Check out the full changelog for more:
 - [2.3.0](https://github.com/conda/menuinst/releases/tag/2.3.0) (full release notes with new features)
