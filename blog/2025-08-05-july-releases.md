@@ -2,9 +2,9 @@
 title: July 2025 Releases
 slug: 2025-08-05-july-releases
 authors: [travishathaway]
-tags: [announcement, conda, conda-build, constructor, menu-inst]
+tags: [announcement, conda, conda-build, constructor, menuinst]
 description: |
-  conda 25.7.0, conda-build 25.7.0, constructor 3.12.1 and menu-inst 2.3.1 have been released! 🎉
+  conda 25.7.0, conda-build 25.7.0, constructor 3.12.2 and menuinst 2.3.1 have been released! 🎉
 image: img/blog/2025-08-05-july-releases/banner.png
 ---
 
