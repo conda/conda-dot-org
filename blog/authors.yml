@@ -19,6 +19,11 @@ dashagurova:
   title: Open Source Community Manager
   url: https://github.com/dashagurova
   image_url: https://github.com/dashagurova.png
+dbast:
+  name: Daniel Bast
+  title: Open Source Contributor
+  url: https://github.com/dbast
+  image_url: https://github.com/dbast.png
 dholth:
   name: Daniel Holth
   title: Conda maintainer
