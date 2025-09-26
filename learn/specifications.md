@@ -20,7 +20,7 @@ This section is a work in progress. These emoji can be used to identify status:
 
 ## Package Distribution Metadata
 
-- [✅ Names and package identifiers](./specifications/distribution/package-identifiers.md)
+- [📝 Names and package identifiers](./specifications/distribution/package-identifiers.md)
 - [🏗️ Versioning](./specifications/distribution/version.md)
 - [🏗️ Dependency specifiers](./specifications/distribution/dependency-specifiers.md)
 
@@ -29,13 +29,13 @@ This section is a work in progress. These emoji can be used to identify status:
 - Distributable packages:
   - [📬 Overview of contents](./specifications/packages/contents.md)
   - [📬 The `info/` folder](./specifications/packages/info.md)
-  - [✅ The `Menu/` directory](./specifications/packages/menu.md)
+  - [📝 The `Menu/` directory](./specifications/packages/menu.md)
   - [📬 File formats: `.tar.bz2` and `.conda`](./specifications/packages/file-formats.md)
 - [🏗️ Virtual packages](./specifications/virtual-packages.md)
 
 ## Channels
 
-- [✅ Channel identifiers](./specifications/channels/channel-identifiers.md)
+- [📝 Channel identifiers](./specifications/channels/channel-identifiers.md)
 - [📬 The channel interface](./specifications/channels/channel-interface.md)
 - [📬 Repodata](./specifications/channels/repodata.md)
 - [📬 Repodata patches](./specifications/channels/repodata-patches.md)
@@ -46,7 +46,7 @@ This section is a work in progress. These emoji can be used to identify status:
 
 - [🏗️ The conda environment structure](./specifications/installation/environments.md)
 - [🏗️ Recording installed packages](./specifications/installation/installed-records.md)
-- [✅ Processing `Menu/*.json` items](./specifications/installation/menu.md)
+- [📝 Processing `Menu/*.json` items](./specifications/installation/menu.md)
 
 ## Package Building
 
@@ -55,6 +55,6 @@ This section is a work in progress. These emoji can be used to identify status:
 
 ## Environment Sharing
 
-- [✅ Text spec input files](./specifications/exchange/text-spec.md)
-- [✅ `environment.yml` files](./specifications/exchange/environment-yml.md)
+- [📝 Text spec input files](./specifications/exchange/text-spec.md)
+- [📝 `environment.yml` files](./specifications/exchange/environment-yml.md)
 - [📬 Lockfiles](./specifications/exchange/lockfiles.md)

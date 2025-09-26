@@ -4,7 +4,14 @@ sidebar_position: 10
 
 # The `info/` directory
 
-> Some info at https://docs.conda.io/projects/conda-build/en/25.7.x/resources/package-spec.html#package-metadata.
+:::note[Work in Progress]
+This part of the ecosystem is not fully standardized yet.
+
+Some preliminary information can be found at:
+
+- https://docs.conda.io/projects/conda-build/en/25.7.x/resources/package-spec.html#package-metadata.
+
+It will cover information about these files:
 
 - `about.json`
 - `files`
@@ -16,3 +23,4 @@ sidebar_position: 10
 - `repodata_record.json`
 - `run_exports.json`
 - Other subdirectories
+:::
