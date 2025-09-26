@@ -18,7 +18,7 @@ When people first encounter conda, the most common misconception is:
 
 The short answer: **no**.
 
-Pip (and npm, RubyGems, Cargo, etc.) are **language-specific library registries**. Conda, on the other hand, is a **multi-language, user-space distribution** that can assemble coherent runtime and build environments across programming languages, system libraries, compilers, and tools.
+PyPI (and npm, RubyGems, Cargo, etc.) are **language-specific library registries**. The conda package ecosystem (installable with tools like conda, mamba, micromamba, or pixi), on the other hand, functions as a **multi-language, user-space distribution** that can assemble coherent runtime and build environments across programming languages, system libraries, compilers, and tools.
 
 (Definition) A **user-space distribution** is a curated, relocatable filesystem prefix containing interpreters, libraries, headers, data, and tooling that runs entirely without needing privileged installation into system directories. It complements—rather than replaces—the host kernel and core C library.
 
@@ -26,9 +26,9 @@ This first article sets the stage by exploring the difference between **library 
 
 ---
 
-## What is a library registry?
+## What is a language-scoped package registry?
 
-A **library registry** is a centralized catalog of packages for a single language ecosystem. Examples include:
+A **language-scoped package registry** is a centralized catalog of packages for a single language ecosystem. Examples include:
 
 - **PyPI** (Python Package Index): source distributions (`sdist`) and binary wheels (`.whl`) for Python packages.
 - **npm**: registry of JavaScript/Node.js packages.
@@ -36,12 +36,14 @@ A **library registry** is a centralized catalog of packages for a single languag
 
 These registries share common traits:
 
-- They distribute **libraries**, not complete runtimes.
+- They distribute **language-scoped packages** (source dists and wheels). Wheels can bundle compiled extensions and some native libraries, but they don’t attempt to model an entire multi-language runtime or toolchain.
 - They rely on the **host system** to provide compilers, headers, and native dependencies.
 - Their metadata is scoped to one language (e.g., `install_requires` in Python).
 - They don’t aim to describe a full build environment.
 
 This works well for pure libraries. Installing a package like `requests` from PyPI via pip is trivial, as it has no system-level dependencies.
+
+**A note on wheels.** Wheels (`.whl`) can bundle compiled extensions and some native libs, but remain Python‑scoped: they don’t model a full multi‑language runtime, compilers, or cross‑language/system dependency metadata. Community work (e.g. [WheelNext](https://wheelnext.dev/)) is adding capabilities (better hardware/microarchitecture tags, symlink support, richer native metadata)—complementary to, not a replacement for, the broader environment modeling of conda packages.
 
 ---
 
@@ -51,11 +53,11 @@ Conda is fundamentally different. It is better understood as a **user-space dist
 
 - **Multi-language scope.** Conda packages include Python, R, C, C++, Fortran libraries, GPU runtimes, CLI tools, and even compilers.
 - **Prefix replacement.** Binaries and shared libraries inside a conda environment resolve against the environment’s prefix (`$PREFIX/...`), not `/usr/...` from the host. This is achieved through relocation (e.g. `rpath` / `runpath` settings, patched shebangs, and text/binary rewriting performed during build).
-- **Solver-driven consistency.** Conda (via the SAT-based dependency solver provided by `libmamba`) ensures all dependencies—across languages, **ABIs** ([Application Binary Interface](https://en.wikipedia.org/wiki/Application_binary_interface)), and platforms—work together coherently (see also [Boolean satisfiability](https://en.wikipedia.org/wiki/Boolean_satisfiability_problem)).
+- **Solver-driven consistency.** Conda package managers use SAT-based dependency solvers (e.g. `libmamba`, `rattler`) to ensure all dependencies—across languages, **ABIs** ([Application Binary Interface](https://en.wikipedia.org/wiki/Application_binary_interface)), and platforms—work together coherently (see also [Boolean satisfiability](https://en.wikipedia.org/wiki/Boolean_satisfiability_problem)).
 - **Build + runtime.** Recipes declare build/host/run phases so resulting packages accurately encode runtime and (when relevant) linked toolchain requirements.
 - **Portability.** Conda packages are built against the **oldest supported `glibc`** ([GNU C Library](https://www.gnu.org/software/libc/)) or corresponding macOS/Windows baselines so they remain **forward compatible** with newer OS versions (similar in spirit to Python’s [manylinux policy](https://packaging.python.org/en/latest/specifications/platform-compatibility-tags/#manylinux)).
 
-Put simply: conda packages model **distribution units**, not just language-scoped libraries.
+Put simply: conda packages model **distribution units** (self-contained, relocatable bundles of binaries, libraries, headers, data, and metadata), not just language-scoped libraries.
 
 ---
 
@@ -112,7 +114,7 @@ This forward-compatibility strategy is why conda environments are portable acros
 
 Conda is popular in the **Python ecosystem**, so many users encounter it as “that thing for installing numpy faster than pip.” But that framing hides its true nature:
 
-- **Pip** installs **Python libraries**.
+- **pip** (the Python package installer, defaulting to the PyPI index) installs **Python packages (sdists or wheels)**.
 - **Conda** installs **multi-language distro packages**—some of which happen to be Python libraries.
 
 The distinction matters: when you need compilers, BLAS, CUDA, or cross-language stacks, pip/npm can’t help you—but conda can.
