@@ -21,7 +21,7 @@ This section is a work in progress. These emoji can be used to identify status:
 ## Package Distribution Metadata
 
 - [📝 Names and package identifiers](./specifications/distribution/package-identifiers.md)
-- [🏗️ Versioning](./specifications/distribution/version.md)
+- [🏗️ Versioning](./specifications/distribution/versioning.md)
 - [🏗️ Dependency specifiers](./specifications/distribution/dependency-specifiers.md)
 
 ## Distributable and virtual packages
@@ -50,8 +50,8 @@ This section is a work in progress. These emoji can be used to identify status:
 
 ## Package Building
 
-- [📬 The `meta.yaml` file format](./specifications/building/meta-yaml.md)
-- [📝 The `recipe.yaml` file format](./specifications/building/recipe-yaml.md)
+- [📬 The `meta.yaml` file format](./specifications/recipes/meta-yaml.md)
+- [📝 The `recipe.yaml` file format](./specifications/recipes/recipe-yaml.md)
 
 ## Environment Sharing
 
