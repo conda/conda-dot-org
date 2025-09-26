@@ -38,6 +38,7 @@ This section is a work in progress. These emoji can be used to identify status:
 - [✅ Channel identifiers](./specifications/channels/channel-identifiers.md)
 - [📬 The channel interface](./specifications/channels/channel-interface.md)
 - [📬 Repodata](./specifications/channels/repodata.md)
+- [📬 Repodata patches](./specifications/channels/repodata-patches.md)
 - [📬 `channeldata.json`](./specifications/channels/channeldata.md)
 - [📝 Attestation and signing](./specifications/channels/package-signing.md)
 
