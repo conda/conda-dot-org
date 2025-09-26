@@ -17,7 +17,7 @@ conda packages that wish to create a shortcut at install time MUST provide a JSO
 - The JSON contents MUST pass schema validation (for `menuinst 2.x`).
 - The JSON file MUST be placed under `$PREFIX/Menu`.
 - The JSON filename MUST be `<package-name>.json`.
-  
+
 Note that packaging tools (e.g. `conda-build`) MUST check the above conditions are met when the package is  being created.
 
 ## menuinst 1.x
