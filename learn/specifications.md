@@ -9,52 +9,52 @@ More specifically, violations of a MUST or MUST NOT rule MUST result in an error
 :::
 
 :::info
-This section is a work in progress. These emoji can be used to identify status:
+This section is a work in progress. These codes can be used to identify status:
 
-- 📬 Pending standardization (no CEP available yet)
-- 🏗️ Standardization in progress (CEP being written / discussed)
-- 📝 Standardization finished, only needs to be summarized here (CEP approved)
-- ✅ Section finalized
+- _(status: pending)_: Pending standardization (no CEP available yet)
+- _(status: in progress)_: Standardization in progress (CEP being written / discussed)
+- _(status: ready)_: Standardization finished, ready to be summarized here (CEP approved)
+- _(status: done)_: Section standardized and written.
 
 :::
 
 ## Package Distribution Metadata
 
-- [📝 Names and package identifiers](./specifications/distribution/package-identifiers.md)
-- [🏗️ Versioning](./specifications/distribution/versioning.md)
-- [🏗️ Dependency specifiers](./specifications/distribution/dependency-specifiers.md)
+- [Names and package identifiers](./specifications/distribution/package-identifiers.md) _(status: ready)_
+- [Versioning](./specifications/distribution/versioning.md) _(status: in progress)_
+- [Dependency specifiers](./specifications/distribution/dependency-specifiers.md) _(status: in progress)_
 
 ## Distributable and virtual packages
 
 - Distributable packages:
-  - [📬 Overview of contents](./specifications/packages/contents.md)
-  - [📬 The `info/` folder](./specifications/packages/info.md)
-  - [📝 The `Menu/` directory](./specifications/packages/menu.md)
-  - [📬 File formats: `.tar.bz2` and `.conda`](./specifications/packages/file-formats.md)
-- [🏗️ Virtual packages](./specifications/virtual-packages.md)
+  - [Overview of contents](./specifications/packages/contents.md) _(status: pending)_
+  - [The `info/` folder](./specifications/packages/info.md) _(status: pending)_
+  - [The `Menu/` directory](./specifications/packages/menu.md) _(status: ready)_
+  - [File formats: `.tar.bz2` and `.conda`](./specifications/packages/file-formats.md) _(status: pending)_
+- [Virtual packages](./specifications/virtual-packages.md) _(status: in progress)_
 
 ## Channels
 
-- [📝 Channel identifiers](./specifications/channels/channel-identifiers.md)
-- [📬 The channel interface](./specifications/channels/channel-interface.md)
-- [📬 Repodata](./specifications/channels/repodata.md)
-- [📬 Repodata patches](./specifications/channels/repodata-patches.md)
-- [📬 `channeldata.json`](./specifications/channels/channeldata.md)
-- [📝 Attestation and signing](./specifications/channels/package-signing.md)
+- [Channel identifiers](./specifications/channels/channel-identifiers.md) _(status: ready)_
+- [The channel interface](./specifications/channels/channel-interface.md) _(status: pending)_
+- [Repodata](./specifications/channels/repodata.md) _(status: pending)_
+- [Repodata patches](./specifications/channels/repodata-patches.md) _(status: pending)_
+- [`channeldata.json`](./specifications/channels/channeldata.md) _(status: pending)_
+- [Attestation and signing](./specifications/channels/package-signing.md) _(status: ready)_
 
 ## Package Installation Metadata
 
-- [🏗️ The conda environment structure](./specifications/installation/environments.md)
-- [🏗️ Recording installed packages](./specifications/installation/installed-records.md)
-- [📝 Processing `Menu/*.json` items](./specifications/installation/menu.md)
+- [The conda environment structure](./specifications/installation/environments.md) _(status: in progress)_
+- [Recording installed packages](./specifications/installation/installed-records.md) _(status: in progress)_
+- [Processing `Menu/*.json` items](./specifications/installation/menu.md) _(status: ready)_
 
 ## Package Building
 
-- [📬 The `meta.yaml` file format](./specifications/recipes/meta-yaml.md)
-- [📝 The `recipe.yaml` file format](./specifications/recipes/recipe-yaml.md)
+- [The `meta.yaml` file format](./specifications/recipes/meta-yaml.md) _(status: pending)_
+- [The `recipe.yaml` file format](./specifications/recipes/recipe-yaml.md) _(status: ready)_
 
 ## Environment Sharing
 
-- [📝 Text spec input files](./specifications/exchange/text-spec.md)
-- [📝 `environment.yml` files](./specifications/exchange/environment-yml.md)
-- [📬 Lockfiles](./specifications/exchange/lockfiles.md)
+- [Text spec input files](./specifications/exchange/text-spec.md) _(status: ready)_
+- [`environment.yml` files](./specifications/exchange/environment-yml.md) _(status: ready)_
+- [Lockfiles](./specifications/exchange/lockfiles.md) _(status: pending)_
