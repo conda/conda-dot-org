@@ -8,6 +8,6 @@ This part of the ecosystem is not fully standardized yet.
 
 Some preliminary information can be found at:
 
-- https://docs.conda.io/projects/conda-build/en/25.7.x/resources/define-metadata.html
+- https://docs.conda.io/projects/conda-build/en/stable/resources/define-metadata.html
 - https://github.com/conda/ceps/blob/main/cep-0019.md
 :::
