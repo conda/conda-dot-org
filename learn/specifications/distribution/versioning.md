@@ -1,3 +1,7 @@
+---
+sidebar_position: 10
+---
+
 # Version ordering
 
 :::warning

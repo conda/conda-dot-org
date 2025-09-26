@@ -1,3 +1,7 @@
+---
+sidebar_position: 20
+---
+
 # Dependency specifiers
 
 This page discusses the `MatchSpec` grammar.

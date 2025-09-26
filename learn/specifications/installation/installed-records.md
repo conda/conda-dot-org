@@ -1,4 +1,8 @@
-# Installed package records
+---
+sidebar_position: 10
+---
+
+# Recording installed packages
 
 When a conda package is installed in a conda environment, a JSON document is placed in `conda-meta/`. The JSON document MUST be named like the source conda package (sans the extension), and subscribe to the following schema.
 

@@ -1,3 +1,7 @@
+---
+sidebar_position: 0
+---
+
 # Identifying channels
 
 A conda channel is defined as a URL where one can find one or more `repodata.json` files arranged

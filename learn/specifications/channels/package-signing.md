@@ -1,3 +1,6 @@
+---
+sidebar_position: 50
+---
 # Package signing
 
 - Signing packages

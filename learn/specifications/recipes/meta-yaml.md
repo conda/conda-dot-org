@@ -1,3 +1,6 @@
+---
+sidebar_position: 0
+---
 # `meta.yaml` (v0)
 
 - https://docs.conda.io/projects/conda-build/en/25.7.x/resources/define-metadata.html

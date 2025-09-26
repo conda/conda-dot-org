@@ -1,3 +1,7 @@
+---
+sidebar_position: 0
+---
+
 # Identifying packages
 
 ## Types of packages
@@ -23,7 +27,7 @@ Distributable package names MUST match the following case-insensitive regex:
 ^(([a-z0-9])|([a-z0-9_](?!_)))[._-]?([a-z0-9]+(\.|-|_|$))*$`
 ```
 
-Virtual package names MUST follow this regex: 
+Virtual package names MUST follow this regex:
 
 ```regex
 ^__[a-z0-9][._-]?([a-z0-9]+(\.|-|_|$))*$
@@ -38,7 +42,7 @@ Version strings are pending full standardization.
 :::
 
 Version strings MUST only consist of digits, periods, lowercase ASCII letters, underscores, plus
-symbols, and exclamation marks. 
+symbols, and exclamation marks.
 
 The maximum length of a version string MUST NOT exceed 64 characters.
 
