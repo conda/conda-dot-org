@@ -2,12 +2,6 @@
 
 This section aggregates all the _currently relevant_ interoperability specifications available in the conda ecosystem.
 
-:::note
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in the documents below are to be interpreted as described in [RFC2119](https://www.ietf.org/rfc/rfc2119.txt) when, and only when, they appear in all capitals, as shown here.
-
-More specifically, violations of a MUST or MUST NOT rule MUST result in an error. Violations of the rules specified by any of the other all-capital terms MAY result in a warning, at discretion of the implementation.
-:::
-
 :::info
 This section is a work in progress. These codes can be used to identify status:
 
@@ -16,6 +10,20 @@ This section is a work in progress. These codes can be used to identify status:
 - _(status: ready)_: Standardization finished, ready to be summarized here (CEP approved)
 - _(status: done)_: Section standardized and written.
 
+:::
+
+## The conda package lifecycle
+
+Since the specifications below assume a certain familiarity with conda packaging, here we offer a quick overview of how conda packages are created, distributed and used.
+
+_conda packages_ are compressed archives that ship compiled software ready to run on a given target machine. They are often built from source by aggregating dependency metadata and build scripts in a _recipe_. The resulting artifacts are usually served from _conda channels_ (e.g. `conda-forge`), which provide platform-specific subdirectories (_subdirs_), each with the aggregated metadata from the available packages (_repodata_).
+
+_conda clients_ take user requested _specifications_ (e.g. `python=3`) and query the platform-specific repodata from the configured channels to find out which available packages best satisfy the user request. The resulting artifacts are then downloaded, extracted and installed into its target location, a _conda environment_.
+
+:::note
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in the documents below are to be interpreted as described in [RFC2119](https://www.ietf.org/rfc/rfc2119.txt) when, and only when, they appear in all capitals, as shown here.
+
+More specifically, violations of a MUST or MUST NOT rule MUST result in an error. Violations of the rules specified by any of the other all-capital terms MAY result in a warning, at discretion of the implementation.
 :::
 
 ## Package Distribution Metadata
