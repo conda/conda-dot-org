@@ -1,5 +1,6 @@
 [
   "index",
+  "faq",
   {
     "type": "category",
     "label": "Specifications",
@@ -27,6 +28,5 @@
         "dirName": "ceps"
       }
     ]
-  },
-  "faq"
+  }
 ]
