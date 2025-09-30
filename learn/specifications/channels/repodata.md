@@ -8,7 +8,7 @@ This part of the ecosystem is not standardized yet.
 
 Some preliminary information can be found at:
 
-- https://docs.conda.io/projects/conda-build/en/stable/concepts/generating-index.html
+- https://github.com/conda/ceps/pull/135
 - `repodata.json` and its compressed versions
   - https://github.com/conda/ceps/blob/main/cep-0015.md
 - JLAP incremental updates (https://github.com/conda/ceps/pull/20)

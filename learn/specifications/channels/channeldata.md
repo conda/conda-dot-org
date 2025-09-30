@@ -4,9 +4,10 @@ sidebar_position: 30
 # `channeldata.json`
 
 :::note[Work in Progress]
-This part of the ecosystem is not standardized yet.
+This part of the ecosystem is not fully standardized yet.
 
 Some preliminary information can be found at:
 
-- https://docs.conda.io/projects/conda-build/en/stable/concepts/generating-index.html
+- https://github.com/conda/ceps/pull/135
+
 :::

@@ -8,5 +8,6 @@ This part of the ecosystem is not fully standardized yet.
 
 Some preliminary information can be found at:
 
-- https://docs.conda.io/projects/conda-build/en/stable/concepts/generating-index.html#repodata-patching
+- https://github.com/conda/ceps/pull/135
+
 :::
