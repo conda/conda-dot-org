@@ -16,7 +16,7 @@ chatgpt:
   image_url: /img/authors/openai.png
 dashagurova:
   name: Dasha Gurova
-  title: Open Source Community Manager
+  title: Product Manager, Conda CLI
   url: https://github.com/dashagurova
   image_url: https://github.com/dashagurova.png
 dholth:
@@ -69,3 +69,8 @@ wolfv:
   title: CEO of prefix.dev
   url: https://github.com/wolfv
   image_url: https://github.com/wolfv.png
+danyeaw:
+  name: Dan Yeaw
+  title: Engineering Manager, Conda Maintainer
+  url: https://github.com/danyeaw
+  image_url: https://github.com/danyeaw.png
