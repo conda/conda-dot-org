@@ -18,7 +18,7 @@ When people first encounter conda, the most common misconception is:
 
 The short answer: **no**.
 
-PyPI (and npm, RubyGems, Cargo, etc.) are **language-specific library registries**. The conda package ecosystem (installable with tools like conda, mamba, micromamba, or pixi), on the other hand, functions as a **multi-language, user-space distribution** that can assemble coherent runtime and build environments across programming languages, system libraries, compilers, and tools.
+The differences start with the package collections that these tools draw from. PyPI (and npm, RubyGems, Cargo, etc.) are **language-specific library registries**. The conda package ecosystem (installable with tools like conda, mamba, micromamba, or pixi), on the other hand, functions as a **multi-language, user-space distribution** that can assemble coherent runtime and build environments across programming languages, system libraries, compilers, and tools.
 
 (Definition) A **user-space distribution** is a curated, relocatable filesystem prefix containing interpreters, libraries, headers, data, and tooling that runs entirely without needing privileged installation into system directories. It complements—rather than replaces—the host kernel and core C library.
 
@@ -43,7 +43,7 @@ These registries share common traits:
 
 This works well for pure libraries. Installing a package like `requests` from PyPI via pip is trivial, as it has no system-level dependencies.
 
-**A note on wheels.** Wheels (`.whl`) can bundle compiled extensions and some native libs, but remain Python‑scoped: they don’t model a full multi‑language runtime, compilers, or cross‑language/system dependency metadata. Community work (e.g. [WheelNext](https://wheelnext.dev/)) is adding capabilities (better hardware/microarchitecture tags, symlink support, richer native metadata)—complementary to, not a replacement for, the broader environment modeling of conda packages.
+**A note on wheels.** Wheels (`.whl`) can bundle compiled extensions and some native libraries, but remain Python‑scoped: they don’t model a full multi‑language runtime, compilers, or cross‑language/system dependency metadata. Community work (e.g. [WheelNext](https://wheelnext.dev/)) is adding capabilities (better hardware/microarchitecture tags, symlink support, richer native metadata)—complementary to, not a replacement for, the broader environment modeling of conda packages.
 
 ---
 
@@ -55,13 +55,13 @@ Conda is fundamentally different. It is better understood as a **user-space dist
 - **Prefix replacement.** Binaries and shared libraries inside a conda environment resolve against the environment’s prefix (`$PREFIX/...`), not `/usr/...` from the host. This is achieved through relocation (e.g. `rpath` / `runpath` settings, patched shebangs, and text/binary rewriting performed during build).
 - **Solver-driven consistency.** Conda package managers use SAT-based dependency solvers (e.g. `libmamba`, `rattler`) to ensure all dependencies—across languages, **ABIs** ([Application Binary Interface](https://en.wikipedia.org/wiki/Application_binary_interface)), and platforms—work together coherently (see also [Boolean satisfiability](https://en.wikipedia.org/wiki/Boolean_satisfiability_problem)).
 - **Build + runtime.** Recipes declare build/host/run phases so resulting packages accurately encode runtime and (when relevant) linked toolchain requirements.
-- **Portability.** Conda packages are built against the **oldest supported `glibc`** ([GNU C Library](https://www.gnu.org/software/libc/)) or corresponding macOS/Windows baselines so they remain **forward compatible** with newer OS versions (similar in spirit to Python’s [manylinux policy](https://packaging.python.org/en/latest/specifications/platform-compatibility-tags/#manylinux)).
+- **Portability.** By convention, Conda packages are built against the **oldest supported `glibc`** ([GNU C Library](https://www.gnu.org/software/libc/)) or corresponding macOS/Windows baselines so they remain **forward compatible** with newer OS versions (similar in spirit to Python’s [manylinux policy](https://packaging.python.org/en/latest/specifications/platform-compatibility-tags/#manylinux)).
 
-Put simply: conda packages model **distribution units** (self-contained, relocatable bundles of binaries, libraries, headers, data, and metadata), not just language-scoped libraries.
+Put simply: conda packages model **distribution units** (self-contained, relocatable bundles of binaries, libraries, headers, data, and metadata), not just language-scoped libraries. It is more like a system package manager, such as apt, yum, or dnf, except that you don't need root to administer or run conda packages, and many different package configurations can be used simultaneously in different environments.
 
 ---
 
-### Not just binaries: FHS-like user space inside `$PREFIX`
+### Not just binaries: FHS-like user space inside environments
 
 Conda environments aren’t only `bin/` and `lib/`. Because the prefix behaves like a chroot-style, [FHS](https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard)-inspired root (subset only; no `/dev`, `/proc`, etc.), packages can also install:
 
