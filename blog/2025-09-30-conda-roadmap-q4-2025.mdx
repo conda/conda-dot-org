@@ -12,7 +12,7 @@ description: "The Q4 2025 conda CLI roadmap highlights improvements coming next 
 
 ---
 
-With any large open source project, dozens of pull requests and issues are always in flight, which can make it hard to see the bigger picture. Starting this quarter, we will publish regular roadmap updates to give you a clear view of what the [conda maintainers](https://github.com/orgs/conda/teams/conda-maintainers) team from Anaconda and Quansight, together with the broader community, is building and what you can expect.
+With any large open source project, dozens of pull requests and issues are always in flight, which can make it hard to see the bigger picture. Starting this quarter, we will publish regular roadmap updates to give you a clear view of what the [conda maintainers](https://github.com/conda/conda) team from Anaconda and Quansight, together with the broader community, is building and what you can expect.
 
 The [Q4 2025 roadmap](https://github.com/orgs/conda/projects/22) highlights the features we are focused on delivering this quarter and early next year. These priorities came directly from community feedback across GitHub, forums, and events, and the roadmap will continue to evolve as new needs emerge. Don’t see something specific on the roadmap? Let us know by [opening an issue](https://github.com/conda/conda/issues), or help us out by [submitting a contribution](https://github.com/conda/conda/blob/main/CONTRIBUTING.md) via a pull request!
 
@@ -21,13 +21,13 @@ The [Q4 2025 roadmap](https://github.com/orgs/conda/projects/22) highlights the 
 
 ## Q4 2025 Roadmap Priorities
 
-### More Consistency: Input File Handling Refactor
+### More Consistency: Dependency Definition Files
 
-**What we heard:** Conda supports different input files like `environment.yml` and `requirements.txt`, but behavior can feel inconsistent. Switching between formats or mixing them can cause confusion and errors.
+**What we heard:** Conda supports different ways to define dependencies via file including `environment.yml` and `requirements.txt`, but behavior can feel inconsistent across these different file types. Switching between formats or mixing them can cause confusion and errors.
 
-**What we are working on:** We are completing a refactor to unify **input file handling** under a plugin-based system. This will make conda’s behavior more consistent and create a cleaner foundation for supporting new formats in the future.
+**What we are working on:** We are completing a refactor to unify **dependency definition handling** under a plugin-based system. This will make conda’s behavior more consistent and create a cleaner foundation for supporting new formats in the future.
 
-**How you will benefit:** You will see more predictable behavior no matter which file type you start from, reducing surprises when switching between formats. For contributors, this refactor will make it easier to extend conda with new input formats, allowing the ecosystem to evolve more quickly.
+**How you will benefit:** You will see more predictable behavior no matter which file type you start from, reducing surprises when switching between formats. For contributors, this refactor will make it easier to extend conda with new input formats, allowing the ecosystem to evolve more quickly. For example, this lays the groundwork to suport defining conda dependencies in `pyproject.toml` in the future.
 
 ---
 
@@ -43,9 +43,9 @@ The [Q4 2025 roadmap](https://github.com/orgs/conda/projects/22) highlights the 
 
 ### Faster Performance: Sharded Repodata
 
-**What we heard:** Installing or updating packages can be slow because conda downloads a single large index of all available packages, even if you only need a small part. This leads to delays in local workflows, CI pipelines, and on slower networks.
+**What we heard:** Installing or updating packages can be slow because conda downloads a single large index of all available packages, even if you only need a small part. This affects users of [conda-forge](https://conda-forge.org) even more because that package index is especially large . This leads to delays in local workflows, CI pipelines, and on slower networks.
 
-**What we are working on:** We are implementing support for **sharded repodata**, as proposed and accepted in [Conda Enhancement Proposal (CEP) 16](https://conda.org/learn/ceps/cep-0016). Instead of fetching one massive file, conda will be able to download smaller, targeted shards of metadata.
+**What we are working on:** We are implementing support for **sharded repodata**, as proposed and accepted in [Conda Enhancement Proposal (CEP) 16](https://conda.org/learn/ceps/cep-0016). Instead of fetching one massive file, conda will be able to download smaller, targeted shards of metadata. This type of repodata fetching has already been implemented in the pixi package manager, and you can view the compelling improvements they have delivered in [this blog post](https://prefix.dev/blog/sharded_repodata).
 
 **How you will benefit:** Package installs and updates will complete faster, conda will feel more responsive in daily use, and automated workflows like CI will run more efficiently with reduced bandwidth costs.
 
@@ -55,7 +55,7 @@ The [Q4 2025 roadmap](https://github.com/orgs/conda/projects/22) highlights the 
 
 **What we heard:** Sometimes the package you need exists only on PyPI. Many users fall back on `pip install` inside a conda environment, but this approach often leads to dependency conflicts or broken environments that can take hours to fix.
 
-**What we are working on:** We are working on better integration with the PyPI ecosystem through the conda-pypi plugin. This work focuses on providing a safer way to use conda to access and install pure Python packages distributed as wheels within conda environments, while laying the foundation for broader and more native integration in the future.
+**What we are working on:** We are working on better integration with the PyPI ecosystem through the [conda-pypi](https://github.com/conda-incubator/conda-pypi) plugin. This work focuses on providing a safer way to use conda to access and install pure Python packages distributed as wheels within conda environments, while laying the foundation for broader and more native integration in the future.
 
 **How you will benefit:** This plugin will offer a safer path than mixing pip and conda directly, reducing environment breakage and making it easier to try packages that are not yet available on conda channels.
 
@@ -77,6 +77,6 @@ Conda is a community project, and these roadmap priorities reflect your input. H
 - **Join the conversation:** [Conda community calls](https://conda.org/community/calendar) are where we discuss priorities, propose solutions, and decide what matters most
 - **Connect with maintainers:** Find us on [Zulip](https://conda.zulipchat.com/) and the [Discourse forum](https://conda.discourse.group/) to troubleshoot, suggest features, or just learn more about our thinking
 - **Take the [Python packaging survey](https://anaconda.surveymonkey.com/r/py-package-2025):** Every response helps us better understand your needs
-- **[Contribute to conda](https://github.com/conda/conda/blob/main/CONTRIBUTING.md)** or even become a maintainer yourself!
+- **[Contribute to conda](https://docs.conda.io/projects/conda/en/latest/dev-guide/contributing.html)** or even become a maintainer yourself!
 
  Thank you for choosing conda and being part of the community.❤️ Your feedback helps us build an ecosystem that fits your needs.
