@@ -14,12 +14,6 @@ The September 2025 releases included updates to conda and conda-build! 🎉 Both
 
 ## Changes in conda [25.9.0](https://github.com/conda/conda/releases/tag/25.9.0)
 
-To update `conda` to the latest version, run:
-
-```bash
-conda install -n base conda=25.9.0
-```
-
 :::warning Special Announcement
 
 Following feedback from conda users last year about the pre-configuration of the conda code base to favor channels from Anaconda Inc, we've [finished removing](https://github.com/conda/conda/issues/14178) hardcoding Anaconda's channels as the default set of channels in the conda source code.
@@ -27,6 +21,12 @@ Following feedback from conda users last year about the pre-configuration of the
 It is now up to providers of the conda distributions, such as [miniforge](https://github.com/conda-forge/miniforge) or Anaconda (including miniconda), to pre-configure their preferred channels, e.g. by running the necessary `conda config --set channels` command.
 
 :::
+
+To update `conda` to the latest version, run:
+
+```bash
+conda install -n base conda=25.9.0
+```
 
 **Notable Changes:**
 
