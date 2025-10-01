@@ -80,10 +80,7 @@ const config = {
         },
         items: [
           {
-            // type=doc entries need a docId that corresponds to
-            // a filename under docs/, without extension
-            type: "doc",
-            docId: "faq",
+            to: "/learn",
             position: "left",
             label: "Learn",
           },
