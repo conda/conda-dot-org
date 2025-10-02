@@ -33,8 +33,8 @@ conda install -n base conda=25.9.0
 - Added two new health checks to `conda doctor`:
     - Check for ill-formed pinned file.
     - Check whether file locking is supported.
-- Prevent renaming an envrironmnet currently listed as the `default_activation_env`.
-- Added a new environment specifier, `cep-24`. This is a stricter version of the `environment.yml` format and can be used when creating an environment from a file, e.g., `conda env create --file FILE --environment-specifier cep-24`.
+- Prevent renaming an environment currently listed as the `default_activation_env`.
+- Added a new environment specifier, `cep-24`. This is a stricter version of the `environment.yml` format that enforces [specific requirements](/learn/ceps/cep-0024) and can be used when creating an environment from a file, e.g., `conda env create --file FILE --environment-specifier cep-24`.
 - Update environment model to support multiple platforms. This allows `conda export --format FORMAT` to support exporting multiple platforms at once.
 - Annotate frozen environments in `conda env list`.
 - Various deprecations.
