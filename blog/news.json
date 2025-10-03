@@ -1,5 +1,20 @@
 [
   {
+    "title": "September 2025 Releases",
+    "slug": "2025-10-01-september-releases",
+    "authors": [
+      "kenodegard"
+    ],
+    "tags": [
+      "announcement",
+      "conda",
+      "conda-build"
+    ],
+    "description": "conda 25.9.0 and conda-build 25.9.0 have been released! \ud83c\udf89\n",
+    "image": "img/blog/2025-10-01-september-releases/banner.png",
+    "date": "2025-10-01T00:00:00"
+  },
+  {
     "title": "July 2025 Releases",
     "slug": "2025-08-05-july-releases",
     "authors": [
@@ -65,21 +80,5 @@
     "description": "conda 25.1.0, conda-build 25.1.1, and conda-libmamba-solver 25.1.0 have been released! \ud83c\udf89\n",
     "image": "img/blog/2025-01-22-january-releases/banner.png",
     "date": "2025-01-22T00:00:00"
-  },
-  {
-    "title": "November 2024 Releases",
-    "slug": "2024-12-05-november-releases",
-    "authors": [
-      "kenodegard"
-    ],
-    "tags": [
-      "announcement",
-      "conda",
-      "conda-build",
-      "conda-libmamba-solver"
-    ],
-    "description": "conda 24.11.0, conda-build 24.11.2, and conda-libmamba-solver 24.11.1 have been released! \ud83c\udf89\n",
-    "image": "img/blog/2024-12-05-november-releases/banner.png",
-    "date": "2024-12-05T00:00:00"
   }
 ]
