@@ -16,7 +16,7 @@ The September 2025 releases included updates to conda and conda-build! 🎉 Both
 
 :::warning Special Announcement
 
-Following feedback from conda users last year about the pre-configuration of the conda code base to favor channels from Anaconda Inc., we've [finished removing](https://github.com/conda/conda/issues/14178) the hardcoding of Anaconda's channels as the default set of channels in the conda source code.
+Following feedback from conda users last year about the pre-configuration of the conda code base to favor channels from Anaconda Inc., we [finished removing](https://github.com/conda/conda/issues/14178) the hardcoding of Anaconda's channels as the default set of channels in the conda source code.
 
 It is now up to providers of the conda distributions, such as [miniforge](https://github.com/conda-forge/miniforge) or Anaconda (including miniconda), to pre-configure their preferred channels, e.g. by running the necessary `conda config --set channels` command.
 
@@ -33,11 +33,11 @@ conda install --name base conda=25.9.0
 - Added two new health checks to `conda doctor`:
     - Check for ill-formed pinned file.
     - Check whether file locking is supported.
-- Prevent renaming an environment currently listed as the `default_activation_env`.
+- Prevented renaming an environment currently listed as the `default_activation_env`.
 - Added a new environment specifier, `cep-24`. This is a stricter version of the `environment.yml` format that enforces [specific requirements](/learn/ceps/cep-0024) and can be used when creating an environment from a file, e.g., `conda env create --file FILE --environment-specifier cep-24`.
-- Update environment model to support multiple platforms. This allows `conda export --format FORMAT` to support exporting multiple platforms at once.
-- Annotate frozen environments in `conda env list`.
-- Various deprecations.
+- Updated environment model to support multiple platforms. This allows `conda export --format FORMAT` to support exporting multiple platforms at once.
+- Annotated frozen environments in `conda env list`.
+- Various deprecations were made.
 
 Check out the full changelog for more: [25.9.0](https://github.com/conda/conda/releases/tag/25.9.0)
 
@@ -57,7 +57,7 @@ Check out the full changelog for more: [25.9.0](https://github.com/conda/conda-b
 
 ## We ❤️ Our Community
 
-Altogether, we had 7 new contributors this release cycle; thank you to all of our open source community members for helping making these improvements possible.
+Altogether, we had 7 new contributors this release cycle; thank you to all of our open source community members for helping make these improvements possible.
 
 - [@zeyugao](https://github.com/zeyugao) made their first contribution in [conda#14660](https://github.com/conda/conda/pull/14660)
 - [@jcazevedo](https://github.com/jcazevedo) made their first contribution in [conda#15140](https://github.com/conda/conda/pull/15140)
