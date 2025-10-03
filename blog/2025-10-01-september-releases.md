@@ -25,7 +25,7 @@ It is now up to providers of the conda distributions, such as [miniforge](https:
 To update `conda` to the latest version, run:
 
 ```bash
-conda install -n base conda=25.9.0
+conda install --name base conda=25.9.0
 ```
 
 **Notable Changes:**
@@ -46,7 +46,7 @@ Check out the full changelog for more: [25.9.0](https://github.com/conda/conda/r
 To update `conda-build` to the latest version, run:
 
 ```bash
-conda install -n base conda-build=25.9.0
+conda install --name base conda-build=25.9.0
 ```
 
 **Notable Changes:**
