@@ -109,16 +109,16 @@ const config = {
             title: "Community",
             items: [
               {
-                label: "Discourse Forum",
-                href: "https://conda.discourse.group/",
-              },
-              {
-                label: "Matrix Chat",
-                href: "https://matrix.to/#/#conda:matrix.org",
+                label: "Zulip Chat",
+                href: "https://conda.zulipchat.com",
               },
               {
                 label: "Mastodon",
                 href: "https://fosstodon.org/@conda",
+              },
+              {
+                label: "Bluesky",
+                href: "https://bsky.app/profile/conda.org",
               },
               {
                 label: "LinkedIn",
