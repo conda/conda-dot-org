@@ -14,8 +14,8 @@ const config = {
   favicon: "img/favicon.ico",
   markdown: {
     hooks: {
-      onBrokenMarkdownLinks: "warn"
-    }
+      onBrokenMarkdownLinks: "warn",
+    },
   },
 
   // GitHub pages deployment config.
