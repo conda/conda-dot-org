@@ -11,8 +11,12 @@ const config = {
   url: "https://conda.org",
   baseUrl: "/",
   onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: "warn"
+    }
+  },
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
