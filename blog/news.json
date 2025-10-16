@@ -1,20 +1,5 @@
 [
   {
-    "title": "Conda CLI Roadmap Updates: Q4, 2025",
-    "slug": "conda-roadmap-q4-2025",
-    "authors": [
-      "dashagurova",
-      "danyeaw"
-    ],
-    "tags": [
-      "conda",
-      "roadmap"
-    ],
-    "description": "The Q4 2025 conda CLI roadmap highlights improvements coming next year, including lockfiles support, sharded repodata support, and better integration with PyPI.\n",
-    "image": "img/blog/conda-roadmap-q4-2025/banner.jpg",
-    "date": "2025-09-30T00:00:00"
-  },
-  {
     "title": "September 2025 Releases",
     "slug": "2025-10-01-september-releases",
     "authors": [
@@ -28,6 +13,21 @@
     "description": "conda 25.9.0 and conda-build 25.9.0 have been released! \ud83c\udf89\n",
     "image": "img/blog/2025-10-01-september-releases/banner.png",
     "date": "2025-10-01T00:00:00"
+  },
+  {
+    "title": "Conda CLI Roadmap Updates: Q4, 2025",
+    "slug": "conda-roadmap-q4-2025",
+    "authors": [
+      "dashagurova",
+      "danyeaw"
+    ],
+    "tags": [
+      "conda",
+      "roadmap"
+    ],
+    "description": "The Q4 2025 conda CLI roadmap highlights improvements coming next year, including lockfiles support, sharded repodata support, and better integration with PyPI.\n",
+    "image": "img/blog/conda-roadmap-q4-2025/banner.jpg",
+    "date": "2025-09-30T00:00:00"
   },
   {
     "title": "July 2025 Releases",
