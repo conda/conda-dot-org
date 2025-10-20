@@ -10,9 +10,9 @@
       "conda",
       "roadmap"
     ],
-    "description": "The Q4 2025 conda CLI roadmap highlights improvements coming next year, including lockfiles support, sharded repodata support, and better integration with PyPI.\n",
+    "description": "The Q4 2025 conda CLI roadmap highlights improvements coming next year, including sharded repodata support, and improving integration with PyPI ecosystem.\n",
     "image": "img/blog/conda-roadmap-q4-2025/banner.jpg",
-    "date": "2025-10-16T00:00:00"
+    "date": "2025-10-20T00:00:00"
   },
   {
     "title": "September 2025 Releases",
