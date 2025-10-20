@@ -1,5 +1,7 @@
 ---
 title: Our Discourse instance is now read-only
+slug: 2025-10-05-discourse-read-only
+image: img/blog/2025-10-05-discourse-read-only/banner.png
 authors: [jaimergp]
 tags: [announcement]
 description: |
