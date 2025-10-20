@@ -72,7 +72,7 @@ match this regex:
 The maximum length of a file extension MUST NOT exceed 16 characters.
 
 > The conda ecosystem currently recognizes two artifact extensions: `tar.bz2` and `conda`,
-versioned `v1` and `v2` respectively. See [file formats](./file-formats.md) for more information.
+versioned `v1` and `v2` respectively. See [file formats](../packages/file-formats.md) for more information.
 
 ## Distribution strings
 
