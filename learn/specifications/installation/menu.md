@@ -5,12 +5,12 @@ sidebar_position: 30
 # Processing `Menu/*.json` items
 
 :::info
-Refer to [The `Menu/` directory](../distribution/menu.md) for more details on these documents. This page details how they must be processed at install time.
+Refer to [The `Menu/` directory](../packages/menu.md) for more details on these documents. This page details how they must be processed at install time.
 :::
 
 ## Linking
 
-conda clients MUST process matching `Menu/*.json` documents. Placeholders MUST be rendered as indicated in [The `Menu/` directory](../distribution/menu.md).
+conda clients MUST process matching `Menu/*.json` documents. Placeholders MUST be rendered as indicated in [the `Menu/` directory specification](../packages/menu.md).
 
 Each platform MUST place the menu artifacts in these target locations:
 
