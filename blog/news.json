@@ -15,6 +15,19 @@
     "date": "2025-10-20T00:00:00"
   },
   {
+    "title": "Our Discourse instance is now read-only",
+    "slug": "2025-10-05-discourse-read-only",
+    "image": "img/blog/2025-10-05-discourse-read-only/banner.png",
+    "authors": [
+      "jaimergp"
+    ],
+    "tags": [
+      "announcement"
+    ],
+    "description": "The conda steering council has decided to archive the conda Discourse forum.",
+    "date": "2025-10-05T00:00:00"
+  },
+  {
     "title": "September 2025 Releases",
     "slug": "2025-10-01-september-releases",
     "authors": [
