@@ -1,5 +1,33 @@
 [
   {
+    "title": "Conda CLI Roadmap Updates: Q4, 2025",
+    "slug": "conda-roadmap-q4-2025",
+    "authors": [
+      "dashagurova",
+      "danyeaw"
+    ],
+    "tags": [
+      "conda",
+      "roadmap"
+    ],
+    "description": "The Q4 2025 conda CLI roadmap highlights improvements coming next year, including sharded repodata support, and improving integration with PyPI.\n",
+    "image": "img/blog/conda-roadmap-q4-2025/banner.jpg",
+    "date": "2025-10-20T00:00:00"
+  },
+  {
+    "title": "Our Discourse instance is now read-only",
+    "slug": "2025-10-05-discourse-read-only",
+    "image": "img/blog/2025-10-05-discourse-read-only/banner.png",
+    "authors": [
+      "jaimergp"
+    ],
+    "tags": [
+      "announcement"
+    ],
+    "description": "The conda steering council has decided to archive the conda Discourse forum.",
+    "date": "2025-10-05T00:00:00"
+  },
+  {
     "title": "September 2025 Releases",
     "slug": "2025-10-01-september-releases",
     "authors": [
@@ -47,38 +75,5 @@
     "description": "conda 25.5.0, conda-build 25.5.0, conda-libmamba-solver 25.4.0 and conda-index 0.6.1 have been released! \ud83c\udf89\n",
     "image": "img/blog/2025-05-27-may-releases/banner.png",
     "date": "2025-05-27T00:00:00"
-  },
-  {
-    "title": "March 2025 Releases",
-    "slug": "2025-03-20-march-releases",
-    "authors": [
-      "kenodegard"
-    ],
-    "tags": [
-      "announcement",
-      "conda",
-      "conda-build",
-      "conda-libmamba-solver",
-      "conda-index",
-      "constructor"
-    ],
-    "description": "conda 25.3.1, conda-build 25.3.2, conda-libmamba-solver 25.3.0, conda-index 0.6.0, and constructor 3.11.3 have been released! \ud83c\udf89\n",
-    "image": "img/blog/2025-03-20-march-releases/banner.png",
-    "date": "2025-03-20T00:00:00"
-  },
-  {
-    "title": "January 2025 Releases",
-    "slug": "2025-01-22-january-releases",
-    "authors": [
-      "forgottenprogramme"
-    ],
-    "tags": [
-      "announcement",
-      "conda",
-      "conda-build"
-    ],
-    "description": "conda 25.1.0, conda-build 25.1.1, and conda-libmamba-solver 25.1.0 have been released! \ud83c\udf89\n",
-    "image": "img/blog/2025-01-22-january-releases/banner.png",
-    "date": "2025-01-22T00:00:00"
   }
 ]
