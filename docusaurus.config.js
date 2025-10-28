@@ -11,7 +11,6 @@ const config = {
   url: "https://conda.org",
   baseUrl: "/",
   onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
 
   // GitHub pages deployment config.
@@ -38,6 +37,9 @@ const config = {
   markdown: {
     format: "detect",
     mermaid: true,
+    hooks: {
+      onBrokenMarkdownLinks: "warn",
+    },
   },
 
   themes: ["@docusaurus/theme-mermaid"],
@@ -80,10 +82,7 @@ const config = {
         },
         items: [
           {
-            // type=doc entries need a docId that corresponds to
-            // a filename under docs/, without extension
-            type: "doc",
-            docId: "faq",
+            to: "/learn",
             position: "left",
             label: "Learn",
           },
@@ -112,16 +111,16 @@ const config = {
             title: "Community",
             items: [
               {
-                label: "Discourse Forum",
-                href: "https://conda.discourse.group/",
-              },
-              {
-                label: "Matrix Chat",
-                href: "https://matrix.to/#/#conda:matrix.org",
+                label: "Zulip Chat",
+                href: "https://conda.zulipchat.com",
               },
               {
                 label: "Mastodon",
                 href: "https://fosstodon.org/@conda",
+              },
+              {
+                label: "Bluesky",
+                href: "https://bsky.app/profile/conda.org",
               },
               {
                 label: "LinkedIn",
