@@ -48,7 +48,11 @@ These registries share common traits:
 
 This works well for pure libraries. Installing a package like `requests` from PyPI via pip is trivial, as it has no system-level dependencies.
 
-**A note on wheels.** Wheels (`.whl`) can bundle compiled extensions and some native libraries, but remain Python‑scoped: they don’t model a full multi‑language runtime, compilers, or cross‑language/system dependency metadata. Community work (e.g. [WheelNext](https://wheelnext.dev/)) is adding capabilities (better hardware/microarchitecture tags, symlink support, richer native metadata)—complementary to, not a replacement for, the broader environment modeling of conda packages.
+:::note
+Wheels (`.whl`) can bundle compiled extensions and some native libraries, but remain Python‑scoped: they don’t model a full multi‑language runtime, compilers, or cross‑language/system dependency metadata.
+
+Community work (e.g. [WheelNext](https://wheelnext.dev/)) is adding capabilities (better hardware/microarchitecture tags, symlink support, richer native metadata)—complementary to, not a replacement for, the broader environment modeling of conda packages.
+:::
 
 ---
 
