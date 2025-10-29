@@ -19,15 +19,21 @@ This is the first article in a three-part series exploring the fundamental diffe
 
 When people first encounter conda, the most common misconception is:
 
-> *“Isn’t conda just another Python package manager, like pip?”*
+> ### “Isn’t conda just another Python package manager, like pip?”
 
 The short answer: **no**.
 
-The differences start with the package collections that these tools draw from. PyPI (and npm, RubyGems, Cargo, etc.) are **language-specific library registries**. The conda package ecosystem (installable with tools like conda, mamba, micromamba, or pixi), on the other hand, functions as a **multi-language, user-space distribution** that can assemble coherent runtime and build environments across programming languages, system libraries, compilers, and tools.
+The differences start with the package collections that these tools draw from. PyPI (and npm, RubyGems, Cargo, etc.) are **language-specific library registries**.
 
-(Definition) A **user-space distribution** is a curated, relocatable filesystem prefix containing interpreters, libraries, headers, data, and tooling that runs entirely without needing privileged installation into system directories. It complements—rather than replaces—the host kernel and core C library.
+The conda package ecosystem (installable with tools like conda, mamba, micromamba, or pixi), on the other hand, functions as a **multi-language, user-space distribution** that can assemble coherent runtime and build environments across programming languages, system libraries, compilers, and tools.
 
-This first article sets the stage by exploring the difference between **library registries** and **distributions**. To use an analogy: **pip is like a car stereo**—it requires a system to plug into—whereas **conda is like the whole car**, a complete, self-contained system.
+:::tip[Definition]
+A **user-space distribution** is a curated, relocatable filesystem prefix containing interpreters, libraries, headers, data, and tooling that runs entirely without needing privileged installation into system directories. It complements—rather than replaces—the host kernel and core C library.
+:::
+
+This first article sets the stage by exploring the difference between **library registries** and **distributions**.
+
+To use an analogy: **pip is like a car stereo**—it requires a system to plug into—whereas **conda is like the whole car**, a complete, self-contained system.
 
 ---
 
@@ -48,7 +54,7 @@ These registries share common traits:
 
 This works well for pure libraries. Installing a package like `requests` from PyPI via pip is trivial, as it has no system-level dependencies.
 
-:::note
+:::note[A note on wheels]
 Wheels (`.whl`) can bundle compiled extensions and some native libraries, but remain Python‑scoped: they don’t model a full multi‑language runtime, compilers, or cross‑language/system dependency metadata.
 
 Community work (e.g. [WheelNext](https://wheelnext.dev/)) is adding capabilities (better hardware/microarchitecture tags, symlink support, richer native metadata)—complementary to, not a replacement for, the broader environment modeling of conda packages.
@@ -61,12 +67,16 @@ Community work (e.g. [WheelNext](https://wheelnext.dev/)) is adding capabilities
 Conda is fundamentally different. It is better understood as a **user-space distribution**, not just a package manager:
 
 - **Multi-language scope.** Conda packages include Python, R, C, C++, Fortran libraries, GPU runtimes, CLI tools, and even compilers.
-- **Prefix replacement.** Binaries and shared libraries inside a conda environment resolve against the environment’s prefix (`$PREFIX/...`), not `/usr/...` from the host. This is achieved through relocation (e.g. `rpath` / `runpath` settings, patched shebangs, and text/binary rewriting performed during build).
+- **Prefix replacement.** Binaries and shared libraries inside a conda environment resolve against the environment’s prefix (`$PREFIX/...`), not `/usr/...` from the host.
+
+   This is achieved through relocation (e.g. `rpath` / `runpath` settings, patched shebangs, and text/binary rewriting performed during build).
 - **Solver-driven consistency.** Conda package managers use SAT-based dependency solvers (e.g. `libmamba`, `rattler`) to ensure all dependencies—across languages, **ABIs** ([Application Binary Interface](https://en.wikipedia.org/wiki/Application_binary_interface)), and platforms—work together coherently (see also [Boolean satisfiability](https://en.wikipedia.org/wiki/Boolean_satisfiability_problem)).
 - **Build + runtime.** Recipes declare build/host/run phases so resulting packages accurately encode runtime and (when relevant) linked toolchain requirements.
 - **Portability.** By convention, Conda packages are built against the **oldest supported `glibc`** ([GNU C Library](https://www.gnu.org/software/libc/)) or corresponding macOS/Windows baselines so they remain **forward compatible** with newer OS versions.
 
-Put simply: conda packages model **distribution units** (self-contained, relocatable bundles of binaries, libraries, headers, data, and metadata), not just language-scoped libraries. It is more like a system package manager, such as apt, yum, or dnf, except that you don't need root to administer or run conda packages, and many different package configurations can be used simultaneously in different environments.
+Put simply: conda packages model **distribution units** (self-contained, relocatable bundles of binaries, libraries, headers, data, and metadata), not just language-scoped libraries.
+
+It is more like a system package manager, such as apt, yum, or dnf, except that you don't need root to administer or run conda packages, and many different package configurations can be used simultaneously in different environments.
 
 ---
 
@@ -126,7 +136,9 @@ Conda is popular in the **Python ecosystem**, so many users encounter it as “t
 - **pip** (the Python package installer, defaulting to the PyPI index) installs **Python packages (sdists or wheels)**.
 - **Conda** installs **multi-language distro packages**—some of which happen to be Python libraries.
 
-The distinction matters: compilers, BLAS, and system-level dependencies are crucial to environment consistency, even when users don't directly think about them. pip and npm hope these dependencies are already available on your system; conda ensures they're present, compatible, and consistent across your entire environment. This distinction becomes most obvious when you need explicit control—such as choosing a specific BLAS implementation or building cross-language stacks—where pip/npm simply can't help you.
+The distinction matters: compilers, BLAS, and system-level dependencies are crucial to environment consistency, even when users don't directly think about them. pip and npm hope these dependencies are already available on your system.
+
+Conda ensures they're present, compatible, and consistent across your entire environment. This distinction becomes most obvious when you need explicit control—such as choosing a specific BLAS implementation or building cross-language stacks—where pip/npm simply can't help you.
 
 ---
 
