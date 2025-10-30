@@ -42,7 +42,7 @@ Here’s a critical difference in how these systems treat the platform C runtime
 - **Nix:** Provides its own glibc in the Linux `/nix/store`; on macOS it integrates with the platform libc while still isolating other dependencies.
 - **Pip/npm:** Distribute language-scoped artifacts only; assume system toolchains and the C runtime are already present.
 
-Conda’s approach keeps environments lighter while ensuring compatibility via conservative build baselines and virtual packages that encode host facts.
+**Conda packages'** approach keeps environments lighter while ensuring compatibility via conservative build baselines and virtual packages that encode host facts.
 
 To ensure portability, conda packages are built against the **oldest supported libc/OS runtime baselines**, making them forward compatible across a wide range of newer systems.
 
@@ -52,7 +52,7 @@ Other user-space package managers, like [spack](https://spack.io/) and [homebrew
 
 ### Shared techniques with Nix: prefix-relocatability and patching
 
-Both **conda** and **Nix** instrument builds so binaries are **prefix-aware** and relocatable:
+Both **conda packages** and **Nix** instrument builds so binaries are **prefix-aware** and relocatable:
 
 - **[RPATH](https://en.wikipedia.org/wiki/Rpath)/[RUNPATH](https://en.wikipedia.org/wiki/Rpath) patching** so [ELF](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) binaries load from `$PREFIX/lib`
 - **[Shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)) rewriting** so scripts execute with the environment's interpreters
@@ -65,13 +65,13 @@ The result is the same idea in both worlds: build products that **bind to their 
 
 ### Why not shipping `glibc` keeps envs small (and portable)
 
-Conda’s decision **not** to ship `glibc` (or the OS C runtime) has big consequences:
+**Conda's design philosophy—not shipping `glibc`** (or the OS C runtime)—has big consequences:
 
-1. **No base OS duplication.** Containers/Nix closures ship `libc`, `ld-linux`, locales/NSS, and friends; that’s tens to hundreds of MB before your app starts. Conda **reuses the host `libc`**, so environments don’t carry that weight.
+1. **No base OS duplication.** Containers/Nix closures ship `libc`, `ld-linux`, locales/NSS, and friends; that's tens to hundreds of MB before your app starts. **Conda packages** reuse the host `libc`, so environments don't carry that weight.
 
 2. **Fewer cascading deps.** Pulling in `glibc` drags a constellation of tightly-coupled runtime pieces (dynamic loader, NSS, timezone/locale data). Leaving that to the host avoids inflating **every** environment.
 
-3. **Security & updates.** Host OS updates to `glibc` apply automatically across conda envs. Conda enforces compatibility using **virtual packages** (e.g., `__glibc>=2.17`) and by **building against the oldest supported `glibc`** for forward compatibility.
+3. **Security & updates.** Host OS updates to `glibc` apply automatically across conda envs. **The conda package managers** (conda, mamba, pixi) enforce compatibility using **virtual packages** (e.g., `__glibc>=2.17`) and by **building against the oldest supported `glibc`** for forward compatibility.
 
 4. **Still safe and predictable.** The solver includes the host fact (`__glibc`, `__osx`, `__win`) so you cannot accidentally solve to an incompatible set.
 
@@ -93,7 +93,7 @@ Let’s place them side by side:
 | **Install permissions** | User-level (may need system headers) | User-level (shared package cache) | Root or rootless modes | Single-user or multi-user |
 | **Forward compatibility** | Not guaranteed | Built against oldest supported libc baseline | Depends on base image refresh cadence | Immutable reproducible closure (no forward-compat promise) |
 
-Conda's scope is not limited to scientific computing. Channels also package **systems and DevOps tooling** (e.g. `ripgrep`, `terraform`, `helm`) alongside Python/R/C++ stacks, as we'll explore in Part 3. This breadth is part of what makes conda a true multi-language distribution.
+**The conda ecosystem's** scope is not limited to scientific computing. Channels also package **systems and DevOps tooling** (e.g. `ripgrep`, `terraform`, `helm`) alongside Python/R/C++ stacks, as we'll explore in Part 3. This breadth is part of what makes conda a true multi-language distribution.
 
 *One subtle but important distinction:* each conda package archive contains an `info/` directory with rich metadata (index metadata, rendered recipe, build inputs, hashes). That embedded provenance exceeds what a wheel or an image layer stores inline. (We’ll explore how tooling leverages this in Part 3.)
 
@@ -101,19 +101,19 @@ Conda's scope is not limited to scientific computing. Channels also package **sy
 
 ## Conda’s “middle path”
 
-Conda occupies a **sweet spot** in the spectrum:
+**The conda ecosystem** occupies a **sweet spot** in the spectrum:
 
-- Compared to **pip/npm**: conda handles **native dependencies** (BLAS, CUDA, compilers, system libs) and multi-language stacks. Pip/npm cannot.
-- Compared to **Docker**: conda environments are **lighter, faster to create, and usable without root privileges**, while still providing consistency. You can still put a conda env inside a Docker container when you need isolation.
-- Compared to **Nix**: conda is **more approachable and cross-platform**. Nix provides stronger whole-system reproducibility, but requires system-wide setup and a steeper learning curve. Conda works out of the box on Linux, macOS, and Windows.
+- Compared to **pip/npm**: **conda packages** handle **native dependencies** (BLAS, CUDA, compilers, system libs) and multi-language stacks. Pip/npm cannot.
+- Compared to **Docker**: **conda environments** are **lighter, faster to create, and usable without root privileges**, while still providing consistency. You can still put a conda env inside a Docker container when you need isolation.
+- Compared to **Nix**: **the conda ecosystem** is **more approachable and cross-platform**. Nix provides stronger whole-system reproducibility, but requires system-wide setup and a steeper learning curve. Conda works out of the box on Linux, macOS, and Windows.
 
-Conda is thus best seen as a **user-space distro that balances power and accessibility**.
+**The conda ecosystem** is thus best seen as a **user-space distro that balances power and accessibility**.
 
 ---
 
 ## Portability via virtual packages
 
-Conda also has a unique mechanism: **virtual packages**. These reflect facts about your host machine and influence the solve:
+**The conda package managers** (conda, mamba, pixi) also have a unique mechanism: **virtual packages**. These reflect facts about your host machine and influence the solve:
 
 - `__glibc` → glibc version (Linux)
 - `__osx` / `__win` → macOS or Windows versions
@@ -127,7 +127,7 @@ These aren’t installed files—they’re **ephemeral host facts injected into 
 
 ## Takeaway
 
-Conda sits in the **middle of the packaging spectrum**—not a language registry like PyPI/npm, not a container runtime like Docker, and not a full system package manager like Nix, but something uniquely useful in between.
+**The conda ecosystem** sits in the **middle of the packaging spectrum**—not a language registry like PyPI/npm, not a container runtime like Docker, and not a full system package manager like Nix, but something uniquely useful in between.
 
 Here's why:
 
