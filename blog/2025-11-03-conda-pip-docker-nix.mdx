@@ -93,7 +93,7 @@ Let’s place them side by side:
 | **Install permissions** | User-level (may need system headers) | User-level (shared package cache) | Root or rootless modes | Single-user or multi-user |
 | **Forward compatibility** | Not guaranteed | Built against oldest supported libc baseline | Depends on base image refresh cadence | Immutable reproducible closure (no forward-compat promise) |
 
-Conda’s scope is not limited to scientific computing. Channels also package **systems and DevOps tooling** (e.g. `ripgrep`, `fd-find`, `helm`, `terraform`, `opentofu`, `packer`, `helm-docs`, `chart-testing`) alongside Python/R/C++ stacks. This breadth is part of what makes conda a true multi-language distribution.
+Conda's scope is not limited to scientific computing. Channels also package **systems and DevOps tooling** (e.g. `ripgrep`, `terraform`, `helm`) alongside Python/R/C++ stacks, as we'll explore in Part 3. This breadth is part of what makes conda a true multi-language distribution.
 
 *One subtle but important distinction:* each conda package archive contains an `info/` directory with rich metadata (index metadata, rendered recipe, build inputs, hashes). That embedded provenance exceeds what a wheel or an image layer stores inline. (We’ll explore how tooling leverages this in Part 3.)
 
