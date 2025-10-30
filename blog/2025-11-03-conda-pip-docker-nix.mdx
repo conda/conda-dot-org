@@ -46,6 +46,8 @@ Conda’s approach keeps environments lighter while ensuring compatibility via c
 
 To ensure portability, conda packages are built against the **oldest supported libc/OS runtime baselines**, making them forward compatible across a wide range of newer systems.
 
+Other user-space package managers, like [spack](https://spack.io/) and [homebrew](https://brew.sh/), also make their own decisions on packaging `glibc` depending on the platform, etc. and thus incur similar tradeoffs with respect to environment sizes.
+
 ---
 
 ### Shared techniques with Nix: prefix-relocatability and patching
