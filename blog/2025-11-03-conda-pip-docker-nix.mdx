@@ -87,7 +87,7 @@ Let’s place them side by side:
 |--------|---------|-------|--------|-----|
 | **Scope** | Language-specific libraries | Multi-language user-space distribution | Full OS filesystem image | Whole-system functional distribution |
 | **Unit of publish** | Wheel/sdist (library) | Distro package (build + run metadata) | Layered image | Derivation output (hashed closure) |
-| **Binary compatibility** | Assumes host system deps | Ships user-space deps (except libc on Linux) | Bundles its own libc/base userspace | Ships (Linux) its own glibc + all deps (macOS uses system libc) |
+| **Binary compatibility** | Assumes host system dependencies | Ships user-space dependencies (except libc on Linux) | Bundles its own libc/base userspace | Ships (Linux) its own glibc + all dependencies (macOS uses system libc) |
 | **Solver** | Python dependency resolver (backtracking) | Cross-language SAT-based solver (resolvo/libmamba/libsolv) | No dependency solver (layer composition) | Deterministic functional evaluation (derivation closure) |
 | **Provenance** | sdist + wheel metadata | Recipe, config, rendered metadata (`info/`) | Dockerfile + image history | Declarative recipes (derivations) |
 | **Install permissions** | User-level (may need system headers) | User-level (shared package cache) | Root or rootless modes | Single-user or multi-user |
