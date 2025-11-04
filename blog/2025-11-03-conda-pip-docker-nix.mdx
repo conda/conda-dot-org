@@ -71,7 +71,7 @@ The result is the same idea in both worlds: build products that **bind to their 
 
 2. **Fewer cascading dependencies.** Pulling in `glibc` drags a constellation of tightly-coupled runtime pieces (dynamic loader, NSS, timezone/locale data). Leaving that to the host avoids inflating **every** environment.
 
-3. **Security & updates.** Host OS updates to `glibc` apply automatically across conda envs. **The conda package managers** (conda, mamba, pixi) enforce compatibility using **virtual packages** (e.g., `__glibc>=2.17`) and by **building against the oldest supported `glibc`** for forward compatibility.
+3. **Security & updates.** Host OS updates to `glibc` apply automatically across conda environments. **The conda package managers** (conda, mamba, pixi) enforce compatibility using **virtual packages** (e.g., `__glibc>=2.17`) and by **building against the oldest supported `glibc`** for forward compatibility.
 
 4. **Still safe and predictable.** The solver includes the host fact (`__glibc`, `__osx`, `__win`) so you cannot accidentally solve to an incompatible set.
 
