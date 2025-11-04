@@ -13,7 +13,7 @@ const features = [
     content: (
       <>
         Our packaging ecosystem allows you to manage applications and libraries
-        written in any language, like C, C++, Java, Rust or Go.
+        written in any language, like C, C++, Java, Rust, or Go.
       </>
     ),
   },
