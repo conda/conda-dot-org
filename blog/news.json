@@ -13,6 +13,7 @@
       "comparison"
     ],
     "description": "Part 2 of the 'Conda Is Not PyPI' series, placing conda among pip, Docker, and Nix and explaining its middle-path design.",
+    "image": "img/blog/2025-11-04-conda-pip-docker-nix/banner.png",
     "date": "2025-11-04T00:00:00"
   },
   {
