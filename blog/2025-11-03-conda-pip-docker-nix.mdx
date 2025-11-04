@@ -69,7 +69,7 @@ The result is the same idea in both worlds: build products that **bind to their 
 
 1. **No base OS duplication.** Containers/Nix closures ship `libc`, `ld-linux`, locales/NSS, and friends; that's tens to hundreds of MB before your app starts. **Conda packages** reuse the host `libc`, so environments don't carry that weight.
 
-2. **Fewer cascading deps.** Pulling in `glibc` drags a constellation of tightly-coupled runtime pieces (dynamic loader, NSS, timezone/locale data). Leaving that to the host avoids inflating **every** environment.
+2. **Fewer cascading dependencies.** Pulling in `glibc` drags a constellation of tightly-coupled runtime pieces (dynamic loader, NSS, timezone/locale data). Leaving that to the host avoids inflating **every** environment.
 
 3. **Security & updates.** Host OS updates to `glibc` apply automatically across conda envs. **The conda package managers** (conda, mamba, pixi) enforce compatibility using **virtual packages** (e.g., `__glibc>=2.17`) and by **building against the oldest supported `glibc`** for forward compatibility.
 
