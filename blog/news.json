@@ -1,6 +1,6 @@
 [
   {
-    "title": "Conda in the Packaging Spectrum: From Pip to Docker to Nix",
+    "title": "Conda in the Packaging Spectrum: From pip to Docker to Nix",
     "slug": "conda-pip-docker-nix",
     "authors": [
       "dbast",
@@ -12,7 +12,7 @@
       "distribution",
       "comparison"
     ],
-    "description": "Part 2 of the 'Conda Is Not PyPI' series\u2014placing conda among pip, Docker, and Nix and explaining its middle-path design.",
+    "description": "Part 2 of the 'Conda Is Not PyPI' series, placing conda among pip, Docker, and Nix and explaining its middle-path design.",
     "date": "2025-11-04T00:00:00"
   },
   {
