@@ -13,7 +13,7 @@
       "comparison"
     ],
     "description": "Part 2 of the 'Conda Is Not PyPI' series\u2014placing conda among pip, Docker, and Nix and explaining its middle-path design.",
-    "date": "2025-11-03T00:00:00"
+    "date": "2025-11-04T00:00:00"
   },
   {
     "title": "Conda \u2260 PyPI: Why Conda Is More Than a Package Manager",
