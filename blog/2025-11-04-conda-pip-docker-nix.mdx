@@ -57,7 +57,7 @@ Both **conda packages** and **Nix** instrument builds so binaries are **prefix-a
 - **[RPATH](https://en.wikipedia.org/wiki/Rpath)/[RUNPATH](https://en.wikipedia.org/wiki/Rpath) patching** so [ELF](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) binaries load from `$PREFIX/lib`
 - **[Shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)) rewriting** so scripts execute with the environment's interpreters
 - **[Mach-O](https://en.wikipedia.org/wiki/Mach-O) (macOS) fix-ups** (`install_name_tool`) for `LC_LOAD_DYLIB`/`LC_ID_DYLIB`
-- **ELF surgery via [`patchelf`](https://github.com/NixOS/patchelf)** *(the tool originated in the Nix ecosystem and is widely used by `conda-build`)*
+- **ELF surgery via [`patchelf`](https://github.com/NixOS/patchelf)** *(the tool originated in the Nix ecosystem and is widely used by `conda-build` and `rattler-build`)*
 
 The result is the same idea in both worlds: build products that **bind to their own prefix**, making environments movable and reproducible. Unlike conda’s goal of relocatable prefixes, Nix intentionally uses content-hashed, fixed store paths to guarantee purity; relocation is not a design objective there.
 
