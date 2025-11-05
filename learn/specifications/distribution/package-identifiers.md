@@ -8,8 +8,8 @@ sidebar_position: 0
 
 The conda ecosystem distinguishes between two types of packages:
 
-- Distributable package names: represented by a concrete, downloadable, extractable conda artifact.
-- Virtual package names: not backed by any concrete artifact. They only exist on the client side.
+- Distributable packages: represented by a concrete, downloadable, extractable conda artifact.
+- Virtual packages not backed by any concrete artifact. They only exist on the client side.
 
 ## Package names
 
