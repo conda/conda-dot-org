@@ -16,7 +16,7 @@ Text spec files use plain text to specify one package requirement per line. Line
 
 Some conda clients tend to include a comment line specifying the platform the file was written for. This line often follows the syntax `# platform: {SUBDIR}`, where `{SUBDIR}` is a platform identifier like `linux-64` or `osx-arm64`. Other field comments like the version of the generator tool may be found, such as `# conda version: 24.11.0`. These lines are not required, but implementers might choose to parse them if found for logging or verification purposes.
 
-There are two flavors of this input file: explicit and not explicit.
+There are two flavors of this input file: explicit and non-explicit.
 
 ### Explicit input files
 
@@ -38,7 +38,7 @@ When an explicit input file is processed, the conda client SHOULD NOT invoke a s
 
 ### Non-explicit input files
 
-In the absence of an `@EXPLICIT` line, the file is considered regular or not explicit. Each line will encode a `MatchSpec`-compatible string. The solver SHOULD be invoked and, as such, topological sorting is not required.
+In the absence of an `@EXPLICIT` line, the file is considered non-explicit. Each line will encode a `MatchSpec`-compatible string. The solver SHOULD be invoked and, as such, topological sorting is not required.
 
 ## History
 
