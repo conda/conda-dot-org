@@ -8,7 +8,7 @@ sidebar_position: 10
 
 The `environment.yml` file format was introduced by `conda env`. It has been traditionally referred
 to as "the YAML input file", but other YAML files exist in the ecosystem now. To avoid confusion,
-we will only use the term `environment.yml`. Do note that the actual filename of an
+we will only use the term `environment.yml`. Note that the actual filename of an
 input file using this format might be a different one (e.g. `env.yml`, `my-env.yaml`).
 
 ## Specification
@@ -19,7 +19,7 @@ conda environment. The core standard recognizes five top-level keys:
 - `name`: The preferred name for the environment.
 - `prefix`: The preferred full path to the environment. Often ignored.
 - `dependencies`: List of package specifications that MUST be installed in the new environment.
-- `channels`: conda channels that will be used to resolve the dependencies.
+- `channels`: Conda channels that will be used to resolve the dependencies.
 - `variables`: Environment variables that SHOULD be added to the `conda-meta/state` file in the
   resulting environment.
 
@@ -45,7 +45,7 @@ SHOULD be used in the same document.
 
 ### Other top-level keys
 
-Additional top-level keys can be present, but they MUST be ignored and the user SHOULD receive an
+Additional top-level keys can be present, but they MUST be ignored, and the user SHOULD receive an
 informative warning about them when the conda client does not support them.
 
 ## Schema
@@ -90,7 +90,7 @@ unknown sections.
 Optional, `list[str]`.
 
 These are the conda channels that will be queried to solve the requirements added in
-`dependencies`. They can be expressed with names, URLs and local paths.
+`dependencies`. They can be expressed with names, URLs, and local paths.
 
 If not specified, the conda client MUST use the default configuration. When specified, these
 channels MUST be used to populate the channel list passed to the solver. The default channel
@@ -113,12 +113,12 @@ equivalent, so they can be set upon environment activation.
 
 Optional, `list[str]`.
 
-Platforms for which the environment must be solved. Mostly used by tools that generate lockfiles
+Platforms for which the environment must be solved. Mostly used by tools that generate lock files
 without installing to a prefix on the running machine. Each string MUST belong to the set of valid
 `subdirs`, with one exception: `noarch` MUST be rejected as a valid platform value.
 
 In the absence of the field, the single value MUST be assumed to correspond to a user-specified
-value, falling back to the running platform value . For example, running on Linux x86_64 the
+value, falling back to the running platform value. For example, running on Linux x86_64 the
 `platforms` would default to `[linux-64]`.
 
 ### `category`
@@ -126,7 +126,7 @@ value, falling back to the running platform value . For example, running on Linu
 Optional, `str`.
 
 A free-form field where users can annotate the type of dependencies handled in the environment
-file. For example, `dev` or `test`.  Mostly used by tools that generate lockfiles.
+file. For example, `dev` or `test`.  Mostly used by tools that generate lock files.
 
 ### Preprocessing selectors
 
