@@ -19,7 +19,7 @@ The base URL for the arbitrary location of a repodata file is defined as:
 with `<scheme>`, `<authority>` and `<path>` defined by [RFC
 3986](https://datatracker.ietf.org/doc/html/rfc3986#section-3.2).
 
-Taken the channel definition above, the base URL without trailing slashes is thus:
+Given the channel definition above, the base URL without trailing slashes is thus:
 
 ```text
 <scheme>://[<authority>][/<path>/][/label/<label name>]
