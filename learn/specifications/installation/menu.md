@@ -20,18 +20,18 @@ Linux            | `.desktop` file   | `~/.local/share/applications` | `/usr/loc
 macOS            | `.app` directory | `~/Applications` | `/Applications` | <br>
 Windows          | `.lnk` file | `{{ menu_name }}` directory inside Start Menu, Desktop, and/or Quick Launch | Start Menu | These locations are customizable and configured in the Windows registry.
 
-- On Linux, little needs to be done because XDG delegates the responsibility to the desktop
+- On Linux, little else needs to be done because XDG delegates the responsibility to the desktop
   manager. The implementer only needs to create the `.desktop` file and adjust/add the menu XML
   file(s).
-- On macOS, the shortcut is actually an `.app` directory. Implementers must follow Apple's guidelines.
-- On Windows, `.lnk` files are created with the Windows API. File type and URL protocol association
-  is done in the [Windows
+- On macOS, the shortcut is an `.app` directory. Implementers must follow Apple's guidelines.
+- On Windows, `.lnk` files are created with the Windows API. File type and URL protocol associations
+  are done in the [Windows
   registry](https://learn.microsoft.com/en-us/windows/win32/shell/fa-file-types).
 
 ## Unlinking
 
-When a package is removed, the file artifacts MUST be deleted too. If changes were done in other
-resources (XML files on Linux, Registry on Windows), these MUST be undone too.
+When a package is removed, the file artifacts MUST be deleted too. If changes were made to other
+resources (XML files on Linux, Registry on Windows), these MUST also be undone.
 
 ## History
 
