@@ -56,13 +56,13 @@ That provenance is what enables **conda packages'** **auditable reproducibility*
 
 Reproducibility is only half the story: you also need **automation** to keep environments fresh.
 
-**Lockfiles: the foundation for reliability and reproducibility.** A lockfile captures exact package versions, hashes, and metadata at a point in time. This means you can rebuild your environment bit-for-bit years later, protecting against supply chain changes. Lockfiles provide three critical benefits:
+**Lockfiles: the foundation for reliability and reproducibility.** A conda lockfile captures exact versions of your entire runtime stack: Python/R interpreters, compilers, BLAS, CUDA, system libraries, and all packages (not just Python packages like poetry or uv.lock do). This means you can rebuild your environment bit-for-bit years later, protecting against supply chain changes. Lockfiles provide three critical benefits:
 
 1. **Reproducibility**: Rebuild identical environments across time, teams, and machines.
 2. **Supply chain security**: Locked hashes verify package integrity; you know exactly what you're installing.
 3. **Reliability**: No surprises from solver changes or package updates; your environment stays stable until you explicitly update it.
 
-For scientific projects, this is essential: lockfiles ensure your 2024 research remains reproducible in 2027 (or 2032).
+For scientific projects, this is essential: lockfiles ensure your 2024 research remains reproducible in 2027 (or 2032). Because the entire runtime is locked (not just application code), you can faithfully recreate the exact computational environment years later.
 
 While conda already has basic lockfile support, the ecosystem is actively standardizing lockfile formats via [Conda Enhancement Proposals (CEPs)](https://github.com/conda/ceps). This ongoing effort enables different tools to support interoperable, standardized lockfile formats aligned across the entire ecosystem:
 
@@ -93,19 +93,29 @@ This speed is crucial for the iterative workflow described above: when Renovate 
 
 ---
 
-## The layering model: conda + pip/npm
+## The layering model: OS, conda, and language registries
 
-**Conda environments** can be layered intelligently:
+Conda fits into a complete 3-layer packaging stack:
 
-1. **Base layer: conda packages.**
-   Provides Python, R, C/C++ libs, GPU runtimes, compilers, and system-level tools. Built against the oldest supported `glibc`/OS runtime for forward compatibility.
+1. **OS layer: System package managers (apt, yum, etc.)**
+   Managed via base operating system or container base images (e.g., `ubuntu:24.04`). Provides the kernel, core C library (`glibc` on Linux), and fundamental system utilities. This layer is fixed when you choose your base image.
 
-2. **Application layer: pip/npm.**
-   Use pip (Python) or npm (JavaScript) on top to install application-level libraries, especially pure-language packages that don't introduce new compiled dependencies.
+2. **Distribution layer: Conda packages**
+   Provides Python, R, C/C++ libraries, GPU runtimes, compilers, and system-level tools—all solved together via a SAT-based solver. Built against the oldest supported OS runtime for forward compatibility. This is where the "distribution" concept from Parts 1 and 2 comes into practice.
 
-This layering model gives the best of both worlds:
-- The **robust foundation** of the conda ecosystem's distribution-level solving.
-- The **fast iteration** of language registries at the top.
+3. **Language registry layer: pip/npm**
+   Use pip (Python) or npm (JavaScript) on top to install application-level libraries, especially pure-language packages that don't introduce new compiled dependencies. Fast iteration for the final mile of your app.
+
+**Conda environments** leverage all three layers intelligently:
+
+- **Container/VM** provides the fixed OS baseline (layer 1)
+- **Conda** solves for multi-language coherence and system dependencies (layer 2)
+- **pip/npm** handles language-specific, pure-library iteration (layer 3)
+
+This layering model gives you the best of all worlds:
+- The **stability and platform guarantees** of a pinned base OS
+- The **robust, multi-language solving** of the conda distribution system
+- The **fast iteration and ecosystem breadth** of language registries
 
 > *Related reading:*
 > See [“Deploying Conda Environments in (Docker) Containers — How to do it Right”](https://uwekorn.com/2021/03/01/deploying-conda-environments-in-docker-how-to-do-it-right.html) by Uwe Korn. It shows best practices for combining a lean OS image (“Docker base”) with a Conda-layer, optimizing container size, using lockfiles, and trimming unnecessary files, all without compromising reproducibility.
