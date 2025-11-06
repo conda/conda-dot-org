@@ -87,11 +87,11 @@ Most operating system distributions (Debian, Ubuntu, Fedora) use a fixed-version
 
 Conda takes a fundamentally different approach: it functions as a **rolling distribution** across all platforms (Linux, macOS, Windows) with constantly updated binary packages. New versions of libraries are released continuously, and the entire ecosystem evolves without waiting for major version releases.
 
-**The magic: migration infrastructure.** When a new, binary-incompatible version of a core library (like a new GCC compiler or C++ standard library) is released, conda's infrastructure automatically rebuilds all dependent packages in the correct order. This creates a gradual transition through the entire dependency graph by replacing one "plank" at a time. As one community member describes it, an "ultimate Ship of Theseus," where armies of bots constantly rebuild related packages, one dependency at a time, in the order they depend on each other.
+**The magic: migration infrastructure.** When a new, binary-incompatible version of a core library (like a new GCC compiler or C++ standard library) is released, conda's infrastructure automatically rebuilds all dependent packages in the correct order. This creates a gradual transition through the entire dependency graph by replacing one "plank" at a time. As one community member describes it, an "[ultimate Ship of Theseus](https://en.wikipedia.org/wiki/Ship_of_Theseus)," where armies of bots constantly rebuild related packages, one dependency at a time, in the order they depend on each other.
 
-This continuous evolution is why major channels like conda-forge are constantly being rebuilt as new versions of core libraries get released. It's also why conda environments can stay up-to-date while maintaining ABI compatibility across different glibc versions on Linux or different OS versions on macOS and Windows (something traditional distros can't easily do).
+This continuous evolution is why major channels like conda-forge are constantly being rebuilt as new versions of core libraries get released. It's also why conda environments can stay up-to-date while maintaining [ABI](https://en.wikipedia.org/wiki/Application_binary_interface) compatibility across different glibc versions on Linux or different OS versions on macOS and Windows (something traditional distros can't easily do).
 
-**Why this requires industrial-grade solvers.** This continuous rolling model is why conda needs powerful constraint resolvers like libmamba or resolvo. Every install must query an enormous heap of past and present packages to determine which versions can work together today. Early conda users remember this as the primary complaint: installation took a long time. These concerns have substantially improved with modern solvers, and further improvements (like sharded repodata to reduce metadata downloads) are coming soon.
+**Why this requires industrial-grade solvers.** This continuous rolling model is why conda needs powerful constraint resolvers like libmamba or resolvo. Every install must query an enormous heap of past and present packages to determine which versions can work together today using [SAT-based](https://en.wikipedia.org/wiki/Boolean_satisfiability_problem) algorithms. Early conda users remember this as the primary complaint: installation took a long time. These concerns have substantially improved with modern solvers, and further improvements (like sharded repodata to reduce metadata downloads) are coming soon.
 
 This rolling distribution model is one of conda's core strengths: you get the stability and coherence of a curated distribution system combined with the ability to stay current with upstream innovations. It's how conda environments can evolve safely over years while keeping dependencies fresh and secure.
 
@@ -99,7 +99,7 @@ This rolling distribution model is one of conda's core strengths: you get the st
 
 ### Footprint and velocity in CI/HPC/dev
 
-Not shipping `glibc` and friends lowers **cold-start cost**: creating, caching, and syncing environments is faster (and cheaper). On CI and HPC:
+Not shipping `glibc` and friends lowers **cold-start cost**: creating, caching, and syncing environments is faster (and cheaper). On CI and [HPC](https://en.wikipedia.org/wiki/High-performance_computing) (High-Performance Computing):
 
 - Smaller artifacts → quicker cache restores and less network churn
 - Faster **conda package managers** solves/installs → shorter feedback loops enabling rapid testing
