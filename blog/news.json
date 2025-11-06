@@ -12,7 +12,7 @@
       "automation",
       "distribution"
     ],
-    "description": "Part 3 of the 'Conda Is Not PyPI' series\u2014how conda enables reproducibility, automation, and layered workflows.",
+    "description": "Part 3 of the 'Conda Is Not PyPI' series\u2014how conda enables reproducibility, automation, layered workflows, and rolling distribution.",
     "date": "2025-11-11T00:00:00"
   },
   {
