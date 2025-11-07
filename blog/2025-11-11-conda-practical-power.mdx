@@ -21,7 +21,7 @@ Now we turn to what makes conda practical and powerful: **reproducibility, autom
 
 Conda packages are designed for **traceability and rebuildability**:
 
-- **Recipes included.** Each conda package embeds the **rendered recipe (`meta.yaml`)** and build scripts under `info/recipe`. You can trace exactly how a binary was produced.
+- **Recipes included.** Each conda package embeds the **rendered recipe** (`meta.yaml` or the newer `recipe.yaml` format) and build scripts under `info/recipe`. You can trace exactly how a binary was produced.
 - **Source provenance.** Packages include upstream source URLs, checksums, and often the exact Git commit SHA.
 - **Build environments captured.** Unlike `sdist` or wheels, conda recipes describe not just Python dependencies, but the **entire build environment**: compilers, linkers, BLAS, CUDA, etc.
 - **Cross-platform parity.** The same recipe can target Linux, macOS, and Windows, with platform-appropriate builds.
@@ -34,7 +34,7 @@ This means you can always answer the question: *"Where did this binary come from
 
 Every **conda package** includes an **`info/` sub-archive** with rich metadata:
 
-- **Original recipe files** (`meta.yaml`, build/host/run sections, scripts)
+- **Original recipe files** (`meta.yaml` or `recipe.yaml`, build/host/run sections, scripts)
 - **Rendered recipe** → concrete versions + variants actually used in the build
 - **Source details** → upstream URLs, checksums, commit SHAs
 - **Channel configuration** (`conda_build_config.yaml` values in effect)
