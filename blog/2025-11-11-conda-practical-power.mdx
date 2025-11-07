@@ -58,6 +58,10 @@ Reproducibility is only half the story: you also need **automation** to keep env
 
 **Lockfiles: the foundation for reliability and reproducibility.** A conda lockfile captures exact versions of your entire runtime stack: Python/R interpreters, compilers, BLAS, CUDA, system libraries, and all packages (not just Python packages like poetry or uv.lock do). This means you can rebuild your environment bit-for-bit years later, protecting against supply chain changes. Lockfiles provide three critical benefits:
 
+:::tip[What is a lockfile?]
+A **lockfile** is a machine-generated record that pins every dependency to a specific version and cryptographic hash. Unlike `environment.yml` (which specifies version ranges and allows flexibility), a lockfile records the exact versions that were resolved and verified to work together. When you commit a lockfile to version control, you're capturing a reproducible snapshot of your entire environment at a point in time. Lockfiles enable reproducibility, auditing, and forensic security investigations because every package's provenance is locked immutably.
+:::
+
 1. **Reproducibility**: Rebuild identical environments across time, teams, and machines.
 2. **Supply chain security**: Locked hashes verify package integrity and bind all embedded metadata (recipes, sources, build info) immutably to each package. If a supply chain attack occurs or metadata is manipulated, the hash changes immediately, providing forensic detection. You know exactly what you installed and can trace its provenance.
 3. **Reliability**: No surprises from solver changes or package updates; your environment stays stable until you explicitly update it.
@@ -86,6 +90,10 @@ Together, lockfiles and Renovate enable **iterative development with safety nets
 Most operating system distributions (Debian, Ubuntu, Fedora) use a fixed-version model: each release has a defined lifecycle, and packages within that version remain largely unchanged (except for security patches). This provides stability but means users must perform major version upgrades to get newer software.
 
 Conda takes a fundamentally different approach: it functions as a **rolling distribution** across all platforms (Linux, macOS, Windows) with constantly updated binary packages. New versions of libraries are released continuously, and the entire ecosystem evolves without waiting for major version releases.
+
+:::note[Two distribution models]
+**Fixed-release** (like Ubuntu 24.04): stable but requires major upgrades to stay current. **Rolling**: fresh and up-to-date but unpredictable without tooling. **Conda combines both**: lockfiles ensure predictability while migration infrastructure keeps the entire ecosystem current and safe.
+:::
 
 **The magic: migration infrastructure.** When a new, binary-incompatible version of a core library (like rebuilding everything depending on OpenSSL once v4.0.0 comes out in April 2026) is released, conda's infrastructure automatically rebuilds all dependent packages in the correct order. This creates a gradual transition through the entire dependency graph by replacing one "plank" at a time. As one community member describes it, an "[ultimate Ship of Theseus](https://en.wikipedia.org/wiki/Ship_of_Theseus)," where armies of bots constantly rebuild related packages, one dependency at a time, in the order they depend on each other.
 
