@@ -142,7 +142,7 @@ This layering model gives you the best of all worlds:
 - The **fast iteration and ecosystem breadth** of language registries
 
 > *Related reading:*
-> See ["Deploying Conda Environments in (Docker) Containers: How to do it Right"](https://uwekorn.com/2021/03/01/deploying-conda-environments-in-docker-how-to-do-it-right.html) by Uwe Korn. It shows best practices for combining a lean OS image ("Docker base") with a Conda-layer, optimizing container size, using lockfiles, and trimming unnecessary files, all without compromising reproducibility.
+> See ["Deploying Conda Environments in (Docker) Containers: How to do it Right"](https://uwekorn.com/2021/03/01/deploying-conda-environments-in-docker-how-to-do-it-right.html) by Uwe Korn, or the equivalent for pixi users, ["Shipping conda environments to production using pixi"](https://tech.quantco.com/blog/pixi-production) by Pavel Zwerschke. Both show best practices for using lockfiles, optimizing container size with lean OS images, and maintaining reproducibility across conda and pixi workflows.
 >
 > This workflow aligns cleanly with the model we've been describing: **conda packages** providing the distribution layer, Docker providing the minimal OS (including `glibc`), and smart layering + metadata ensuring portability and efficiency.
 
