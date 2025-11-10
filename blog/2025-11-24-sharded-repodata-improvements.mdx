@@ -18,7 +18,7 @@ import Plot from '@site/src/components/Plot';
 
 How are we doing this? With a new feature called "sharded repodata",
 that improves the overall speed of conda when using the [conda-forge](https://conda-forge.org)
-channel. This month we're announcing the beta release of this feature, and in this post, we'll talk 
+channel. This month we're announcing the beta release of this feature, and in this post, we'll talk
 about how you can try it out, how it came to be, and most importantly how much faster this makes
 conda.
 
@@ -37,7 +37,7 @@ conda config --set plugins.use_sharded_repodata=true
 ## Background and context
 
 In this section, we provide some context around why we decided to develop this feature. We
-think it'll help you understand the performance metrics better, but if you already know 
+think it'll help you understand the performance metrics better, but if you already know
 the ins and outs of how conda stores and uses metadata about its packages, feel free to skip
 ahead to the <a href="#performance-improvements">Performance improvements</a> section.
 
@@ -49,9 +49,9 @@ small database containing all package metadata for a particular channel.
 
 ### What's wrong with how it currently works?
 
-Historically, all of the package metadata has been stored in a single file, and when the channel is 
+Historically, all of the package metadata has been stored in a single file, and when the channel is
 relatively small in size (e.g. Anaconda's "main" channel) this works pretty well. But, for larger
-channels like conda-forge, this has meant longer and longer download times for users as this 
+channels like conda-forge, this has meant longer and longer download times for users as this
 channel has continued to grow over the years.
 
 ### How was this fixed?
@@ -99,7 +99,7 @@ We used a special, experimental **conda-forge-sharded** channel because at the t
 profiling, sharded repodata was not available on conda-forge
 :::
 
-Furthermore, we also ran our comparison using a **cold** cache where nothing was present in conda's 
+Furthermore, we also ran our comparison using a **cold** cache where nothing was present in conda's
 cache and everything was fetched via network requests and a **warm** cache where very few if any
 network requests were necessary.
 
@@ -169,13 +169,13 @@ Below are the comparisons between traditional and sharded fetching measuring **t
 #### Key takeaways
 
 - Best improvements seen in **warm** cache fetching with an overall **50% speed-up**
-- For **cold** cache scenarios, sharded repodata fetching still provides users with 
+- For **cold** cache scenarios, sharded repodata fetching still provides users with
   a **four second speed-up**
 
 :::info
 The nature of how shards are stored also means that the cache itself is invalidated less
 (see [CEP-16](https://conda.org/learn/ceps/cep-0016#repodata-shard) for more information).
-This means that conda-forge users will use the "warm" cache scenario more and 
+This means that conda-forge users will use the "warm" cache scenario more and
 will spend less time downloading repodata to install the packages they want.
 :::
 

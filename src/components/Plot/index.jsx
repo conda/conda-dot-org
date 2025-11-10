@@ -1,5 +1,5 @@
-import React from 'react';
-import BrowserOnly from '@docusaurus/BrowserOnly';
+import React from "react";
+import BrowserOnly from "@docusaurus/BrowserOnly";
 
 /**
  * A wrapper component for Plotly charts that works with Docusaurus SSG.
@@ -16,7 +16,7 @@ export default function Plot({ data, layout, config, style, ...rest }) {
     <BrowserOnly fallback={<div>Loading chart...</div>}>
       {() => {
         // Dynamic import of Plotly to avoid SSR issues
-        const PlotlyComponent = require('react-plotly.js').default;
+        const PlotlyComponent = require("react-plotly.js").default;
 
         // Default responsive layout
         const defaultLayout = {
@@ -33,8 +33,8 @@ export default function Plot({ data, layout, config, style, ...rest }) {
         };
 
         const defaultStyle = {
-          width: '100%',
-          height: '100%',
+          width: "100%",
+          height: "100%",
           ...style,
         };
 
