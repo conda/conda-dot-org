@@ -14,7 +14,7 @@ In [Part 2](./2025-11-04-conda-pip-docker-nix.mdx), we placed conda in the broad
 
 Now we turn to what makes conda practical and powerful: **reproducibility, automation, layered workflows, and rolling distribution**.
 
-Understanding conda's theoretical advantages is one thing; seeing how they translate into real-world benefits is another. In this final article, we explore how conda's design enables teams to build reliable, maintainable software environments that scale from personal projects to enterprise systems.
+Understanding conda's theoretical advantages is one thing. Seeing how they translate into real-world benefits is another. In this final article, we explore how conda's design enables teams to build reliable, maintainable software environments that scale from personal projects to enterprise systems.
 
 We'll cover how conda packages encode provenance, how lockfiles ensure reproducibility across time and teams, and how intelligent layering with pip/npm gives you the best of both worlds.
 
@@ -93,7 +93,7 @@ This means you can rebuild your environment bit-for-bit years later, protecting 
 
 1. **Reproducibility**: Rebuild identical environments across time, teams, and machines.
 2. **Supply chain security**: Locked hashes verify package integrity and bind all embedded metadata (recipes, sources, build info) immutably to each package. If a supply chain attack occurs or metadata is manipulated, the hash changes immediately, providing forensic detection. You know exactly what you installed and can trace its provenance.
-3. **Reliability**: No surprises from solver changes or package updates; your environment stays stable until you explicitly update it.
+3. **Reliability**: No surprises from solver changes or package updates. Your environment stays stable until you explicitly update it.
 
 For scientific projects, this is essential. Lockfiles preserve your computational environment over time: as long as the locked packages remain available on their channels, you can recreate the exact environment years later. Because the entire runtime is locked (not just application code), your 2024 research environment can be faithfully reconstructed in 2027 or beyond.
 
@@ -103,7 +103,7 @@ While conda already has basic lockfile support, the ecosystem is actively standa
 
 - **`conda-lock`** was the original lockfile implementation for conda, generating platform-specific lockfiles from `environment.yml` specs. It continues to play an important role for existing projects where migration effort isn't justified.
 - **`pixi`**  automatically updates the `pixi.lock` file, making lockfile-first workflows the default. With a dedicated team driving development, pixi is actively innovating with new lockfile formats and best practices, and is bringing these standards back to the broader conda ecosystem via CEPs.
-- **[`conda-lockfiles` plugin](https://github.com/conda-incubator/conda-lockfiles)** (work-in-progress; coming to conda core) will provide enhanced native lockfile support directly in conda, supporting the newer standardized formats. This represents pixi's innovations being integrated into conda itself.
+- **[`conda-lockfiles` plugin](https://github.com/conda-incubator/conda-lockfiles)** (work-in-progress, coming to conda core soon) will provide enhanced native lockfile support directly in conda, supporting the newer standardized formats. This represents pixi's innovations being integrated into conda itself.
 
 The goal is interoperability between clients: lockfiles created by one tool can be used by another. While this is already true for some formats (e.g., `pixi-lock-v6`), full standardization across all tools is still being defined and implemented through the CEP process.
 
