@@ -73,20 +73,5 @@
     ],
     "description": "The conda steering council has decided to archive the conda Discourse forum.",
     "date": "2025-10-05T00:00:00"
-  },
-  {
-    "title": "September 2025 Releases",
-    "slug": "2025-10-01-september-releases",
-    "authors": [
-      "kenodegard"
-    ],
-    "tags": [
-      "announcement",
-      "conda",
-      "conda-build"
-    ],
-    "description": "conda 25.9.0 and conda-build 25.9.0 have been released! \ud83c\udf89\n",
-    "image": "img/blog/2025-10-01-september-releases/banner.png",
-    "date": "2025-10-01T00:00:00"
   }
 ]
