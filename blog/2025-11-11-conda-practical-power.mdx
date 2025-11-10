@@ -149,7 +149,7 @@ This continuous rebuilding as new versions of core libraries are released enable
 
 ### Industrial-grade solvers
 
-This continuous rolling model is why conda needs powerful constraint resolvers like [libmamba](https://conda.org/blog/2023-07-05-conda-libmamba-solver-rollout) or resolvo. Every install must query extensive package metadata spanning multiple versions and build variants to determine which combinations satisfy all constraints using [SAT-based](https://en.wikipedia.org/wiki/Boolean_satisfiability_problem) algorithms.
+This continuous rolling model is why conda needs powerful constraint resolvers like [libmamba](https://conda.org/blog/2023-07-05-conda-libmamba-solver-rollout) or [resolvo](https://github.com/prefix-dev/resolvo). Every install must query extensive package metadata spanning multiple versions and build variants to determine which combinations satisfy all constraints using [SAT-based](https://en.wikipedia.org/wiki/Boolean_satisfiability_problem) algorithms.
 
 Early conda users remember this as the primary complaint: installation took a long time. These concerns have substantially improved with modern solvers, and further improvements (like sharded repodata to reduce metadata downloads) are coming soon.
 
