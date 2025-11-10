@@ -145,7 +145,7 @@ When a new, binary-incompatible version of a core library is released (like Open
 
 This creates a gradual transition through the entire dependency graph by replacing one "plank" at a time. As one community member describes it, an "[ultimate Ship of Theseus](https://en.wikipedia.org/wiki/Ship_of_Theseus)," where bots constantly rebuild related packages, one dependency at a time. At scale, conda-forge, the largest community channel, manages 20+ independent migrations across its 26,000+ packages at [any given time](https://conda-forge.org/status/), making this orchestration industrial in scope.
 
-This continuous rebuilding also enables conda environments to maintain [ABI](https://en.wikipedia.org/wiki/Application_binary_interface) compatibility across different glibc versions on Linux or different OS versions on macOS and Windows—something traditional distros can't easily do.
+This continuous rebuilding as new versions of core libraries are released enables conda environments to maintain [ABI](https://pypackaging-native.github.io/background/binary_interface) compatibility as dependencies evolve across Linux, macOS, and Windows, something traditional distros can't easily do. For a deeper exploration of the binary compatibility challenges that conda's model solves, see [PyPackaging Native](https://pypackaging-native.github.io/), which contrasts these issues with PyPI's approach.
 
 ### Industrial-grade solvers
 
