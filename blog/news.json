@@ -13,6 +13,7 @@
       "distribution"
     ],
     "description": "Part 3 of the 'Conda Is Not PyPI' series: how conda enables reproducibility, automation, layered workflows, and rolling distribution.",
+    "image": "img/blog/2025-11-11-conda-practical-power/banner.png",
     "date": "2025-11-11T00:00:00"
   },
   {
