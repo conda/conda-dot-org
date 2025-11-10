@@ -26,7 +26,7 @@ We'll cover how conda packages encode provenance, how lockfiles ensure reproduci
 Conda packages are designed for **traceability and rebuildability**:
 
 - **Recipes included.** Each conda package embeds the **rendered recipe** (`meta.yaml` or the newer `recipe.yaml` format) and build scripts under `info/recipe`. You can trace exactly how a binary was produced.
-- **Source provenance.** Packages include upstream source URLs, checksums, and often the exact Git commit SHA.
+- **Source provenance.** Packages include upstream source URLs paired with either a SHA256 checksum (for releases) or the exact Git commit SHA (for git sources).
 - **Build environments captured.** Unlike `sdist` or wheels, conda recipes describe not just Python dependencies, but the **entire build environment**: compilers, linkers, BLAS, CUDA, etc.
 - **Cross-platform parity.** The same recipe can target Linux, macOS, and Windows, with platform-appropriate builds.
 
@@ -46,7 +46,7 @@ Every **conda package** includes an **`info/` sub-archive** with rich metadata:
 - **Rendered recipe** → concrete versions + variants actually used in the build
 - **Source details** → upstream URLs, checksums, commit SHAs
 - **Channel configuration** (`conda_build_config.yaml` values in effect)
-- **CI/build references** → often including build number, timestamps, and run identifiers
+- **CI/build references** → build number, timestamps, feedstock (=recipe repository) URL and commit, and CI workflow run identifier
 
 This means you can answer, for any binary:
 
@@ -142,7 +142,7 @@ Conda takes a fundamentally different approach: it functions as a **rolling dist
 
 When a new, binary-incompatible version of a core library is released (like OpenSSL v4.0.0 expected in April 2026), channels like conda-forge automatically rebuild all dependent packages in the correct order.
 
-This creates a gradual transition through the entire dependency graph by replacing one "plank" at a time. As one community member describes it, an "[ultimate Ship of Theseus](https://en.wikipedia.org/wiki/Ship_of_Theseus)," where automated rebuild systems continuously work through related packages, one dependency at a time, with 10+ migrations often happening in parallel.
+This creates a gradual transition through the entire dependency graph by replacing one "plank" at a time. As one community member describes it, an "[ultimate Ship of Theseus](https://en.wikipedia.org/wiki/Ship_of_Theseus)," where bots constantly rebuild related packages, one dependency at a time. At scale, conda-forge, the largest community channel, manages 10+ simultaneous migrations across its 26,000+ packages, making this orchestration industrial in scope.
 
 This continuous rebuilding also enables conda environments to maintain [ABI](https://en.wikipedia.org/wiki/Application_binary_interface) compatibility across different glibc versions on Linux or different OS versions on macOS and Windows—something traditional distros can't easily do.
 
