@@ -44,7 +44,7 @@ repos:
         types_or: [jsx, javascript]
         exclude: ^static/js/count.js$
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.14.3
+    rev: v0.14.4
     hooks:
       - id: ruff
         args: [--fix]
