@@ -143,7 +143,7 @@ Conda takes a fundamentally different approach: it functions as a **rolling dist
 
 When a new, binary-incompatible version of a core library is released (like OpenSSL v4.0.0 expected in April 2026), channels like conda-forge automatically rebuild all dependent packages in the correct order.
 
-This creates a gradual transition through the entire dependency graph by replacing one "plank" at a time. As one community member describes it, an "[ultimate Ship of Theseus](https://en.wikipedia.org/wiki/Ship_of_Theseus)," where bots constantly rebuild related packages, one dependency at a time. At scale, conda-forge, the largest community channel, manages 10+ simultaneous migrations across its 26,000+ packages, making this orchestration industrial in scope.
+This creates a gradual transition through the entire dependency graph by replacing one "plank" at a time. As one community member describes it, an "[ultimate Ship of Theseus](https://en.wikipedia.org/wiki/Ship_of_Theseus)," where bots constantly rebuild related packages, one dependency at a time. At scale, conda-forge, the largest community channel, manages 20+ independent migrations across its 26,000+ packages at [any given time](https://conda-forge.org/status/), making this orchestration industrial in scope.
 
 This continuous rebuilding also enables conda environments to maintain [ABI](https://en.wikipedia.org/wiki/Application_binary_interface) compatibility across different glibc versions on Linux or different OS versions on macOS and Windows—something traditional distros can't easily do.
 
