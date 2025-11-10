@@ -14,6 +14,23 @@
     "date": "2025-11-24T00:00:00"
   },
   {
+    "title": "Conda in the Packaging Spectrum: From pip to Docker to Nix",
+    "slug": "conda-pip-docker-nix",
+    "authors": [
+      "dbast",
+      "jezdez"
+    ],
+    "tags": [
+      "conda",
+      "packaging",
+      "distribution",
+      "comparison"
+    ],
+    "description": "Part 2 of the 'Conda Is Not PyPI' series, placing conda among pip, Docker, and Nix and explaining its middle-path design.",
+    "image": "img/blog/2025-11-04-conda-pip-docker-nix/banner.png",
+    "date": "2025-11-04T00:00:00"
+  },
+  {
     "title": "Conda \u2260 PyPI: Why Conda Is More Than a Package Manager",
     "slug": "conda-is-not-pypi",
     "authors": [
