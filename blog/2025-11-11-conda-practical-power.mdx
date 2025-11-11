@@ -59,7 +59,7 @@ Compared to a PyPI sdist or wheel, this is **night and day**. A wheel might tell
 
 That provenance is what enables **conda packages'** **auditable reproducibility**, critical for regulated industries, long-lived research, and enterprise compliance.
 
-**Why embedded metadata matters for security.** Because this metadata lives **within** every package and isn't stored externally, so becomes immutable when combined with lockfiles. Locking a package hash in a lockfile cryptographically binds that specific package's entire metadata (recipe, sources, build details, checksums) to that hash.
+**Why embedded metadata matters for security.** Because this metadata lives **within** every package and isn't stored externally, it becomes immutable when combined with lockfiles. Locking a package hash in a lockfile cryptographically binds that specific package's entire metadata (recipe, sources, build details, checksums) to that hash.
 
 This creates a **tamper-evident record**: if a supply chain attack or data manipulation occurs, the package hash would change, immediately alerting you to the compromise.
 
@@ -143,7 +143,7 @@ Conda takes a fundamentally different approach: it functions as a **rolling dist
 
 When a new, binary-incompatible version of a core library is released (like OpenSSL v4.0.0 expected in April 2026), channels like conda-forge automatically rebuild all dependent packages in the correct order.
 
-This creates a gradual transition through the entire dependency graph by replacing one "plank" at a time. As one community member describes it, an "[ultimate Ship of Theseus](https://en.wikipedia.org/wiki/Ship_of_Theseus)," where bots constantly rebuild related packages, one dependency at a time. At scale, conda-forge, the largest community channel, manages 20+ independent migrations across its 26,000+ packages at [any given time](https://conda-forge.org/status/), making this orchestration industrial in scope.
+This creates a gradual transition through the entire dependency graph by replacing one "plank" at a time. As one community member describes it, like an "[ultimate Ship of Theseus](https://en.wikipedia.org/wiki/Ship_of_Theseus)", where bots constantly rebuild related packages, one dependency at a time. At scale, conda-forge, the largest community channel, manages 20+ independent migrations across its 26,000+ packages at [any given time](https://conda-forge.org/status/), making this orchestration industrial in scope.
 
 This continuous rebuilding as new versions of core libraries are released enables conda environments to maintain [ABI](https://pypackaging-native.github.io/background/binary_interface) compatibility as dependencies evolve across Linux, macOS, and Windows, something traditional distros can't easily do. For a deeper exploration of the binary compatibility challenges that conda's model solves, see [PyPackaging Native](https://pypackaging-native.github.io/), which contrasts these issues with PyPI's approach.
 
