@@ -1,5 +1,5 @@
 ---
-title: "Conda-forge users will soon get a 50% speed-up with conda"
+title: "Conda-forge users will soon get a 2x speed-up with conda"
 slug: "sharded-repodata-improvements"
 authors: [travishathaway]
 tags: [conda, performance]
@@ -168,7 +168,7 @@ Below are the comparisons between traditional and sharded fetching measuring **t
 
 #### Key takeaways
 
-- Best improvements seen in **warm** cache fetching with an overall **50% speed-up**
+- Best improvements seen in **warm** cache fetching with an overall **2x speed-up**
 - For **cold** cache scenarios, sharded repodata fetching still provides users with
   a **four second speed-up**
 
@@ -261,6 +261,9 @@ We're excited to see these numbers and think this will translate to a better ove
 for conda-forge users! If you've read this far, we hope you're convinced to give the beta release
 a try and welcome any feedback you may have. Please file an issue at the
 [conda-libmamba-solver](https://github.com/conda/conda-libmamba-solver/issues) to reach out to us.
+
+Finally, we want to give a big shout out to the conda maintainer team and specifically
+[Daniel Holth](https://github.com/dholth) for making the addition of this feature possible!
 
 :::info
 If you're interested in how we generated the profiling data we've presented, please checkout
