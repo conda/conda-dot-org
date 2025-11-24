@@ -10,6 +10,10 @@ tar -C "${HERE}/../community" -xf governance.tar.gz --strip-components 1 "govern
 sed \
     -e 's/# Conda & Conda-Incubator Governance/# Governance/' \
     -e 's/CODE_OF_CONDUCT.md/code-of-conduct.md/g' \
+    -e 's|\[`steering.csv`\](steering.csv)|[`steering.csv`](https://github.com/conda/governance/blob/main/steering.csv)|g' \
+    -e 's|\[`emeritus.csv`\](emeritus.csv)|[`emeritus.csv`](https://github.com/conda/governance/blob/main/emeritus.csv)|g' \
+    -e 's|\[`vote-results`\](vote-results/) |`vote-results/`|g' \
+    -e 's|\[`vote-results`\](vote-results/\]) |`vote-results/`|g' \
     "${HERE}/../community/README.md" > "${HERE}/../community/governance.md"
 rm "${HERE}/../community/README.md"
 # Code of conduct
