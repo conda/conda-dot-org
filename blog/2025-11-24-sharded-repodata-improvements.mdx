@@ -1,5 +1,5 @@
 ---
-title: "Conda-forge users will soon get a 2x speed-up with conda"
+title: "Conda-forge users will soon get a 10x speed-up with conda"
 slug: "sharded-repodata-improvements"
 authors: [travishathaway]
 tags: [conda, performance]
@@ -62,14 +62,14 @@ for their users. That's why they led the drafting and development of an entirely
 downloading repodata: sharded repodata.
 
 Sharded repodata takes a different approach by splitting up the large repodata into multiple "shards".
-Clients then only download what they need in order download and install needed packages for users.
-For more information on exactly how this approach works, please see
-[CEP-16](https://conda.org/learn/ceps/cep-0016).
+After making these improvements to the pixi package manager, pixi only had to download what the repodata
+it needed to download and install requested packages. For more information on exactly how this approach
+works, please see [CEP-16](https://conda.org/learn/ceps/cep-0016).
 
 ### What this meant for conda?
 
 The conda maintainers were impressed by the [improvements seen in pixi](https://prefix.dev/blog/sharded-repodata)
-and wanted to bring this same fast experience to users of conda. So, earlier this we began development
+and wanted to bring this same fast experience to users of conda. So, earlier this year we began development
 of our own sharded repodata implementation in Python for the [conda-libmamba-solver](https://github.com/conda/conda-libmamba-solver).
 
 In the next section, we share the performance improvements we've seen so far.
@@ -77,26 +77,17 @@ In the next section, we share the performance improvements we've seen so far.
 ## Performance improvements
 
 To compare the performance improvements between the sharded and traditional approach, we used two different
-environment creation scenarios: **python** and **data science**. The commands we used including the packages
-installed are shown below:
+environment creation scenarios: **python** and **data science**. The python scenario just fetches the package
+"python" and the data science scenario fetches the packages, "pandas", "plotly" and "scipy". We benchmarked
+just the repodata fetching itself (check out the script we used
+[here](https://github.com/travishathaway/perfpy-conda/blob/d749765e1c124fb518784a7a2d91f3748bd32c8c/scripts/sharded_repodata_fetching.py)).
 
-```bash
-# Simply install Python
-conda create \
-  --name profile-env \
-  --channel conda-forge-sharded \
-  python
-
-# Installs a few "data science" packages
-conda create \
-  --name profile-env \
-  --channel conda-forge-sharded \
-  pandas plotly scipy
-```
 
 :::info
 We used a special, experimental **conda-forge-sharded** channel because at the time of
-profiling, sharded repodata was not available on conda-forge
+profiling, sharded repodata was not available on conda-forge.
+
+The benchmarks were also run inside a `linux/arm64` Docker container running on an Apple M1 Pro.
 :::
 
 Furthermore, we also ran our comparison using a **cold** cache where nothing was present in conda's
@@ -104,7 +95,7 @@ cache and everything was fetched via network requests and a **warm** cache where
 network requests were necessary.
 
 To get a complete picture of how these changes affected conda, we not only measured **total time**
-but total **network bandwidth** usage and **maximum memory usage** too.
+but total **network bandwidth** usage and **maximum memory usage**.
 
 ### Total time
 
@@ -116,14 +107,14 @@ Below are the comparisons between traditional and sharded fetching measuring **t
   data={[
     {
       x: ['Python', 'Data science'],
-      y: [11.733875, 18.604614],
+      y: [21.471660, 22.360671],
       type: 'bar',
       name: 'Traditional',
       marker: { color: '#e74c3c' },
     },
     {
       x: ['Python', 'Data science'],
-      y: [7.723435, 14.392441],
+      y: [2.012411, 2.844390],
       type: 'bar',
       name: 'Sharded',
       marker: { color: '#2ecc71' },
@@ -144,14 +135,14 @@ Below are the comparisons between traditional and sharded fetching measuring **t
   data={[
     {
       x: ['Python', 'Data science'],
-      y: [7.381542, 10.911544],
+      y: [10.246788, 11.268202],
       type: 'bar',
       name: 'Traditional',
       marker: { color: '#e74c3c' },
     },
     {
       x: ['Python', 'Data science'],
-      y: [3.023410, 5.699486],
+      y: [0.670952, 1.012970],
       type: 'bar',
       name: 'Sharded',
       marker: { color: '#2ecc71' },
@@ -168,14 +159,13 @@ Below are the comparisons between traditional and sharded fetching measuring **t
 
 #### Key takeaways
 
-- Best improvements seen in **warm** cache fetching with an overall **2x speed-up**
-- For **cold** cache scenarios, sharded repodata fetching still provides users with
-  a **four second speed-up**
+- Under both scenarios, we see 10x speed-up in fetching and parsing of repodata
+- This happens because the size of the repodata is significantly smaller
 
 :::info
 The nature of how shards are stored also means that the cache itself is invalidated less
 (see [CEP-16](https://conda.org/learn/ceps/cep-0016#repodata-shard) for more information).
-This means that conda-forge users will use the "warm" cache scenario more and
+This means that conda-forge users will use the faster "warm" cache scenario more and
 will spend less time downloading repodata to install the packages they want.
 :::
 
@@ -190,14 +180,14 @@ with sharded versus the traditional approach.
   data={[
     {
       x: ['Python', 'Data science'],
-      y: [93.776996, 144.226861],
+      y: [69.653928, 69.640596],
       type: 'bar',
       name: 'Traditional',
       marker: { color: '#e74c3c' },
     },
     {
       x: ['Python', 'Data science'],
-      y: [53.575599, 104.768295],
+      y: [1.303697, 1.974313],
       type: 'bar',
       name: 'Sharded',
       marker: { color: '#2ecc71' },
@@ -214,14 +204,15 @@ with sharded versus the traditional approach.
 
 #### Key takeaways
 
-- Sharded repodata offers about a 42% and 27% reduction in network bandwidth versus
-  traditional repodata fetching for the "python" and "data science" scenarios, respectively.
+- The sharded approach reduces the amount downloaded by a factor 35!
+- Traditional fetching always has to fetch the same sized repodata where
+  sharded repodata only fetches what it needs, meaning it varies as seen
+  here.
 
 ### Max memory usage
 
-The last metric we examine is the maximum memory usage of the running conda process. Here,
-we just show the "warm" cache scenarios because the statistics reported by the difference
-between warm wasn't very significant.
+The last metric we examine is the maximum memory usage of sharded repodata fetching. Here,
+we just show the "cold" cache scenario.
 
 #### Max memory usage (in MB)
 
@@ -229,14 +220,14 @@ between warm wasn't very significant.
   data={[
     {
       x: ['Python', 'Data science'],
-      y: [794.779948, 789.205729],
+      y: [1646.201823, 1642.479167],
       type: 'bar',
       name: 'Traditional',
       marker: { color: '#e74c3c' },
     },
     {
       x: ['Python', 'Data science'],
-      y: [190.153646, 199.738281],
+      y: [93.873698, 110.200521],
       type: 'bar',
       name: 'Sharded',
       marker: { color: '#2ecc71' },
@@ -253,14 +244,16 @@ between warm wasn't very significant.
 
 #### Key takeaways
 
-- Both package scenarios see significant decreases in memory usage with about a **75% reduction**
+- Both package scenarios see significant decreases in memory usage with a 15x
+  and 17x reduction in memory usage.
 
 ### Conclusion
 
 We're excited to see these numbers and think this will translate to a better overall experience
 for conda-forge users! If you've read this far, we hope you're convinced to give the beta release
 a try and welcome any feedback you may have. Please file an issue at the
-[conda-libmamba-solver](https://github.com/conda/conda-libmamba-solver/issues) to reach out to us.
+[conda-libmamba-solver](https://github.com/conda/conda-libmamba-solver/issues) repository on GitHub
+to reach out to us.
 
 Finally, we want to give a big shout out to the conda maintainer team and specifically
 [Daniel Holth](https://github.com/dholth) for making the addition of this feature possible!

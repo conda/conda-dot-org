@@ -1,6 +1,6 @@
 [
   {
-    "title": "Conda-forge users will soon get a 2x speed-up with conda",
+    "title": "Conda-forge users will soon get a 10x speed-up with conda",
     "slug": "sharded-repodata-improvements",
     "authors": [
       "travishathaway"
