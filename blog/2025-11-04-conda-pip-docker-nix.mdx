@@ -75,7 +75,7 @@ Both **conda packages** and **Nix** instrument builds so binaries are **prefix-a
 - **[Mach-O](https://en.wikipedia.org/wiki/Mach-O) (macOS) fix-ups** (`install_name_tool`) for `LC_LOAD_DYLIB`/`LC_ID_DYLIB`
 - **[ELF](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) surgery via [`patchelf`](https://github.com/NixOS/patchelf)**, which originated in the Nix ecosystem and is widely used by `conda-build` and `rattler-build`.
 
-The result is the same idea in both worlds: build products that **bind to their own prefix**. In Nix, binaries are patched once to live under fixed, hash-addressed store paths like `/nix/store/...` (typically hashes of the derivation inputs and locked dependency graph, with pure content hashes used mainly for fetched sources) and are not meant to be moved afterwards. In conda, binaries are typically built with a placeholder and relocated dynamically at install time into the environment prefix, so relocatable prefixes are a design objective there.
+The result is the same idea in both worlds: build products that **bind to their own prefix**. In Nix, binaries are patched once to live under fixed, hash-addressed store paths like `/nix/store/...` (typically hashes of the derivation inputs and locked dependency graph, with pure content hashes used mainly for fetched sources) and are not meant to be moved afterwards, since changing the prefix effectively creates a new package identity and bypasses existing binary caches. In conda, binaries are typically built with a placeholder and relocated dynamically at install time into the environment prefix, so relocatable prefixes are a design objective there.
 
 ---
 
