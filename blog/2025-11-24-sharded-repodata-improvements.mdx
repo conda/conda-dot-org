@@ -1,5 +1,5 @@
 ---
-title: "Conda-forge users will soon get a 10x speed-up with conda"
+title: "conda-forge users will soon get a 10x speed-up with conda"
 slug: "sharded-repodata-improvements"
 authors: [travishathaway]
 tags: [conda, performance]
@@ -32,7 +32,7 @@ If you're using conda-forge with conda and would like to try out this new featur
 
 ```bash
 conda install --name base 'conda-libmamba-solver>=25.11.0'
-conda config --set plugins.use_sharded_repodata=true
+conda config --set plugins.use_sharded_repodata true
 ```
 ## Background and context
 
@@ -66,7 +66,7 @@ After making these improvements to the pixi package manager, pixi only had to do
 it needed to download and install requested packages. For more information on exactly how this approach
 works, please see [CEP-16](https://conda.org/learn/ceps/cep-0016).
 
-### What this meant for conda?
+### What did this mean for conda?
 
 The conda maintainers were impressed by the [improvements seen in pixi](https://prefix.dev/blog/sharded-repodata)
 and wanted to bring this same fast experience to users of conda. So, earlier this year we began development
@@ -78,9 +78,8 @@ In the next section, we share the performance improvements we've seen so far.
 
 To compare the performance improvements between the sharded and traditional approach, we used two different
 environment creation scenarios: **python** and **data science**. The python scenario just fetches the package
-"python" and the data science scenario fetches the packages, "pandas", "plotly" and "scipy". We benchmarked
-just the repodata fetching itself (check out the script we used
-[here](https://github.com/travishathaway/perfpy-conda/blob/d749765e1c124fb518784a7a2d91f3748bd32c8c/scripts/sharded_repodata_fetching.py)).
+`python` and the data science scenario fetches the packages, `pandas`, `plotly` and `scipy`. We benchmarked
+just the repodata fetching itself (check out the [script we used](https://github.com/travishathaway/perfpy-conda/blob/d749765e1c124fb518784a7a2d91f3748bd32c8c/scripts/sharded_repodata_fetching.py)).
 
 
 :::info
@@ -121,7 +120,7 @@ Below are the comparisons between traditional and sharded fetching measuring **t
     },
   ]}
   layout={{
-    title: 'Total time with cold cache',
+    title: 'Total time with cold cache (in seconds)',
     xaxis: { title: 'Package Scenario' },
     yaxis: { title: 'Time (seconds)' },
     barmode: 'group',
@@ -149,7 +148,7 @@ Below are the comparisons between traditional and sharded fetching measuring **t
     },
   ]}
   layout={{
-    title: 'Total time with warm cache',
+    title: 'Total time with warm cache (in seconds)',
     xaxis: { title: 'Package Scenario' },
     yaxis: { title: 'Time (seconds)' },
     barmode: 'group',
@@ -159,11 +158,11 @@ Below are the comparisons between traditional and sharded fetching measuring **t
 
 #### Key takeaways
 
-- Under both scenarios, we see 10x speed-up in fetching and parsing of repodata
+- Under both scenarios, we see a 10x speed-up in fetching and parsing of repodata
 - This happens because the size of the repodata is significantly smaller
 
 :::info
-The nature of how shards are stored also means that the cache itself is invalidated less
+The nature of how shards are stored also means that the cache itself is invalidated less often
 (see [CEP-16](https://conda.org/learn/ceps/cep-0016#repodata-shard) for more information).
 This means that conda-forge users will use the faster "warm" cache scenario more and
 will spend less time downloading repodata to install the packages they want.
@@ -255,7 +254,7 @@ a try and welcome any feedback you may have. Please file an issue at the
 [conda-libmamba-solver](https://github.com/conda/conda-libmamba-solver/issues) repository on GitHub
 to reach out to us.
 
-Finally, we want to give a big shout out to the conda maintainer team and specifically
+Finally, we want to give a big shout out to the conda-maintainers team and specifically
 [Daniel Holth](https://github.com/dholth) for making the addition of this feature possible!
 
 :::info
