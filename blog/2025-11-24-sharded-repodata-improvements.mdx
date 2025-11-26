@@ -50,9 +50,8 @@ small database containing all package metadata for a particular channel.
 ### What's wrong with how it currently works?
 
 Historically, all of the package metadata has been stored in a single file, and when the channel is
-relatively small in size (e.g. Anaconda's "main" channel) this works pretty well. But, for larger
-channels like conda-forge, this has meant longer and longer download times for users as this
-channel has continued to grow over the years.
+relatively small in size this works pretty well. But, for larger channels like conda-forge, this
+has meant longer download times for users as this channel has continued to grow over the years.
 
 ### How was this fixed?
 
@@ -64,9 +63,9 @@ downloading repodata: sharded repodata.
 Sharded repodata takes a different approach by splitting up the large repodata into multiple "shards".
 After making these improvements to the pixi package manager, pixi only had to download what the repodata
 it needed to download and install requested packages. For more information on exactly how this approach
-works, please see [CEP-16](https://conda.org/learn/ceps/cep-0016).
+works, please see [CEP 16](https://conda.org/learn/ceps/cep-0016).
 
-### What did this mean for conda?
+### What did this mean for the `conda` package manager?
 
 The conda maintainers were impressed by the [improvements seen in pixi](https://prefix.dev/blog/sharded-repodata)
 and wanted to bring this same fast experience to users of conda. So, earlier this year we began development
@@ -76,17 +75,18 @@ In the next section, we share the performance improvements we've seen so far.
 
 ## Performance improvements
 
-To compare the performance improvements between the sharded and traditional approach, we used two different
-environment creation scenarios: **python** and **data science**. The python scenario just fetches the package
-`python` and the data science scenario fetches the packages, `pandas`, `plotly` and `scipy`. We benchmarked
+To compare the performance improvements between the sharded and non-sharded approach, we used two different
+environment creation scenarios: **Python** and **Data Science**. The Python scenario just fetches the package
+`python` and the Data Science scenario fetches the packages, `pandas`, `plotly` and `scipy`. We benchmarked
 just the repodata fetching itself (check out the [script we used](https://github.com/travishathaway/perfpy-conda/blob/d749765e1c124fb518784a7a2d91f3748bd32c8c/scripts/sharded_repodata_fetching.py)).
 
 
 :::info
 We used a special, experimental **conda-forge-sharded** channel because at the time of
-profiling, sharded repodata was not available on conda-forge.
+profiling, sharded repodata was not available on conda-forge on anaconda.org.
 
-The benchmarks were also run inside a `linux/arm64` Docker container running on an Apple M1 Pro.
+The benchmarks that were used to create the following plots were run inside a `linux/arm64`
+Docker container running on an Apple M1 Pro.
 :::
 
 Furthermore, we also ran our comparison using a **cold** cache where nothing was present in conda's
@@ -98,7 +98,7 @@ but total **network bandwidth** usage and **maximum memory usage**.
 
 ### Total time
 
-Below are the comparisons between traditional and sharded fetching measuring **total time**.
+Below are the comparisons between non-sharded and sharded fetching measuring **total time**.
 
 #### Total time with cold cache
 
@@ -108,7 +108,7 @@ Below are the comparisons between traditional and sharded fetching measuring **t
       x: ['Python', 'Data science'],
       y: [21.471660, 22.360671],
       type: 'bar',
-      name: 'Traditional',
+      name: 'Non-Sharded',
       marker: { color: '#e74c3c' },
     },
     {
@@ -136,7 +136,7 @@ Below are the comparisons between traditional and sharded fetching measuring **t
       x: ['Python', 'Data science'],
       y: [10.246788, 11.268202],
       type: 'bar',
-      name: 'Traditional',
+      name: 'Non-Sharded',
       marker: { color: '#e74c3c' },
     },
     {
@@ -163,7 +163,7 @@ Below are the comparisons between traditional and sharded fetching measuring **t
 
 :::info
 The nature of how shards are stored also means that the cache itself is invalidated less often
-(see [CEP-16](https://conda.org/learn/ceps/cep-0016#repodata-shard) for more information).
+(see [CEP 16](https://conda.org/learn/ceps/cep-0016#repodata-shard) for more information).
 This means that conda-forge users will use the faster "warm" cache scenario more and
 will spend less time downloading repodata to install the packages they want.
 :::
@@ -171,7 +171,7 @@ will spend less time downloading repodata to install the packages they want.
 ### Network bandwidth
 
 To further illustrate the improvements, we show the total amount of megabytes downloaded
-with sharded versus the traditional approach.
+with sharded versus the non-sharded approach.
 
 #### Total network bandwidth (MB received)
 
@@ -181,7 +181,7 @@ with sharded versus the traditional approach.
       x: ['Python', 'Data science'],
       y: [69.653928, 69.640596],
       type: 'bar',
-      name: 'Traditional',
+      name: 'Non-Sharded',
       marker: { color: '#e74c3c' },
     },
     {
@@ -204,7 +204,7 @@ with sharded versus the traditional approach.
 #### Key takeaways
 
 - The sharded approach reduces the amount downloaded by a factor 35!
-- Traditional fetching always has to fetch the same sized repodata where
+- Non-Sharded fetching always has to fetch the same sized repodata where
   sharded repodata only fetches what it needs, meaning it varies as seen
   here.
 
@@ -221,7 +221,7 @@ we just show the "cold" cache scenario.
       x: ['Python', 'Data science'],
       y: [1646.201823, 1642.479167],
       type: 'bar',
-      name: 'Traditional',
+      name: 'Non-Sharded',
       marker: { color: '#e74c3c' },
     },
     {
