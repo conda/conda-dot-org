@@ -68,24 +68,24 @@ The C runtime library (`glibc` on Linux, `libSystem` on macOS, MSVC runtime on W
 
 ### Shared techniques with Nix: prefix-relocatability and patching
 
-Both **conda packages** and **Nix** instrument builds so binaries are **prefix-aware** and relocatable:
+Both **conda packages** and **Nix** instrument builds so binaries are **prefix-aware** and (in different ways) relocated:
 
 - **[RPATH](https://en.wikipedia.org/wiki/Rpath)/[RUNPATH](https://en.wikipedia.org/wiki/Rpath) patching** so [ELF](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) binaries load from `$PREFIX/lib`
 - **[Shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)) rewriting** so scripts execute with the environment's interpreters
 - **[Mach-O](https://en.wikipedia.org/wiki/Mach-O) (macOS) fix-ups** (`install_name_tool`) for `LC_LOAD_DYLIB`/`LC_ID_DYLIB`
 - **[ELF](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) surgery via [`patchelf`](https://github.com/NixOS/patchelf)**, which originated in the Nix ecosystem and is widely used by `conda-build` and `rattler-build`.
 
-The result is the same idea in both worlds: build products that **bind to their own prefix**, making environments movable and reproducible. Unlike conda’s goal of relocatable prefixes, Nix intentionally uses content-hashed, fixed store paths to guarantee purity. Relocation is not a design objective there.
+The result is the same idea in both worlds: build products that **bind to their own prefix**. In Nix, binaries are patched once to live under fixed, hash-addressed store paths like `/nix/store/...` (typically hashes of the derivation inputs and locked dependency graph, with pure content hashes used mainly for fetched sources) and are not meant to be moved afterwards, since changing the prefix effectively creates a new package identity and bypasses existing binary caches. In conda, binaries are typically built with a placeholder and relocated dynamically at install time into the environment prefix, so relocatable prefixes are a design objective there.
 
 ---
 
 ### Why not shipping `glibc` keeps environments small (and portable)
 
-**Conda's design philosophy of not shipping `glibc`** (or the OS C runtime) has big consequences:
+**Conda's design philosophy of not shipping `glibc`** (or the OS C runtime on Linux) has big consequences:
 
-1. **No base OS duplication.** Containers/Nix closures ship `libc`, `ld-linux`, locales/NSS, and friends. That's tens to hundreds of megabytes before your app starts! **Conda packages** reuse the host `libc`, so environments don't carry that weight.
+1. **No base OS duplication.** Containers and Nix closures ship `libc`, `ld-linux`, locales/NSS, and friends. That's tens to hundreds of megabytes before your app starts. **Conda packages** reuse the host `libc`, so that layer is never duplicated inside conda environments.
 
-2. **Fewer cascading dependencies.** Pulling in `glibc` drags a constellation of tightly-coupled runtime pieces (dynamic loader, NSS, timezone/locale data). Leaving that to the host avoids inflating **every** environment.
+2. **Fewer cascading dependencies.** Pulling in `glibc` drags a constellation of tightly-coupled runtime pieces (dynamic loader, NSS, timezone/locale data). Leaving that to the host avoids pulling those into the conda user-space layer at all.
 
 3. **Security & updates.** Host OS updates to `glibc` apply automatically across conda environments.
 
@@ -126,7 +126,7 @@ Each conda package archive contains an `info/` directory with rich metadata (ind
 
 - Compared to **pip/npm**: **conda packages** handle **native dependencies** (BLAS, CUDA, compilers, system libs) and multi-language stacks. Pip/npm cannot.
 - Compared to **Docker**: **conda environments** are **lighter, faster to create, and usable without root privileges**, while still providing consistency. You can still put a conda environment inside a Docker container when you need isolation.
-- Compared to **Nix**: **the conda ecosystem** is **more approachable and cross-platform**. Nix provides stronger whole-system reproducibility, but requires system-wide setup and a steeper learning curve. Conda works out of the box on Linux, macOS, and Windows.
+- Compared to **Nix**: **the conda ecosystem** is **more approachable and cross-platform**. Nix provides stronger whole-system reproducibility, but the typical multi-user setup involves an initial system-level installation step (e.g. creating `/nix` and configuring the store/daemon) and comes with a steeper learning curve. Conda works out of the box on Linux, macOS, and Windows entirely in user space.
 
 **The conda ecosystem** is thus best seen as a **user-space distribution that balances power and accessibility**. This balance is exemplified by its approach to portability through **virtual packages**.
 
