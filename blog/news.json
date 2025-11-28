@@ -1,6 +1,6 @@
 [
   {
-    "title": "Conda-forge users will soon get a 10x speed-up with conda",
+    "title": "conda-forge users will soon get a 10x speed-up with conda",
     "slug": "sharded-repodata-improvements",
     "authors": [
       "travishathaway"
@@ -12,6 +12,23 @@
     "description": "Using conda-forge with conda is now significantly faster with improvements made to repodata fetching. Learn how we did it and who helped along the way.",
     "image": "img/blog/2025-11-24-sharded-repodata-improvements/banner.jpg",
     "date": "2025-11-24T00:00:00"
+  },
+  {
+    "title": "Practical Power: Reproducibility, Automation, and Layering with Conda",
+    "slug": "conda-practical-power",
+    "authors": [
+      "dbast",
+      "jezdez"
+    ],
+    "tags": [
+      "conda",
+      "reproducibility",
+      "automation",
+      "distribution"
+    ],
+    "description": "Part 3 of the 'Conda Is Not PyPI' series: how conda enables reproducibility, automation, layered workflows, and rolling distribution.",
+    "image": "img/blog/2025-11-11-conda-practical-power/banner.png",
+    "date": "2025-11-11T00:00:00"
   },
   {
     "title": "Conda in the Packaging Spectrum: From pip to Docker to Nix",
