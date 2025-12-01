@@ -14,6 +14,23 @@
     "date": "2025-11-24T00:00:00"
   },
   {
+    "title": "Practical Power: Reproducibility, Automation, and Layering with Conda",
+    "slug": "conda-practical-power",
+    "authors": [
+      "dbast",
+      "jezdez"
+    ],
+    "tags": [
+      "conda",
+      "reproducibility",
+      "automation",
+      "distribution"
+    ],
+    "description": "Part 3 of the 'Conda Is Not PyPI' series: how conda enables reproducibility, automation, layered workflows, and rolling distribution.",
+    "image": "img/blog/2025-11-11-conda-practical-power/banner.png",
+    "date": "2025-11-11T00:00:00"
+  },
+  {
     "title": "Conda in the Packaging Spectrum: From pip to Docker to Nix",
     "slug": "conda-pip-docker-nix",
     "authors": [
@@ -60,18 +77,5 @@
     "description": "The Q4 2025 conda CLI roadmap highlights improvements coming next year, including sharded repodata support, and improving integration with PyPI.\n",
     "image": "img/blog/conda-roadmap-q4-2025/banner.jpg",
     "date": "2025-10-20T00:00:00"
-  },
-  {
-    "title": "Our Discourse instance is now read-only",
-    "slug": "2025-10-05-discourse-read-only",
-    "image": "img/blog/2025-10-05-discourse-read-only/banner.png",
-    "authors": [
-      "jaimergp"
-    ],
-    "tags": [
-      "announcement"
-    ],
-    "description": "The conda steering council has decided to archive the conda Discourse forum.",
-    "date": "2025-10-05T00:00:00"
   }
 ]

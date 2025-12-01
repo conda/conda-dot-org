@@ -33,7 +33,7 @@ If you're using conda-forge with conda and would like to try out this new featur
 
 ```bash
 conda install --name base 'conda-libmamba-solver>=25.11.0'
-conda config --set plugins.use_sharded_repodata=true
+conda config --set plugins.use_sharded_repodata true
 ```
 ## Background and context
 
@@ -134,7 +134,7 @@ Below are the comparisons between non-sharded and sharded fetching measuring **t
     },
   ]}
   layout={{
-    title: 'Total time with cold cache',
+    title: 'Total time with cold cache (in seconds)',
     xaxis: { title: 'Package Scenario' },
     yaxis: { title: 'Time (seconds)' },
     barmode: 'group',
@@ -162,7 +162,7 @@ Below are the comparisons between non-sharded and sharded fetching measuring **t
     },
   ]}
   layout={{
-    title: 'Total time with warm cache',
+    title: 'Total time with warm cache (in seconds)',
     xaxis: { title: 'Package Scenario' },
     yaxis: { title: 'Time (seconds)' },
     barmode: 'group',
@@ -172,7 +172,7 @@ Below are the comparisons between non-sharded and sharded fetching measuring **t
 
 #### Key takeaways
 
-- Under both scenarios, we see 10x speed-up in fetching and parsing of repodata
+- Under both scenarios, we see a 10x speed-up in fetching and parsing of repodata
 - This happens because the size of the repodata is significantly smaller
 
 :::info
@@ -268,7 +268,7 @@ a try and welcome any feedback you may have. Please file an issue at the
 [conda-libmamba-solver](https://github.com/conda/conda-libmamba-solver/issues) repository on GitHub
 to reach out to us.
 
-Finally, we want to give a big shout out to the conda maintainer team and specifically
+Finally, we want to give a big shout out to the conda-maintainers team and specifically
 [Daniel Holth](https://github.com/dholth) for making the addition of this feature possible!
 
 :::info
