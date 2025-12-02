@@ -69,7 +69,7 @@ pushd "${HERE}/../community/teams"
 for yaml in "${HERE}/../community/teams"/**/*.yml; do
     mkdir -p "$(dirname $yaml)"
     name=$(basename $yaml)
-    uv run -s "${HERE}/../bin/render-teams.py" "$yaml" > "$(dirname $yaml)/${name%.*}.md"
+    python "${HERE}/../bin/render-teams.py" "$yaml" > "$(dirname $yaml)/${name%.*}.md"
     rm "$yaml"
 done
 rm "${HERE}/../community/teams/teams.schema.json"
