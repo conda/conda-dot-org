@@ -7,12 +7,12 @@ version = "0.1.0"
 
 [tasks]
 install = "npm i"
-start = { cmd = "npm start", depends-on = ["install"] }
-build = { cmd = "npm build", depends-on = ["install"] }
-serve = { cmd = "npm serve", depends-on = ["install"] }
-lint = { cmd = "npm lint", depends-on = ["install"] }
-update-news = { cmd = "npm update-news", depends-on = ["install"] }
-banner = { cmd = "npm banner", depends-on = ["install"] }
+start = { cmd = "npm run start", depends-on = ["install"] }
+build = { cmd = "npm run build", depends-on = ["install"] }
+serve = { cmd = "npm run serve", depends-on = ["install"] }
+lint = { cmd = "npm run lint", depends-on = ["install"] }
+update-news = { cmd = "npm run update-news", depends-on = ["install"] }
+banner = { cmd = "npm run banner", depends-on = ["install"] }
 
 [dependencies]
 python = "*"
