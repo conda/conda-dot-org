@@ -58,18 +58,19 @@ rm 2020-09-08.md.bak
 popd
 
 # Teams
+shopt -s nullglob
 mkdir -p "${HERE}/../community/teams"
-rm -rf "${HERE}/../community/teams/**/*.yml" || true
+rm -rf "${HERE}/../community/teams/*.yml" "${HERE}/../community/teams/*.yaml" || true
 pushd $(mktemp -d)
 curl -sL https://github.com/conda/governance/archive/refs/heads/fix-teams.tar.gz -o governance.tar.gz
 tar -C "${HERE}/../community/teams" -xf governance.tar.gz --strip-components 2 "governance-fix-teams/teams/"
 popd
 
 pushd "${HERE}/../community/teams"
-for yaml in "${HERE}/../community/teams"/**/*.yml; do
+for yaml in "${HERE}/../community/teams"/*.yml "${HERE}/../community/teams"/*.yaml; do
     mkdir -p "$(dirname $yaml)"
     name=$(basename $yaml)
-    python "${HERE}/../bin/render-teams.py" "$yaml" > "$(dirname $yaml)/${name%.*}.md"
+    python "${HERE}/../bin/render-teams.py" "$yaml" > "${name%.*}.md"
     rm "$yaml"
 done
 rm "${HERE}/../community/teams/teams.schema.json"
