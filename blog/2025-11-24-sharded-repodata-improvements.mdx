@@ -16,12 +16,9 @@ import Plot from '@site/src/components/Plot';
 
 <br />
 
-How are we doing this? With a new feature called "sharded repodata"
-that improves the overall speed of conda. This will initially be rolled out for the
-[conda-forge](https://conda-forge.org) channel with other channels following soon.
-We'll initially be releasing this as an opt-in beta feature, and in this post, we'll talk
-about how you can try it out, how it came to be, and most importantly how much faster this makes
-conda.
+We're excited to announce a new beta feature in conda called sharded repodata. This optimized repodata format makes **environment solves faster** by reducing the time spent fetching package metadata.
+[Conda-forge](https://conda-forge.org) is already serving sharded repodata, so you can try it immediately when using conda with conda-forge.
+In this post, we'll show you how to enable it, explain how the work came together across the ecosystem, and share the performance improvements you can expect in everyday use.
 
 <!-- truncate -->
 
