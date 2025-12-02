@@ -22,7 +22,7 @@ You can try it out by following these steps:
 - Enable it in your settings: `conda config --set plugins.use_sharded_repodata true`
 - Set this environment variable: `CONDA_PLUGINS_USE_SHARDED_REPODATA=1`
 
-Note that sharded repodata requires that the target channels expose the necessary metadata too, so it will only work with CEP-16-ready deployments. `conda-libmamba-solver` will fallback to non-sharded/monolithic repodata if not available, so you can mix sharded and non-sharded channels.
+Note that sharded repodata requires that the target channels expose the necessary metadata, too, so it will only work with CEP-16-ready deployments. `conda-libmamba-solver` will fall back to non-sharded/monolithic repodata if not available, so you can mix sharded and non-sharded channels.
 
 This feature is only available when using `conda-libmamba-solver` 25.11.0 and later and is not implemented in the classic solver.
 
