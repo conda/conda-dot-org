@@ -10,8 +10,8 @@
       "performance"
     ],
     "description": "Conda fetches repodata files much faster now. Learn how we did it and who helped along the way.",
-    "image": "img/blog/2025-11-24-sharded-repodata-improvements/banner.jpg",
-    "date": "2025-11-24T00:00:00"
+    "image": "img/blog/2025-12-02-sharded-repodata-improvements/banner.jpg",
+    "date": "2025-12-02T00:00:00"
   },
   {
     "title": "Practical Power: Reproducibility, Automation, and Layering with Conda",
