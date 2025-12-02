@@ -12,6 +12,22 @@ The November 2025 releases included updates to conda, conda-build, and conda-lib
 
 <!-- truncate -->
 
+:::info Special Announcement
+
+This release includes **preliminary support for fetching [CEP 16](https://conda.org/learn/ceps/cep-0016) sharded repodata**, a substantially more efficient way of distributing the necessary metadata to install packages in your environments.
+
+You can try it out by following these steps:
+
+- Update to `conda-libmamba-solver` 25.11.0 or later
+- Enable it in your settings: `conda config --set plugins.use_sharded_repodata true`
+- Set this environment variable: `CONDA_PLUGINS_USE_SHARDED_REPODATA=1`
+
+Note that sharded repodata requires that the target channels expose the necessary metadata too, so it will only work with CEP-16-ready deployments. `conda-libmamba-solver` will fallback to non-sharded/monolithic repodata if not available, so you can mix sharded and non-sharded channels.
+
+This feature is only available when using `conda-libmamba-solver` 25.11.0 and later and is not implemented in the classic solver.
+
+:::
+
 ## Changes in conda [25.11.0](https://github.com/conda/conda/releases/tag/25.11.0)
 
 To update `conda` to the latest version, run:
@@ -51,19 +67,6 @@ Check out the full changelog for more: [25.11.0](https://github.com/conda/conda-
 
 ## Changes in conda-libmamba-solver [25.11.0](https://github.com/conda/conda-libmamba-solver/releases/tag/25.11.0)
 
-:::info Special Announcement
-
-This release includes **preliminary support for fetching [CEP 16](https://conda.org/learn/ceps/cep-0016) sharded repodata**, a substantially more efficient way of distributing the necessary metadata to install packages in your environments.
-
-You can try it by:
-
-- Enabling it in your settings: `conda config --set plugins.use_sharded_repodata true`
-- Setting this environment variable: `CONDA_PLUGINS_USE_SHARDED_REPODATA=1`
-
-Note that sharded repodata requires that the target channels expose the necessary metadata too, so it will only work with CEP-16-ready deployments. `conda-libmamba-solver` will fallback to traditional (monolithic) repodata if not available, so you can mix sharded and non-sharded channels without problems.
-
-:::
-
 To update `conda-libmamba-solver` to the latest version, run:
 
 ```bash
@@ -72,7 +75,7 @@ conda install --name base conda-libmamba-solver=25.11.0
 
 **Notable Changes:**
 
-- Added experimental support for [CEP 16](https://conda.org/learn/ceps/cep-0016) sharded repodata. When enabled, the solver checks every channel for an index (`repodata_shards.msgpack.zst`), and builds a subset of repodata by recursively traversing the dependencies of all installed and requested packages. This smaller amount of package metadata is sent to the solver, saving significant bandwidth, memory, and parse time when installing packages.
+- Added experimental support for [CEP 16](https://conda.org/learn/ceps/cep-0016) sharded repodata (see announcement above).
 - Added support for [CEP 17](https://conda.org/learn/ceps/cep-0017/) `python_site_packages_path`.
 - Fixed the `cpuonly` mutex to correctly prevent CUDA packages from being installed, matching classic solver behavior.
 - Added new messaging for when `conda` is outdated, environment is [frozen](https://conda.org/learn/ceps/cep-0022/), and `conda-self` is installed.
