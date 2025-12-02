@@ -1,6 +1,6 @@
 [
   {
-    "title": "Sharded repodata in conda (beta): reducing metadata overhead for faster solves",
+    "title": "Sharded repodata in conda (beta): an order of magnitude faster fetching",
     "slug": "sharded-repodata-improvements",
     "authors": [
       "travishathaway"
@@ -9,7 +9,7 @@
       "conda",
       "performance"
     ],
-    "description": "Conda solves are now faster with improvements made to repodata fetching. Learn how we did it and who helped along the way.",
+    "description": "Conda fetches repodata files much faster now. Learn how we did it and who helped along the way.",
     "image": "img/blog/2025-11-24-sharded-repodata-improvements/banner.jpg",
     "date": "2025-11-24T00:00:00"
   },
