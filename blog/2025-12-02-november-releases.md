@@ -1,11 +1,11 @@
 ---
 title: November 2025 Releases
-slug: 2025-11-26-november-releases
+slug: 2025-12-02-november-releases
 authors: [kenodegard]
 tags: [announcement, conda, conda-build, conda-libmamba-solver]
 description: |
   conda 25.11.0, conda-build 25.11.0, and conda-libmamba-solver 25.11.0 have been released! 🎉
-image: img/blog/2025-11-26-november-releases/banner.png
+image: img/blog/2025-12-02-november-releases/banner.png
 ---
 
 The November 2025 releases included updates to conda, conda-build, and conda-libmamba-solver! 🎉 All of these have been released to both `defaults` and `conda-forge` channels.
