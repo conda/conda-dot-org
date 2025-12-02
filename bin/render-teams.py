@@ -17,6 +17,11 @@ from ruamel.yaml import YAML
 yaml = YAML()
 
 TEMPLATE = """
+{%- if name == "steering-council" %}
+---
+sidebar_position: 0
+---
+{%- endif %}
 # {{ name }}
 
 {{ description }}
@@ -43,18 +48,23 @@ This team is defined as a {{ charter }} team.
 {%- endfor %}
 {%- endif %}
 
-{% if scopes["other"] or scopes["codeowners"] %}
+{% if resources["other"] or resources["repos"] or resources["teams"] %}
 ## Resources
-
-{% if scopes["codeowners"] %}
+{% if resources["teams"] %}
+This team is represented by the following Github teams:
+{% for team in resources["teams"] %}
+* `{{ team }}`
+{%- endfor %}
+{%- endif %}
+{% if resources["repos"] %}
 This team has write access to these repositories:
-{% for repo in scopes["codeowners"] %}
+{% for repo in resources["repos"] %}
 * [`{{ repo }}`](https://github.com/{{ repo }})
 {%- endfor %}
 {%- endif %}
-{% if scopes["other"] %}
+{% if resources["other"] %}
 Additionally, it controls these other resources:
-{% for other in scopes["other"] %}
+{% for other in resources["other"] %}
 * {{ other }}
 {%- endfor %}
 {%- endif %}
@@ -74,4 +84,4 @@ with open(yml_path) as f:
     data = yaml.load(f)
 env = Environment()
 tpl = env.from_string(TEMPLATE)
-print(tpl.render(data))
+print(tpl.render(data).lstrip())
