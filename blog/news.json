@@ -1,19 +1,5 @@
 [
   {
-    "title": "Sharded repodata in conda (beta): an order of magnitude faster",
-    "slug": "sharded-repodata-improvements",
-    "authors": [
-      "travishathaway"
-    ],
-    "tags": [
-      "conda",
-      "performance"
-    ],
-    "description": "Conda fetches repodata much more quickly. Learn how we did it and who helped along the way.",
-    "image": "img/blog/2025-12-02-sharded-repodata-improvements/banner.jpg",
-    "date": "2025-12-02T00:00:00"
-  },
-  {
     "title": "November 2025 Releases",
     "slug": "2025-12-02-november-releases",
     "authors": [
@@ -78,5 +64,33 @@
     "description": "Part 1 of the 'Conda Is Not PyPI' series\u2014why conda is a multi-language user-space distribution, not just a Python package manager.",
     "image": "img/blog/2025-10-29-conda-is-not-pypi/banner.png",
     "date": "2025-10-29T00:00:00"
+  },
+  {
+    "title": "Conda CLI Roadmap Updates: Q4, 2025",
+    "slug": "conda-roadmap-q4-2025",
+    "authors": [
+      "dashagurova",
+      "danyeaw"
+    ],
+    "tags": [
+      "conda",
+      "roadmap"
+    ],
+    "description": "The Q4 2025 conda CLI roadmap highlights improvements coming next year, including sharded repodata support, and improving integration with PyPI.\n",
+    "image": "img/blog/conda-roadmap-q4-2025/banner.jpg",
+    "date": "2025-10-20T00:00:00"
+  },
+  {
+    "title": "Our Discourse instance is now read-only",
+    "slug": "2025-10-05-discourse-read-only",
+    "image": "img/blog/2025-10-05-discourse-read-only/banner.png",
+    "authors": [
+      "jaimergp"
+    ],
+    "tags": [
+      "announcement"
+    ],
+    "description": "The conda steering council has decided to archive the conda Discourse forum.",
+    "date": "2025-10-05T00:00:00"
   }
 ]
