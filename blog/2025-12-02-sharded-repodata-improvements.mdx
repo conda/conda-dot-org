@@ -1,9 +1,9 @@
 ---
-title: "Sharded repodata in conda (beta): an order of magnitude faster fetching"
+title: "Sharded repodata in conda (beta): an order of magnitude faster"
 slug: "sharded-repodata-improvements"
 authors: [travishathaway]
 tags: [conda, performance]
-description: "Conda fetches repodata files much faster now. Learn how we did it and who helped along the way."
+description: "Conda fetches repodata much more quickly. Learn how we did it and who helped along the way."
 image: img/blog/2025-12-02-sharded-repodata-improvements/banner.jpg
 ---
 import Plot from '@site/src/components/Plot';
@@ -34,24 +34,27 @@ conda config --set plugins.use_sharded_repodata true
 ```
 ## Background and context
 
-In this section, we provide some context around why we decided to develop this feature. We
-think it'll help you understand the performance metrics better, but if you already know
-the ins and outs of how conda stores and uses metadata about its packages, feel free to skip
+In this section we provide some context around why we decided to develop this feature. We
+think it will help you to better understand the performance metrics, but if you already know
+the ins and outs of how conda stores and uses package metadata, feel free to skip
 ahead to the <a href="#performance-improvements">Performance improvements</a> section.
 
 ### What's repodata?
 
-Repodata is a conda specific term that refers to the package index that all conda clients must
+Repodata is a conda specific term that refers to the package index that all
+conda clients must
 download in order to find and install available packages. The best way to think about it is as
-small database containing all package metadata for a particular channel.
+a database containing every package file, its dependencies, and other metadata for a particular channel.
 
 ### Repodata challenge at scale
 
 Channels distribute repodata as a single file. As channels add more packages, that file grows.
-For channels with tens of thousands of packages, like conda-forge, that single file repodata
+For channels with hundreds of thousands of packages, like conda-forge, that single file repodata
 becomes a bottleneck. It takes longer to download and requires more memory to parse. When
 anything in the channel updates, the entire cache invalidates. Conda re-downloads the complete
 file just to get the latest metadata. All of this leads to a slow experience for users.
+
+<!-- packages+packages.conda incl. noarch: main/linux-64 126708; conda-forge/linux-64: 978983 -->
 
 ### Addressing this challenge
 
@@ -64,8 +67,8 @@ as they could be. This led the engineers at [prefix-dev](https://prefix.dev) who
 with the help of the entire conda community, that defines a new mechanism for fetching repodata using a sharded
 approach.
 
-This approach works by splitting up the large repodata into multiple "shards". Each package has its
-own shard which is much smaller than the total repodata. So, when a package is installed, we only
+This approach works by splitting repodata into multiple "shards". Each package has its
+own shard which is much smaller than the complete repodata. So, when a package is installed, we only
 need to fetch what we need. This results in a much smaller download size and a faster overall experience.
 
 ### Bringing sharded repodata to conda and conda-forge
@@ -76,35 +79,33 @@ CEP 16 defined a clear way to speed up solves, and we’ve been doing the work n
   so channels can generate sharded repodata.
 - Most recently, we added support in [conda-libmamba-solver](https://github.com/conda/conda-libmamba-solver/releases/tag/25.11.0),
   now in beta, so the conda CLI can consume the new repodata format.
-- [anaconda.org](https://anaconda.org) team at Anaconda worked with the conda-forge community to enable the hosting. We plan to work with other channels to add support as the beta progresses.
-  infrastructure to serve the new sharded format.
+- [anaconda.org](https://anaconda.org) team at Anaconda worked with the conda-forge community to enable hosting the new repodata files. We plan to work with other channels to add support as the beta progresses.
 
-With all of this in place, conda-forge is now publishing sharded repodata, and conda will use it automatically
-as soon as you enable the feature.
+With all this in place, conda-forge is now publishing sharded repodata, and conda will automatically find it if the feature is enabled.
 
 In the next section, we share the performance improvements we've seen so far.
 
 ## Performance improvements
 
-To compare the performance improvements between the sharded and non-sharded approach, we used two different
-environment creation scenarios: **Python** and **Data Science**. The Python scenario just fetches the package
-`python` and the Data Science scenario fetches the packages, `pandas`, `plotly` and `scipy`. We benchmarked
+To compare performance between the sharded and non-sharded approach, we used two different
+environment creation scenarios: **Python** and **Data Science**. The Python scenario fetches the package
+`python` and all its dependencies, and the Data Science scenario fetches the packages, `pandas`, `plotly` and `scipy` and their dependencies. We benchmarked
 just the repodata fetching itself (check out the script we used
 [here](https://github.com/travishathaway/perfpy-conda/blob/d749765e1c124fb518784a7a2d91f3748bd32c8c/scripts/sharded_repodata_fetching.py)).
 
 
 :::info
-We used a special, experimental **conda-forge-sharded** channel because at the time of
+We used a temporary **conda-forge-sharded** channel because at the time of
 profiling, sharded repodata was not available on conda-forge via anaconda.org.
 
-The benchmarks were also run inside a `linux/arm64` Docker container running on an Apple M1 Pro.
+The benchmarks were run inside a `linux/arm64` Docker container running on an Apple M1 Pro.
 :::
 
-Furthermore, we also ran our comparison using a **cold** cache where nothing was present in conda's
-cache and everything was fetched via network requests and a **warm** cache where very few if any
+Furthermore, we ran our comparison using a **cold** cache where nothing was present in conda's
+cache and everything was fetched via network requests, and a **warm** cache where very few if any
 network requests were necessary.
 
-To get a complete picture of how these changes affected conda, we not only measured **total time**
+To get a complete picture of how these changes affect conda, we not only measured **total time**
 but total **network bandwidth** usage and **maximum memory usage**.
 
 ### Total time
@@ -169,13 +170,13 @@ Below are the comparisons between non-sharded and sharded fetching measuring **t
 
 #### Key takeaways
 
-- Under both scenarios, we see a 10x speed-up in fetching and parsing of repodata
-- This happens because the size of the repodata is significantly smaller
+- Under both scenarios, we see a ten times speed-up in fetching and parsing of repodata
+- This happens because the sharded repodata is significantly smaller
 
 :::info
-The nature of how shards are stored also means that the cache itself is invalidated less
+The nature of how shards are stored also means that the cache itself is invalidated less often
 (see [CEP 16](https://conda.org/learn/ceps/cep-0016#repodata-shard) for more information).
-This means that conda-forge users will use the faster "warm" cache scenario more and
+This means that conda-forge users will see times closer to the faster "warm" cache scenario more often and
 will spend less time downloading repodata to install the packages they want.
 :::
 
@@ -214,9 +215,9 @@ with sharded versus the non-sharded approach.
 
 #### Key takeaways
 
-- The sharded approach reduces the amount downloaded by a factor 35!
-- Non-sharded fetching always has to fetch the same sized repodata where
-  sharded repodata only fetches what it needs, meaning it varies as seen
+- The sharded approach reduces the amount downloaded by a factor of 35!
+- Non-sharded fetching always has to fetch the same sized repodata but
+  sharded repodata only fetches what it needs, meaning it varies based on the requested packages as seen
   here.
 
 ### Max memory usage
@@ -254,14 +255,14 @@ we just show the "cold" cache scenario.
 
 #### Key takeaways
 
-Both package scenarios see significant decreases in memory usage with a 15x
-and 17x reduction in memory usage.
+Both package scenarios see significant decreases in memory usage with a fifteen and
+and seventeen times reduction in memory usage.
 
 ### Conclusion
 
 We're excited to see these numbers and think this will translate to a better overall experience
 for conda users! If you've read this far, we hope you're convinced to give the beta release
-a try and welcome any feedback you may have. Please file an issue at the
+a try and we welcome any feedback you may have. Please file an issue at the
 [conda-libmamba-solver](https://github.com/conda/conda-libmamba-solver/issues) repository on GitHub
 to reach out to us.
 
