@@ -59,25 +59,48 @@ There have been several attempts to address this problem over the past six years
 [reducing the size of repodata.json](https://www.anaconda.com/blog/how-we-made-conda-faster-4-7) and
 [incrementally updating repodata by patching](https://conda.org/blog/2023-05-05-how-we-reduced-the-conda-index-fetch-bandwidth/#ship-repodatajlap-incremental-repodata).
 Both of these previous attempts to make repodata fetching more efficient still weren't as performant
-as they could be. This led the engineers at [prefix-dev](https://prefix.dev) who work on the
-[pixi package manager](https://pixi.sh) to innovate and draft [CEP 16](https://conda.org/learn/ceps/cep-0016),
-with the help of the entire conda community, that defines a new mechanism for fetching repodata using a sharded
-approach.
+as they could be. This led [Bas Zalmstra](https://github.com/baszalmstra) and
+[Wolf Vollprecht](https://github.com/wolfv) at [prefix.dev](https://prefix.dev) to design and
+implement a new approach. Bas authored [CEP 16](https://conda.org/learn/ceps/cep-0016), with input
+from the entire conda community, defining a new mechanism for fetching repodata using a sharded approach.
 
 This approach works by splitting up the large repodata into multiple "shards". Each package has its
 own shard which is much smaller than the total repodata. So, when a package is installed, we only
 need to fetch what we need. This results in a much smaller download size and a faster overall experience.
 
-### Bringing sharded repodata to conda and conda-forge
+### Sharded repodata in the wider ecosystem
 
-CEP 16 defined a clear way to speed up solves, and we’ve been doing the work needed to make that a reality in conda.
+[CEP 16](https://conda.org/learn/ceps/cep-0016) was authored by [Bas Zalmstra](https://github.com/baszalmstra)
+at prefix.dev, reviewed by the conda community, and approved by the conda Steering Council in July 2024.
+For a deep dive into the technical design and motivation, see the
+[prefix.dev blog post on sharded repodata](https://prefix.dev/blog/sharded_repodata).
+
+Since the CEP was approved, [Pixi](https://pixi.sh), [rattler](https://github.com/conda/rattler),
+and [rattler-build](https://github.com/prefix-dev/rattler-build) have all provided production-ready
+implementations of sharded repodata. The [prefix.dev channels](https://prefix.dev/channels) have
+supported CEP 16 from day one, giving Pixi and rattler users the benefits of faster metadata
+fetching for over a year.
+
+Now that [anaconda.org](https://anaconda.org) also serves sharded repodata for conda-forge, even more
+users across the ecosystem will benefit. This is also great news for conda-forge maintainers using
+rattler-build: faster repodata fetching means reduced build times in CI.
+
+This collaborative effort across multiple organizations—prefix.dev, Anaconda, Quansight, and the
+conda-forge community—demonstrates how the conda ecosystem can work together to deliver meaningful
+improvements for everyone.
+
+### Bringing sharded repodata to conda
+
+With CEP 16 already proven in production by Pixi and rattler, we've been doing the work needed to
+bring the same benefits to conda users.
 
 - Earlier this year, we updated [conda-index](https://github.com/conda/conda-index/blob/main/CHANGELOG.md#060-2025-03-27)
   so channels can generate sharded repodata.
 - Most recently, we added support in [conda-libmamba-solver](https://github.com/conda/conda-libmamba-solver/releases/tag/25.11.0),
   now in beta, so the conda CLI can consume the new repodata format.
-- [anaconda.org](https://anaconda.org) team at Anaconda worked with the conda-forge community to enable the hosting. We plan to work with other channels to add support as the beta progresses.
-  infrastructure to serve the new sharded format.
+- The [anaconda.org](https://anaconda.org) team at Anaconda, with contributions from
+  [Quansight](https://quansight.com), worked with the conda-forge community to enable hosting of
+  sharded repodata. We plan to work with other channels to add support as the beta progresses.
 
 With all of this in place, conda-forge is now publishing sharded repodata, and conda will use it automatically
 as soon as you enable the feature.
