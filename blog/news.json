@@ -10,7 +10,23 @@
       "performance"
     ],
     "description": "Conda fetches repodata files much faster now. Learn how we did it and who helped along the way.",
-    "image": "img/blog/2025-12-02-sharded-repodata-improvements/banner.jpg",
+    "image": "img/blog/2025-12-04-sharded-repodata-improvements/banner.jpg",
+    "date": "2025-12-04T00:00:00"
+  },
+  {
+    "title": "November 2025 Releases",
+    "slug": "2025-12-02-november-releases",
+    "authors": [
+      "kenodegard"
+    ],
+    "tags": [
+      "announcement",
+      "conda",
+      "conda-build",
+      "conda-libmamba-solver"
+    ],
+    "description": "conda 25.11.0, conda-build 25.11.0, and conda-libmamba-solver 25.11.0 have been released! \ud83c\udf89\n",
+    "image": "img/blog/2025-12-02-november-releases/banner.png",
     "date": "2025-12-02T00:00:00"
   },
   {
