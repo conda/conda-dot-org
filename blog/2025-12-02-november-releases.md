@@ -14,7 +14,7 @@ The November 2025 releases included updates to conda, conda-build, and conda-lib
 
 :::info Special Announcement
 
-This release includes **preliminary support for fetching [CEP 16](https://conda.org/learn/ceps/cep-0016) sharded repodata**, a substantially more efficient way of distributing the necessary metadata to install packages in your environments.
+This release includes **preliminary support for fetching [CEP 16](https://conda.org/learn/ceps/cep-0016) sharded repodata**, a substantially more efficient way of distributing the necessary metadata to install packages in your environments. Read more about it in our [sharded repodata blog post](/blog/sharded-repodata-improvements).
 
 You can try it out by following these steps:
 
