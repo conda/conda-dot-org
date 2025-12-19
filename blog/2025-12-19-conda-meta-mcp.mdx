@@ -222,11 +222,11 @@ Here's a concrete example: an agent scans its own MCP server environment:
 2. Agent calls package_insights() to inspect the Python recipe
    → No patches applied for CVE-2025-8291, vanilla upstream build
 
-3. Agent searches the conda-meta-mcp codebase for zipfile usage
+3. Agent searches the local project codebase for zipfile usage
    → No imports of zipfile found
 
 4. Agent concludes: "CVE-2025-8291 is present in the installed Python version,
-   but conda-meta-mcp does not use the zipfile module. The vulnerable code
+   but the local project does not use the zipfile module. The vulnerable code
    path is never executed. Risk: None for this application."
 ```
 
