@@ -1,5 +1,18 @@
 [
   {
+    "title": "You Can Install PostgreSQL with conda?",
+    "slug": "2025-12-28-you-can-install-postgresql-with-conda",
+    "authors": [
+      "travishathaway"
+    ],
+    "tags": [
+      "tutorials"
+    ],
+    "description": "Did you know it's possible to install and run PostgreSQL with conda? Find out how in the first post in the, \"You can do that with conda?\" series.",
+    "image": "img/blog/2025-12-22-new-meetings-schedule/banner.png",
+    "date": "2025-12-28T00:00:00"
+  },
+  {
     "title": "New community meetings schedule for 2026",
     "slug": "2025-12-22-new-meetings-schedule",
     "authors": [
@@ -58,22 +71,5 @@
     "description": "Part 3 of the 'Conda Is Not PyPI' series: how conda enables reproducibility, automation, layered workflows, and rolling distribution.",
     "image": "img/blog/2025-11-11-conda-practical-power/banner.png",
     "date": "2025-11-11T00:00:00"
-  },
-  {
-    "title": "Conda in the Packaging Spectrum: From pip to Docker to Nix",
-    "slug": "conda-pip-docker-nix",
-    "authors": [
-      "dbast",
-      "jezdez"
-    ],
-    "tags": [
-      "conda",
-      "packaging",
-      "distribution",
-      "comparison"
-    ],
-    "description": "Part 2 of the 'Conda Is Not PyPI' series, placing conda among pip, Docker, and Nix and explaining its middle-path design.",
-    "image": "img/blog/2025-11-04-conda-pip-docker-nix/banner.png",
-    "date": "2025-11-04T00:00:00"
   }
 ]

@@ -1,0 +1,86 @@
+---
+title: "You Can Install PostgreSQL with conda?"
+slug: 2025-12-28-you-can-install-postgresql-with-conda
+authors: [travishathaway]
+tags: [tutorials]
+description: "Did you know it's possible to install and run PostgreSQL with conda? Find out how in the first post in the, \"You can do that with conda?\" series."
+image: img/blog/2025-12-22-new-meetings-schedule/banner.png
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+Conda has long been the driver of data science workflows because of its unique ability to manage the complexities around Python packaging's diverse dependency requirements. It's precisely because of this that conda is also able to handle managing much more than Python dependencies.
+
+In the first part of a multi-part blog post series, we'll show the strengths of conda's flexibility and provide a tutorial on how you can install [PostgreSQL][postgresql-org] for local development environments.
+
+<!-- truncate -->
+
+## Prerequisites
+
+Throughout this tutorial, we show you how to install and run PostgreSQL from [conda-forge][conda-forge] using either [conda][conda-docs] or [pixi][pixi]. Please refer to those project's documentation for information on how install them.
+
+## Setting up your environment
+
+To start, we'll create a new environment with all the required dependencies for install PostgreSQL. We'll also add a couple of PostgreSQL extensions: [PostGIS][postgis] and [PGRouting][pgrouting].
+
+<Tabs>
+  <TabItem value="conda" label="conda" default>
+
+    To create a new conda environment with PostgreSQL GIS extensions, run the following command:
+
+    ```bash
+    conda create \
+      --name postgresql \
+      --channel conda-forge \
+      postgresql
+    ```
+  </TabItem>
+  <TabItem value="pixi" label="pixi">
+    To create a new pixi project with PostgreSQL and GIS extensions, run the following commands:
+
+    ```bash
+    # Create your project directory first
+    mkdir postgresql && cd postgresql
+
+    # Initialize your pixi environment and add dependencies
+    pixi init && pixi add postgresql
+    ```
+
+    :::tip
+
+    You can also use `pixi global` to create a single installation of PostgreSQL that's available only to your user account:
+
+    ```
+    pixi global install postgresql
+    ```
+    :::
+
+  </TabItem>
+</Tabs>
+
+## Running PostgreSQL
+
+Now that we have our environment setup and packages installed, we can initialize our database and get it running. The `postgresql` package exposes the following commands that we'll use to do that:
+
+- `initdb`
+- `createuser`
+- `createdb`
+- `pg_ctl`
+
+## TODO
+
+Remaining items to include in the blog post:
+
+- Running initdb
+- Starting and stopping the server
+- Making edits to the server configuration
+- Notes of security
+
+
+[postgresql-org]: https://postgresql.org
+[conda-forge]: https://conda-forge.org
+[pixi]: https://pixi.sh
+[conda-docs]: https://docs.conda.io/projects/conda
+[postgis]: https://postgis.net
+[pgrouting]: https://pgrouting.org
