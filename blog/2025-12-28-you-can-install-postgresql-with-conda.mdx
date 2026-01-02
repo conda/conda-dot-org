@@ -4,13 +4,13 @@ slug: 2025-12-28-you-can-install-postgresql-with-conda
 authors: [travishathaway]
 tags: [tutorials]
 description: "Did you know it's possible to install and run PostgreSQL with conda? Find out how in the first post in the, \"You can do that with conda?\" series."
-image: img/blog/2025-12-22-new-meetings-schedule/banner.png
+image: img/blog/2026-01-05-you-can-install-postgresql-with-conda/banner.png
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Conda has long been the driver of data science workflows because of its unique ability to manage the complexities around Python packaging's diverse dependency requirements. It's precisely because of this that conda is also able to handle managing much more than Python dependencies.
+Conda has long been the driver of data science workflows because of its unique ability to manage the complexities around Python packaging's diverse dependency requirements. It's precisely because of this that conda is also able to handle managing much more than just Python dependencies.
 
 In the first part of a multi-part blog post series, we'll show the strengths of conda's flexibility and provide a tutorial on how you can install [PostgreSQL][postgresql-org] for local development environments.
 
@@ -18,11 +18,11 @@ In the first part of a multi-part blog post series, we'll show the strengths of 
 
 ## Prerequisites
 
-Throughout this tutorial, we show you how to install and run PostgreSQL from [conda-forge][conda-forge] using either [conda][conda-docs] or [pixi][pixi]. Please refer to those project's documentation for information on how install them.
+Throughout this tutorial, we show you how to install and run PostgreSQL from [conda-forge][conda-forge] using either [conda][conda-docs] or [pixi][pixi]. Please refer to those project's documentation for information on how to install them.
 
 ## Setting up your environment
 
-To start, we'll create a new environment with all the required dependencies for install PostgreSQL. We'll also add a couple of PostgreSQL extensions: [PostGIS][postgis] and [PGRouting][pgrouting].
+To start, we'll create a new environment with the `postgresql` package.
 
 <Tabs>
   <TabItem value="conda" label="conda" default>
@@ -68,19 +68,82 @@ Now that we have our environment setup and packages installed, we can initialize
 - `createdb`
 - `pg_ctl`
 
-## TODO
+### Creating a data directory
 
-Remaining items to include in the blog post:
+The first thing we need to is create the directory we'll use to store our data. For my example I'm going to create a "postgresql" directory in my home directory, but this could be anywhere you'd like:
 
-- Running initdb
-- Starting and stopping the server
-- Making edits to the server configuration
-- Notes of security
+```bash
+mkdir ~/postgresql
+initdb -D ~/postgresql
+```
 
+### Starting the server
+
+Now that we have a location set for storing our data, we can launch the `postgresql` process by running the following command:
+
+```bash
+pg_ctl -D ~/postgresql -l ~/postgresql/logfile start
+```
+
+With `-D`, we pass it the location of our data directory and the `-l` option tells postgresql where to write its logs too.
+
+### Creating a user and a database
+
+The next two commands will create a user account and database we can use for our application:
+
+```bash
+createuser user && createdb --owner user user
+```
+
+After this, your new database should be ready to accept connections. You can test this by running the following `psql` command:
+
+```bash
+psql -U user
+```
+
+:::warning
+
+At this point, the database accepts connections from localhost without passwords (e.g. "trust"). This is only advisable if you are the only person using your computer. Read further to learn how to adjust this.
+
+:::
+
+### Editing the configuration
+
+To make changes to how the server is configured, you can edit the default configuration that was created with the `initdb` command. The two most important files for postgresql's configuration are:
+
+- `pg_hba.conf`: controls authentication
+- `postgresql.conf`: all other configuration settings
+
+For example, if you wanted to change the default authentication behavior of your postgresql server, you could edit the lines at the bottom of the `pg_hba.conf` to use `password` instead of `trust`:
+
+```conf
+
+# TYPE  DATABASE        USER            ADDRESS                 METHOD
+
+# "local" is for Unix domain socket connections only
+local   all             all                                     password
+# IPv4 local connections:
+host    all             all             127.0.0.1/32            password
+# IPv6 local connections:
+host    all             all             ::1/128                 password
+# Allow replication connections from localhost, by a user with the
+# replication privilege.
+local   replication     all                                     password
+host    replication     all             127.0.0.1/32            password
+host    replication     all             ::1/128                 password
+```
+
+Afterwards, you would need to restart the server with the following command:
+
+```bash
+pg_ctl -D ~/postgresql -l ~/postgresql/logfile restart
+```
+
+## Final thoughts
+
+We hope this gave you a good orientation on using PostgreSQL via conda! Installing PostgreSQL in this way can sometimes be a lighter-weight alternative than using container based solutions like Docker. Because you can install PostgreSQL this way, it also opens up possibilities for bundling applications that use PostgreSQL with conda.
 
 [postgresql-org]: https://postgresql.org
 [conda-forge]: https://conda-forge.org
 [pixi]: https://pixi.sh
 [conda-docs]: https://docs.conda.io/projects/conda
-[postgis]: https://postgis.net
-[pgrouting]: https://pgrouting.org
