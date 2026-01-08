@@ -1,5 +1,22 @@
 [
   {
+    "title": "conda-meta-mcp: Expert Conda Ecosystem Data for AI Agents",
+    "slug": "conda-meta-mcp",
+    "authors": [
+      "dbast"
+    ],
+    "tags": [
+      "conda",
+      "ai",
+      "mcp",
+      "agents",
+      "metadata"
+    ],
+    "description": "Introducing conda-meta-mcp: an MCP server providing AI agents with real-time, authoritative conda ecosystem metadata to overcome model knowledge cutoffs and enable intelligent packaging decisions.",
+    "image": "img/blog/2026-01-08-conda-meta-mcp/banner.jpg",
+    "date": "2026-01-08T00:00:00"
+  },
+  {
     "title": "New community meetings schedule for 2026",
     "slug": "2025-12-22-new-meetings-schedule",
     "authors": [
@@ -58,22 +75,5 @@
     "description": "Part 3 of the 'Conda Is Not PyPI' series: how conda enables reproducibility, automation, layered workflows, and rolling distribution.",
     "image": "img/blog/2025-11-11-conda-practical-power/banner.png",
     "date": "2025-11-11T00:00:00"
-  },
-  {
-    "title": "Conda in the Packaging Spectrum: From pip to Docker to Nix",
-    "slug": "conda-pip-docker-nix",
-    "authors": [
-      "dbast",
-      "jezdez"
-    ],
-    "tags": [
-      "conda",
-      "packaging",
-      "distribution",
-      "comparison"
-    ],
-    "description": "Part 2 of the 'Conda Is Not PyPI' series, placing conda among pip, Docker, and Nix and explaining its middle-path design.",
-    "image": "img/blog/2025-11-04-conda-pip-docker-nix/banner.png",
-    "date": "2025-11-04T00:00:00"
   }
 ]
