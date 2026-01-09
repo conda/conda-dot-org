@@ -239,12 +239,12 @@ See also [QuantCo's blog on conda regulation support](https://tech.quantco.com/b
 
 conda-meta-mcp wraps existing, proven conda ecosystem libraries with no wheel reinvention:
 
-- **`conda_package_streaming.url.stream_conda_info()`**: Streams metadata from CDN (~100ms, no full download)
-- **`conda.api.SubdirData.query_all()`**: Queries repodata.json using SAT solvers
-- **`conda.cli.conda_argparse.generate_parser()`**: Exposes conda's CLI documentation dynamically
-- **`conda_forge_metadata`**: Provides PyPI to conda and import to package mappings
-- **`libmambapy`**: Powers repoquery with fast dependency graph traversal
-- **conda-forge-paths database**: Powers file path search via Quansight's API
+- `conda_package_streaming.url.stream_conda_info()`: Streams metadata from CDN (~100ms, no full download)
+- `conda.api.SubdirData.query_all()`: Queries repodata.json using SAT solvers
+- `conda.cli.conda_argparse.generate_parser()`: Exposes conda's CLI documentation dynamically
+- `conda_forge_metadata`: Provides PyPI to conda and import to package mappings
+- `libmambapy`: Powers repoquery with fast dependency graph traversal
+- `conda-forge-paths database`: Powers file path search via Quansight's API
 
 **Built with [FastMCP](https://github.com/jlowin/fastmcp)** for minimal boilerplate and async support.
 
