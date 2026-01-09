@@ -7,13 +7,13 @@ description: "Introducing conda-meta-mcp: an MCP server providing AI agents with
 image: img/blog/2026-01-08-conda-meta-mcp/banner.jpg
 ---
 
-*AI agents reason well, but only with good data. conda-meta-mcp bridges the gap between frozen training data and live ecosystem metadata.*
-
-Modern AI agents like Claude, Cursor, OpenCode, and Zed can fetch web content, run shell commands, and even install packages. But they lack direct access to the rich, structured metadata embedded in conda packages, information that's essential for solving complex packaging problems. **conda-meta-mcp** provides that missing link.
+Modern AI agents like Claude, Cursor, OpenCode, and Zed can fetch web content, run shell commands, and even install packages. But they lack direct access to the rich, structured metadata embedded in conda packages. This information is essential for solving complex packaging problems. **conda-meta-mcp** provides that missing link.
 
 <!-- truncate -->
 
----
+*AI agents reason well, but only with good data. conda-meta-mcp bridges the gap between frozen training data and live ecosystem metadata.*
+
+This article introduces [conda-meta-mcp](https://github.com/conda-incubator/conda-meta-mcp), an MCP server that exposes authoritative, read-only conda ecosystem metadata directly to AI agents. We'll explore the problem it solves, the tools it provides, and real-world workflows that demonstrate its power.
 
 ## The Problem: Knowledge Cutoffs Meet Rich Metadata
 
