@@ -3,7 +3,8 @@
     "title": "conda-meta-mcp: Expert Conda Ecosystem Data for AI Agents",
     "slug": "conda-meta-mcp",
     "authors": [
-      "dbast"
+      "dbast",
+      "jezdez"
     ],
     "tags": [
       "conda",
