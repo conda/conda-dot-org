@@ -32,9 +32,7 @@ Consider these questions:
 - "Which package ships `libcuda.so`?"
 - "Which feedstock commit bumped pyspark to version v4.1.0?"
 
-These aren't reasoning failures. They're **data access problems**. AI agents reason well with good information. Without live, authoritative metadata, they can't solve real packaging problems reliably.
-
----
+These aren't reasoning failures. They're **data access problems**. AI agents reason well with good information. Without **live, authoritative metadata**, they can't solve real packaging problems reliably.
 
 ## Enter conda-meta-mcp
 
@@ -60,7 +58,6 @@ Agent: "Yes, 62 versions match. Newest is 1.8.0."
 
 The user doesn't need to know how to call MCP tools or when to use them. **The LLM selects appropriate tools based on their descriptions** and synthesizes results into human-readable answers.
 
----
 
 ## Why Conda Metadata Is Uniquely Rich
 
@@ -77,7 +74,6 @@ This same metadata powers conda-forge's migration infrastructure, the heavy mach
 Most conda-meta-mcp tools query indexed extracts of this embedded metadata: repodata indexes package specs, conda-forge indexes import mappings and PyPI names, and Quansight's API indexes file paths.
 :::
 
----
 
 ## The Tools
 
@@ -148,7 +144,6 @@ file_path_search("bin/conda", limit=5)
 
 All tools support `limit` and `offset` for pagination. Most support `get_keys` for field filtering to protect agent context windows.
 
----
 
 ## Real-World Workflows
 
@@ -234,7 +229,6 @@ This deep analysis is only possible by combining multiple tools: Grype for CVE d
 
 See also [QuantCo's blog on conda regulation support](https://tech.quantco.com/blog/conda-regulation-support) for how `syft` consumes `conda-meta/` files to generate SBOMs that standard CVE scanners can process.
 
----
 
 ## Engineering: Built on Battle-Tested Foundations
 
@@ -257,7 +251,6 @@ conda-meta-mcp wraps existing, proven conda ecosystem libraries with no wheel re
 2. **Context-aware**: Pagination, filtering, and windowing protect agent context.
 3. **Fast startup**: pixi's lockfile ensures reproducible, secure dependency fetch in seconds.
 
----
 
 ## Getting Started
 
@@ -267,7 +260,6 @@ See the [conda-meta-mcp README](https://github.com/conda-incubator/conda-meta-mc
 conda-meta-mcp can be combined with other MCP servers for cross-ecosystem queries. The MCP protocol enables this composability by design.
 :::
 
----
 
 ## Outlook
 
@@ -284,7 +276,6 @@ Happy experimenting!
 conda-meta-mcp provides data from upstream APIs without warranty of accuracy or completeness. We make no guarantees about LLM interpretation or actions based on this data. Third-party MCP servers (such as Grype MCP) are not provided, verified, or supported by us. Don't trust, verify!
 :::
 
----
 
 ## Further Reading
 
