@@ -46,14 +46,15 @@ Key benefit: agents query live data without embedding it in their training.
 
 Instead of relying on stale training data, agents can now call structured tools:
 
-```
-Agent: "Is scikit-learn>=1.5 available on conda-forge for linux-64?"
-↓
-package_search("scikit-learn>=1.5", channel="conda-forge", platform="linux-64", limit=1)
-↓
-Returns: {"results": [{"version": "1.8.0", "url": "..."}], "total": 62}
-↓
-Agent: "Yes, 62 versions match. Newest is 1.8.0."
+```mermaid
+%%{init: {"sequence": {"mirrorActors": false}}}%%
+sequenceDiagram
+    participant Agent
+    participant MCP as conda-meta-mcp
+    Note over Agent: Is scikit-learn>=1.5 available<br/>on conda-forge for linux-64?
+    Agent->>MCP: package_search("scikit-learn>=1.5",<br/>channel="conda-forge", platform="linux-64", limit=1)
+    MCP-->>Agent: {results: [{version: "1.8.0", url: "..."}], total: 62}
+    Note over Agent: Yes, 62 versions match. Newest is 1.8.0.
 ```
 
 The user doesn't need to know how to call MCP tools or when to use them. **The LLM selects appropriate tools based on their descriptions** and synthesizes results into human-readable answers.
@@ -79,67 +80,75 @@ Most conda-meta-mcp tools query indexed extracts of this embedded metadata: repo
 
 conda-meta-mcp exposes ecosystem knowledge through **seven composable tools**. Agents chain them to answer complex questions.
 
-### `package_search`: Find Packages by Spec
+These tools fall into two categories: **package discovery** (finding and inspecting packages) and **ecosystem navigation** (understanding relationships and mappings). All tools are read-only and designed for efficient context usage.
+
+### Package Discovery
+
+#### `package_search`: Find Packages by Spec
 
 Search packages by spec, channel, and platform. Results ordered by newest version.
 
-```
-package_search("scipy", channel="conda-forge", platform="linux-64", limit=1)
-→ {"results": [{"version": "1.16.3", "url": "...scipy-1.16.3-py314hf5b80f4_1.conda"}], "total": 472}
-```
-
-### `package_insights`: Deep Package Inspection
-
-Inspect a package's `info/` tarball: rendered recipe, run_exports, source provenance. Foundation for **SBOM generation** and CVE analysis.
-
-```
-package_insights(url="...openssl-3.6.0-h26f9b46_0.conda", file="info/run_exports.json")
-→ {"info/run_exports.json": {"weak": ["openssl >=3.6.0,<4.0a0"]}}
+```python
+>>> package_search("scipy", channel="conda-forge", platform="linux-64", limit=1)
+{"results": [{"version": "1.16.3", "url": "...scipy-1.16.3-py314hf5b80f4_1.conda"}], "total": 472}
 ```
 
-### `repoquery`: Dependency Graph Navigation
+#### `package_insights`: Deep Package Inspection
+
+Inspect a package's `info/` tarball: rendered recipe, run_exports, source provenance. Foundation for **SBOM generation** and **CVE analysis**.
+
+```python
+>>> package_insights(url="...openssl-3.6.0-h26f9b46_0.conda", file="info/run_exports.json")
+{"info/run_exports.json": {"weak": ["openssl >=3.6.0,<4.0a0"]}}
+```
+
+### Ecosystem Navigation
+
+These tools help agents understand relationships between packages, map across ecosystems, and navigate the dependency graph.
+
+#### `repoquery`: Dependency Graph Navigation
 
 Query what depends on a package (`whoneeds`) or what a package depends on (`depends`).
 
-```
-repoquery("whoneeds", "numpy", channel="conda-forge", limit=1)
-→ {"query": {"total": 286778}, ...}
+```python
+>>> repoquery("whoneeds", "numpy", channel="conda-forge", limit=1)
+{"query": {"total": 286778}, ...}
 ```
 
-### `cli_help`: Conda CLI Documentation
+#### `cli_help`: Conda CLI Documentation
 
 Introspect conda's command-line interface dynamically. Supports regex filtering.
 
-```
-cli_help(tool="conda", grep="create", limit=10)
-→ "conda create: Create a new conda environment from a list of specified packages..."
-```
-
-### `import_mapping`: Python Import to Package
-
-Map Python imports to conda packages.
-
-```
-import_mapping("cv2")
-→ {"best_package": "opencv", "candidate_packages": ["libopencv", "opencv", "opencv-python-headless"]}
+```python
+>>> cli_help(tool="conda", grep="create", limit=10)
+"conda create: Create a new conda environment from a list of specified packages..."
 ```
 
-### `pypi_to_conda`: PyPI Name to Conda Package
+#### `import_mapping`: Python Import to Package
 
-Map PyPI distribution names to conda equivalents.
+Map Python imports to conda packages. Essential for **cross-ecosystem discovery**.
 
+```python
+>>> import_mapping("cv2")
+{"best_package": "opencv", "candidate_packages": ["libopencv", "opencv", "opencv-python-headless"]}
 ```
-pypi_to_conda("PyYAML")
-→ {"pypi_name": "PyYAML", "conda_name": "pyyaml", "changed": false}
+
+#### `pypi_to_conda`: PyPI Name to Conda Package
+
+Map PyPI distribution names to conda equivalents. Handles the **naming convention differences** between ecosystems.
+
+```python
+>>> pypi_to_conda("PyYAML")
+{"pypi_name": "PyYAML", "conda_name": "pyyaml", "changed": false}
 ```
 
-### `file_path_search`: Find Packages by File Path
+#### `file_path_search`: Find Packages by File Path
 
-Search for packages containing a specific file path.
+Search for packages containing a specific file path. Useful for finding which package provides a specific binary or library.
 
-```
-file_path_search("bin/conda", limit=5)
-→ {"artifacts": ["cf/linux-64/conda-4.6.9-py36_0", ...], "total": 1000}
+```python
+>>> file_path_search("bin/conda", limit=5)
+{"artifacts": ["cf/linux-64/conda-4.6.9-py36_0", ...], "total": 1000}
 ```
 
 All tools support `limit` and `offset` for pagination. Most support `get_keys` for field filtering to protect agent context windows.
