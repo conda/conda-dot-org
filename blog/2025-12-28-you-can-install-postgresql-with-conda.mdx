@@ -3,7 +3,7 @@ title: "You Can Install PostgreSQL with conda?"
 slug: 2025-12-28-you-can-install-postgresql-with-conda
 authors: [travishathaway]
 tags: [tutorials]
-description: "Did you know it's possible to install and run PostgreSQL with conda? Find out how in the first post in the, \"You can do that with conda?\" series."
+description: "Did you know it's possible to install and run PostgreSQL with conda? Find out how in the first post in the \"You can do that with conda?\" series."
 image: img/blog/2026-01-05-you-can-install-postgresql-with-conda/banner.png
 ---
 
@@ -18,7 +18,7 @@ In the first part of a multi-part blog post series, we'll show the strengths of 
 
 ## Prerequisites
 
-Throughout this tutorial, we show you how to install and run PostgreSQL from [conda-forge][conda-forge] using either [conda][conda-docs] or [pixi][pixi]. Please refer to those project's documentation for information on how to install them.
+Throughout this tutorial, we'll show you how to install and run PostgreSQL from [conda-forge][conda-forge] using either [conda][conda-docs] or [pixi][pixi]. Please refer to those projects' documentation for information on how to install them.
 
 ## Setting up your environment
 
@@ -61,7 +61,7 @@ To start, we'll create a new environment with the `postgresql` package.
 
 ## Running PostgreSQL
 
-Now that we have our environment setup and packages installed, we can initialize our database and get it running. The `postgresql` package exposes the following commands that we'll use to do that:
+Now that we have our environment set up and packages installed, we can initialize our database and get it running. The `postgresql` package exposes the following commands that we'll use to do that:
 
 - `initdb`
 - `createuser`
@@ -70,7 +70,7 @@ Now that we have our environment setup and packages installed, we can initialize
 
 ### Creating a data directory
 
-The first thing we need to is create the directory we'll use to store our data. For my example I'm going to create a "postgresql" directory in my home directory, but this could be anywhere you'd like:
+The first thing we need to is create the directory we'll use to store our data. For my example, I'm going to create a "postgresql" directory in my home directory, but this could be anywhere you'd like:
 
 ```bash
 mkdir ~/postgresql
@@ -85,7 +85,7 @@ Now that we have a location set for storing our data, we can launch the `postgre
 pg_ctl -D ~/postgresql -l ~/postgresql/logfile start
 ```
 
-With `-D`, we pass it the location of our data directory and the `-l` option tells postgresql where to write its logs too.
+With `-D`, we pass it the location of our data directory and the `-l` option sets the file path that will receive postgresql's log output.
 
 ### Creating a user and a database
 
@@ -103,7 +103,7 @@ psql -U user
 
 :::warning
 
-At this point, the database accepts connections from localhost without passwords (e.g. "trust"). This is only advisable if you are the only person using your computer. Read further to learn how to adjust this.
+At this point, the database accepts connections from localhost without passwords. In postgresql's configuration, this is referred to as "trust". This is only advisable if you are the only person using your computer. Read further to learn how to adjust this.
 
 :::
 
