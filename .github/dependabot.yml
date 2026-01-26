@@ -18,3 +18,14 @@ updates:
       npm:
         patterns:
           - '*'
+    ignore:
+      # ESLint 9 requires flat config migration and eslint-config-airbnb doesn't support it yet
+      - dependency-name: eslint
+        versions: ['>=9.0.0']
+      - dependency-name: eslint-plugin-react-hooks
+        versions: ['>=5.0.0']
+      # Stylelint 15+ requires significant migration (dropped CommonJS, new config format)
+      - dependency-name: stylelint
+        versions: ['>=15.0.0']
+      - dependency-name: stylelint-config-standard
+        versions: ['>=30.0.0']
