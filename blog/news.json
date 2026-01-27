@@ -1,18 +1,15 @@
 [
   {
     "title": "Conda CLI Roadmap Updates: Q1, 2026",
-    "slug": "conda-meta-mcp",
+    "slug": "conda-roadmap-q1-2026",
     "authors": [
       "dashagurova"
     ],
     "tags": [
       "conda",
-      "roadmap",
-      "lockfiles",
-      "conda-pypi",
-      "faster performance"
+      "roadmap"
     ],
-    "description": "The Q1 2026 Conda CLI roadmap update highlights faster performance, safer ways to work with PyPI packages, and progress toward more reproducible environments.",
+    "description": "The Q1 2026 Conda CLI roadmap highlights faster performance, safer ways to work with PyPI packages, and progress toward reproducible environments.\n",
     "image": "img/blog/2026-01-29-conda-roadmap-q1-2026/banner.jpg",
     "date": "2026-01-29T00:00:00"
   },
