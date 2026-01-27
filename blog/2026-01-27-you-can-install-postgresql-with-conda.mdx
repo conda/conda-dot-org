@@ -1,24 +1,26 @@
 ---
 title: "You Can Install PostgreSQL with conda?"
-slug: 2025-12-28-you-can-install-postgresql-with-conda
+slug: 2026-01-27-you-can-install-postgresql-with-conda
 authors: [travishathaway]
-tags: [tutorials]
-description: "Did you know it's possible to install and run PostgreSQL with conda? Find out how in the first post in the \"You can do that with conda?\" series."
-image: img/blog/2026-01-05-you-can-install-postgresql-with-conda/banner.png
+tags: [tutorials, you-can-do-that, postgresql]
+description: "Did you know it's possible to install and run PostgreSQL with conda? Find out how in this first post in the \"You Can Do That with conda?\" series."
+image: img/blog/2026-01-27-you-can-install-postgresql-with-conda/banner.png
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+*Part 1 of the "You Can Do That with conda?" series—exploring unexpected capabilities of conda beyond Python packages.*
+
 Conda has long been the driver of data science workflows because of its unique ability to manage the complexities around Python packaging's diverse dependency requirements. It's precisely because of this that conda is also able to handle managing much more than just Python dependencies.
 
-In the first part of a multi-part blog post series, we'll show the strengths of conda's flexibility and provide a tutorial on how you can install [PostgreSQL][postgresql-org] for local development environments.
+In this tutorial, we'll show the strengths of conda's flexibility and provide a guide on how you can install [PostgreSQL][postgresql-org] for local development environments. Installing PostgreSQL this way offers several advantages: no root or admin permissions are required, the installation is isolated and reproducible, and your database can be version-controlled alongside other project dependencies—making it a lighter-weight alternative to container-based solutions like Docker.
 
 <!-- truncate -->
 
 ## Prerequisites
 
-Throughout this tutorial, we'll show you how to install and run PostgreSQL from [conda-forge][conda-forge] using either [conda][conda-docs] or [pixi][pixi]. Please refer to those projects' documentation for information on how to install them.
+Throughout this tutorial, we'll show you how to install and run PostgreSQL from [conda-forge][conda-forge] using either [conda][conda-docs] (or [mamba][mamba-docs]/[micromamba][micromamba-docs]) or [pixi][pixi]. Please refer to those projects' documentation for information on how to install them.
 
 ## Setting up your environment
 
@@ -27,33 +29,40 @@ To start, we'll create a new environment with the `postgresql` package.
 <Tabs>
   <TabItem value="conda" label="conda" default>
 
-    To create a new conda environment with PostgreSQL GIS extensions, run the following command:
+    To create a new conda environment with PostgreSQL, run the following command:
 
     ```bash
-    conda create \
-      --name postgresql \
-      --channel conda-forge \
-      postgresql
+    conda create --name postgresql --channel conda-forge postgresql
     ```
+
+    :::tip
+
+    You can substitute `conda` with `mamba` or `micromamba` in the command above.
+
+    :::
+
   </TabItem>
   <TabItem value="pixi" label="pixi">
-    To create a new pixi project with PostgreSQL and GIS extensions, run the following commands:
+    To create a new pixi project with PostgreSQL, run the following commands:
 
     ```bash
     # Create your project directory first
-    mkdir postgresql && cd postgresql
+    mkdir postgresql
+    cd postgresql
 
     # Initialize your pixi environment and add dependencies
-    pixi init && pixi add postgresql
+    pixi init
+    pixi add postgresql
     ```
 
     :::tip
 
     You can also use `pixi global` to create a single installation of PostgreSQL that's available only to your user account:
 
-    ```
+    ```bash
     pixi global install postgresql
     ```
+
     :::
 
   </TabItem>
@@ -70,7 +79,7 @@ Now that we have our environment set up and packages installed, we can initializ
 
 ### Creating a data directory
 
-The first thing we need to is create the directory we'll use to store our data. For my example, I'm going to create a "postgresql" directory in my home directory, but this could be anywhere you'd like:
+The first thing we need to do is create the directory we'll use to store our data. For this example, we're going to create a "postgresql" directory in the home directory, but this could be anywhere you'd like:
 
 ```bash
 mkdir ~/postgresql
@@ -92,7 +101,8 @@ With `-D`, we pass it the location of our data directory and the `-l` option set
 The next two commands will create a user account and database we can use for our application:
 
 ```bash
-createuser user && createdb --owner user user
+createuser user
+createdb --owner user user
 ```
 
 After this, your new database should be ready to accept connections. You can test this by running the following `psql` command:
@@ -113,6 +123,12 @@ To make changes to how the server is configured, you can edit the default config
 
 - `pg_hba.conf`: controls authentication
 - `postgresql.conf`: all other configuration settings
+
+:::note[Where are these files?]
+
+These configuration files are located in the data directory you specified with `initdb` (in our example, `~/postgresql/`). The `pg_hba.conf` file controls "host-based authentication"—which users can connect from which hosts and how they authenticate.
+
+:::
 
 For example, if you wanted to change the default authentication behavior of your postgresql server, you could edit the lines at the bottom of the `pg_hba.conf` to use `password` instead of `trust`:
 
@@ -141,9 +157,29 @@ pg_ctl -D ~/postgresql -l ~/postgresql/logfile restart
 
 ## Final thoughts
 
-We hope this gave you a good orientation on using PostgreSQL via conda! Installing PostgreSQL in this way can sometimes be a lighter-weight alternative than using container based solutions like Docker. Because you can install PostgreSQL this way, it also opens up possibilities for bundling applications that use PostgreSQL with conda.
+We hope this gave you a good orientation on using PostgreSQL via conda! Installing PostgreSQL this way offers several practical benefits:
+
+- **No root permissions required**: You can set up a full database server in user space.
+- **Reproducible environments**: Include `postgresql` in your `environment.yml` or `pixi.toml` and share the same setup across your team.
+- **Lighter-weight than Docker**: For local development, this approach avoids the overhead of running a container runtime.
+- **Version control friendly**: Your database dependency can be locked alongside your application dependencies.
+
+Because you can install PostgreSQL this way, it also opens up possibilities for bundling applications that use PostgreSQL with conda. If you want to extend this setup, consider adding packages like `postgis` for geospatial support or `psycopg2` for Python database connectivity—all available from conda-forge.
+
+## Further reading
+
+- [PostgreSQL Documentation][postgresql-docs] — official documentation for PostgreSQL
+- [postgis on conda-forge][postgis-conda] — geospatial extensions for PostgreSQL
+- [psycopg2 on conda-forge][psycopg2-conda] — Python adapter for PostgreSQL
+- [Conda Ecosystem Explained][conda-ecosystem] — introduction to the conda ecosystem
 
 [postgresql-org]: https://postgresql.org
+[postgresql-docs]: https://www.postgresql.org/docs/
 [conda-forge]: https://conda-forge.org
 [pixi]: https://pixi.sh
 [conda-docs]: https://docs.conda.io/projects/conda
+[mamba-docs]: https://mamba.readthedocs.io/
+[micromamba-docs]: https://mamba.readthedocs.io/en/latest/user_guide/micromamba.html
+[postgis-conda]: https://anaconda.org/conda-forge/postgis
+[psycopg2-conda]: https://anaconda.org/conda-forge/psycopg2
+[conda-ecosystem]: https://conda.org/blog/2024-08-14-conda-ecosystem-explained/
