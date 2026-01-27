@@ -1,5 +1,20 @@
 [
   {
+    "title": "You Can Install PostgreSQL with conda?",
+    "slug": "2026-01-27-you-can-install-postgresql-with-conda",
+    "authors": [
+      "travishathaway"
+    ],
+    "tags": [
+      "tutorials",
+      "you-can-do-that",
+      "postgresql"
+    ],
+    "description": "Did you know it's possible to install and run PostgreSQL with conda? Find out how in this first post in the \"You Can Do That with conda?\" series.",
+    "image": "img/blog/2026-01-27-you-can-install-postgresql-with-conda/banner.png",
+    "date": "2026-01-27T00:00:00"
+  },
+  {
     "title": "conda-meta-mcp: Expert Conda Ecosystem Data for AI Agents",
     "slug": "conda-meta-mcp",
     "authors": [
@@ -59,22 +74,5 @@
     "description": "conda 25.11.0, conda-build 25.11.0, and conda-libmamba-solver 25.11.0 have been released! \ud83c\udf89\n",
     "image": "img/blog/2025-12-02-november-releases/banner.png",
     "date": "2025-12-02T00:00:00"
-  },
-  {
-    "title": "Practical Power: Reproducibility, Automation, and Layering with Conda",
-    "slug": "conda-practical-power",
-    "authors": [
-      "dbast",
-      "jezdez"
-    ],
-    "tags": [
-      "conda",
-      "reproducibility",
-      "automation",
-      "distribution"
-    ],
-    "description": "Part 3 of the 'Conda Is Not PyPI' series: how conda enables reproducibility, automation, layered workflows, and rolling distribution.",
-    "image": "img/blog/2025-11-11-conda-practical-power/banner.png",
-    "date": "2025-11-11T00:00:00"
   }
 ]
