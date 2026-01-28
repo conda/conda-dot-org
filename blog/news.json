@@ -1,5 +1,19 @@
 [
   {
+    "title": "Conda CLI Roadmap Updates: Q1, 2026",
+    "slug": "conda-roadmap-q1-2026",
+    "authors": [
+      "dashagurova"
+    ],
+    "tags": [
+      "conda",
+      "roadmap"
+    ],
+    "description": "The Q1 2026 Conda CLI roadmap highlights faster performance, safer ways to work with PyPI packages, and progress toward reproducible environments.\n",
+    "image": "img/blog/2026-01-29-conda-roadmap-q1-2026/banner.jpg",
+    "date": "2026-01-29T00:00:00"
+  },
+  {
     "title": "You Can Install PostgreSQL with conda?",
     "slug": "2026-01-27-you-can-install-postgresql-with-conda",
     "authors": [
@@ -58,21 +72,5 @@
     "description": "Conda fetches repodata much more quickly. Learn how we did it and who helped along the way.",
     "image": "img/blog/2025-12-04-sharded-repodata-improvements/banner.jpg",
     "date": "2025-12-04T00:00:00"
-  },
-  {
-    "title": "November 2025 Releases",
-    "slug": "2025-12-02-november-releases",
-    "authors": [
-      "kenodegard"
-    ],
-    "tags": [
-      "announcement",
-      "conda",
-      "conda-build",
-      "conda-libmamba-solver"
-    ],
-    "description": "conda 25.11.0, conda-build 25.11.0, and conda-libmamba-solver 25.11.0 have been released! \ud83c\udf89\n",
-    "image": "img/blog/2025-12-02-november-releases/banner.png",
-    "date": "2025-12-02T00:00:00"
   }
 ]
