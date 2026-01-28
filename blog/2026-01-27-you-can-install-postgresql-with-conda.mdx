@@ -20,7 +20,7 @@ In this tutorial, we'll show the strengths of conda's flexibility and provide a 
 
 ## Prerequisites
 
-Throughout this tutorial, we'll show you how to install and run PostgreSQL from [conda-forge][conda-forge] using either [conda][conda-docs] (or [mamba][mamba-docs]/[micromamba][micromamba-docs]) or [pixi][pixi]. Please refer to those projects' documentation for information on how to install them.
+Throughout this tutorial, we'll show you how to install and run PostgreSQL from [conda-forge][conda-forge] using [conda][conda-docs], [mamba][mamba-docs] (or [micromamba][micromamba-docs]), or [pixi][pixi]. Please refer to those projects' documentation for information on how to install them.
 
 ## Setting up your environment
 
@@ -35,14 +35,18 @@ To start, we'll create a new environment with the `postgresql` package.
     conda create --name postgresql --channel conda-forge postgresql
     ```
 
-    :::tip
+  </TabItem>
+  <TabItem value="mamba" label="(micro)mamba">
 
-    You can substitute `conda` with `mamba` or `micromamba` in the command above.
+    To create a new environment with PostgreSQL, run the following command:
 
-    :::
+    ```bash
+    mamba create --name postgresql --channel conda-forge postgresql
+    ```
 
   </TabItem>
   <TabItem value="pixi" label="pixi">
+
     To create a new pixi project with PostgreSQL, run the following commands:
 
     ```bash
