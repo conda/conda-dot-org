@@ -1,5 +1,21 @@
 [
   {
+    "title": "January 2026 Releases",
+    "slug": "2026-02-03-january-releases",
+    "authors": [
+      "kenodegard"
+    ],
+    "tags": [
+      "announcement",
+      "conda",
+      "conda-build",
+      "conda-pack"
+    ],
+    "description": "conda 26.1.0, conda-build 26.1.0, and conda-pack 0.9.1 have been released! \ud83c\udf89\n",
+    "image": "img/blog/2026-02-03-january-releases/banner.png",
+    "date": "2026-02-03T00:00:00"
+  },
+  {
     "title": "Conda CLI Roadmap Updates: Q1, 2026",
     "slug": "conda-roadmap-q1-2026",
     "authors": [
@@ -58,19 +74,5 @@
     "description": "Starting in 2026, conda and conda-forge will share the same time slots for their community calls.",
     "image": "img/blog/2025-12-22-new-meetings-schedule/banner.png",
     "date": "2025-12-22T00:00:00"
-  },
-  {
-    "title": "Sharded repodata in conda (beta): an order of magnitude faster",
-    "slug": "sharded-repodata-improvements",
-    "authors": [
-      "travishathaway"
-    ],
-    "tags": [
-      "conda",
-      "performance"
-    ],
-    "description": "Conda fetches repodata much more quickly. Learn how we did it and who helped along the way.",
-    "image": "img/blog/2025-12-04-sharded-repodata-improvements/banner.jpg",
-    "date": "2025-12-04T00:00:00"
   }
 ]
