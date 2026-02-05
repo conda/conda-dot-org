@@ -6,8 +6,8 @@
     "banner": "node -- ./banner.js"
   },
   "dependencies": {
-    "canvas": "^2.11.2",
-    "commander": "^11.1.0",
+    "canvas": "^3.2.1",
+    "commander": "^14.0.3",
     "trianglify": "^4.1.1"
   },
   "engines": {

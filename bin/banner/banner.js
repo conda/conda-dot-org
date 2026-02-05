@@ -2,7 +2,7 @@
 const { existsSync, mkdirSync, createWriteStream } = require("fs");
 const trianglify = require("trianglify");
 const { program } = require("commander");
-const { loadImage } = require("canvas");
+const { createCanvas, loadImage } = require("canvas");
 const { join, dirname } = require("path");
 
 program
@@ -27,14 +27,17 @@ const colorFunctions = Object.values(trianglify.colorFunctions);
 const colorIndex = Math.floor(Math.random() * colorFunctions.length);
 
 // Generate a canvas using trianglify
-const canvas = trianglify({
-  width: 1200,
-  height: 630,
+const width = 1200;
+const height = 630;
+const canvas = createCanvas(width, height);
+trianglify({
+  width,
+  height,
   cellSize: Math.random() * 100 + 20, // 20-120
   variance: Math.random() * 0.7 + 0.3, // 0.3-1
   xColors: "random",
   colorFunction: colorFunctions[colorIndex](Math.random()),
-}).toCanvas();
+}).toCanvas(canvas);
 
 // Load the icon/image
 loadImage(input)
