@@ -1,0 +1,213 @@
+---
+title: "condastats is back: query conda download stats from your browser"
+slug: "condastats-0-3-0"
+authors: [jezdez]
+tags: [condastats, conda-incubator, release]
+description: "condastats returns after three years of silence with modern Python support, a refactored codebase, rewritten documentation, and an interactive browser demo powered by Pyodide."
+image: img/blog/2026-02-06-condastats/banner.png
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+[condastats](https://github.com/conda-incubator/condastats) is a command-line tool and Python library for querying download statistics of conda packages from the [Anaconda public dataset](https://github.com/anaconda/anaconda-package-data). The project hadn't seen a release since August 2022, so we spent some time updating it to work with current Python and pandas versions, cleaning up the codebase, rewriting the documentation, and adding an interactive browser demo. The result is condastats 0.4.2 -- here's what's new and how to use it.
+
+<!-- truncate -->
+
+## Why this matters
+
+Ever wondered how many times a conda package has been downloaded? Which platforms dominate? Whether conda-forge or defaults drives more installs? condastats answers these questions with a single command:
+
+```bash
+condastats overall pandas --month 2024-01
+```
+
+Or from Python:
+
+```python
+from condastats import overall
+overall("pandas", month="2024-01")
+```
+
+The tool queries the [Anaconda public dataset](https://github.com/anaconda/anaconda-package-data), a collection of monthly Parquet files containing download counts for conda packages since January 2017. Think of it as [pypistats](https://pypistats.org/) for the conda ecosystem.
+
+The last release (0.2.1) shipped in **August 2022**. Since then, pandas 2.x changed its categorical handling, newer Python versions broke dask imports, and the build tooling around `setup.py` and `versioneer` became outdated. These releases catch up with all of that -- and then some.
+
+
+## Try it in the browser
+
+The headline feature of this release cycle is an **interactive browser demo** that lets you query conda download statistics without installing anything. It runs [Pyodide](https://pyodide.org/) (CPython compiled to WebAssembly) directly in your browser, with the real `condastats` package installed via micropip.
+
+The demo includes:
+
+- A **Python REPL** with syntax highlighting, tab completion, and command history
+- **15 curated example queries** -- click a card to explore "Scientific Python," "AI/ML frameworks," "Top 20 packages," and more
+- **Chart.js visualizations** that render download trends as interactive charts
+- **Shareable URLs** -- copy a link to any query and share it with colleagues
+- **Quick date range presets** (1 month, 3 months, 6 months, 1 year, 2 years)
+
+The demo is served directly from the [condastats documentation](https://condastats.readthedocs.io) and loads about 20 MB of Pyodide plus 1--15 MB of package data per queried month.
+
+Give it a spin right here -- enter a package name, pick a date range, and hit **Query**:
+
+<iframe
+  src="https://condastats.readthedocs.io/en/latest/try/?embed"
+  style={{width: "100%", height: "620px", border: "1px solid var(--ifm-color-emphasis-300)", borderRadius: "8px"}}
+  loading="lazy"
+  title="Try condastats in your browser"
+/>
+
+*[Open the full demo in a new tab.](https://condastats.readthedocs.io/en/latest/try/)*
+
+:::tip
+The browser demo uses the new pure-pandas query API introduced in 0.4.0, which doesn't require dask or s3fs -- making it lightweight enough to run in a WebAssembly environment.
+:::
+
+
+## What changed: 0.3.0 through 0.4.2
+
+### Modern Python support (0.3.0)
+
+condastats now supports **Python 3.10 through 3.14** and requires updated dependencies:
+
+- `numpy>=1.20.0`
+- `pandas>=2.0.0`
+- `dask>=2024.5.2`
+- `pyarrow>=10.0.0`
+
+Python 3.8 and 3.9 are no longer supported.
+
+### Critical bug fixes (0.3.0)
+
+Several issues that made condastats unusable on recent Python and pandas versions have been resolved:
+
+- **`TypeError: descriptor '__call__'`** on Python 3.11+ caused by an older dask version
+- **`ValueError: Not all columns are categoricals`** ([#19](https://github.com/conda-incubator/condastats/issues/19)) when reading Parquet files
+- **`ArrowStringArray requires PyArrow array of string type`** ([#17](https://github.com/conda-incubator/condastats/issues/17), [#24](https://github.com/conda-incubator/condastats/issues/24)) from pandas/pyarrow version mismatches
+
+If you tried condastats in the last couple of years and hit errors, these releases fix them.
+
+### Refactored codebase (0.3.0)
+
+The business logic has been extracted from `cli.py` into a dedicated `_core.py` module. All public functions now have type hints and NumPy-style docstrings. The CLI gained a `--version` flag, proper argument validation, and better error messages.
+
+The build system migrated from `setup.py` + `versioneer` to `pyproject.toml` + `setuptools_scm`. Travis CI has been replaced by GitHub Actions, and Dependabot keeps dependencies up to date. The project now has **31 tests** covering all CLI subcommands and the Python API.
+
+### Pure-pandas query API (0.4.0)
+
+A new set of functions -- `query_overall()`, `query_grouped()`, and `top_packages()` -- operate on any pandas DataFrame without requiring dask or s3fs. This makes `import condastats` work in environments where dask isn't available (like Pyodide in the browser), while the existing S3-backed functions continue to work as before.
+
+Dask is now lazily imported only when S3 functions are called, so the library starts up faster even in traditional environments.
+
+### Polished browser demo (0.4.1, 0.4.2)
+
+The initial Pyodide demo was refined over two quick-follow releases:
+
+- **0.4.1** fixed an fsspec version conflict that broke `micropip install`
+- **0.4.2** replaced the basic interface with a full Python REPL (jQuery Terminal + Prism.js), added 15 example query cards, shareable URLs, date range presets, and fixed a race condition in parallel Parquet loading
+
+
+## Install and try it
+
+You don't even need to install condastats to try it locally. Use `uvx` or `pipx run` to run it in a temporary environment:
+
+<Tabs>
+  <TabItem value="uvx" label="uvx" default>
+
+    ```bash
+    uvx condastats overall numpy --month 2024-06
+    ```
+
+  </TabItem>
+  <TabItem value="pipx" label="pipx run">
+
+    ```bash
+    pipx run condastats overall numpy --month 2024-06
+    ```
+
+  </TabItem>
+  <TabItem value="conda" label="conda">
+
+    ```bash
+    conda install -c conda-forge condastats
+    condastats overall numpy --month 2024-06
+    ```
+
+  </TabItem>
+  <TabItem value="pixi" label="pixi">
+
+    ```bash
+    pixi global install condastats
+    condastats overall numpy --month 2024-06
+    ```
+
+  </TabItem>
+</Tabs>
+
+### Quick examples
+
+Compare multiple packages for a specific month:
+
+```bash
+condastats overall pandas numpy scipy --month 2024-01
+```
+
+Break down downloads by platform:
+
+```bash
+condastats pkg_platform pandas --month 2024-01
+```
+
+See monthly trends over a range:
+
+```bash
+condastats overall pandas --start_month 2024-01 --end_month 2024-06 --monthly
+```
+
+Group by conda channel (anaconda vs. conda-forge):
+
+```bash
+condastats data_source pandas --month 2024-01
+```
+
+All of these work as Python functions too:
+
+```python
+from condastats import overall, pkg_platform, data_source
+
+overall(["pandas", "numpy"], month="2024-01")
+pkg_platform("pandas", month="2024-01")
+data_source("pandas", start_month="2024-01", end_month="2024-06", monthly=True)
+```
+
+
+## New documentation
+
+The documentation at [condastats.readthedocs.io](https://condastats.readthedocs.io) has been completely rewritten using the [Diataxis](https://diataxis.fr/) framework, organized into four clear sections:
+
+| Section | What you'll find |
+|---|---|
+| **[Tutorial](https://condastats.readthedocs.io/en/latest/tutorial.html)** | Step-by-step guide from your first query to comparing packages |
+| **[How-to guides](https://condastats.readthedocs.io/en/latest/howto.html)** | Recipes for filtering, grouping, Jupyter usage, running without installing |
+| **[API reference](https://condastats.readthedocs.io/en/latest/reference/api.html)** | Full autodoc for all Python functions with parameter descriptions |
+| **[CLI reference](https://condastats.readthedocs.io/en/latest/reference/cli.html)** | Every subcommand, option, and exit code |
+| **[Explanation](https://condastats.readthedocs.io/en/latest/explanation.html)** | How the Anaconda dataset works, query pipeline, performance tips |
+
+
+## Get involved
+
+condastats is a [conda-incubator](https://github.com/conda-incubator) project. Contributions are welcome:
+
+- **Try the browser demo:** [condastats.readthedocs.io](https://condastats.readthedocs.io)
+- **Report bugs or request features:** [GitHub Issues](https://github.com/conda-incubator/condastats/issues)
+- **Install it:** `conda install -c conda-forge condastats` or `pip install condastats`
+
+Originally created by [Sophia Man Yang](https://github.com/sophiamyang), condastats is now maintained by the conda-incubator community.
+
+## Further reading
+
+- [condastats on GitHub](https://github.com/conda-incubator/condastats)
+- [condastats on PyPI](https://pypi.org/project/condastats/)
+- [condastats on conda-forge](https://anaconda.org/conda-forge/condastats)
+- [Anaconda public dataset](https://github.com/anaconda/anaconda-package-data)
+- [Full changelog](https://github.com/conda-incubator/condastats/blob/main/CHANGELOG.md)
