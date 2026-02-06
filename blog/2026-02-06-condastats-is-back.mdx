@@ -36,19 +36,7 @@ The last release (0.2.1) shipped in **August 2022**. Since then, pandas 2.x chan
 
 ## Try it in the browser
 
-The headline feature of this release cycle is an **interactive browser demo** that lets you query conda download statistics without installing anything. It runs [Pyodide](https://pyodide.org/) (CPython compiled to WebAssembly) directly in your browser, with the real `condastats` package installed via micropip.
-
-The demo includes:
-
-- A **Python REPL** with syntax highlighting, tab completion, and command history
-- **15 curated example queries** -- click a card to explore "Scientific Python," "AI/ML frameworks," "Top 20 packages," and more
-- **Chart.js visualizations** that render download trends as interactive charts
-- **Shareable URLs** -- copy a link to any query and share it with colleagues
-- **Quick date range presets** (1 month, 3 months, 6 months, 1 year, 2 years)
-
-The demo is part of the [condastats documentation](https://condastats.readthedocs.io) on ReadTheDocs and fetches package data from GitHub Pages. It loads about 20 MB of Pyodide plus 1--15 MB of Parquet data per queried month.
-
-Give it a spin right here -- enter a package name, pick a date range, and hit **Query**:
+You can query conda download statistics right here -- no installation required. Enter a package name, pick a date range, and hit **Query**:
 
 <iframe
   src="https://condastats.readthedocs.io/en/latest/try/?embed"
@@ -57,11 +45,9 @@ Give it a spin right here -- enter a package name, pick a date range, and hit **
   title="Try condastats in your browser"
 />
 
-*[Open the full demo in a new tab.](https://condastats.readthedocs.io/en/latest/try/)*
+*[Open the full demo in a new tab](https://condastats.readthedocs.io/en/latest/try/) for 15 curated example queries, shareable URLs, and more.*
 
-:::tip
-The browser demo uses the new pure-pandas query API introduced in 0.4.0, which doesn't require dask or s3fs -- making it lightweight enough to run in a WebAssembly environment.
-:::
+This runs [Pyodide](https://pyodide.org/) (CPython compiled to WebAssembly) directly in your browser with the real `condastats` package. It uses the pure-pandas query API introduced in 0.4.0, which doesn't require dask or s3fs -- making it lightweight enough to run in WebAssembly. Expect about 20 MB for Pyodide plus 1--15 MB of Parquet data per queried month.
 
 
 ## What changed: 0.3.0 through 0.4.2
