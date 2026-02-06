@@ -1,5 +1,20 @@
 [
   {
+    "title": "condastats is back: query conda download stats from your browser",
+    "slug": "condastats-0-3-0",
+    "authors": [
+      "jezdez"
+    ],
+    "tags": [
+      "condastats",
+      "conda-incubator",
+      "release"
+    ],
+    "description": "condastats returns after three years of silence with modern Python support, a refactored codebase, rewritten documentation, and an interactive browser demo powered by Pyodide.",
+    "image": "img/blog/2026-02-06-condastats/banner.png",
+    "date": "2026-02-06T00:00:00"
+  },
+  {
     "title": "January 2026 Releases",
     "slug": "2026-02-03-january-releases",
     "authors": [
@@ -61,18 +76,5 @@
     "description": "Introducing conda-meta-mcp: an MCP server providing AI agents with real-time, authoritative conda ecosystem metadata to overcome model knowledge cutoffs and enable intelligent packaging decisions.",
     "image": "img/blog/2026-01-08-conda-meta-mcp/banner.jpg",
     "date": "2026-01-08T00:00:00"
-  },
-  {
-    "title": "New community meetings schedule for 2026",
-    "slug": "2025-12-22-new-meetings-schedule",
-    "authors": [
-      "jaimergp"
-    ],
-    "tags": [
-      "community"
-    ],
-    "description": "Starting in 2026, conda and conda-forge will share the same time slots for their community calls.",
-    "image": "img/blog/2025-12-22-new-meetings-schedule/banner.png",
-    "date": "2025-12-22T00:00:00"
   }
 ]
