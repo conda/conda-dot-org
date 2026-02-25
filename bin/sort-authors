@@ -1,4 +1,9 @@
-#! /usr/bin/env python
+#!/usr/bin/env python
+# /// script
+# requirements = [
+#   "ruamel.yaml",
+# ]
+# ///
 """
 This is a script to help us keep our "blog/authors.yml" file alphabetically sorted.
 """
