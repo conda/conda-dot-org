@@ -5,14 +5,11 @@ authors: [jezdez]
 tags: [conda, conda-incubator, plugin, tasks, release]
 description: "conda-tasks is a new conda plugin that brings pixi-style task definitions to conda. Define tasks, wire up dependencies, cache results, and run everything through conda task."
 image: img/blog/2026-02-26-introducing-conda-tasks/banner.jpg
+image_credit: <a href="https://www.pexels.com/photo/1205650/">Emily Ranquist on Pexels</a>
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
-<div style={{color: "#555"}}>
-<em>Photo by <a href="https://www.pexels.com/@emily-ranquist-493228/">Emily Ranquist</a> on <a href="https://www.pexels.com/photo/1205650/">Pexels</a></em>
-</div>
 
 Conda handles environments and packages well, but it has never had a built-in way to define project tasks -- the kind of thing you'd otherwise put in a `Makefile`, `tox.ini`, or a pile of shell scripts. Today we're releasing [conda-tasks](https://github.com/conda-incubator/conda-tasks), a conda plugin that fills that gap. Define tasks in your project, wire up dependencies between them, and run everything through `conda task`.
 
