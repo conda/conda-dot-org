@@ -1,0 +1,229 @@
+---
+title: "Introducing conda-tasks: the missing task runner for conda"
+slug: "introducing-conda-tasks"
+authors: [jezdez]
+tags: [conda, conda-incubator, plugin, tasks, release]
+description: "conda-tasks is a new conda plugin that brings pixi-style task definitions to conda. Define tasks, wire up dependencies, cache results, and run everything through conda task."
+image: img/blog/2026-02-26-introducing-conda-tasks/banner.jpg
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<div style={{color: "#555"}}>
+<em>Photo by <a href="https://www.pexels.com/@emily-ranquist-493228/">Emily Ranquist</a> on <a href="https://www.pexels.com/photo/1205650/">Pexels</a></em>
+</div>
+
+Conda handles environments and packages well, but it has never had a built-in way to define project tasks -- the kind of thing you'd otherwise put in a `Makefile`, `tox.ini`, or a pile of shell scripts. Today we're releasing [conda-tasks](https://github.com/conda-incubator/conda-tasks), a conda plugin that fills that gap. Define tasks in your project, wire up dependencies between them, and run everything through `conda task`.
+
+<!-- truncate -->
+
+## What it looks like
+
+Create a `conda-tasks.yml` in your project root:
+
+```yaml
+tasks:
+  build:
+    cmd: "python -m build"
+    inputs: ["src/**/*.py", "pyproject.toml"]
+    outputs: ["dist/*.whl"]
+  test:
+    cmd: "pytest tests/ -v"
+    depends-on: [build]
+  lint:
+    cmd: "ruff check ."
+  check:
+    depends-on: [test, lint]
+    description: "Run all checks"
+```
+
+Then run it:
+
+```bash
+conda task run check
+```
+
+conda-tasks resolves the dependency graph, runs `build` and `lint` first (in the right order), then `test`, and skips anything whose inputs haven't changed since the last run. That's it -- no new package manager, no new environment format. It works with your existing conda environments.
+
+## Why this exists
+
+The conda ecosystem has had several tools for running commands from project definitions. [anaconda-project](https://github.com/anaconda/anaconda-project) was one of the first, combining conda environments with named project commands, platform-specific variants, and automatic environment setup. [conda-project](https://github.com/conda-incubator/conda-project), its community successor, modernized that workflow with conda-lock integration. Both focus on reproducible project execution -- setting up environments and launching commands -- but neither supports dependencies between commands, caching, or templating.
+
+On the other side, general-purpose Python task runners like [tox](https://tox.wiki), [nox](https://nox.thea.codes), and [invoke](https://www.pyinvoke.org) work well for their respective use cases but don't integrate with conda environments or conda's plugin system.
+
+[pixi](https://pixi.sh) by [prefix.dev](https://prefix.dev) changed things by shipping a full-featured task runner alongside its package manager: task dependencies with topological ordering, platform overrides, input/output caching, template variables, and task arguments. It demonstrated that a proper task system belongs in every project workflow.
+
+conda-tasks brings that task runner to conda. The task system design is directly inspired by pixi's -- if you've used `pixi run`, the concepts will be familiar. The difference is scope: pixi manages both environments and tasks, while conda-tasks handles only the task-running side and leaves environment management to conda.
+
+## Features
+
+### Task dependencies
+
+Tasks can depend on other tasks. conda-tasks resolves the full dependency graph using topological sorting and detects cycles:
+
+```yaml
+tasks:
+  compile:
+    cmd: "gcc -o main main.c"
+  test:
+    cmd: "./main --test"
+    depends-on: [compile]
+  check:
+    depends-on: [test, lint]
+```
+
+### Jinja2 templates
+
+Commands support Jinja2 templates with context variables that expose conda's runtime state:
+
+```yaml
+tasks:
+  info:
+    cmd: "echo Building on {{ conda.platform }} with conda {{ conda.version }}"
+  clean:
+    cmd: "{% if conda.is_win %}rd /s /q build{% else %}rm -rf build/{% endif %}"
+```
+
+Available variables include `conda.platform`, `conda.environment.name`, `conda.prefix`, `conda.is_win`, `conda.is_unix`, `conda.is_linux`, `conda.is_osx`, and more.
+
+### Input/output caching
+
+Specify `inputs` and `outputs` on a task, and conda-tasks will skip re-execution when inputs haven't changed. The cache uses a fast `(mtime, size)` pre-check before falling back to SHA-256 hashing, so the overhead on cache hits is minimal:
+
+```yaml
+tasks:
+  build:
+    cmd: "python -m build"
+    inputs: ["src/**/*.py", "pyproject.toml"]
+    outputs: ["dist/*.whl"]
+```
+
+### Platform overrides
+
+Override task fields per platform, so the same task definition works across operating systems:
+
+<Tabs>
+  <TabItem value="target" label="target key" default>
+
+    ```yaml
+    tasks:
+      clean:
+        cmd: "rm -rf build/"
+        target:
+          win-64:
+            cmd: "rd /s /q build"
+    ```
+
+  </TabItem>
+  <TabItem value="jinja2" label="Jinja2 conditional">
+
+    ```yaml
+    tasks:
+      clean:
+        cmd: "{% if conda.is_win %}rd /s /q build{% else %}rm -rf build/{% endif %}"
+    ```
+
+  </TabItem>
+</Tabs>
+
+### Task arguments
+
+Tasks can accept named arguments with defaults, so you don't need separate task definitions for common variations:
+
+```yaml
+tasks:
+  test:
+    cmd: "pytest {{ test_path }} -v"
+    args:
+      - arg: test_path
+        default: "tests/"
+```
+
+```bash
+conda task run test src/tests/unit/
+```
+
+### Environment targeting
+
+Run tasks in any conda environment using the same `-n`/`-p` flags you already use with conda:
+
+```bash
+conda task run test -n py311-compat
+```
+
+Tasks can also declare a `default-environment` so they always run in the right place.
+
+### Multiple file formats
+
+conda-tasks reads task definitions from five file formats, checked in this order:
+
+1. `conda-tasks.yml` -- canonical YAML format
+2. `conda-tasks.toml` -- canonical TOML format
+3. `pixi.toml` -- reads the `[tasks]` table directly
+4. `pyproject.toml` -- reads `[tool.conda-tasks.tasks]` or `[tool.pixi.tasks]`
+5. `.condarc` -- reads `plugins.conda_tasks.tasks` via conda's settings API
+
+If you already have tasks in a `pixi.toml`, conda-tasks can read them as-is. You can also export them to the canonical format:
+
+```bash
+conda task export --file pixi.toml
+```
+
+## Install and try it
+
+<Tabs>
+  <TabItem value="conda" label="conda / mamba" default>
+
+    ```bash
+    conda install -c conda-forge conda-tasks
+    ```
+
+  </TabItem>
+  <TabItem value="pixi" label="pixi">
+
+    ```bash
+    pixi global install conda-tasks
+    ```
+
+  </TabItem>
+  <TabItem value="pip" label="pip">
+
+    ```bash
+    pip install conda-tasks
+    ```
+
+  </TabItem>
+</Tabs>
+
+Then create a `conda-tasks.yml` and run your first task:
+
+```bash
+conda task run <task-name>
+conda task list
+```
+
+## What it doesn't do
+
+conda-tasks is a task runner, not a package manager. It does not create environments or install dependencies -- that's conda's job. If you're coming from pixi where `pixi run` handles both, see the [migration guide](https://conda-incubator.github.io/conda-tasks/tutorials/coming-from-pixi/).
+
+## Get involved
+
+conda-tasks is a [conda-incubator](https://github.com/conda-incubator) project. Contributions, bug reports, and feature requests are welcome:
+
+- [Documentation](https://conda-incubator.github.io/conda-tasks/)
+- [GitHub repository](https://github.com/conda-incubator/conda-tasks)
+- [Issue tracker](https://github.com/conda-incubator/conda-tasks/issues)
+
+## Acknowledgements
+
+conda-tasks would not exist without the work of the [prefix.dev](https://prefix.dev) team on [pixi](https://github.com/prefix-dev/pixi). The task system design -- dependency graphs, platform overrides, caching, template variables, and the overall developer experience -- comes directly from their implementation. We're grateful for their contribution to the conda ecosystem and for demonstrating what a project task runner should look like.
+
+Thanks also to the [anaconda-project](https://github.com/anaconda/anaconda-project) and [conda-project](https://github.com/conda-incubator/conda-project) teams for exploring project-level automation in the conda ecosystem long before conda-tasks existed.
+
+## Further reading
+
+- [conda-tasks documentation](https://conda-incubator.github.io/conda-tasks/)
+- [conda-tasks on GitHub](https://github.com/conda-incubator/conda-tasks)
+- [pixi task documentation](https://pixi.sh/latest/workspace/advanced_tasks/)
+- [conda plugin documentation](https://docs.conda.io/projects/conda/en/stable/dev-guide/plugins/index.html)
