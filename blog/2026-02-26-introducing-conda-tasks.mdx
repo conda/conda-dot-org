@@ -11,34 +11,38 @@ image_credit: <a href="https://www.pexels.com/photo/1205650/">Emily Ranquist on 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Conda handles environments and packages well, but it has never had a built-in way to define project tasks -- the kind of thing you'd otherwise put in a `Makefile`, `tox.ini`, or a pile of shell scripts. Today we're releasing [conda-tasks](https://github.com/conda-incubator/conda-tasks), a conda plugin that fills that gap. Define tasks in your project, wire up dependencies between them, and run everything through `conda task`.
+Conda handles environments and packages well, but it has never had a built-in way to define project tasks -- the kind of thing you'd otherwise put in a `Makefile`, `tox.ini`, or a pile of shell scripts. Today we're releasing [conda-tasks](https://github.com/conda-incubator/conda-tasks), a conda plugin that fills that gap. Define tasks in your project, wire up dependencies between them, and run everything through `conda task` (or the standalone `ct` command).
 
 <!-- truncate -->
 
 ## What it looks like
 
-Create a `conda-tasks.yml` in your project root:
+Create a `conda.toml` in your project root:
 
-```yaml
-tasks:
-  build:
-    cmd: "python -m build"
-    inputs: ["src/**/*.py", "pyproject.toml"]
-    outputs: ["dist/*.whl"]
-  test:
-    cmd: "pytest tests/ -v"
-    depends-on: [build]
-  lint:
-    cmd: "ruff check ."
-  check:
-    depends-on: [test, lint]
-    description: "Run all checks"
+```toml
+[tasks]
+lint = "ruff check ."
+
+[tasks.build]
+cmd = "python -m build"
+inputs = ["src/**/*.py", "pyproject.toml"]
+outputs = ["dist/*.whl"]
+
+[tasks.test]
+cmd = "pytest tests/ -v"
+depends-on = ["build"]
+
+[tasks.check]
+depends-on = ["test", "lint"]
+description = "Run all checks"
 ```
 
 Then run it:
 
 ```bash
 conda task run check
+# or, using the standalone CLI:
+ct run check
 ```
 
 conda-tasks resolves the dependency graph, runs `build` and `lint` first (in the right order), then `test`, and skips anything whose inputs haven't changed since the last run. That's it -- no new package manager, no new environment format. It works with your existing conda environments.
@@ -59,27 +63,31 @@ conda-tasks brings that task runner to conda. The task system design is directly
 
 Tasks can depend on other tasks. conda-tasks resolves the full dependency graph using topological sorting and detects cycles:
 
-```yaml
-tasks:
-  compile:
-    cmd: "gcc -o main main.c"
-  test:
-    cmd: "./main --test"
-    depends-on: [compile]
-  check:
-    depends-on: [test, lint]
+```toml
+[tasks]
+lint = "ruff check ."
+
+[tasks.compile]
+cmd = "gcc -o main main.c"
+
+[tasks.test]
+cmd = "./main --test"
+depends-on = ["compile"]
+
+[tasks.check]
+depends-on = ["test", "lint"]
 ```
 
 ### Jinja2 templates
 
 Commands support Jinja2 templates with context variables that expose conda's runtime state:
 
-```yaml
-tasks:
-  info:
-    cmd: "echo Building on {{ conda.platform }} with conda {{ conda.version }}"
-  clean:
-    cmd: "{% if conda.is_win %}rd /s /q build{% else %}rm -rf build/{% endif %}"
+```toml
+[tasks.info]
+cmd = "echo Building on {{ conda.platform }} with conda {{ conda.version }}"
+
+[tasks.clean]
+cmd = "{% if conda.is_win %}rd /s /q build{% else %}rm -rf build/{% endif %}"
 ```
 
 Available variables include `conda.platform`, `conda.environment.name`, `conda.prefix`, `conda.is_win`, `conda.is_unix`, `conda.is_linux`, `conda.is_osx`, and more.
@@ -88,12 +96,11 @@ Available variables include `conda.platform`, `conda.environment.name`, `conda.p
 
 Specify `inputs` and `outputs` on a task, and conda-tasks will skip re-execution when inputs haven't changed. The cache uses a fast `(mtime, size)` pre-check before falling back to SHA-256 hashing, so the overhead on cache hits is minimal:
 
-```yaml
-tasks:
-  build:
-    cmd: "python -m build"
-    inputs: ["src/**/*.py", "pyproject.toml"]
-    outputs: ["dist/*.whl"]
+```toml
+[tasks.build]
+cmd = "python -m build"
+inputs = ["src/**/*.py", "pyproject.toml"]
+outputs = ["dist/*.whl"]
 ```
 
 ### Platform overrides
@@ -103,22 +110,20 @@ Override task fields per platform, so the same task definition works across oper
 <Tabs>
   <TabItem value="target" label="target key" default>
 
-    ```yaml
-    tasks:
-      clean:
-        cmd: "rm -rf build/"
-        target:
-          win-64:
-            cmd: "rd /s /q build"
+    ```toml
+    [tasks.clean]
+    cmd = "rm -rf build/"
+
+    [target.win-64.tasks]
+    clean = "rd /s /q build"
     ```
 
   </TabItem>
   <TabItem value="jinja2" label="Jinja2 conditional">
 
-    ```yaml
-    tasks:
-      clean:
-        cmd: "{% if conda.is_win %}rd /s /q build{% else %}rm -rf build/{% endif %}"
+    ```toml
+    [tasks.clean]
+    cmd = "{% if conda.is_win %}rd /s /q build{% else %}rm -rf build/{% endif %}"
     ```
 
   </TabItem>
@@ -128,13 +133,10 @@ Override task fields per platform, so the same task definition works across oper
 
 Tasks can accept named arguments with defaults, so you don't need separate task definitions for common variations:
 
-```yaml
-tasks:
-  test:
-    cmd: "pytest {{ test_path }} -v"
-    args:
-      - arg: test_path
-        default: "tests/"
+```toml
+[tasks.test]
+cmd = "pytest {{ test_path }} -v"
+args = [{ arg = "test_path", default = "tests/" }]
 ```
 
 ```bash
@@ -149,17 +151,22 @@ Run tasks in any conda environment using the same `-n`/`-p` flags you already us
 conda task run test -n py311-compat
 ```
 
-Tasks can also declare a `default-environment` so they always run in the right place.
+Tasks can also declare a `default-environment` so they always run in the right place:
+
+```toml
+[tasks.test]
+cmd = "pytest tests/ -v"
+default-environment = "py311-compat"
+```
 
 ### Multiple file formats
 
-conda-tasks reads task definitions from five file formats, checked in this order:
+conda-tasks reads task definitions from four file formats, checked in this order:
 
-1. `conda-tasks.yml` -- canonical YAML format
-2. `conda-tasks.toml` -- canonical TOML format
-3. `pixi.toml` -- reads the `[tasks]` table directly
-4. `pyproject.toml` -- reads `[tool.conda-tasks.tasks]` or `[tool.pixi.tasks]`
-5. `.condarc` -- reads `plugins.conda_tasks.tasks` via conda's settings API
+1. `pixi.toml` -- reads the `[tasks]` table directly
+2. `conda.toml` -- conda-native TOML format
+3. `pyproject.toml` -- reads `[tool.conda.tasks]`, `[tool.conda-tasks.tasks]`, or `[tool.pixi.tasks]`
+4. `.condarc` -- reads `plugins.conda_tasks.tasks` via conda's settings API
 
 If you already have tasks in a `pixi.toml`, conda-tasks can read them as-is. You can also export them to the canonical format:
 
@@ -193,11 +200,14 @@ conda task export --file pixi.toml
   </TabItem>
 </Tabs>
 
-Then create a `conda-tasks.yml` and run your first task:
+Then create a `conda.toml` and run your first task:
 
 ```bash
 conda task run <task-name>
 conda task list
+# or use the standalone CLI:
+ct run <task-name>
+ct list
 ```
 
 ## What it doesn't do
