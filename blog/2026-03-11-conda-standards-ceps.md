@@ -1,5 +1,6 @@
 ---
 title: "Standardization of the conda ecosystem"
+slug: "2026-03-11-conda-standards-ceps"
 authors: [jaimergp]
 tags: [specifications, ceps]
 description: "How the conda ecosystem adopted a new set of voted standards and specifications"

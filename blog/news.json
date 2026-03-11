@@ -1,6 +1,7 @@
 [
   {
     "title": "Standardization of the conda ecosystem",
+    "slug": "2026-03-11-conda-standards-ceps",
     "authors": [
       "jaimergp"
     ],
