@@ -85,7 +85,7 @@ After several months of writing and discussions, we [started](https://github.com
 
 ## What's next
 
-The CEP numbers are somewhat arbitrary and don't necessarily allow for a structured reading of the specifications. Following PyPA's example, we will organize their content in the [Learn> Specifications](/learn/specifications.md) part of this website, trimmed to just the specification bits and leaving other details like rationale and motivation out. The idea is to have a single place where newcomers can quickly learn details what a valid package name is without having to parse through all the existing CEPs. This section will also aggregate the result of newer CEPs should they supersede or extend the existing ones.
+The CEP numbers are somewhat arbitrary and don't necessarily allow for a structured reading of the specifications. Following PyPA's example, we will organize their content in the [Learn> Specifications](/learn/specifications/) part of this website, trimmed to just the specification bits and leaving other details like rationale and motivation out. The idea is to have a single place where newcomers can quickly learn details what a valid package name is without having to parse through all the existing CEPs. This section will also aggregate the result of newer CEPs should they supersede or extend the existing ones.
 
 Most of the CEPs we passed simply codify what `conda` had already been doing for years. While this provides a much needed baseline, some of those legacy behaviors aren't necessarily ideal. In the future, we plan to refine these standards and deprecate outdated behaviors to keep the ecosystem lean.
 
@@ -94,4 +94,3 @@ But that is a goal for the next round. For now, let’s celebrate this milestone
 ---
 
 Photo by <a href="https://unsplash.com/@alex_skobe?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Alex Skobe</a> on <a href="https://unsplash.com/photos/a-single-mushroom-growing-on-mossy-ground-sQwqZO9qsso?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-
