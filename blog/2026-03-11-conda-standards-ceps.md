@@ -7,13 +7,13 @@ description: "How the conda ecosystem adopted a new set of voted standards and s
 image: img/blog/2026-03-11-conda-standards-ceps/banner.jpg
 ---
 
-Over the last few months, the conda steering council has spent significant resources into reducing the standardization debt in the conda ecosystem. This effort culminated in the approval of 10 new CEPs covering the foundational pillars of conda. This is a turning point in our community that is worth celebrating with a blog post!
+Over the last few months, the conda steering council has put significant resources into reducing the standardization debt in the conda ecosystem. This effort culminated in the approval of 10 new CEPs covering the foundational pillars of conda. This is a turning point in our community that is worth celebrating with a blog post!
 
 <!-- truncate -->
 
 ## De facto standards
 
-The conda ecosystem is mostly founded upon the tooling initially built by Anaconda. As the sole vendor, many aspects of the conda "standards" did not go through a process of design and standardization in the open; instead, they were probably deliberated internally by the responsible teams at the time. Excerpts of those decisions are sometimes captured in Github issues or pull requests, but not always.
+The conda ecosystem is mostly founded upon the tooling initially built by Anaconda. Since Anaconda was the sole vendor, many aspects of the conda "standards" did not go through a process of design and standardization in the open; instead, they were probably deliberated internally by the responsible teams at the time. Excerpts of those decisions are sometimes captured in Github issues or pull requests, but not always.
 
 As a result, the body of standards for the conda ecosystem has been dictated by the implementations found in `conda/conda` and `conda/conda-build`, among others. Reimplementations like `mamba` or `rattler` only had two things to guide their process: the source code and the behaviour of the existing tools. However, it was never clear which parts of the implementation were intentional or accidental (bug or feature?), leading to some ambiguity in their interpretation that in turn created an opportunity for drift.
 
@@ -25,7 +25,7 @@ The only logical way to proceed was to roll up our sleeves and fill in the missi
 
 The first CEP we wrote (and approved!) in this direction was [CEP 26](https://github.com/conda/ceps/blob/main/cep-0026.md), where we discussed what valid identifiers for packages and channels look like. This was the first time that the community was explicitly saying that unicode characters are not allowed in conda package names. Yes, `conda-build` [would happily build](https://github.com/conda/conda-build/blob/2ec652f69c94a0ec5f339c221c1cff54218e2c7c/tests/test-recipes/metadata/unicode_all_over/love-feedstock/meta.yaml#L1) `❤️-1.0-0.tar.bz2` for you.
 
-Writing that CEP we realized we had to leave many details out. We only went so far as to say which characters are allowed in a version string, but not how these are structured. We knew that opening that can of worms was a free ticket for quite the rabbit hole. But the only way is through, so there we went, and this is what happened:
+While writing that CEP, we realized we had to leave many details out. We only went so far as to say which characters are allowed in a version string, but not how these strings are structured. We knew that opening that can of worms was a free ticket for quite the rabbit hole. But the only way is through, so there we went, and this is what happened:
 
 ```mermaid
 flowchart TD
@@ -86,7 +86,7 @@ After several months of writing and discussions, we [started](https://github.com
 
 ## What's next
 
-The CEP numbers are somewhat arbitrary and don't necessarily allow for a structured reading of the specifications. Following PyPA's example, we will organize their content in the [Learn> Specifications](/learn/specifications/) part of this website, trimmed to just the specification bits and leaving other details like rationale and motivation out. The idea is to have a single place where newcomers can quickly learn details what a valid package name is without having to parse through all the existing CEPs. This section will also aggregate the result of newer CEPs should they supersede or extend the existing ones.
+The CEP numbers are somewhat arbitrary and don't necessarily allow for a structured reading of the specifications. Following PyPA's example, we will organize their content in the [Learn > Specifications](/learn/specifications/) part of this website, trimmed to just the specification bits and leaving other details like rationale and motivation out. The idea is to have a single place where newcomers can quickly learn the details of what a valid package name is without having to parse through all the existing CEPs. This section will also aggregate the results of newer CEPs, should they supersede or extend the existing ones.
 
 Most of the CEPs we passed simply codify what `conda` had already been doing for years. While this provides a much needed baseline, some of those legacy behaviors aren't necessarily ideal. In the future, we plan to refine these standards and deprecate outdated behaviors to keep the ecosystem lean.
 
