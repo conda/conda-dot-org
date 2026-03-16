@@ -12,7 +12,9 @@ import useBaseUrl from "@docusaurus/useBaseUrl";
 import ThemedImage from "@theme/ThemedImage";
 
 Earlier this month I gave a [talk at Michigan Python](https://youtu.be/BMzO_kPcoME?si=JeSabXluCHKuALAz) called Designing Delightful CLIs with Python. The premise was that some CLI tools put a smile on your face, and some make you want to close the terminal and go for a walk. I asked the audience what CLI tool they actually enjoy using, and the answers were things like: Claude Code, uv, ripgrep, gh, bat. These tools are a new generation that feels alive, gives you feedback, and gets out of your way.
+
 Then someone asked me: "What about conda?"
+
 Conda is one of the most powerful package managers in existence. It handles multi-language dependencies, manages complex environments, and serves everyone from data scientists running notebooks to engineers building production systems. But power and delight aren't always the same thing, and we have real work to do.
 This post lays out my vision for where we're taking conda and invites the broader community to build it with us.
 
@@ -62,14 +64,14 @@ Here is what I envision to create more trust:
 
 ## Delightful
 
-Delight is the part people tend to skip because it feels like polish on top of substance. However, I think this is the substance. A tool that delights users gets recommended to colleagues, it gets contributors, and it gets maintained and loved and improved.
+Delight is the part people tend to skip because it feels like polish on top of substance. However, I think this *is the substance*. A tool that delights users gets recommended to colleagues, it gets contributors, and it gets maintained and loved and improved.
 A few areas that I envision we focus on:
 
 - Sensible defaults – A great CLI works out of the box. Beginners should succeed immediately without reading a configuration guide. Power users can opt into more control, but beginners shouldn't have to opt out of complexity. We also should think carefully before adding extra configurations, since each one added becomes an extra complexity for users to understand and an extra maintenance burden for the maintainers.
-- Helpful suggestions – Type a mistyped command and conda should say "did you mean X?" This is the difference between a user feeling stupid and a user feeling supported.
+- Helpful suggestions – Type a mistyped command and conda should say "did you mean X?" This is the difference between a user feeling stupid and feeling supported.
 - Color and emoji with intention – Every visual element should do work. Green means success. Red means error. A progress emoji communicates stage without a wall of text.
-- Accessibility – Delight has to be for all users. As we add intentional color and emoji, we also need to support the NO_COLOR environmental variable which enables colorblind-safe palettes that don't rely on red/green alone, and providing `--no-progress` for animation-sensitive users and automation environments. The GitHub CLI with its `a11y` subcommand does a great job with this, and we should have something similar.
-- Progressive disclosure – Clean, minimal output by default and full debug detail with --verbose only when you need it. Right now conda displays too much information, which can be overwhelming and cause users to just ignore it. This matters for human users, but also increasingly, our `--json` output is needed for AI agents and automation scripts that consume CLI output because structured, parseable output is a feature. The fact that we already have this JSON output mode is a strength of conda.
+- Accessibility – Delight has to be for all users. As we add intentional color and emoji, we also need to support the `NO_COLOR` environmental variable which enables colorblind-safe palettes that don't rely on red/green alone, and providing `--no-progress` for animation-sensitive users and automation environments. The GitHub CLI with its `a11y` subcommand does a great job with this, and we should have something similar.
+- Progressive disclosure – Clean, minimal output by default and full debug detail with `--verbose` only when you need it. Right now conda displays too much information, which can be overwhelming and cause users to just ignore it. This matters for human users, but also increasingly, our `--json` output is needed for AI agents and automation scripts that consume CLI output because structured, parseable output is a feature. The fact that we already have this JSON output mode is a strength of conda.
 - Declarative environments – Modern development workflows need modern configuration. We have recently been working on improving cross-platform lockfile support, and we need to continue to build on that. Poetry, uv, and Pixi have shown that software engineers really value having the ability to run tasks and manage their dependencies through projects or workspaces. I envision that we support these workflows with a `conda.toml` configuration file to help make your projects easier to manage and more reproducible.
 
 ## Excellence Beyond the CLI
