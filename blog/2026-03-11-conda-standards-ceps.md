@@ -5,6 +5,7 @@ authors: [jaimergp]
 tags: [specifications, ceps]
 description: "How the conda ecosystem adopted a new set of voted standards and specifications"
 image: img/blog/2026-03-11-conda-standards-ceps/banner.jpg
+image_credit: Photo by <a href="https://unsplash.com/@alex_skobe?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Alex Skobe</a> on <a href="https://unsplash.com/photos/a-single-mushroom-growing-on-mossy-ground-sQwqZO9qsso?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 ---
 
 Over the last few months, the conda steering council has put significant resources into reducing the standardization debt in the conda ecosystem. This effort culminated in the approval of 10 new CEPs covering the foundational pillars of conda. This is a turning point in our community that is worth celebrating with a blog post!
@@ -91,7 +92,3 @@ The CEP numbers are somewhat arbitrary and don't necessarily allow for a structu
 Most of the CEPs we passed simply codify what `conda` had already been doing for years. While this provides a much needed baseline, some of those legacy behaviors aren't necessarily ideal. In the future, we plan to refine these standards and deprecate outdated behaviors to keep the ecosystem lean.
 
 But that is a goal for the next round. For now, let’s celebrate this milestone. A huge thank you to the steering council and everyone who contributed to the discussions!
-
----
-
-Photo by <a href="https://unsplash.com/@alex_skobe?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Alex Skobe</a> on <a href="https://unsplash.com/photos/a-single-mushroom-growing-on-mossy-ground-sQwqZO9qsso?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
