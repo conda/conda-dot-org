@@ -26,7 +26,9 @@ export default function BlogPostItemHeaderBanner() {
           alt={`Banner image for ${title} blog post`}
         />
       )}
-      {isBlogPostPage && image && image_credit && <ImageCredit image_credit={image_credit} />}
+      {isBlogPostPage && image && image_credit && (
+        <ImageCredit image_credit={image_credit} />
+      )}
     </div>
   );
 }
