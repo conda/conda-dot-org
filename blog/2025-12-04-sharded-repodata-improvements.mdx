@@ -5,16 +5,9 @@ authors: [travishathaway]
 tags: [conda, performance]
 description: "Conda fetches repodata much more quickly. Learn how we did it and who helped along the way."
 image: img/blog/2025-12-04-sharded-repodata-improvements/banner.jpg
+image_credit: <a href="https://unsplash.com/de/fotos/zerbrochenes-glas-mit-dunklem-verschwommenem-hintergrund-04jpFiARLmY?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Scar Tissue on Unsplash</a>
 ---
 import Plot from '@site/src/components/Plot';
-
-<div style={{color: "#555"}}>
-<em>Photo from <a href="https://unsplash.com/de/@scar_tissue?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
-  Scar Tissue
-</a> on <a href="https://unsplash.com/de/fotos/zerbrochenes-glas-mit-dunklem-verschwommenem-hintergrund-04jpFiARLmY?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></em>
-</div>
-
-<br />
 
 We're excited to announce a new beta feature in conda called sharded repodata. This optimized repodata format makes **environment solves faster** by reducing the time spent fetching package metadata.
 [Conda-forge](https://conda-forge.org) is already serving sharded repodata, so you can try it immediately when using conda with conda-forge.

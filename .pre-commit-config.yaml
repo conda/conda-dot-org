@@ -63,6 +63,11 @@ repos:
         language: python
         files: ^blog/authors.yml$
         additional_dependencies: [ruamel.yaml]
+      - id: image-credit
+        name: Ensure image_credit is properly used
+        entry: bin/image-credit
+        language: python
+        files: ^blog/
   - repo: meta
     # see https://pre-commit.com/#meta-hooks
     hooks:
