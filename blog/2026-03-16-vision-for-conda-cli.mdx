@@ -16,7 +16,7 @@ Earlier this month I gave a [talk at Michigan Python](https://youtu.be/BMzO_kPco
 Then someone asked me: "What about `conda`?"
 
 `conda` is one of the most powerful package managers in existence. It handles multi-language dependencies, manages complex environments, and serves everyone from data scientists running notebooks to engineers building production systems. But power and delight aren't always the same thing, and we have real work to do.
-After extensively discussing the topic with different stakeholders in the community and analyzing the existing incubated and 3rd party projects that tried to extend `conda` via its plugin system, I've laid out my my vision for where we could take `conda` and invites the broader community to build it with us.
+After extensively discussing the topic with different stakeholders in the community and analyzing the existing incubated and 3rd party projects that tried to extend `conda` via its plugin system, I've laid out my vision for where `conda` could go, and I invite the broader community to help build it.
 
 <!-- truncate -->
 
@@ -82,7 +82,7 @@ Fast, Trusted, and Delightful apply to more than the core CLI experience. A few 
 - Cross-platform excellence – Windows is home to the majority of our users, and it deserves a first-class experience: the fastest installers, the most polished interface, the smoothest integration with Windows development workflows. As we perfect that experience, we bring those same improvements to macOS and Linux.
 - A comprehensive API for frontend integration – The CLI is one way to interact with conda, but it shouldn't be the only one. IDE integrations, Jupyter extensions, web interfaces, GUI tools, and even AI agents all deserve access to conda's power without reimplementing it. A well-documented API built on conda and Rattler makes that ecosystem possible.
 
-Jannis Leidel created a demo called [conda-express](https://github.com/jezdez/conda-express) that demonstrates what the installation of a single-binary `conda` might look like:
+TODO: Replace with new example
 
 <ThemedImage
   alt="Conda CLI in action"
@@ -101,7 +101,3 @@ This vision laid out above will not come to fruition without community involveme
 Whether you're a data scientist who knows where the pain points are, a contributor who wants to help solve them, or a maintainer helping to keep the lights on, we need your input and participation!
 The conda ecosystem has assets other package managers don't: contributors with deep expertise across an enormous range of use cases, multi-language package support, enterprise-scale real-world feedback, and a strong academic presence. We're building on a solid foundation.
 The goal is a package manager that will be around for many years to come, and is trusted by researchers, loved by engineers, and recommended to anyone who's ever fought a dependency. Come help us build it.
-
-:::info
-Interested in contributing? Check out the projects in the [conda GitHub org](https://github.com/conda), join us on [Zulip](https://conda.zulipchat.com), or attend a [community call](https://conda.org/community/calendar). All are welcome.
-:::
