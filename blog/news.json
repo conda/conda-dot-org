@@ -74,20 +74,5 @@
     "image": "img/blog/2026-01-29-conda-roadmap-q1-2026/banner.jpg",
     "image_credit": "<a href=\"https://unsplash.com/photos/aerial-photography-of-vehicles-on-road-surrounded-with-snow-during-daytime-63p47XdyEdM\">Markus Gempeler on Unsplash</a>",
     "date": "2026-01-29T00:00:00"
-  },
-  {
-    "title": "You Can Install PostgreSQL with conda?",
-    "slug": "2026-01-27-you-can-install-postgresql-with-conda",
-    "authors": [
-      "travishathaway"
-    ],
-    "tags": [
-      "tutorials",
-      "you-can-do-that",
-      "postgresql"
-    ],
-    "description": "Did you know it's possible to install and run PostgreSQL with conda? Find out how in this first post in the \"You Can Do That with conda?\" series.",
-    "image": "img/blog/2026-01-27-you-can-install-postgresql-with-conda/banner.png",
-    "date": "2026-01-27T00:00:00"
   }
 ]
