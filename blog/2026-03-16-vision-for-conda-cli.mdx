@@ -16,9 +16,52 @@ Earlier this month I gave a [talk at Michigan Python](https://youtu.be/BMzO_kPco
 Then someone asked me: "What about `conda`?"
 
 `conda` is one of the most powerful package managers in existence. It handles multi-language dependencies, manages complex environments, and serves everyone from data scientists running notebooks to engineers building production systems. But power and delight aren't always the same thing, and we have real work to do.
-After extensively discussing the topic with different stakeholders in the community and analyzing the existing incubated and 3rd party projects that tried to extend `conda` via its plugin system, I've laid out my vision for where `conda` could go, and I invite the broader community to help build it.
+
+After extensive discussion with stakeholders across the community, including at a maintainers offsite in Málaga, Spain, in December, and after looking at incubated and third-party projects that extend `conda` through its plugin system, I've laid out my vision for where `conda` could go. Since that offsite, other maintainers have turned several of those ideas into experiments such as `conda-ng` to help show what is possible. I invite the broader community to help build it.
 
 <!-- truncate -->
+
+## A Brief History
+
+Before we dive into the future, let's first spend a minute reflecting on the past. By the end of 2012, the Anaconda Distribution had about 100 packages and `conda` ran on Python 2.7. The CLI was a set of modules that used `optparse`, the precursor to `argparse`, and the progress bar library was vendored into conda. Even so, the look and feel is not all that different from modern `conda`. Below, `conda` 1.4 shows its help output and creates an environment.
+
+<ThemedImage
+  alt="conda CLI 1.4 in action"
+  sources={{
+    light: useBaseUrl("/img/blog/2026-03-16-vision-for-conda-cli/conda-1-4-light.gif"),
+    dark: useBaseUrl("/img/blog/2026-03-16-vision-for-conda-cli/conda-1-4-dark.gif"),
+  }}
+/>
+
+Fast forward five years to 2017: `conda` 4.4 shipped with both Python 3.6 and 2.7 installers and included a major cleanup of the CLI. One large change was new `conda activate` and `conda deactivate` commands, which replaced `source activate` and `source deactivate`. It also added a new spinner and used the [`tqdm`](https://github.com/tqdm/tqdm) library for progress bars. Those pieces are still in `conda` today.
+
+<ThemedImage
+  alt="conda CLI 4.4 in action"
+  sources={{
+    light: useBaseUrl("/img/blog/2026-03-16-vision-for-conda-cli/conda-4-4-light.gif"),
+    dark: useBaseUrl("/img/blog/2026-03-16-vision-for-conda-cli/conda-4-4-dark.gif"),
+  }}
+/>
+
+`conda` 22.11.0, released in November 2022, added a pluggy-based hook system so `conda` could be extended with plugins.
+
+2023 was also a big year: 23.10.0 switched the default solver from the classic Python implementation to libmamba via a solver plugin, which dramatically improved how long solves took.
+
+In 2024, `conda` gained a reporter backend plugin, and Travis Hathaway put together a demo of what a more modern CLI could look like with the [conda-rich](https://github.com/conda-incubator/conda-rich) incubator project.
+
+<ThemedImage
+  alt="conda CLI with conda-rich in action"
+  sources={{
+    light: useBaseUrl("/img/blog/2026-03-16-vision-for-conda-cli/conda-rich-light.gif"),
+    dark: useBaseUrl("/img/blog/2026-03-16-vision-for-conda-cli/conda-rich-dark.gif"),
+  }}
+/>
+
+In January 2025, Jaime Rodríguez-Guerra started [conda-spawn](https://github.com/conda-incubator/conda-spawn), in the spirit of `poetry shell` and `pixi shell`: spawn a subshell with the environment already active instead of activating in place, so you can skip `conda init` hooks on every login. That keeps ordinary shell startup light and defers loading `conda` until you are ready to use it.
+
+Finally, in December 2025, `conda` shipped [sharded repodata](https://conda.org/blog/sharded-repodata-improvements) in beta, a fundamental step forward for `conda` by cutting how much metadata you download and process.
+
+A couple of takeaways from this: `conda`'s CLI has kept a fairly consistent look and feel over the years, and the maintainers have been improving the experience incrementally. I'm grateful for that history and for the maintainers and community members who sustained it.
 
 ## Fast, Trusted, and Delightful
 
@@ -28,6 +71,7 @@ In [my talk](https://youtu.be/BMzO_kPcoME?si=JeSabXluCHKuALAz), I presented that
 3. Delightful
 
 For fast, we aren’t just talking about benchmarks-fast, but _perceived_ fast, where the tool communicates what it's doing so silence never turns into doubt. For trusted, the tool is transparent about its actions, careful about dangerous operations, and honest when things go wrong. Finally, for delightful we have sensible defaults, helpful suggestions, clean output, and just enough personality to remind you that a human thought about your experience.
+
 That's the lens I would like to apply to `conda`'s vision, so let’s dive into the details as part of this post.
 
 ## Blazingly Fast
@@ -36,9 +80,9 @@ Package management shouldn't be a coffee break. When I demoed `conda` next to `p
 Speed is about perception as much as raw performance. Nielsen's research on response times shows that feedback within 100 ms feels instant and anything over a second creates uncertainty. In other words, silence is the enemy of responsiveness.
 Our approach to speed has several dimensions:
 
-- Progress over spinners – Replacing spinners with progress bars that show operation steps, package counts, and timing gives users confidence that work is happening and finishing. We can show meaningful progress during the fetching, downloading, and installing phases. A precursor to this was work by Travis Hathaway and others in 2024 on a reporter backend plugin hook and a demonstration with the [conda-rich](https://github.com/conda-incubator/conda-rich) incubator project.
-- Sharded repodata – In December we [announced](https://conda.org/blog/sharded-repodata-improvements) that sharded repodata was in beta. This is a fundamental improvement to our speed story by significantly decreasing download and processing time of metadata. The next step is that we need to enable this by default and ensure it is available on a wider set of channels.
-- Shell startup – `conda init` works by injecting a shell function into your login profile that runs on every shell startup, even when you never use conda. The [conda-spawn](https://github.com/conda-incubator/conda-spawn) incubator project takes a different approach inspired by `poetry shell` and `pixi shell`: spawn a new subshell with the environment already activated, rather than modifying the current shell in-place. Our vision is for this to become the default `conda activate` and `conda deactivate` behavior.
+- Progress over spinners – Replacing spinners with progress bars that show operation steps, package counts, and timing gives users confidence that work is happening and finishing. We can show meaningful progress during the fetching, downloading, and installing phases.
+- Sharded repodata – As I mentioned above, sharded repodata is a game changer for performance and the next step is that we need to enable this by default and ensure it is available on a wider set of channels.
+- Shell startup – There should be no shell startup penalty for using `conda`, and my vision is that a conda-spawn approach to spawn a new subshell will become the default `conda activate` and `conda deactivate` behavior.
 - Rattler integration – We would like to use [Rattler](https://github.com/conda/rattler) more, a high-performance Rust implementation of core conda primitives. The performance floor rises significantly when the resolver and file I/O are written in Rust.
 
 Our goal isn't to win a benchmark, but to make conda feel fast and responsive. Jaime Rodríguez-Guerra created a demo called [`conda-ng`](https://github.com/jaimergp/conda-ng/) that demonstrates what a blazingly fast `rattler`-based `conda` might look like:
@@ -59,7 +103,7 @@ Here is what I envision to create more trust:
 - Streaming output provides transparency – When `conda` shows you what it's resolving and downloading in real-time, you can spot problems early. It is also important for conda to provide a summary at the end of an operation to help increase confidence.
 - Error messages are a conversation – `conda` should be a helpful colleague, and its error messages should state the cause clearly, show exactly what went wrong, and provide an actionable path to fix it. For example, Python 3.14 has improved error guidance which doesn't just report a syntax error, it tells you how to fix it.
 - Match friction to a consequence – We should have a spectrum of interaction so that routine operations need no confirmation. Moderately risky operations get a preview and a brief pause. Genuinely dangerous operations like deleting an environment or wiping a package cache require a confirmation. Currently conda asks for confirmation for most operations, which causes alert fatigue — users learn to dismiss prompts without reading them, meaning the confirmation offers no real protection when an operation is genuinely dangerous.
-- Native wheel and PyPI support – The [`conda-pypi`](https://github.com/conda/conda-pypi) plugin that improves PyPI interoperability is also about trust. The current workflow of doing `pip install` inside a conda environment undermines `conda`'s value by creating a split in dependency tracking that `conda` can't reason about. When `conda` can install from PyPI directly and keep its dependency graph coherent, users can trust the environment they have is the environment conda describes.
+- Native wheel and PyPI support – The [`conda-pypi`](https://github.com/conda/conda-pypi) plugin that improves PyPI interoperability is also about trust. The current workflow of doing `pip install` inside a conda environment undermines `conda`'s value by creating a split in dependency tracking that `conda` can't reason about. If you watch the `conda` 1.4 animation above carefully, initial versions of `conda` had a `conda pip` command. However, instead of using `pip` directly, `conda` should be able to natively understand how to install wheels, which are the Python binary format. When `conda` can install from PyPI directly and keep its dependency graph coherent, users can trust the environment they have is the environment conda describes.
 
 ## Delightful
 
@@ -70,7 +114,7 @@ A few areas that I envision we focus on:
 - Helpful suggestions – Type a mistyped command and conda should say "did you mean X?" This is the difference between a user feeling stupid and feeling supported.
 - Color and emoji with intention – Every visual element should do work. Green means success. Red means error. A progress emoji communicates stage without a wall of text.
 - Accessibility – Delight has to be for all users. As we add intentional color and emoji, we also need to support the `NO_COLOR` environment variable to disable all color output, use colorblind-safe palettes that don't rely on red/green alone, and provide `--no-progress` for animation-sensitive users and automation environments. The GitHub CLI with its `a11y` subcommand does a great job with this, and we should have something similar.
-- Progressive disclosure – Clean, minimal output by default and full debug detail with `--verbose` only when you need it. Right now conda displays too much information, which can be overwhelming and cause users to just ignore it. This matters for human users, but also increasingly, our `--json` output is needed for AI agents and automation scripts that consume CLI output because structured, parseable output is a feature. The fact that we already have this JSON output mode is a strength of `conda`.
+- Progressive disclosure – Clean, minimal output by default and full debug detail with `--verbose` only when you need it. Right now conda displays too much information, which can be overwhelming and cause users to just ignore it. This matters for human users and for automation. Agents and scripts need reliable fields without fragile parsing of prose, and structured modes like `--json` help with that. Long JSON dumps also cost context tokens, so compact defaults and optional structured output both matter. The fact that we already have a JSON output mode is a strength of `conda`.
 - Declarative environments – Modern development workflows need modern configuration. We have recently been working on improving cross-platform lockfile support, and we need to continue to build on that. Poetry, `uv`, and `pixi` have shown that software engineers really value having the ability to run tasks and manage their dependencies through projects or workspaces. I envision that we support these workflows with an ecosystem-standardized `conda.toml` configuration file to help make your projects easier to manage and more reproducible.
 
 ## Excellence Beyond the CLI
@@ -81,13 +125,13 @@ Fast, Trusted, and Delightful apply to more than the core CLI experience. A few 
 - Cross-platform excellence – Windows is home to the majority of `conda` users, and it deserves a first-class experience: the fastest installers, the most polished interface, the smoothest integration with Windows development workflows. As we perfect that experience, we bring those same improvements to macOS and Linux.
 - A comprehensive API for frontend integration – The CLI is one way to interact with `conda`, but it shouldn't be the only one. IDE integrations, Jupyter extensions, web interfaces, GUI tools, and even AI agents all deserve access to `conda`'s power without reimplementing it. A well-documented API built on `conda` and `rattler` makes that ecosystem possible.
 
-TODO: Replace with new example
+Here is an example of what a future Miniconda installer could look like as a lightweight, single-binary:
 
 <ThemedImage
   alt="Conda CLI in action"
   sources={{
-    light: useBaseUrl("/img/blog/2026-03-16-vision-for-conda-cli/cx-light.gif"),
-    dark: useBaseUrl("/img/blog/2026-03-16-vision-for-conda-cli/cx-dark.gif"),
+    light: useBaseUrl("/img/blog/2026-03-16-vision-for-conda-cli/miniconda-light.gif"),
+    dark: useBaseUrl("/img/blog/2026-03-16-vision-for-conda-cli/miniconda-dark.gif"),
   }}
 />
 
@@ -99,4 +143,5 @@ This vision laid out above will not come to fruition without community involveme
 
 Whether you're a data scientist who knows where the pain points are, a contributor who wants to help solve them, or a maintainer helping to keep the lights on, we need your input and participation!
 The conda ecosystem has assets other package managers don't: contributors with deep expertise across an enormous range of use cases, multi-language package support, enterprise-scale real-world feedback, and a strong academic presence. We're building on a solid foundation.
+
 The goal is a package manager that will be around for many years to come, and is trusted by researchers, loved by engineers, and recommended to anyone who's ever fought a dependency. Come help us build it.
