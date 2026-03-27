@@ -34,7 +34,7 @@ Before we dive into the future, let's first spend a minute reflecting on the pas
     dark: useBaseUrl("/img/blog/2026-03-16-vision-for-conda-cli/conda-1-4-dark.gif"),
   }}
 />
-<br>
+<br />
 
 Fast forward five years to 2017: `conda` 4.4 shipped with both Python 3.6 and 2.7 installers and included a major cleanup of the CLI. One large change was new `conda activate` and `conda deactivate` commands, which replaced `source activate` and `source deactivate`. It also added a new spinner and used the [`tqdm`](https://github.com/tqdm/tqdm) library for progress bars. Those pieces are still in `conda` today.
 
@@ -45,7 +45,7 @@ Fast forward five years to 2017: `conda` 4.4 shipped with both Python 3.6 and 2.
     dark: useBaseUrl("/img/blog/2026-03-16-vision-for-conda-cli/conda-4-4-dark.gif"),
   }}
 />
-<br>
+<br />
 
 `conda` 22.11.0, released in November 2022, added a pluggy-based hook system so `conda` could be extended with plugins.
 
@@ -60,7 +60,7 @@ In 2024, `conda` gained a reporter backend plugin, and Travis Hathaway put toget
     dark: useBaseUrl("/img/blog/2026-03-16-vision-for-conda-cli/conda-rich-dark.gif"),
   }}
 />
-<br>
+<br />
 
 In January 2025, Jaime Rodríguez-Guerra started [conda-spawn](https://github.com/conda-incubator/conda-spawn), in the spirit of `poetry shell` and `pixi shell`: spawn a subshell with the environment already active instead of activating in place, so you can skip `conda init` hooks on every login. That keeps ordinary shell startup light and defers loading `conda` until you are ready to use it.
 
@@ -99,6 +99,7 @@ Our goal isn't to win a benchmark, but to make conda feel fast and responsive. J
     dark: useBaseUrl("/img/blog/2026-03-16-vision-for-conda-cli/conda-ng-dark.gif"),
   }}
 />
+<br />
 
 ## Trusted
 
@@ -139,6 +140,7 @@ Here is an example of what a future Miniconda installer could look like as a lig
     dark: useBaseUrl("/img/blog/2026-03-16-vision-for-conda-cli/miniconda-dark.gif"),
   }}
 />
+<br />
 
 ## How To Get There
 
