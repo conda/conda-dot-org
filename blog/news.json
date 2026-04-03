@@ -1,7 +1,7 @@
 [
   {
     "title": "Building a Better conda CLI: A Vision",
-    "slug": "2026-03-16-vision-for-conda-cli",
+    "slug": "2026-04-07-vision-for-conda-cli",
     "authors": [
       "danyeaw"
     ],
@@ -9,10 +9,10 @@
       "conda",
       "vision"
     ],
-    "description": "The vision for the conda CLI in 2026: making conda fast, trusted, and delightful.",
-    "image": "img/blog/2026-03-16-vision-for-conda-cli/banner.png",
+    "description": "A vision for the conda CLI in 2026: making conda fast, trusted, and delightful.",
+    "image": "img/blog/2026-04-07-vision-for-conda-cli/banner.png",
     "image_credit": "<a href=\"https://unsplash.com/de/@mcnoble?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Matt Noble on Unsplash</a>",
-    "date": "2026-03-16T00:00:00"
+    "date": "2026-04-07T00:00:00"
   },
   {
     "title": "Standardization of the conda ecosystem",
