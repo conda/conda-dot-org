@@ -25,7 +25,7 @@ After extensive discussion with stakeholders across the community, I've laid out
 
 ## A Brief History
 
-Before we dive into the future, let's first spend a minute reflecting on the past. By the end of 2012, the Anaconda Distribution had about 100 packages and `conda` ran on Python 2.7. The CLI was a set of modules that used `optparse`, the precursor to `argparse`, and the progress bar library was vendored into conda. Even so, the look and feel are not all that different from modern `conda`. Below, `conda` 1.4 shows its help output and creates an environment.
+Before we dive into the future, let's first spend a minute reflecting on the past. By the end of 2012, the Anaconda Distribution had about 100 packages and `conda` ran on Python 2.7. The CLI was a set of modules that used `optparse`, the precursor to `argparse`, and the progress bar library was vendored. Even so, the look and feel are not all that different from modern `conda`. Below, `conda` 1.4 shows its help output and creates an environment.
 
 <ThemedImage
   alt="conda CLI 1.4 in action"
@@ -36,7 +36,7 @@ Before we dive into the future, let's first spend a minute reflecting on the pas
 />
 <br />
 
-Fast-forward five years to 2017: `conda` 4.4 shipped with both Python 3.6 and 2.7 installers and included a major cleanup of the CLI. One large change was new `conda activate` and `conda deactivate` commands, which replaced `source activate` and `source deactivate`. It also added a new spinner and used the [`tqdm`](https://github.com/tqdm/tqdm) library for progress bars. Those pieces are still in `conda` today.
+Fast-forward five years to 2017: `conda` 4.4 shipped with both Python 3.6 and 2.7 installers and included a major cleanup of the CLI. One large change was new `conda activate` and `conda deactivate` commands, which replaced `source activate` / `source deactivate` (on Linux/macOS) and `activate` / `deactivate` (on Windows). It also added a new spinner and used the [`tqdm`](https://github.com/tqdm/tqdm) library for progress bars. Those pieces are still in `conda` today.
 
 <ThemedImage
   alt="conda CLI 4.4 in action"
@@ -49,7 +49,7 @@ Fast-forward five years to 2017: `conda` 4.4 shipped with both Python 3.6 and 2.
 
 `conda` 22.11.0, released in November 2022, added a pluggy-based hook system so `conda` could be extended with plugins.
 
-2023 was also a big year: 23.10.0 switched the default solver from the classic Python implementation to libmamba via a solver plugin, which dramatically improved how long solves took.
+2023 was also a big year: 23.10.0 switched the default solver from the classic `pycosat` implementation to `libmamba` via a solver plugin, which dramatically improved how long solves took.
 
 In 2024, `conda` gained a reporter backend plugin, and Travis Hathaway put together a demo of what a more modern CLI could look like with the [conda-rich](https://github.com/conda-incubator/conda-rich) incubator project.
 
