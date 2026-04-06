@@ -1,5 +1,26 @@
 [
   {
+    "title": "March 2026 Releases",
+    "slug": "2026-04-06-march-releases",
+    "authors": [
+      "kenodegard"
+    ],
+    "tags": [
+      "announcement",
+      "conda",
+      "conda-build",
+      "conda-libmamba-solver",
+      "conda-content-trust",
+      "conda-rattler-solver",
+      "conda-standalone",
+      "constructor",
+      "conda-pypi"
+    ],
+    "description": "conda 26.3.x, conda-build 26.3.0, conda-libmamba-solver 26.3.0, conda-content-trust 0.3.0, constructor 3.15.x, conda-pypi 0.5/0.6, and more have shipped! \ud83c\udf89\n",
+    "image": "img/blog/2026-03-31-february-march-releases/banner.png",
+    "date": "2026-04-06T00:00:00"
+  },
+  {
     "title": "Standardization of the conda ecosystem",
     "slug": "2026-03-11-conda-standards-ceps",
     "authors": [
@@ -59,20 +80,5 @@
     "image": "img/blog/2026-01-29-conda-roadmap-q1-2026/banner.jpg",
     "image_credit": "<a href=\"https://unsplash.com/photos/aerial-photography-of-vehicles-on-road-surrounded-with-snow-during-daytime-63p47XdyEdM\">Markus Gempeler on Unsplash</a>",
     "date": "2026-01-29T00:00:00"
-  },
-  {
-    "title": "You Can Install PostgreSQL with conda?",
-    "slug": "2026-01-27-you-can-install-postgresql-with-conda",
-    "authors": [
-      "travishathaway"
-    ],
-    "tags": [
-      "tutorials",
-      "you-can-do-that",
-      "postgresql"
-    ],
-    "description": "Did you know it's possible to install and run PostgreSQL with conda? Find out how in this first post in the \"You Can Do That with conda?\" series.",
-    "image": "img/blog/2026-01-27-you-can-install-postgresql-with-conda/banner.png",
-    "date": "2026-01-27T00:00:00"
   }
 ]
