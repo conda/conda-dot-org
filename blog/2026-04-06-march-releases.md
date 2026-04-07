@@ -3,17 +3,15 @@ title: March 2026 Releases
 slug: 2026-04-06-march-releases
 authors: [kenodegard]
 tags:
-  [
-    announcement,
-    conda,
-    conda-build,
-    conda-libmamba-solver,
-    conda-content-trust,
-    conda-rattler-solver,
-    conda-standalone,
-    constructor,
-    conda-pypi,
-  ]
+  - announcement
+  - conda
+  - conda-build
+  - conda-libmamba-solver
+  - conda-content-trust
+  - conda-rattler-solver
+  - conda-standalone
+  - constructor
+  - conda-pypi
 description: |
   conda 26.3.x, conda-build 26.3.0, conda-libmamba-solver 26.3.0, conda-content-trust 0.3.0, constructor 3.15.x, conda-pypi 0.5/0.6, and more have shipped! 🎉
 image: img/blog/2026-03-31-february-march-releases/banner.png
