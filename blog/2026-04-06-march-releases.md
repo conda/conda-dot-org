@@ -70,10 +70,10 @@ conda install --name base conda-libmamba-solver=26.3.0
 
 Full changelog: [26.3.0](https://github.com/conda/conda-libmamba-solver/releases/tag/26.3.0)
 
-## Changes in conda-content-trust [0.3.0](https://github.com/conda/conda-content-trust/releases/tag/0.3.0)
+## Changes in conda-content-trust [0.3.0](https://github.com/conda/conda-content-trust/releases/tag/0.3.0)/[0.3.1](https://github.com/conda/conda-content-trust/releases/tag/0.3.1)
 
 ```bash
-conda install conda-content-trust=0.3.0
+conda install conda-content-trust=0.3.1
 ```
 
 **Notable changes:**
@@ -81,7 +81,7 @@ conda install conda-content-trust=0.3.0
 - **`CondaPostSolve` hook** for signature verification (migrated from conda’s former `conda.trust` implementation), aligned with conda 26.3’s plugin-based trust story.
 - Supports **Python 3.13** and **3.14**; drops **3.8** and **3.9**.
 
-Full changelog: [0.3.0](https://github.com/conda/conda-content-trust/releases/tag/0.3.0)
+Full changelogs: [0.3.0](https://github.com/conda/conda-content-trust/releases/tag/0.3.0), [0.3.1](https://github.com/conda/conda-content-trust/releases/tag/0.3.1)
 
 ## Changes in conda-rattler-solver [0.0.6](https://github.com/conda/conda-rattler-solver/releases/tag/0.0.6)
 
