@@ -1,5 +1,20 @@
 [
   {
+    "title": "Building a Better conda CLI: A Vision",
+    "slug": "2026-04-07-vision-for-conda-cli",
+    "authors": [
+      "danyeaw"
+    ],
+    "tags": [
+      "conda",
+      "vision"
+    ],
+    "description": "A vision for the conda CLI in 2026: making conda fast, trusted, and delightful.",
+    "image": "img/blog/2026-04-07-vision-for-conda-cli/banner.png",
+    "image_credit": "<a href=\"https://unsplash.com/de/@mcnoble?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Matt Noble on Unsplash</a>",
+    "date": "2026-04-07T00:00:00"
+  },
+  {
     "title": "Standardization of the conda ecosystem",
     "slug": "2026-03-11-conda-standards-ceps",
     "authors": [
@@ -59,20 +74,5 @@
     "image": "img/blog/2026-01-29-conda-roadmap-q1-2026/banner.jpg",
     "image_credit": "<a href=\"https://unsplash.com/photos/aerial-photography-of-vehicles-on-road-surrounded-with-snow-during-daytime-63p47XdyEdM\">Markus Gempeler on Unsplash</a>",
     "date": "2026-01-29T00:00:00"
-  },
-  {
-    "title": "You Can Install PostgreSQL with conda?",
-    "slug": "2026-01-27-you-can-install-postgresql-with-conda",
-    "authors": [
-      "travishathaway"
-    ],
-    "tags": [
-      "tutorials",
-      "you-can-do-that",
-      "postgresql"
-    ],
-    "description": "Did you know it's possible to install and run PostgreSQL with conda? Find out how in this first post in the \"You Can Do That with conda?\" series.",
-    "image": "img/blog/2026-01-27-you-can-install-postgresql-with-conda/banner.png",
-    "date": "2026-01-27T00:00:00"
   }
 ]
