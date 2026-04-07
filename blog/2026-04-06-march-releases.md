@@ -14,7 +14,7 @@ tags:
   - conda-pypi
 description: |
   conda 26.3.x, conda-build 26.3.0, conda-libmamba-solver 26.3.0, conda-content-trust 0.3.0, constructor 3.15.x, conda-pypi 0.5/0.6, and more have shipped! 🎉
-image: img/blog/2026-03-31-february-march-releases/banner.png
+image: img/blog/2026-04-06-march-releases/banner.jpg
 ---
 
 Late winter brought conda **26.3** alongside updates across the installer, solver, and PyPI tooling stacks. Packages are on **`defaults`** and **`conda-forge`**.
