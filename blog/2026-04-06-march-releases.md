@@ -17,19 +17,19 @@ description: |
 image: img/blog/2026-04-06-march-releases/banner.jpg
 ---
 
-Late winter brought conda **26.3** alongside updates across the installer, solver, and PyPI tooling stacks. Packages are on **`defaults`** and **`conda-forge`**.
+The March 2026 releases included updates to conda, conda-build, conda-libmamba-solver, conda-content-trust, conda-rattler-solver, conda-standalone, constructor, and conda-pypi! 🎉 All of these have been released to both `defaults` and `conda-forge` channels.
 
 <!-- truncate -->
 
-## Changes in conda [26.3.0](https://github.com/conda/conda/releases/tag/26.3.0) / [26.3.1](https://github.com/conda/conda/releases/tag/26.3.1)
+## Changes in conda [26.3.0](https://github.com/conda/conda/releases/tag/26.3.0)/[26.3.1](https://github.com/conda/conda/releases/tag/26.3.1)
 
-To update `conda` in `base`:
+To update `conda` to the latest version, run:
 
 ```bash
 conda install --name base conda=26.3.1
 ```
 
-**Notable changes:**
+**Notable Changes:**
 
 - `conda create --file` and `conda install --file` accept `environment.yaml` as well as `requirements.txt` and explicit exports; with `--name` / `--prefix` omitted, the name or prefix is inferred from the file. `-f` is a recognized alias for `--file` (and is no longer an alias for `--force`).
 - Richer solver metadata: `PackageRecord.requested_specs` and unmerged match specs through the solver and `pre-solve` plugins.
@@ -136,9 +136,9 @@ Full changelogs: [0.5.0](https://github.com/conda/conda-pypi/releases/tag/0.5.0)
 
 ## We ❤️ our community
 
-Thank you to everyone who contributed fixes, features, and first patches this cycle.
+Altogether, we had 8 new contributors this release cycle; thank you to all of our open source community members for helping make these improvements possible.
 
-- [@ELundby45](https://github.com/ELundby45) in [conda#15716](https://github.com/conda/conda/pull/15716)
+- [@ELundby45](https://github.com/ELundby45) made their first contribution in [conda#15716](https://github.com/conda/conda/pull/15716)
 - [@crowecawcaw](https://github.com/crowecawcaw) in [conda#15636](https://github.com/conda/conda/pull/15636)
 - [@lsoksane](https://github.com/lsoksane) in [conda#15549](https://github.com/conda/conda/pull/15549)
 - [@shenhaofang](https://github.com/shenhaofang) in [conda#15664](https://github.com/conda/conda/pull/15664)
