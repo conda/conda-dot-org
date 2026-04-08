@@ -379,3 +379,22 @@ a.footer-link:hover {
 .navbar__logo img:active {
   transform: scale(1);
 }
+
+/* Responsive visibility helpers for embedded content */
+.desktop-only {
+  display: block;
+}
+
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-only {
+    display: block;
+  }
+}
