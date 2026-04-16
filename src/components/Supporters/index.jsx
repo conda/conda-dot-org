@@ -112,7 +112,7 @@ export default function Supporters() {
                 light: useBaseUrl("/img/supporters/numfocus.svg"),
                 dark: useBaseUrl("/img/supporters/numfocus.svg"),
               }}
-              width="100%"
+              width="250"
             />
           </div>
         </Link>

@@ -27,13 +27,13 @@ repos:
         # ruamel.yaml doesn't line wrap correctly (?) so set width to 1M to avoid issues
         args: [--mapping, '2', --offset, '2', --sequence, '4', --width, '1000000']
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.36.1
+    rev: 0.37.1
     hooks:
       # verify github syntaxes
       - id: check-github-workflows
   - repo: https://github.com/codespell-project/codespell
     # see pyproject.toml
-    rev: v2.4.1
+    rev: v2.4.2
     hooks:
       - id: codespell
         args: [--write-changes]
@@ -44,7 +44,7 @@ repos:
         types_or: [jsx, javascript]
         exclude: ^static/js/count.js$
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.14.14
+    rev: v0.15.9
     hooks:
       - id: ruff
         args: [--fix]
@@ -63,6 +63,11 @@ repos:
         language: python
         files: ^blog/authors.yml$
         additional_dependencies: [ruamel.yaml]
+      - id: image-credit
+        name: Ensure image_credit is properly used
+        entry: bin/image-credit
+        language: python
+        files: ^blog/
   - repo: meta
     # see https://pre-commit.com/#meta-hooks
     hooks:
