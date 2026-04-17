@@ -1,5 +1,20 @@
 [
   {
+    "title": "Building a Better conda CLI: a Vision",
+    "slug": "2026-04-17-vision-for-conda-cli",
+    "authors": [
+      "danyeaw"
+    ],
+    "tags": [
+      "conda",
+      "vision"
+    ],
+    "description": "A vision for the conda CLI in 2026: making conda fast, trusted, and delightful.",
+    "image": "img/blog/2026-04-17-vision-for-conda-cli/banner.png",
+    "image_credit": "<a href=\"https://unsplash.com/de/@mcnoble?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Matt Noble on Unsplash</a>",
+    "date": "2026-04-17T00:00:00"
+  },
+  {
     "title": "March 2026 Releases",
     "slug": "2026-04-06-march-releases",
     "authors": [
@@ -65,20 +80,5 @@
     "description": "conda 26.1.0, conda-build 26.1.0, and conda-pack 0.9.1 have been released! \ud83c\udf89\n",
     "image": "img/blog/2026-02-03-january-releases/banner.png",
     "date": "2026-02-03T00:00:00"
-  },
-  {
-    "title": "Conda CLI Roadmap Updates: Q1, 2026",
-    "slug": "conda-roadmap-q1-2026",
-    "authors": [
-      "dashagurova"
-    ],
-    "tags": [
-      "conda",
-      "roadmap"
-    ],
-    "description": "The Q1 2026 Conda CLI roadmap highlights faster performance, safer ways to work with PyPI packages, and progress toward reproducible environments.\n",
-    "image": "img/blog/2026-01-29-conda-roadmap-q1-2026/banner.jpg",
-    "image_credit": "<a href=\"https://unsplash.com/photos/aerial-photography-of-vehicles-on-road-surrounded-with-snow-during-daytime-63p47XdyEdM\">Markus Gempeler on Unsplash</a>",
-    "date": "2026-01-29T00:00:00"
   }
 ]
