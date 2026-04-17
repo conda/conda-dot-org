@@ -133,7 +133,7 @@ Fast, Trusted, and Delightful apply to more than the core CLI experience. A few 
 - Cross-platform excellence – Windows is home to the majority of `conda` users, and it deserves a first-class experience: the fastest installers, the most polished interface, the smoothest integration with Windows development workflows. As we perfect that experience, we bring those same improvements to macOS and Linux.
 - A comprehensive API for frontend integration – The CLI is one way to interact with `conda`, but it shouldn’t be the only one. IDE integrations, Jupyter extensions, web interfaces, GUI tools, and even AI agents all deserve access to `conda`’s power without reimplementing it. A well-documented API built on `conda` and `rattler` makes that ecosystem possible.
 
-Here is an example of what a future Miniconda installer could look like as a lightweight, single-binary:
+Here is an example based on Jannis Leidel's proof-of-concept [`conda-express`](https://github.com/jezdez/conda-express) of what a future Miniconda installer could look like as a lightweight, single-binary:
 
 <ThemedImage
   alt="Conda CLI in action"
@@ -143,6 +143,24 @@ Here is an example of what a future Miniconda installer could look like as a lig
   }}
 />
 <br />
+
+## Innovation Across the Ecosystem
+
+This vision is already starting to take shape through community-driven projects that extend `conda` through its plugin system.
+
+[`conda-lockfiles`](https://github.com/conda-incubator/conda-lockfiles) is launching in the next few weeks in beta. It adds support for multiplatform lockfile formats, including `conda-lock` and `pixi.lock`, making cross-platform environment reproducibility a first-class `conda` feature.
+
+[`conda-self`](https://github.com/conda-incubator/conda-self) is also launching in beta soon. It adds a `conda self` command that lets you safely manage your `base` environment, including protecting it from accidental modifications.
+
+The following three projects are proof-of-concepts from Jannis Leidel that explore what future `conda` workflows could look like:
+
+[`conda-workspaces`](https://github.com/conda-incubator/conda-workspaces) brings a pixi-like project-based workflow to `conda`, letting you manage multi-environment workspaces and tasks from a single configuration file.
+
+[`conda-global`](https://github.com/conda-incubator/conda-global) enables installing CLI tools into isolated environments and placing them on your PATH, similar to `pipx install`, `uv tool`, or `pixi global`.
+
+[`conda-express`](https://github.com/jezdez/conda-express) is the lightweight, single-binary bootstrapper shown above. My vision is that it becomes the future Miniconda and Miniforge installer themselves, a small static binary that gets you a fully functional `conda` installation in seconds.
+
+These projects prove the ideas are sound. But plugins can only go so far, and the next step is bringing these same improvements into `conda` itself.
 
 ## How To Get There
 
