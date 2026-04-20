@@ -1,5 +1,5 @@
 ---
-title: "Building a Better conda CLI: a Vision"
+title: "Building a Better conda CLI: A Vision"
 slug: "2026-04-17-vision-for-conda-cli"
 authors: [danyeaw]
 tags: [conda, vision]
@@ -128,7 +128,7 @@ A few areas that I envision we focus on:
 Fast, Trusted, and Delightful apply to more than the core CLI experience. A few other areas where this vision extends:
 
 - Native PyPI support – If you look closely at the animation above, `conda` 1.4 shipped with a `conda pip` command. This shows that the Python ecosystem and PyPI are inextricably linked to `conda` from the very beginning. It is also a problem we have been trying to solve ever since. The [`conda-pypi`](https://github.com/conda/conda-pypi) plugin already supports natively installing wheels without shelling out to `pip`. My vision goes further: a conda channel that indexes all versions of all pure-Python wheels from PyPI directly in repodata, so they are always available without leaving the conda ecosystem.
-- Declarative environments – Modern development workflows need modern configuration. We have recently been working on improving cross-platform lockfile support, and we need to continue to build on that. Poetry, `uv`, and `pixi` have shown that software engineers really value having the ability to run tasks and manage their dependencies through projects or workspaces. I envision that we support these workflows with an ecosystem-standardized `conda.toml` configuration file to help make your projects easier to manage and more reproducible.
+- Declarative environments – Modern development workflows need modern configuration. We have recently been working on improving cross-platform lockfile support, and we need to continue to build on that. Poetry, `uv`, and `pixi` have shown that software engineers really value having the ability to run tasks and manage their dependencies through projects or workspaces. I envision that we support these workflows with an ecosystem-standardized `conda.toml` configuration file to help make your projects easier to manage and more reproducible, in the same direction `conda-workspaces` is already exploring.
 - CI/CD and development environments – `conda` should excel where developers actually use it most in places like GitHub Actions, CI pipelines, and development containers. A lightweight single-binary conda bootstrapper that makes installation a one-line command would severely simplify this experience. It should also be easy to convert an environment into a container with dependencies already resolved and installed, not reconstructed during the container’s startup.
 - Cross-platform excellence – Windows is home to the majority of `conda` users, and it deserves a first-class experience: the fastest installers, the most polished interface, the smoothest integration with Windows development workflows. As we perfect that experience, we bring those same improvements to macOS and Linux.
 - A comprehensive API for frontend integration – The CLI is one way to interact with `conda`, but it shouldn’t be the only one. IDE integrations, Jupyter extensions, web interfaces, GUI tools, and even AI agents all deserve access to `conda`’s power without reimplementing it. A well-documented API built on `conda` and `rattler` makes that ecosystem possible.
@@ -152,13 +152,13 @@ This vision is already starting to take shape through community-driven projects 
 
 [`conda-self`](https://github.com/conda-incubator/conda-self) is also launching in beta soon. It adds a `conda self` command that lets you safely manage your `base` environment, including protecting it from accidental modifications.
 
-The following three projects are proof-of-concepts from Jannis Leidel that explore what future `conda` workflows could look like:
-
-[`conda-workspaces`](https://github.com/conda-incubator/conda-workspaces) brings a pixi-like project-based workflow to `conda`, letting you manage multi-environment workspaces and tasks from a single configuration file.
+The following three projects are proof-of-concepts from Jannis Leidel that explore what future `conda` workflows could look like. Together with `conda-lockfiles` and `conda-self`, they paint a picture of covering all kinds of gaps in `conda` today:
 
 [`conda-global`](https://github.com/conda-incubator/conda-global) enables installing CLI tools into isolated environments and placing them on your PATH, similar to `pipx install`, `uv tool`, or `pixi global`.
 
-[`conda-express`](https://github.com/jezdez/conda-express) is the lightweight, single-binary bootstrapper shown above. My vision is that it becomes the future Miniconda and Miniforge installer themselves, a small static binary that gets you a fully functional `conda` installation in seconds.
+[`conda-express`](https://github.com/jezdez/conda-express) is the lightweight, single-binary bootstrapper shown above. My vision is that it becomes the future Miniconda and Miniforge installer itself, a small static binary that gets you a fully functional `conda` installation in seconds.
+
+[`conda-workspaces`](https://github.com/conda-incubator/conda-workspaces) brings a pixi-like project-based workflow to `conda` with project-scoped environments, composable features, a task runner with dependency ordering, and reproducible `conda.lock` files, all defined in a `conda.toml` (with `pixi.toml` and `pyproject.toml` manifests also supported). My vision is that workspaces become the future of environment management in `conda`. It builds on `conda` itself for solving and installation, and uses [`conda-pypi`](https://github.com/conda/conda-pypi) to resolve PyPI dependencies alongside conda packages. Cloning a repo should be all it takes to start working in a reproducible project.
 
 These projects prove the ideas are sound. But plugins can only go so far, and the next step is bringing these same improvements into `conda` itself.
 
