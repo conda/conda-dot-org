@@ -11,7 +11,7 @@ image_credit: <a href="https://unsplash.com/de/@mcnoble?utm_source=unsplash&utm_
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import ThemedImage from "@theme/ThemedImage";
 
-A vision for `conda` in 2026 is a package manager that is fast (real-time progress, sharded repodata, Rattler integration), trusted (better error messages, smarter confirmation friction, streaming output), and delightful (sensible defaults, helpful suggestions, intentional visuals, accessibility). Beyond the core CLI, the roadmap includes native PyPI wheel support, declarative `conda.toml` project environments, single-binary installers, and a comprehensive API for IDE and agent integrations.
+A vision for `conda` in 2026 is a package manager that is fast (real-time progress, sharded repodata, lighter shell integration, Rattler integration), trusted (better error messages, smarter confirmation friction, streaming output), and delightful (sensible defaults, helpful suggestions, intentional visuals, accessibility). Beyond the core CLI, the roadmap includes native PyPI wheel support, declarative `conda.toml` project environments, single-binary installers, and a comprehensive API for IDE and agent integrations.
 
 <!-- truncate -->
 
@@ -85,6 +85,8 @@ That's the lens I would like to apply to my vision, so let’s dive into the det
 
 Package management shouldn't be a coffee break. When I demoed `conda` next to `pixi` at Michigan Python, the contrast was stark, not because `conda` was dramatically slower, but because `pixi` *communicated*. Color, emoji, a real-time progress bar. The same underlying work, a completely different feeling.
 Speed is about perception as much as raw performance. [Nielsen's research](https://www.nngroup.com/articles/response-times-3-important-limits/) on response times shows that feedback within 100 ms feels instant and anything over a second creates uncertainty. In other words, silence is the enemy of responsiveness.
+`conda` has already landed substantial speedups, and we should keep building on that foundation. What I lay out below is mostly the next layer: how installs feel in the terminal and which primitives we lean into (progress and repodata, shell startup, and Rattler).
+
 Our approach to speed has several dimensions:
 
 - Progress over spinners – Replacing spinners with progress bars that show operation steps, package counts, and timing gives users confidence that work is happening and finishing. We can show meaningful progress during the fetching, downloading, and installing phases.
@@ -102,6 +104,8 @@ Our goal isn't to win a benchmark, but to make conda feel fast and responsive. J
   }}
 />
 <br />
+
+The `conda-ng` demo is deliberately Rattler-forward, but the `conda` you install today is not waiting on Rust to get faster. Sharded repodata and steady improvements to solving and repodata handling already changed what day-to-day installs feel like. Where we integrate Rattler further, it extends that groundwork.
 
 ## Trusted
 
@@ -160,7 +164,7 @@ The following three projects are proof-of-concepts from Jannis Leidel that explo
 
 [`conda-workspaces`](https://github.com/conda-incubator/conda-workspaces) brings a pixi-like project-based workflow to `conda` with project-scoped environments, composable features, a task runner with dependency ordering, and reproducible `conda.lock` files, all defined in a `conda.toml` (with `pixi.toml` and `pyproject.toml` manifests also supported). My vision is that workspaces become the future of environment management in `conda`. It builds on `conda` itself for solving and installation, and uses [`conda-pypi`](https://github.com/conda/conda-pypi) to resolve PyPI dependencies alongside conda packages. Cloning a repo should be all it takes to start working in a reproducible project.
 
-These projects prove the ideas are sound. But plugins can only go so far, and the next step is bringing these same improvements into `conda` itself.
+These projects prove the ideas are sound, and many of them can and should keep evolving. Several are incubating in [`conda-incubator`](https://github.com/conda-incubator) today. When a piece is ready, `conda` can take it on as a dependency and ship it as the default behavior without necessarily merging the whole implementation into the main `conda` codebase. My vision is that we keep investing in both the plugin ecosystem and core `conda`.
 
 ## How To Get There
 
