@@ -166,7 +166,7 @@ conda workspace lock --platform linux-64 --platform osx-arm64
 conda workspace lock --skip-unsolvable
 ```
 
-Each platform's solve runs with conda's `context._subdir` overridden so the virtual package plugins (`__linux`, `__osx`, `__win`) resolve to the target platform, not the host. Tighter constraints come from `CONDA_OVERRIDE_*` or the `[system-requirements]` table when cross-compiling. Unknown platform names fail fast before any solver runs, so typos like `lixux-64` get caught at parse time instead of after a 90-second metadata download.
+Each platform's solve runs with conda pointed at the target platform rather than the host. That single switch picks the right channel repodata to fetch and makes conda's virtual package plugins (`__linux`, `__osx`, `__win`) report the target platform too, so a `linux-64` lock generated on macOS sees the same world a `linux-64` machine would. Tighter constraints come from `CONDA_OVERRIDE_*` or the `[system-requirements]` table when cross-compiling. Unknown platform names fail fast before any solver runs, so typos like `lixux-64` get caught at parse time instead of after a 90-second metadata download.
 
 `conda workspace info` exposes a `Known Platforms` row (and matching `known_platforms` JSON key) that surfaces the full set of platforms reachable through any feature, not just the workspace-level list. Full reference in [Platform targeting](https://conda-incubator.github.io/conda-workspaces/features/#platform-targeting).
 
