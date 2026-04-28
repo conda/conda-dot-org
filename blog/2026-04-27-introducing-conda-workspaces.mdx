@@ -11,9 +11,9 @@ image_credit: <a href="https://www.pexels.com/photo/organized-workshop-with-hand
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Most conda projects end up looking the same after a while. There is an `environment.yml` for the main env, another for tests, a `Makefile` or `tox.ini` to run things, and `conda-lock` bolted on for reproducibility. The pieces are all conda underneath, but conda itself never sees the project they belong to.
+A typical conda project has more than one moving piece: a main environment, usually a separate one for tests or docs, a way to run common commands across them, and a lockfile workflow for reproducible installs. Each has good tools today: conda for the envs, [conda-lock](https://github.com/conda/conda-lock) for the locks, `make` or [tox](https://tox.wiki/) for the commands.
 
-[conda-workspaces 0.4.0](https://github.com/conda-incubator/conda-workspaces) ships today to fill that gap. It is a conda plugin built around the *workspace*: a directory whose TOML manifest (`conda.toml`, `pixi.toml`, or `pyproject.toml`) declares the named environments a project needs, the reusable features they compose from, the platforms they target, and the tasks that run inside them. The conda CLI drives all of it, and nothing underneath is replaced: the same solver, package cache, channel authentication, and `condarc` that any other conda command uses keep doing the work.
+[conda-workspaces 0.4.0](https://github.com/conda-incubator/conda-workspaces) ships today as the layer above those pieces. It is a conda plugin built around the *workspace*: a directory whose TOML manifest (`conda.toml`, `pixi.toml`, or `pyproject.toml`) declares the named environments a project needs, the reusable features they compose from, the platforms they target, and the tasks that run inside them. The conda CLI drives all of it, and nothing underneath is replaced: the same solver, package cache, channel authentication, and `condarc` that any other conda command uses keep doing the work.
 
 <!-- truncate -->
 
