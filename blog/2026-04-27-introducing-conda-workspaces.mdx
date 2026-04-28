@@ -176,7 +176,7 @@ Each platform's solve runs with conda pointed at the target platform rather than
 
 ### CI-split locking with `--merge`
 
-Solving every platform from a single CI job becomes the long pole as a workspace grows. The lock command is matrix-friendly: each runner emits one fragment with `--output`, and a coordinator job stitches them back together with `--merge`, with no solver runs.
+Solving every platform from a single CI job becomes the bottleneck as a workspace grows. The lock command is matrix-friendly: each runner emits one fragment with `--output`, and a coordinator job stitches them back together with `--merge`, with no solver runs.
 
 ```bash
 # In each matrix job
@@ -207,7 +207,7 @@ conda workspace export --from-lockfile --file env.conda-lock.yml
 conda workspace export --from-prefix --no-builds --from-history
 ```
 
-The `pyproject-toml` exporter is the polite one: when the target file already exists, it splices the `[tool.conda]` subtree into the document and leaves the existing `[project]`, `[build-system]`, `[tool.ruff]`, `[tool.pixi]`, and friends untouched. Any stale `[tool.conda]` is replaced. Everything else survives. Full matrix in [Export](https://conda-incubator.github.io/conda-workspaces/features/#export).
+When the target file already exists, the `pyproject-toml` exporter splices the `[tool.conda]` subtree into the document and leaves the existing `[project]`, `[build-system]`, `[tool.ruff]`, `[tool.pixi]`, and friends untouched. Any stale `[tool.conda]` is replaced. Everything else survives. Full matrix in [Export](https://conda-incubator.github.io/conda-workspaces/features/#export).
 
 The reverse direction is `conda workspace import`. It detects the source format and writes a `conda.toml` next to it:
 
@@ -287,7 +287,7 @@ That is it.
 
 A few things to set expectations.
 
-It is not a replacement for pixi. If a self-contained, batteries-included project tool with its own solver, runtime, and cache is the right fit, [pixi](https://pixi.sh) is genuinely good and is the better answer. conda-workspaces is for teams that already live in the conda ecosystem and want pixi-style project workflows without moving everything else.
+It is not a replacement for pixi. If a self-contained, batteries-included project tool with its own solver, runtime, and cache is the right fit, [pixi](https://pixi.sh) is the better answer. conda-workspaces is for teams that already live in the conda ecosystem and want pixi-style project workflows without moving everything else.
 
 It does not change how conda is configured. Channels, authentication, mirrors, proxy settings, and `.condarc` continue to behave exactly the way they do for any other conda command. There is nothing new to teach existing tooling about.
 
