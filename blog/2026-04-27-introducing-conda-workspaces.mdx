@@ -11,9 +11,9 @@ image_credit: <a href="https://www.pexels.com/photo/organized-workshop-with-hand
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Conda is good at managing environments and packages. What it has never been good at is the layer above them: declaring, in one canonical place, that a given codebase needs these three environments, composed from these features, locked for these platforms, and exercised by these commands. Most teams stitch that layer together by hand: an `environment.yml` per env, a `Makefile` to run things, and a separate lockfile workflow bolted on top.
+Most conda projects end up looking the same after a while. There is an `environment.yml` for the main env, another for tests, a `Makefile` or `tox.ini` to run things, and `conda-lock` bolted on for reproducibility. The pieces are all conda underneath, but conda itself never sees the project they belong to.
 
-[conda-workspaces 0.4.0](https://github.com/conda-incubator/conda-workspaces) ships today to fill that gap. It is a conda plugin built around the workspace: a directory whose TOML manifest (`conda.toml`, `pixi.toml`, or `pyproject.toml`) declares one or more named environments, the reusable features those environments compose from, the platforms each one targets, and the tasks that run inside them. Every declared environment becomes an ordinary conda prefix under `.conda/envs/`. Installing solves each declared platform and writes the result to a multi-platform `conda.lock`. Everything underneath stays plain conda: the same solver, package cache, and channel authentication that any other conda command uses.
+[conda-workspaces 0.4.0](https://github.com/conda-incubator/conda-workspaces) ships today to fill that gap. It is a conda plugin built around the *workspace*: a directory whose TOML manifest (`conda.toml`, `pixi.toml`, or `pyproject.toml`) declares the named environments a project needs, the reusable features they compose from, the platforms they target, and the tasks that run inside them. The conda CLI drives all of it, and nothing underneath is replaced: the same solver, package cache, channel authentication, and `condarc` that any other conda command uses keep doing the work.
 
 <!-- truncate -->
 
