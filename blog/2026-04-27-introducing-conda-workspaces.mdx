@@ -11,19 +11,17 @@ image_credit: <a href="https://www.pexels.com/photo/organized-workshop-with-hand
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-A typical conda project has more than one moving piece: a main environment, usually a separate one for tests or docs, a way to run common commands across them, and a lockfile workflow for reproducible installs. Each has good tools today: conda for the envs, [conda-lock](https://github.com/conda/conda-lock) for the locks, `make` or [tox](https://tox.wiki/) for the commands.
+Earlier this month, Dan Yeaw described his vision for a better conda CLI in [Building a Better conda CLI: A Vision](/blog/2026-04-17-vision-for-conda-cli): declarative project environments via `conda.toml`, a workspace-aware CLI, and reproducible cross-platform locks shipped as part of conda itself. [conda-workspaces 0.4.0](https://github.com/conda-incubator/conda-workspaces) ships today as a concrete step in that direction.
 
-[conda-workspaces 0.4.0](https://github.com/conda-incubator/conda-workspaces) ships today as the layer above those pieces. It is a conda plugin built around the *workspace*: a directory whose TOML manifest (`conda.toml`, `pixi.toml`, or `pyproject.toml`) declares the named environments a project needs, the reusable features they compose from, the platforms they target, and the tasks that run inside them. The conda CLI drives all of it, and nothing underneath is replaced: the same solver, package cache, channel authentication, and `condarc` that any other conda command uses keep doing the work.
+The workspace model itself comes from [pixi](https://pixi.sh) by [prefix.dev](https://prefix.dev), where one TOML manifest declares a project's environments, features, platforms, and tasks. conda-workspaces is a conda plugin that brings that model to conda: it reads the same `conda.toml`, `pixi.toml`, or `pyproject.toml` manifest, materializes each declared environment as an ordinary conda prefix under `.conda/envs/`, and runs the declared tasks through the conda CLI. Nothing underneath is replaced: the same solver, package cache, channel authentication, and `condarc` that any other conda command uses keep doing the work.
 
 <!-- truncate -->
-
-It is also a concrete step toward the future Dan Yeaw sketched in [Building a Better conda CLI: A Vision](/blog/2026-04-17-vision-for-conda-cli): declarative project environments via `conda.toml`, a workspace-aware CLI, and reproducible cross-platform locks shipped as part of conda itself.
 
 ## “Isn’t that what pixi is for?”
 
 It is the first thing every reviewer asks.
 
-[pixi](https://pixi.sh) by [prefix.dev](https://prefix.dev) introduced an excellent workspace model: one TOML manifest that describes environments, features, platforms, and tasks, paired with its own Rust stack ([resolvo](https://github.com/prefix-dev/resolvo) for solving and the [rattler](https://github.com/conda/rattler) crates for conda primitives) distributed as a single binary. That manifest design is what conda-workspaces builds on. It reads the same `conda.toml` / `pixi.toml` / `pyproject.toml` and turns the environments declared in it into conda prefixes.
+pixi is its own complete stack: the workspace manifest, plus a Rust runtime ([resolvo](https://github.com/prefix-dev/resolvo) for solving and the [rattler](https://github.com/conda/rattler) crates for conda primitives) distributed as a single binary. conda-workspaces reuses the manifest part and runs it through conda's stack instead. Both tools read the same `conda.toml` / `pixi.toml` / `pyproject.toml` and turn the declared environments into conda prefixes.
 
 The difference is what sits underneath. conda-workspaces uses conda for everything below the manifest: conda's solver, conda's package cache, conda's transaction code, and whatever channel and authentication setup is already in `condarc`. Environments land under `.conda/envs/` as ordinary conda prefixes. `conda activate .conda/envs/test` works. `conda list` works. Both tools can sit on the same `pixi.toml` and see the same dependencies, environments, and tasks. Each writes to its own subdirectory (`.pixi/envs/` for pixi, `.conda/envs/` for conda-workspaces), so the two tools never collide on disk.
 
