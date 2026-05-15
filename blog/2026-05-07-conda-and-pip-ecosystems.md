@@ -135,7 +135,7 @@ And then there's the reality of learning and experimentation. Developers often f
 
 Recognizing this reality, the community has being exploring ways to improve interoperability between the two ecosystems.
 
-One latest effort is `conda-pypi`. Instead of installing packages directly with `pip`, this tool fetches packages from PyPI, converts them into `conda` packages, and installs them using `conda`. From `conda`'s perspective, everything remains consistent.
+One latest effort is [`conda-pypi`](https://github.com/conda/conda-pypi). Instead of installing packages directly with `pip`, this tool fetches packages from PyPI, converts them into `conda` packages, and installs them using `conda`. From `conda`'s perspective, everything remains consistent.
 
 It also introduces guardrails. Once enabled, it can prevent accidental use of `pip` in a way that would break the environment. If you try to run `pip install`, it stops you and nudges you toward a safer workflow.
 
