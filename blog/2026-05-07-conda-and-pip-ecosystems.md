@@ -79,6 +79,8 @@ When you start thinking about `conda` and `pip` in terms of ecosystems, it becom
 
 For example, newer tools like **uv** and **Poetry** belong to the `pip` ecosystem, while tools like **mamba** and **pixi** belong to the `conda` ecosystem.
 
+---
+
 ## Differences
 
 There are architectural and distributional differences between the two ecosystems.
