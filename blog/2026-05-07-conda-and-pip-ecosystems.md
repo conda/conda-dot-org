@@ -133,13 +133,15 @@ And then there's the reality of learning and experimentation. Developers often f
 
 ## Bridging the Gap
 
-Recognizing this reality, the community has being exploring ways to improve interoperability between the two ecosystems.
+Recognizing this reality, the community has been exploring ways to improve interoperability between the two ecosystems.
 
-One latest effort is [`conda-pypi`](https://github.com/conda/conda-pypi). Instead of installing packages directly with `pip`, this tool fetches packages from PyPI, converts them into `conda` packages, and installs them using `conda`. From `conda`'s perspective, everything remains consistent.
+One of the latest efforts is [`conda-pypi`](https://github.com/conda/conda-pypi), which brings PyPI packages into the standard `conda` workflow. Instead of reaching for `pip`, users can install compatible PyPI wheels directly through `conda`, with PyPI wheels handled as first-class artifacts alongside traditional `conda` packages.
 
-It also introduces guardrails. Once enabled, it can prevent accidental use of `pip` in a way that would break the environment. If you try to run `pip install`, it stops you and nudges you toward a safer workflow.
+This approach preserves the consistency and reliability that `conda` environments are known for, while giving users access to the broader pure Python ecosystem on PyPI.
 
-The project is still experimental and currently supports only pure Python wheels, but it represents an important shift: acknowledging that users will need both ecosystems, and designing tools that make that interaction safer.
+It also adds guardrails to help maintain environment consistency. When enabled, it can block accidental pip install commands that could otherwise introduce conflicts or leave the environment in an unpredictable state, encouraging a more reliable and reproducible workflow.
+
+`conda-pypi` represents an important shift in how the ecosystem thinks about interoperability: rather than treating PyPI and `conda` as competing worlds, it acknowledges that users often need both, and provides tooling designed to make that interaction smoother and safer.
 
 ---
 
