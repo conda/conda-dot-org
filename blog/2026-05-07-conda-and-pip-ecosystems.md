@@ -57,7 +57,7 @@ For many developers, this combination was more than enough. But there was an ent
 
 Scientific computing introduced a different set of challenges. Libraries like `NumPy` and `SciPy` rely heavily on compiled `C` and `Fortran` code. Early versions of `pip` didn't handle these non-Python dependencies well, which meant users often had to install system-level libraries manually. That process could be fragile, confusing, and platform-dependent.
 
-This is the context in which `conda` was created in 2012 by Anaconda, Inc.
+This is the context in which `conda` was created in 2012 by Anaconda, Inc. (at the time called Continuum Analytics).
 
 `conda` took a different approach from the beginning. It was not limited to Python packages. Instead, it was designed as a general-purpose package and environment manager that could handle both Python and non-Python packages.
 
