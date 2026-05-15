@@ -47,7 +47,7 @@ Frustration with these limitations led to the creation of `setuptools` in 2004. 
 
 Then came `pip` in 2008, and things started to feel more modern. `pip` added proper uninstall support, better dependency handling, and, something people really appreciated at the time, clearer error messages. Around the same time, `virtualenv` introduced isolated environments, which solved a growing problem: everything had previously been installed into a single global directory. That meant different projects could easily break each other.
 
-With virtual environments, each project got its own isolated space. Suddenly, it was possible to work on multiple projects without dependency conflicts. `pip` and virtualenv together became the standard workflow for a large part of the Python community.
+With virtual environments, each project got its own isolated space. Suddenly, it was possible to work on multiple projects without dependency conflicts. `pip` and `virtualenv` together became the standard workflow for a large part of the Python community.
 
 ---
 
