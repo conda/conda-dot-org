@@ -7,8 +7,6 @@ description: "`conda` and `pip` are two parallel ecosystems trying to solve diff
 image: img/blog/2026-04-06-march-releases/banner.jpg
 ---
 
-import useBaseUrl from "@docusaurus/useBaseUrl";
-import ThemedImage from "@theme/ThemedImage";
 
 ## Preface
 
