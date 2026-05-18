@@ -1,5 +1,5 @@
 ---
-title: "conda and pip are two ecosystems, not just tools"
+title: "Conda and pip are two ecosystems, not just tools"
 slug: "2026-05-07-conda-and-pip-ecosystems"
 authors: [forgottenprogramme]
 tags: [conda, pip, packaging ecosystems, python packaging]
