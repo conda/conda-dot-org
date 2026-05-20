@@ -101,7 +101,7 @@ What conda-workspaces adds is a way to drive that same manifest from inside a co
 That makes the two tools comfortably complementary. Teams that prefer pixi's batteries-included Rust experience keep using pixi. Teams that already live in the conda ecosystem (with their own channels, mirrors, authentication, and `condarc`) get the same workspace ergonomics without swapping out the rest of the stack. The same `pixi.toml` can live in a shared repo and serve both groups.
 
 :::info[Where this is going]
-The longer-term direction sketched in the [Vision](/blog/2026-04-17-vision-for-conda-cli) post is for the workspace model (`conda.toml` as the project format, workspaces as a first-class CLI concept, `conda.lock` as a community-owned lockfile) to ship as part of a future conda release. conda-workspaces is the working prototype of that direction. Today it is a plugin install. The goal is that nothing about how an individual workspace is shaped has to change on the day that integration moves upstream.
+The longer-term direction sketched in the [Vision](/blog/2026-04-17-vision-for-conda-cli) post is for the workspace model (`conda.toml` as the project format, workspaces as a first-class CLI concept, `conda.lock` as a community-owned lockfile) to ship as part of a future conda release. conda-workspaces is an early preview of that direction. Today it is a plugin install. The goal is that nothing about how an individual workspace is shaped has to change on the day that integration moves upstream.
 :::
 
 ## What it does
