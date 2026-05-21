@@ -7,47 +7,21 @@ tags:
   - conda
   - conda-build
 description: |
-  conda 26.5.0 and conda-build 26.5.0 are out—native lockfiles, a snappier CLI, v1 recipe builds improvements and conda-pypi. 🎉
+  conda 26.5.0 and conda-build 26.5.0 are out—native lockfiles, a snappier CLI, v1 recipe builds improvments and conda-pypi. 🎉
 image: img/blog/2026-05-20-may-releases/banner.png
 ---
 
-**conda 26.5.0** and **conda-build 26.5.0** are out. You'll find both `defaults` and `conda-forge` channels.
+**conda 26.5.0** and **conda-build 26.5.0** are out. You'll find both `defaults` (`main`) and `conda-forge` channels.
 
 <!-- truncate -->
 
-For **conda**, the big story is reproducible environments: lockfiles are a first-class workflow now, the CLI is lighter on everyday commands, and there is more under the hood for channel metadata and future dependency specs. For **conda-build**, v1 recipes and faster test environments are the highlights.
-
-:::info Try it: lockfiles (stable in 26.5)
-
-Export a lockfile from an environment:
-
-```bash
-conda export --name my-env --file conda-lock.yaml
-```
-
-Recreate it elsewhere—conda installs the pinned packages directly, without solving again:
-
-```bash
-conda create --name my-env --file conda-lock.yaml
-```
-
-Need Linux, macOS, and Windows in one file? Pass `--platform` for each target on export. Step-by-step guidance, beta features, and stable-vs-preview labels live on **[New features to try](https://docs.conda.io/projects/conda/en/stable/new-features.html)** in the conda docs.
-
-:::
-
-## Upgrade
-
-Most people will want both packages:
-
-```bash
-conda install --name base conda=26.5.0 conda-build=26.5.0
-```
+For **conda**, lockfiles are a first-class workflow now, the CLI is lighter on everyday commands, and under the hood new capabilities for channel metadata and future dependency specs. For **conda-build**, v1 recipes and faster test environments are the highlights.
 
 ## conda [26.5.0](https://github.com/conda/conda/releases/tag/26.5.0)
 
 **Lockfiles without extra tooling.** `conda export`, `conda create`, and `conda install` understand **`conda-lock.yaml`** and **`pixi.lock`** out of the box. Multi-platform locks are supported, and recreating from a lock skips the solver—handy for CI and for sharing exact environments across machines.
 
-**A snappier CLI.** Startup and initialization are cheaper across the board; even `conda -V` takes a fast path now. Sharded repodata support also lives in conda core, continuing the push toward smaller, on-demand channel metadata.
+**A snappier CLI.** Startup and initialization are cheaper across the board; even `conda -V` takes a fast path now. Sharded repodata support also lives in conda core, continuing the push toward more performant searches and solves.
 
 **Previews worth watching.** The docs page covers two opt-in betas we would love feedback on: the **Rattler solver** and **installing PyPI packages with `conda install`** via the **conda-pypi** channel. What is stable, what is beta, and how to turn things on are all spelled out on **[New features to try](https://docs.conda.io/projects/conda/en/stable/new-features.html)**.
 
