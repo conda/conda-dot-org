@@ -7,7 +7,7 @@ tags:
   - conda
   - conda-build
 description: |
-  conda 26.5.0 and conda-build 26.5.0 are out—native lockfiles, a snappier CLI, v1 recipe builds improvments and conda-pypi. 🎉
+  conda 26.5.0 and conda-build 26.5.0 are out—native lockfiles, a snappier CLI, v1 recipe builds improvements and conda-pypi. 🎉
 image: img/blog/2026-05-20-may-releases/banner.png
 ---
 
