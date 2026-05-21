@@ -1,5 +1,21 @@
 [
   {
+    "title": "Conda and pip are two ecosystems, not just tools",
+    "slug": "2026-05-07-conda-and-pip-ecosystems",
+    "authors": [
+      "forgottenprogramme"
+    ],
+    "tags": [
+      "conda",
+      "pip",
+      "packaging ecosystems",
+      "python packaging"
+    ],
+    "description": "`conda` and `pip` are two parallel ecosystems trying to solve different problems rather than two competing tools",
+    "image": "img/blog/2026-04-06-march-releases/banner.jpg",
+    "date": "2026-05-07T00:00:00"
+  },
+  {
     "title": "Building a Better conda CLI: A Vision",
     "slug": "2026-04-17-vision-for-conda-cli",
     "authors": [
@@ -64,21 +80,5 @@
     "description": "condastats returns after three years of silence with modern Python support, a refactored codebase, rewritten documentation, and an interactive browser demo powered by Pyodide.",
     "image": "img/blog/2026-02-25-condastats/banner.png",
     "date": "2026-02-25T00:00:00"
-  },
-  {
-    "title": "January 2026 Releases",
-    "slug": "2026-02-03-january-releases",
-    "authors": [
-      "kenodegard"
-    ],
-    "tags": [
-      "announcement",
-      "conda",
-      "conda-build",
-      "conda-pack"
-    ],
-    "description": "conda 26.1.0, conda-build 26.1.0, and conda-pack 0.9.1 have been released! \ud83c\udf89\n",
-    "image": "img/blog/2026-02-03-january-releases/banner.png",
-    "date": "2026-02-03T00:00:00"
   }
 ]
