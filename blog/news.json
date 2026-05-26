@@ -8,9 +8,12 @@
     "tags": [
       "announcement",
       "conda",
-      "conda-build"
+      "conda-build",
+      "conda-libmamba-solver",
+      "conda-rattler-solver",
+      "conda-pypi"
     ],
-    "description": "conda 26.5.0 and conda-build 26.5.0 are out\u2014native lockfiles, a snappier CLI, v1 recipe builds improvements and conda-pypi. \ud83c\udf89\n",
+    "description": "May releases of conda and conda-build are out\u2014native lockfiles, a snappier CLI, v1 recipe builds improvements and conda-pypi. \ud83c\udf89\n",
     "image": "img/blog/2026-05-20-may-releases/banner.png",
     "date": "2026-05-20T00:00:00"
   },
