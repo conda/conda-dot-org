@@ -1,6 +1,2 @@
 [build]
-  publish = "build"
-  command = "npm ci && npm run build"
-
-[build.environment]
-  NODE_VERSION = "20"
+command = 'curl -fsSL https://pixi.sh/install.sh | PIXI_HOME=~/.pixi sh && ~/.pixi/bin/pixi run build'
