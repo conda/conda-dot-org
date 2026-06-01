@@ -16,6 +16,25 @@
     "date": "2026-05-07T00:00:00"
   },
   {
+    "title": "Introducing conda-workspaces",
+    "slug": "introducing-conda-workspaces",
+    "authors": [
+      "jezdez"
+    ],
+    "tags": [
+      "conda",
+      "conda-incubator",
+      "plugin",
+      "workspaces",
+      "tasks",
+      "release"
+    ],
+    "description": "A new conda plugin that brings pixi-style project workspaces and a built-in task runner to conda, with a single multi-platform conda.lock and full reuse of conda's existing solver, channels, and authentication.",
+    "image": "img/blog/2026-04-27-introducing-conda-workspaces/banner.jpg",
+    "image_credit": "<a href=\"https://www.pexels.com/photo/organized-workshop-with-hand-tools-and-clamps-34471533/\">Ahimsa - OM on Pexels</a>",
+    "date": "2026-04-27T00:00:00"
+  },
+  {
     "title": "Building a Better conda CLI: A Vision",
     "slug": "2026-04-17-vision-for-conda-cli",
     "authors": [
@@ -65,20 +84,5 @@
     "image": "img/blog/2026-03-11-conda-standards-ceps/banner.jpg",
     "image_credit": "Photo by <a href=\"https://unsplash.com/@alex_skobe?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Alex Skobe</a> on <a href=\"https://unsplash.com/photos/a-single-mushroom-growing-on-mossy-ground-sQwqZO9qsso?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Unsplash</a>",
     "date": "2026-03-11T00:00:00"
-  },
-  {
-    "title": "condastats is back",
-    "slug": "condastats-is-back",
-    "authors": [
-      "jezdez"
-    ],
-    "tags": [
-      "condastats",
-      "conda-incubator",
-      "release"
-    ],
-    "description": "condastats returns after three years of silence with modern Python support, a refactored codebase, rewritten documentation, and an interactive browser demo powered by Pyodide.",
-    "image": "img/blog/2026-02-25-condastats/banner.png",
-    "date": "2026-02-25T00:00:00"
   }
 ]
