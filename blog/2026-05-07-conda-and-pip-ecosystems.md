@@ -20,6 +20,7 @@ What I’ve found more useful is to view them instead as parts of different ecos
 
 This post is an attempt to share that perspective in a more structured form.
 
+<!-- truncate -->
 
 # Conda and Pip: A Story of Two Ecosystems
 
