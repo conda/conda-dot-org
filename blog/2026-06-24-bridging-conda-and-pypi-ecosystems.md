@@ -14,7 +14,7 @@ image: img/blog/2026-06-24-bridging-conda-and-pypi-ecosystems/conda-pypi-logo.pn
 You needed a package. It wasn't on conda-forge. You typed `pip install <package>` and went back to work.
 Most conda users have done this. Most of us have also paid for it later, when the environment broke in a way that took half a day to untangle. Users have built up coping strategies over the years: more careful pinning, better hygiene, install order rules, accepting that conda environments with pip in them are a little fragile. But users have no choice because [Python Package Index (PyPI)](https://pypi.org/) is where most Python packages live. The newest libraries land there first. The long-tail packages never make it to conda channels.
 
-Conda community has been working on [various approaches](https://conda.github.io/conda-pypi/why/potential-solutions/) to this problem, and we are very excited for you to try it. Starting in `conda 26.5`, you can opt into conda-pypi beta where conda's solver knows about packages on PyPI. Not by calling pip behind the scenes. Not by converting wheels into conda packages first. PyPI packages become real candidates the solver can consider, the same way conda packages are. 
+Conda community has been working on [various approaches](https://conda.github.io/conda-pypi/why/potential-solutions/) to this problem, and we are very excited for you to try it. Starting in `conda 26.5`, you can opt into conda-pypi beta where conda's solver knows about packages on PyPI. Not by calling pip behind the scenes. Not by converting wheels into conda packages first. PyPI packages become real candidates the solver can consider, the same way conda packages are.
 
 ## Why mixing conda and pip breaks things
 
@@ -82,7 +82,7 @@ conda pypi install -e .
 
 ## How it works
 
-The approach in this beta makes pure Python wheels a first-class format that conda channels can describe and conda clients can install. The specification behind it is the [Repodata Wheel Dupport](https://github.com/conda/ceps/pull/145) Conda Enhencement Proposal, and the design discussion is still open if you want to read it or get involved. This beta is the first implementation of that spec: the conda-pypi channel on anaconda.org and the conda-pypi plugin in conda CLI.
+The approach in this beta makes pure Python wheels a first-class format that conda channels can describe and conda clients can install. The specification behind it is the [Repodata Wheel Dupport](https://github.com/conda/ceps/pull/145) Conda Enhancement Proposal, and the design discussion is still open if you want to read it or get involved. This beta is the first implementation of that spec: the conda-pypi channel on anaconda.org and the conda-pypi plugin in conda CLI.
 
 #### The conda-pypi channel
 
