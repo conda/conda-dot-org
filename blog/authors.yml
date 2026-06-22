@@ -29,11 +29,6 @@ dbast:
   title: Open Source Contributor
   url: https://github.com/dbast
   image_url: https://github.com/dbast.png
-dbouquin:
-  name: Daina Bouquin
-  title: DevRel Engineer
-  url: https://github.com/dbouquin
-  image_url: https://github.com/dbouquin.png
 dholth:
   name: Daniel Holth
   title: Conda maintainer
