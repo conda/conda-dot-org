@@ -34,6 +34,25 @@
     "date": "2026-05-07T00:00:00"
   },
   {
+    "title": "Introducing conda-workspaces",
+    "slug": "introducing-conda-workspaces",
+    "authors": [
+      "jezdez"
+    ],
+    "tags": [
+      "conda",
+      "conda-incubator",
+      "plugin",
+      "workspaces",
+      "tasks",
+      "release"
+    ],
+    "description": "A new conda plugin that brings pixi-style project workspaces and a built-in task runner to conda, with a single multi-platform conda.lock and full reuse of conda's existing solver, channels, and authentication.",
+    "image": "img/blog/2026-04-27-introducing-conda-workspaces/banner.jpg",
+    "image_credit": "<a href=\"https://www.pexels.com/photo/organized-workshop-with-hand-tools-and-clamps-34471533/\">Ahimsa - OM on Pexels</a>",
+    "date": "2026-04-27T00:00:00"
+  },
+  {
     "title": "Building a Better conda CLI: A Vision",
     "slug": "2026-04-17-vision-for-conda-cli",
     "authors": [
