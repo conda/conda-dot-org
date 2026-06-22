@@ -1,4 +1,23 @@
 [
+    {
+    "title": "Bridging conda and PyPI ecosystems: install PyPI packages with conda install",
+    "slug": "2026-06-24-bridging-conda-and-pypi-ecosystems",
+    "authors": [
+      "dashagurova",
+      "dbouquin"
+    ],
+    "tags": [
+      "conda",
+      "conda-pypi",
+      "pip",
+      "conda-rattler-solver",
+      "PyPI",
+      "beta"
+    ],
+    "description": "Stop reaching for `pip` inside your conda environments. With the conda-pypi beta, `conda install` can now pull pure Python packages from PyPI directly, alongside your conda packages in a single solve.",
+    "image": "img/blog/2026-06-24-bridging-conda-and-pypi-ecosystems/conda-pypi-logo.png",
+    "date": "2026-06-24T00:00:00"
+  },
   {
     "title": "May 2026 Releases",
     "slug": "2026-05-20-may-releases",
