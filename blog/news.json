@@ -1,5 +1,22 @@
 [
   {
+    "title": "Bridging conda and PyPI ecosystems: install PyPI packages with conda install",
+    "slug": "2026-06-24-bridging-conda-and-pypi-ecosystems",
+    "authors": [
+      "dashagurova",
+      "dbouquin"
+    ],
+    "tags": [
+      "conda",
+      "pip",
+      "PyPI",
+      "conda-pypi"
+    ],
+    "description": "Stop reaching for `pip` inside your conda environments. With the conda-pypi beta, `conda install` can now pull pure Python packages from PyPI directly, alongside your conda packages in a single solve.",
+    "image": "img/blog/2026-06-24-bridging-conda-and-pypi-ecosystems/conda-pypi-logo.png",
+    "date": "2026-06-24T00:00:00"
+  },
+  {
     "title": "May 2026 Releases",
     "slug": "2026-05-20-may-releases",
     "authors": [
@@ -68,20 +85,5 @@
     "description": "conda 26.3.x, conda-build 26.3.0, conda-libmamba-solver 26.3.0, conda-content-trust 0.3.0, constructor 3.15.x, conda-pypi 0.5/0.6, and more have shipped! \ud83c\udf89\n",
     "image": "img/blog/2026-04-06-march-releases/banner.jpg",
     "date": "2026-04-06T00:00:00"
-  },
-  {
-    "title": "Standardization of the conda ecosystem",
-    "slug": "2026-03-11-conda-standards-ceps",
-    "authors": [
-      "jaimergp"
-    ],
-    "tags": [
-      "specifications",
-      "ceps"
-    ],
-    "description": "How the conda ecosystem adopted a new set of voted standards and specifications",
-    "image": "img/blog/2026-03-11-conda-standards-ceps/banner.jpg",
-    "image_credit": "Photo by <a href=\"https://unsplash.com/@alex_skobe?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Alex Skobe</a> on <a href=\"https://unsplash.com/photos/a-single-mushroom-growing-on-mossy-ground-sQwqZO9qsso?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Unsplash</a>",
-    "date": "2026-03-11T00:00:00"
   }
 ]
