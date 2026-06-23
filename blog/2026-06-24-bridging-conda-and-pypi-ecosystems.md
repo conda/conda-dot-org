@@ -1,7 +1,7 @@
 ---
 title: "Bridging conda and PyPI ecosystems: install PyPI packages with conda install"
 slug: "2026-06-24-bridging-conda-and-pypi-ecosystems"
-authors: [dashagurova, dbouquin]
+authors: [dashagurova]
 tags: [conda, pip, PyPI, conda-pypi]
 description: "Stop reaching for `pip` inside your conda environments. With the conda-pypi beta, `conda install` can now pull pure Python packages from PyPI directly, alongside your conda packages in a single solve."
 image: img/blog/2026-06-24-bridging-conda-and-pypi-ecosystems/conda-pypi-logo.png
