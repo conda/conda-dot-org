@@ -3,7 +3,7 @@ title: "Bridging conda and PyPI ecosystems: install PyPI packages with conda ins
 slug: "2026-06-25-bridging-conda-and-pypi-ecosystems"
 authors: [dashagurova]
 tags: [conda, pip, PyPI, conda-pypi]
-description: | 
+description: |
     conda-pypi beta enables conda CLI to install pure Python packages from PyPI natively and alongside conda packages in a single dependency solve, without a separate pip step
 image: img/blog/2026-06-25-bridging-conda-and-pypi-ecosystems/conda-pypi-logo.png
 ---
@@ -14,7 +14,7 @@ Here is a situation a lot of conda users know: you are working in conda environm
 
 After spending an afternoon tracing the problem, you discover that there is an entire body of tribal knowledge around using `conda` and `pip` in the same environment: install conda first and pip last, pin this, don't touch that, special cases on top of special cases. Follow all of it and you can usually keep an environment standing, but what you're left with is fragile, a careful multi-step routine you have to maintain by hand and hope no one else disturbs.
 
-The conda community has been working on [various approaches](https://conda.github.io/conda-pypi/why/potential-solutions/) to this problem, and we are very excited for you to try our latest project. Starting in `conda 26.5.0`, you can **opt into the conda-pypi beta** in which conda's solver knows about pure Python packages hosted on PyPI.org and can install them natively, in the same solve as your conda packages, with no pip step and no broken environment waiting for you later. 
+The conda community has been working on [various approaches](https://conda.github.io/conda-pypi/why/potential-solutions/) to this problem, and we are very excited for you to try our latest project. Starting in `conda 26.5.0`, you can **opt into the conda-pypi beta** in which conda's solver knows about pure Python packages hosted on PyPI.org and can install them natively, in the same solve as your conda packages, with no pip step and no broken environment waiting for you later.
 
 ## Why mixing conda and pip breaks things
 

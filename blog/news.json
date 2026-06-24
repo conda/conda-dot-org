@@ -7,11 +7,11 @@
     ],
     "tags": [
       "conda",
-      "conda-pypi",
       "pip",
-      "PyPI"
+      "PyPI",
+      "conda-pypi"
     ],
-    "description": "conda-pypi beta enables conda CLI to install pure Python packages from PyPI natively and alongside conda packages in a single dependency solve, without a separate pip step",
+    "description": "conda-pypi beta enables conda CLI to install pure Python packages from PyPI natively and alongside conda packages in a single dependency solve, without a separate pip step\n",
     "image": "img/blog/2026-06-25-bridging-conda-and-pypi-ecosystems/conda-pypi-logo.png",
     "date": "2026-06-25T00:00:00"
   },
