@@ -15,14 +15,14 @@ This document describes the archive file formats used for conda artifacts distri
 
 ## Specification
 
-conda packages, whose contents are described and standardized in [CEP 34](./cep-0034.md), MAY be archived and distributed in two formats:
+conda packages MAY be archived and distributed in two formats:
 
 - `.tar.bz2`: The first generation of conda archives. Referred to as version 1.
 - `.conda`: The second generation of conda archives. Referred to as version 2.
 
 ### `.tar.bz2`
 
-To produce a `.tar.bz2` file, the conda package directory as described in [CEP 34](./cep-0034.md) MUST be first archived into an uncompressed tarball (`.tar`). The root level of the archive MUST match the root level of the target location once installed (i.e. no intermediate subdirectories). The resulting tarball MUST be then compressed using the BZ2 compression scheme. The filename MUST follow [CEP 26](./cep-0026.md), with a `.tar.bz2` extension. Namely: `{name}-{version}-{build}.tar.bz2`.
+To produce a `.tar.bz2` file, the conda package contents MUST be first archived into an uncompressed tarball (`.tar`). The root level of the archive MUST match the root level of the target location once installed (i.e. no intermediate subdirectories). The resulting tarball MUST be then compressed using the BZ2 compression scheme. The [filename](../distribution/package-identifiers.md) MUST have a `.tar.bz2` extension. Namely: `{name}-{version}-{build}.tar.bz2`.
 
 For example, given a package directory `project-1.2.3-0/`, GNU `tar` can be used like this:
 
@@ -39,15 +39,15 @@ tar xvf project-1.2.3-0.tar.bz2
 
 ### `.conda`
 
-A `.conda` artifact MUST be a ZIP file whose filename follows [CEP 26](./cep-0026.md) with a `.conda` extension (i.e. `{name}-{version}-{build}.conda`). It MUST NOT be compressed. The ZIP archive MUST contain two Zstandard-compressed tarballs and a JSON document, named as:
+A `.conda` artifact MUST be a ZIP file with a [filename](../distribution/package-identifiers.md) using the `.conda` extension (i.e. `{name}-{version}-{build}.conda`). It MUST NOT be compressed. The ZIP archive MUST contain two Zstandard-compressed tarballs and a JSON document, named as:
 
 - `info-{name}-{version}-{build}.tar.zst`
 - `pkg-{name}-{version}-{build}.tar.zst`
 - `metadata.json`
 
-Each tarball MUST be named with the above syntax, taking the `name`, `version` and `build` values from the `info/index.json` file as described in [CEP 34](./cep-0034.md).
+Each tarball MUST be named with the above syntax, taking the `name`, `version` and `build` values from the [`info/index.json` file](../packages/info.md).
 
-The `info-*` tarball MUST contain the full `info/` folder as described in [CEP 34](./cep-0034.md). The `pkg-*` tarball MUST carry everything else in the package directory. The root level of the tarballs MUST match the root level of the target location once installed (i.e. no intermediate subdirectories).
+The `info-*` tarball MUST contain the [full `info/` folder](../packages/info.md). The `pkg-*` tarball MUST carry everything else in the package directory. The root level of the tarballs MUST match the root level of the target location once installed (i.e. no intermediate subdirectories).
 
 The `metadata.json` MUST be a JSON document that ships a dictionary following this schema:
 
