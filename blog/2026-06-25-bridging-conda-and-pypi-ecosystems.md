@@ -36,7 +36,9 @@ Conda-pypi beta makes pure Python wheels a first-class package format that conda
 
 Repodata is the metadata file every conda channel publishes so clients can resolve dependencies. By describing PyPI wheels in that same format, conda's solver can consider them right alongside conda packages.
 
-The **conda-pypi channel** translates PyPI metadata into repodata that conda can understand. It's hosted on anaconda.org, and download URLs point straight at the files on PyPI. The artifacts themselves are not copied or rehosted. The channel also handles package name differences between the two ecosystems. For example, PyPI may call a package `typing-extensions`, while a conda channel uses `typing_extensions`. The channel maps those names so that dependencies can resolve against the conda packages already available from the configured sources.
+The **conda-pypi channel** translates PyPI metadata into repodata that conda can understand. It is hosted on anaconda.org, while download URLs point directly to the original files on PyPI, so the artifacts themselves are not copied or rehosted.
+
+The channel also handles package name differences between the two ecosystems. For example, PyPI may call a package `typing-extensions`, while conda-forge uses `typing_extensions`. Because conda-pypi maps PyPI package names to their conda-forge equivalents, it is most compatible with the conda-forge channel.
 
 Only pure Python wheels are included. A pure Python package can still depend on numpy or another compiled library, but those dependencies continue to come from the configured conda channels.
 
@@ -58,7 +60,7 @@ Then opt in by switching to the rattler solver and adding the conda-pypi channel
 conda config --set solver rattler
 conda config --append channels conda-pypi
 ```
-The first command switches your solver to a Rust-based solver that's also in beta. It's built on the [rattler project](https://github.com/conda/rattler) from the team at Prefix.dev and uses the same solver backend pixi relies on. It's where conda's solving is heading, so the beta is a good time to test it against your real workflows; you can run it on its own, and rattler issues go to its own tracker.
+The first command switches your solver to a Rust-based solver that's also in beta. It's built on the [rattler project](https://github.com/conda/rattler) from the team at Prefix.dev and uses the same solver backend pixi relies on. It's where conda's solving is heading, so the beta is a good time to test it against your real workflows; you can run it on its own and report any rattler issues you come across in [conda-rattler-solver's own tracker](https://github.com/conda/conda-rattler-solver/issues).
 
 The second command appends the conda-pypi channel to your channel configuration. It's a public channel hosted on anaconda.org that gives conda access to the metadata of around 600,000 pure Python wheels on PyPI. Channel priority works as it always has, and we recommend keeping your conda channels first. conda-pypi is a source for conda to find additional packages, not a replacement for conda channels you rely on.
 
@@ -83,9 +85,9 @@ Because wheel packages are represented in conda's environment model, they can be
 conda export --file environment.yml --from-history
 ```
 
-Packages installed through conda-pypi appear in the regular dependency list rather than in a separate pip section. When another user recreates the environment, conda can resolve and install the complete package set through the same workflow.
+Packages installed through conda-pypi appear in the regular dependency list rather than in a separate pip section. When another user recreates the environment, conda can resolve and install the complete package set through the same workflow. The `--from-history` option exports only the packages you explicitly requested, without platform-specific build details, making the exported environment file more portable across machines.
 
-Conda 26.5 also introduced native multi platform lockfile support, allowing an environment containing both conda and PyPI packages to be locked for Linux, macOS, and Windows in a single file. [Learn more about lockfile support in conda CLI](https://conda.github.io/conda-lockfiles/)
+Conda 26.5 also introduced native multi platform lockfile support, allowing an environment containing both conda and PyPI packages to be locked for Linux, macOS, and Windows in a single file.
 
 For example:
 
@@ -107,7 +109,7 @@ conda pypi install -e .
 Here are a few rough edges we already know about:
 
  - `conda search` does not currently work when the conda-pypi channel is enabled. We are planning to add support in the next major release. Until then, just use `conda install <pypi-package>`
- - Extras cannot yet be requested through the command line. `conda install package[extra]` will fail. Extras declared inside package metadata are handled during the solve, so dependencies of a package's extras still resolve correctly. You just can't request them from the CLI.
+ - Extras cannot yet be requested through the command line. `conda install package[extras=extra]` will fail. Extras declared inside package metadata are handled during the solve, so dependencies of a package's extras still resolve correctly. You just can't request them from the CLI.
  - The conda-pypi channel does not currently have a browsable package interface on anaconda.org.
 
 ## We need your feedback
