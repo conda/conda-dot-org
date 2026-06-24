@@ -18,7 +18,7 @@ The conda community has been working on [various approaches](https://conda.githu
 
 ## Why mixing conda and pip breaks things
 
-Because both conda and pip install Python packages, it is natural to think of them as interchangeable tools for the same job. The important difference is that pip installs Python packages, while conda manages a broader environment that can include the Python interpreter, compiled C and Fortran libraries, command line programs, and other non Python dependencies. Conda resolves those components together and records what it installed in conda-meta.
+Because both conda and pip install Python packages, it is natural to think of them as interchangeable tools for the same job. The important difference is that pip installs Python packages, while conda manages a broader environment that can include the Python interpreter, compiled C and Fortran libraries, command line programs, and other non Python dependencies. Conda resolves those components together and records what it installed in `conda-meta`, the directory in each environment that contains conda's record of installed packages.
 
 Consider an environment in which conda installs `numpy` and records a consistent set of packages. Later, pip installs another package that requires a different version of `numpy` and changes files in `site-packages`. Pip does not update conda-meta, because conda's internal record is outside pip's responsibility. The files in the environment and conda's understanding of the environment may now disagree.
 
