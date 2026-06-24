@@ -1,5 +1,5 @@
 ---
-title: "Bridging conda and PyPI ecosystems: install PyPI packages with conda install"
+title: "Bridging conda and PyPI ecosystems: Install PyPI packages with conda install"
 slug: "2026-06-25-bridging-conda-and-pypi-ecosystems"
 authors: [dashagurova]
 tags: [conda, pip, PyPI, conda-pypi]
@@ -14,7 +14,7 @@ Here is a situation a lot of conda users know: you are working in conda environm
 
 After spending an afternoon tracing the problem, you discover that there is an entire body of tribal knowledge around using `conda` and `pip` in the same environment: install conda first and pip last, pin this, don't touch that, special cases on top of special cases. Follow all of it and you can usually keep an environment standing, but what you're left with is fragile, a careful multi-step routine you have to maintain by hand and hope no one else disturbs.
 
-The conda community has been working on [various approaches](https://conda.github.io/conda-pypi/why/potential-solutions/) to this problem, and we are very excited for you to try our latest project. Starting in `conda 26.5.0`, you can **opt into the conda-pypi beta** in which conda's solver knows about pure Python packages hosted on PyPI.org and can install them natively, in the same solve as your conda packages, with no pip step and no broken environment waiting for you later.
+The conda community has been working on [various approaches](https://conda.github.io/conda-pypi/why/potential-solutions/) to this problem, and we are very excited for you to try our latest project. Starting in `conda 26.5.0`, you can **opt into the conda-pypi beta**, in which conda's solver knows about pure Python packages hosted on PyPI.org and can install them natively, in the same solve as your conda packages, with no pip step and no broken environment waiting for you later.
 
 ## Why mixing conda and pip breaks things
 
@@ -24,9 +24,9 @@ Consider an environment in which conda installs `numpy` and records a consistent
 
 When conda next solves the environment, it reasons from metadata that may no longer describe what is actually installed. The resulting failure can appear during an operation far removed from the pip command that introduced the inconsistency, which is one reason these problems can be so difficult to diagnose.
 
-Neither tool has behaved incorrectly, but environment broke anyway. The problem is that two package managers have modified the same environment while maintaining separate models of its contents. Mahe Iram Khan explains this distinction in [*Conda and pip are two ecosystems, not just tools*](https://conda.org/blog/2026-05-07-conda-and-pip-ecosystems), and [*Conda ≠ PyPI: Why Conda Is More Than a Package Manager*](https://conda.org/blog/conda-is-not-pypi) series by Jannis Leidel and Daniel Bast examines the differences between the ecosystems in more depth..
+Neither tool has behaved incorrectly, but the environment broke anyway. The problem is that two package managers have modified the same environment while maintaining separate models of its contents. Mahe Iram Khan explains this distinction in [*Conda and pip are two ecosystems, not just tools*](https://conda.org/blog/2026-05-07-conda-and-pip-ecosystems), and the [*Conda ≠ PyPI: Why Conda Is More Than a Package Manager*](https://conda.org/blog/conda-is-not-pypi) series by Jannis Leidel and Daniel Bast examines the differences between the ecosystems in more depth.
 
-So the question, then, is how `conda` can make packages from PyPI available without giving up its coherent model of the environment? Our answer is this conda-pypi beta!
+So the question, then, is how can `conda` make packages from PyPI available without giving up its coherent model of the environment? Our answer is this conda-pypi beta!
 
 ## conda-pypi beta: native Python wheel support
 
@@ -62,13 +62,13 @@ The first command switches your solver to a Rust-based solver that's also in bet
 
 The second command appends the conda-pypi channel to your channel configuration. It's a public channel hosted on anaconda.org that gives conda access to the metadata of around 600,000 pure Python wheels on PyPI. Channel priority works as it always has, and we recommend keeping your conda channels first. conda-pypi is a source for conda to find additional packages, not a replacement for conda channels you rely on.
 
-[Learn more in full documentation](https://conda.github.io/conda-pypi/quickstart/)
+[Learn more in our full documentation](https://conda.github.io/conda-pypi/quickstart/)
 
 ## Basic usage
 
 **Installing packages**
 
-Install everything with `conda install`, without switching to pip:
+Install everything with `conda install` without switching to pip:
 
 ```shell
 conda install <conda-package> <pypi-package>
@@ -85,7 +85,7 @@ conda export --file environment.yml --from-history
 
 Packages installed through conda-pypi appear in the regular dependency list rather than in a separate pip section. When another user recreates the environment, conda can resolve and install the complete package set through the same workflow.
 
-Conda 26.5 also introduced native multi platform lockfile support, allowing an environment containing both conda and PyPI packages to be locked for Linux, macOS, and Windows in a single file. [Learn more about lockfile support in conda CLI →](https://conda.github.io/conda-lockfiles/)
+Conda 26.5 also introduced native multi platform lockfile support, allowing an environment containing both conda and PyPI packages to be locked for Linux, macOS, and Windows in a single file. [Learn more about lockfile support in conda CLI](https://conda.github.io/conda-lockfiles/)
 
 For example:
 
@@ -104,9 +104,9 @@ conda pypi install -e .
 
 ## Beta limitations
 
-A few rough edges we already know about.
+Here are a few rough edges we already know about:
 
- - `conda search` does not currently work when the conda-pypi channel is enabled. We are planning to add support in the next major release, until then just try `conda install <pypi-package>`
+ - `conda search` does not currently work when the conda-pypi channel is enabled. We are planning to add support in the next major release. Until then, just use `conda install <pypi-package>`
  - Extras cannot yet be requested through the command line. `conda install package[extra]` will fail. Extras declared inside package metadata are handled during the solve, so dependencies of a package's extras still resolve correctly. You just can't request them from the CLI.
  - The conda-pypi channel does not currently have a browsable package interface on anaconda.org.
 
@@ -114,6 +114,6 @@ A few rough edges we already know about.
 
 We've been working toward this for years, and we're releasing it in beta because what we need now is real environments hitting real edge cases. We need to find the failures we can't predict from inside our own test suites.
 
-If something works in a way that surprises you, tell us. If something breaks, tell us. If the workflow still feels wrong somewhere, tell us that too. Beta feedback is what turns this into the solution you actually want, and what moves it from opt-in to default.
+If something works in a way that surprises you, tell us. If something breaks, tell us. If the workflow still feels wrong somewhere, tell us that, too. Beta feedback is what turns this into the solution you actually want, and what moves it from opt-in to default.
 
 File an issue on [GitHub](https://github.com/conda/conda/issues), chat with us on [Zulip](https://conda.zulipchat.com/), or stop by [conda community office hours](https://conda.org/community/calendar), biweekly on Mondays.
