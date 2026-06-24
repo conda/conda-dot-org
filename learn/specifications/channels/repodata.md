@@ -16,3 +16,7 @@ Some preliminary information can be found at:
 - `*.state.json` and `*.info.json` cache files (https://github.com/conda/ceps/pull/46, https://github.com/conda/ceps/pull/48)
 - `run_exports.json`: https://github.com/conda/ceps/blob/main/cep-0012.md
 :::
+
+## History
+
+_TBD_.
