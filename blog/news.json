@@ -1,19 +1,19 @@
 [
   {
     "title": "Bridging conda and PyPI ecosystems: install PyPI packages with conda install",
-    "slug": "2026-06-24-bridging-conda-and-pypi-ecosystems",
+    "slug": "2026-06-25-bridging-conda-and-pypi-ecosystems",
     "authors": [
       "dashagurova"
     ],
     "tags": [
       "conda",
+      "conda-pypi",
       "pip",
-      "PyPI",
-      "conda-pypi"
+      "PyPI"
     ],
-    "description": "Stop reaching for `pip` inside your conda environments. With the conda-pypi beta, `conda install` can now pull pure Python packages from PyPI directly, alongside your conda packages in a single solve.",
-    "image": "img/blog/2026-06-24-bridging-conda-and-pypi-ecosystems/conda-pypi-logo.png",
-    "date": "2026-06-24T00:00:00"
+    "description": "conda-pypi beta enables conda CLI to install pure Python packages from PyPI natively and alongside conda packages in a single dependency solve, without a separate pip step",
+    "image": "img/blog/2026-06-25-bridging-conda-and-pypi-ecosystems/conda-pypi-logo.png",
+    "date": "2026-06-25T00:00:00"
   },
   {
     "title": "May 2026 Releases",
