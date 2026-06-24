@@ -15,7 +15,7 @@ Virtual packages are used to expose details of the system configuration to a con
 ## Specification
 
 A virtual package is defined as a package record with three fields: name, version and build string.
-These fields MUST comply with [CEP 26](/ceps/cep-0026/). More specifically, the version field MUST follow the version string specifications as discussed in [CEP 33](/ceps/cep-0033/), regardless of its origin (computed from a system property, overridden by the user or configuration, or provided by default by the tool).
+These fields MUST comply with [CEP 26](/learn/ceps/cep-0026/). More specifically, the version field MUST follow the version string specifications as discussed in [CEP 33](/learn/ceps/cep-0033/), regardless of its origin (computed from a system property, overridden by the user or configuration, or provided by default by the tool).
 
 Some general considerations:
 
@@ -164,5 +164,5 @@ If the `CONDA_OVERRIDE_CUDA_ARCH` environment variable is set to the empty strin
 
 ## History
 
-- 2026-05-20: `__cuda_arch` is recognized as a recommended virtual package by [CEP 46](/ceps/cep-0046/).
-- 2026-03-04: Required virtual packages are standardized by [CEP 30](/ceps/cep-0030/).
+- 2026-05-20: `__cuda_arch` is recognized as a recommended virtual package by [CEP 46](/learn/ceps/cep-0046/).
+- 2026-03-04: Required virtual packages are standardized by [CEP 30](/learn/ceps/cep-0030/).
