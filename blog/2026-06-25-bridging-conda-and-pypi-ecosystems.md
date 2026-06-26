@@ -85,7 +85,7 @@ Because wheel packages are represented in conda's environment model, they can be
 conda export --file environment.yml --from-history
 ```
 
-Packages installed through conda-pypi appear in the regular dependency list rather than in a separate pip section. When another user recreates the environment, conda can resolve and install the complete package set through the same workflow. The `--from-history` option exports only the packages you explicitly requested, without platform-specific build details, making the exported environment file more portable across machines.
+Packages installed through conda-pypi appear in the regular dependency list rather than in a separate pip section. When another user recreates the environment, conda can resolve and install the complete package set through the same workflow (as long as they have conda-pypi beta enabled). The `--from-history` option exports only the packages you explicitly requested, without platform-specific build details, making the exported environment file more portable across machines.
 
 Conda 26.5 also introduced native multi platform lockfile support, allowing an environment containing both conda and PyPI packages to be locked for Linux, macOS, and Windows in a single file.
 
