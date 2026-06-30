@@ -124,7 +124,7 @@ simplified overview of all possible keys and their default values:
       "activate": true,  # activate conda environment before running 'command'
       "terminal": false, # open in terminal and leave it open
       "platforms": {
-        # To create the menu item for a fiven platform, the key must be present in this
+        # To create the menu item for a given platform, the key must be present in this
         # dictionary. Presence is enough; the value can just be the empty dictionary: {}.
         "linux": {
           # See XDG Desktop standard for details
