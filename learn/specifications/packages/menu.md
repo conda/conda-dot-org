@@ -186,7 +186,7 @@ simplified overview of all possible keys and their default values:
 }
 ```
 
-Note that each `platforms` sub-dictionary (`linux`, `macos`, `win`) can override the global values
+Note that each `platforms` sub-dictionary (`linux`, `osx`, `win`) can override the global values
 of their `menu_items[*]` entry (e.g. redefining `command` to adjust the shell syntax).
 
 Each JSON file MUST be validated against its `$id` schema at build time; e.g in `conda-build`.
