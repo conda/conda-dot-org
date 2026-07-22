@@ -13,3 +13,7 @@ Some preliminary information can be found at:
 - https://www.anaconda.com/docs/psm/cloud/user/packages#conda-package-signature-verification
 - Attestation (https://github.com/conda/ceps/blob/main/cep-0027.md)
 :::
+
+## History
+
+_TBD_.

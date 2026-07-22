@@ -12,3 +12,7 @@ Some preliminary information can be found at:
 - https://docs.conda.io/projects/conda-build/en/stable/concepts/generating-index.html
 - https://github.com/conda/ceps/pull/135
 :::
+
+## History
+
+_TBD_.
