@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
-    "start": "./bin/populate-minutes && ./bin/populate-ceps && docusaurus start",
-    "build": "./bin/populate-minutes && ./bin/populate-ceps && docusaurus build",
+    "start": "./bin/populate-governance && ./bin/populate-ceps && docusaurus start",
+    "build": "./bin/populate-governance && ./bin/populate-ceps && docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
