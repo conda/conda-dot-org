@@ -15,21 +15,36 @@ function hsl(h, s, l) {
   return `hsl(${((h % 360) + 360) % 360}, ${s}%, ${Math.max(0, Math.min(100, l))}%)`;
 }
 
-/** Fixed square cell size in px — kept constant across all banners/styles. */
-const CELL_SIZE = 60;
+/** Target square cell size in px; see `gridFor` for how it's actually picked. */
+const TARGET_CELL_SIZE = 60;
 
 /**
- * Derive the cols/rows needed to cover the canvas with `CELL_SIZE` squares.
- * Cols and rows are computed independently per axis so cells stay true
- * squares (never stretched into rectangles) regardless of canvas aspect ratio.
+ * @param {number} a
+ * @param {number} b
+ * @returns {number} Greatest common divisor of `a` and `b`
+ */
+function gcd(a, b) {
+  return b === 0 ? a : gcd(b, a % b);
+}
+
+/**
+ * Derive a square cell size (and the cols/rows needed to cover the canvas)
+ * for a `width` x `height` canvas. The cell size is the largest divisor of
+ * `gcd(width, height)` no bigger than `TARGET_CELL_SIZE`, so `cellSize * cols`
+ * and `cellSize * rows` always equal `width`/`height` exactly — the grid
+ * tiles the banner perfectly, with no partial/cropped cells at the edges.
  * @param {number} width
  * @param {number} height
- * @returns {{ cols: number, rows: number }}
+ * @returns {{ cellSize: number, cols: number, rows: number }}
  */
 function gridFor(width, height) {
+  const commonDivisor = gcd(width, height);
+  let cellSize = Math.min(commonDivisor, TARGET_CELL_SIZE);
+  while (commonDivisor % cellSize !== 0) cellSize--;
   return {
-    cols: Math.ceil(width / CELL_SIZE),
-    rows: Math.ceil(height / CELL_SIZE),
+    cellSize,
+    cols: width / cellSize,
+    rows: height / cellSize,
   };
 }
 
@@ -40,9 +55,10 @@ function gridFor(width, height) {
  * @param {import("canvas").CanvasRenderingContext2D} ctx
  * @param {number} col
  * @param {number} row
+ * @param {number} cellSize
  */
-function fillCell(ctx, col, row) {
-  ctx.fillRect(col * CELL_SIZE, row * CELL_SIZE, CELL_SIZE + 1, CELL_SIZE + 1);
+function fillCell(ctx, col, row, cellSize) {
+  ctx.fillRect(col * cellSize, row * cellSize, cellSize + 1, cellSize + 1);
 }
 
 /**
@@ -54,14 +70,14 @@ function fillCell(ctx, col, row) {
 function paintRandom(ctx, width, height) {
   const baseHue = Math.random() * 360;
   const sat = 45 + Math.random() * 25;
-  const { cols, rows } = gridFor(width, height);
+  const { cellSize, cols, rows } = gridFor(width, height);
 
   for (let row = 0; row < rows; row++) {
     for (let col = 0; col < cols; col++) {
       const hue = baseHue + (Math.random() * 50 - 25);
       const light = 25 + Math.random() * 50;
       ctx.fillStyle = hsl(hue, sat, light);
-      fillCell(ctx, col, row);
+      fillCell(ctx, col, row, cellSize);
     }
   }
 }
@@ -79,7 +95,7 @@ function paintRandom(ctx, width, height) {
 function paintSmooth(ctx, width, height) {
   const baseHue = Math.random() * 360;
   const sat = 45 + Math.random() * 25;
-  const { cols, rows } = gridFor(width, height);
+  const { cellSize, cols, rows } = gridFor(width, height);
 
   const controlCols = 3 + Math.floor(Math.random() * 3);
   const controlRows = 2 + Math.floor(Math.random() * 3);
@@ -118,7 +134,7 @@ function paintSmooth(ctx, width, height) {
         tv,
       );
       ctx.fillStyle = hsl(baseHue + hue, sat, light);
-      fillCell(ctx, col, row);
+      fillCell(ctx, col, row, cellSize);
     }
   }
 }
