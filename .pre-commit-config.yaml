@@ -68,6 +68,11 @@ repos:
         entry: bin/image-credit
         language: python
         files: ^blog/
+      - id: fill-missing-banners
+        name: Generate missing blog banners
+        entry: bin/banner/fill-missing
+        language: node
+        files: ^blog/.*\.mdx?$
   - repo: meta
     # see https://pre-commit.com/#meta-hooks
     hooks:
