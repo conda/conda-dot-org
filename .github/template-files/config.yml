@@ -68,7 +68,7 @@ conda/infrastructure:
       pre_commit: true
       docs: false
 
-  # [optional] rever release files  # codespell:ignore rever
+  # [optional] rever release files
   # Select one of the following:
   # conda and conda-build release file or
   # Cadence release file
@@ -84,7 +84,7 @@ conda/infrastructure:
   #     # SemVer placeholders
   #     placeholder: MAJOR.MINOR.PATCH
   #     placeholder_x: MAJOR.MINOR.x
-  # - src: templates/releases/rever.xsh  # codespell:ignore rever
-  #   dst: rever.xsh  # codespell:ignore rever
+  # - src: templates/releases/rever.xsh
+  #   dst: rever.xsh
   # - src: templates/releases/TEMPLATE
   #   dst: news/TEMPLATE
