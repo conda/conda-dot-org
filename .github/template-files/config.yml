@@ -1,3 +1,4 @@
+---
 conda/governance:
   # [required] community files
   - CODE_OF_CONDUCT.md
@@ -8,13 +9,13 @@ conda/infrastructure:
   - .github/workflows/update.yml
 
   # [optional] to include repo in https://github.com/orgs/conda/projects/2
-  - .github/workflows/issues.yml
-  - .github/workflows/labels.yml
-  - .github/workflows/project.yml
+  # - .github/workflows/issues.yml
+  # - .github/workflows/labels.yml
+  # - .github/workflows/project.yml
 
   # [optional] stale bot workflows
-  - .github/workflows/stale.yml
-  - .github/workflows/lock.yml
+  # - .github/workflows/stale.yml
+  # - .github/workflows/lock.yml
 
   # [optional] canary build workflow
   # - src: templates/workflows/build.yml
@@ -38,21 +39,21 @@ conda/infrastructure:
   #       - Linux
 
   # [optional] general processes for the conda org
-  - src: templates/HOW_WE_USE_GITHUB.md
-    dst: HOW_WE_USE_GITHUB.md
+  # - src: templates/HOW_WE_USE_GITHUB.md
+  #   dst: HOW_WE_USE_GITHUB.md
 
   # [optional] standard issue templates
-  - src: templates/issues/bug.yml
-    dst: .github/ISSUE_TEMPLATE/0_bug.yml
+  # - src: templates/issues/bug.yml
+  #   dst: .github/ISSUE_TEMPLATE/0_bug.yml
 
-  - src: templates/issues/feature.yml
-    dst: .github/ISSUE_TEMPLATE/1_feature.yml
+  # - src: templates/issues/feature.yml
+  #   dst: .github/ISSUE_TEMPLATE/1_feature.yml
 
-  - src: templates/issues/documentation.yml
-    dst: .github/ISSUE_TEMPLATE/2_documentation.yml
+  # - src: templates/issues/documentation.yml
+  #   dst: .github/ISSUE_TEMPLATE/2_documentation.yml
 
-  - src: templates/issues/epic.yml
-    dst: .github/ISSUE_TEMPLATE/epic.yml
+  # - src: templates/issues/epic.yml
+  #   dst: .github/ISSUE_TEMPLATE/epic.yml
 
   # [optional] standard PR template
   # - src: templates/pull_requests/news_tests_docs.md
@@ -61,14 +62,14 @@ conda/infrastructure:
     dst: .github/PULL_REQUEST_TEMPLATE.md
 
   # [optional] dependabot
-  # - src: templates/dependabot.yml
-  #   dst: .github/dependabot.yml
-  #   with:
-  #     github_actions: <true|false>
-  #     pre_commit: <true|false>
-  #     docs: <conda|pip|false>
+  - src: templates/dependabot.yml
+    dst: .github/dependabot.yml
+    with:
+      github_actions: true
+      pre_commit: true
+      docs: false
 
-  # [optional] rever release files
+  # [optional] rever release files  # codespell:ignore rever
   # Select one of the following:
   # conda and conda-build release file or
   # Cadence release file
@@ -84,7 +85,7 @@ conda/infrastructure:
   #     # SemVer placeholders
   #     placeholder: MAJOR.MINOR.PATCH
   #     placeholder_x: MAJOR.MINOR.x
-  # - src: templates/releases/rever.xsh
-  #   dst: rever.xsh
+  # - src: templates/releases/rever.xsh  # codespell:ignore rever
+  #   dst: rever.xsh  # codespell:ignore rever
   # - src: templates/releases/TEMPLATE
   #   dst: news/TEMPLATE

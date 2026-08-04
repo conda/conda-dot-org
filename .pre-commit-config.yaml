@@ -14,6 +14,8 @@ repos:
       - id: trailing-whitespace
       # ensure syntaxes are valid
       - id: check-yaml
+        # exclude YAML fragment included by the dependabot template
+        exclude: ^\.github/template-files/templates/dependabot_extras\.yml$
       - id: check-json
       # catch git merge/rebase problems
       - id: check-merge-conflict
@@ -26,6 +28,8 @@ repos:
       - id: yamlfmt
         # ruamel.yaml doesn't line wrap correctly (?) so set width to 1M to avoid issues
         args: [--mapping, '2', --offset, '2', --sequence, '4', --width, '1000000']
+        # exclude YAML fragment included by the dependabot template
+        exclude: ^\.github/template-files/templates/dependabot_extras\.yml$
   - repo: https://github.com/python-jsonschema/check-jsonschema
     rev: 0.37.4
     hooks:
