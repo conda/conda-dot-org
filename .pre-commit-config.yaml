@@ -70,10 +70,11 @@ repos:
         files: ^blog/
       - id: fill-missing-banners
         name: Generate missing blog banners
-        entry: npm run banner -- fill-missing
+        entry: node bin/banner/banner.js fill-missing
         language: node
-        # Local hooks have no package.json; this only satisfies pre-commit's
-        # install_environment. Real deps come from bin/banner/ via the entry.
+        language_version: 24.0.0
+        # Local hooks have no package.json; these are the runtime deps
+        # (also listed in bin/banner/package.json for `npm run banner`).
         additional_dependencies: [canvas@3.2.3, commander@15.0.0]
         files: ^blog/.*\.mdx?$
   - repo: meta

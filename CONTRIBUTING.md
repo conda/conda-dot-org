@@ -339,7 +339,8 @@ dependencies under `bin/banner/` when you run `npm run banner`).
 ##### Pre-commit: fill in missing banners
 
 A local pre-commit hook (`fill-missing-banners`) runs on staged `blog/*.md`
-/ `blog/*.mdx` files and calls `npm run banner -- fill-missing`. It looks for
+/ `blog/*.mdx` files and calls `node bin/banner/banner.js fill-missing` (with
+`canvas` / `commander` installed into the hook's own Node 24 env). It looks for
 a frontmatter `image:` key whose target file is missing on disk:
 
 - `image: img/blog/<post>/banner.png` set but the file is absent → generates it
