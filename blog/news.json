@@ -1,6 +1,6 @@
 [
   {
-    "title": "July 2026 Releases",
+    "title": "June and July 2026 Releases",
     "slug": "2026-08-03-july-releases",
     "authors": [
       "kenodegard"
@@ -12,10 +12,9 @@
       "conda-libmamba-solver",
       "conda-pypi",
       "constructor",
-      "menuinst",
-      "conda-self"
+      "menuinst"
     ],
-    "description": "July releases of conda and conda-build are out\u2014faster large-prefix installs, clearer errors, v1 recipe polish, and conda pypi index. \ud83c\udf89\n",
+    "description": "June and July releases across the conda org: conda and conda-build 26.7.0, constructor 3.16, libmamba and conda-pypi updates, and more. \ud83c\udf89\n",
     "image": "img/blog/2026-08-03-july-releases/banner.png",
     "date": "2026-08-03T00:00:00"
   },
