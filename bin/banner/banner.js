@@ -235,9 +235,6 @@ program
       : collectBlogFiles(join(REPO_ROOT, "blog"));
     const generated = await fillMissingBanners(targets, options.style);
     if (generated.length) {
-      console.log(
-        "Generated banner(s) above; review the image(s), `git add`, and commit again.",
-      );
       process.exitCode = 1;
     }
   });
