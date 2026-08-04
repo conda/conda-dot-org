@@ -72,6 +72,9 @@ repos:
         name: Generate missing blog banners
         entry: npm run banner -- fill-missing
         language: node
+        # Local hooks have no package.json; this only satisfies pre-commit's
+        # install_environment. Real deps come from bin/banner/ via the entry.
+        additional_dependencies: [canvas@3.2.3, commander@15.0.0]
         files: ^blog/.*\.mdx?$
   - repo: meta
     # see https://pre-commit.com/#meta-hooks
