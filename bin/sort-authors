@@ -13,11 +13,14 @@ AUTHORS_FILE = pathlib.Path("./blog/authors.yml")
 
 
 def main():
-    # configure yaml parser
-    parser = yaml.YAML(typ="safe", pure=True)
+    # match .pre-commit-config.yaml yamlfmt args:
+    # --mapping=2 --offset=2 --sequence=4 --width=1000000 --implicit_start
+    parser = yaml.YAML()
     parser.indent(mapping=2, offset=2, sequence=4)
-    parser.default_flow_style = False
-    parser.sort_base_mapping_type_on_output = False
+    parser.width = 1000000
+    parser.explicit_start = False
+    parser.explicit_end = False
+    parser.preserve_quotes = False
 
     # load authors file and sort
     authors = parser.load(AUTHORS_FILE.read_text())
@@ -28,7 +31,7 @@ def main():
     parser.dump(authors, stream)
 
     # save authors file
-    AUTHORS_FILE.write_text(f"---\n{stream.getvalue()}")
+    AUTHORS_FILE.write_text(stream.getvalue())
 
 
 if __name__ == "__main__":
