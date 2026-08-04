@@ -70,7 +70,7 @@ repos:
         files: ^blog/
       - id: fill-missing-banners
         name: Generate missing blog banners
-        entry: bin/banner/fill-missing
+        entry: npm run banner -- fill-missing
         language: node
         files: ^blog/.*\.mdx?$
   - repo: meta
