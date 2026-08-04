@@ -72,7 +72,7 @@ Full changelogs: [26.6.0](https://github.com/conda/conda-libmamba-solver/release
 ## Changes in conda-pypi [0.10.0](https://github.com/conda/conda-pypi/releases/tag/0.10.0) / [0.10.1](https://github.com/conda/conda-pypi/releases/tag/0.10.1) / [0.11.0](https://github.com/conda/conda-pypi/releases/tag/0.11.0)
 
 ```bash
-conda install conda-pypi=0.11.0
+conda install --name base conda-pypi=0.11.0
 ```
 
 **0.10.0:**
