@@ -1,4 +1,3 @@
----
 conda/governance:
   # [required] community files
   - CODE_OF_CONDUCT.md
