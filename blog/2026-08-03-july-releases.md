@@ -10,12 +10,13 @@ tags:
   - conda-pypi
   - constructor
   - menuinst
+  - rattler
 description: |
-  June and July releases across the conda org: conda and conda-build 26.7.0, constructor 3.16, libmamba and conda-pypi updates, and more. 🎉
+  June and July releases across the conda org: conda and conda-build 26.7.0, constructor 3.16, libmamba and conda-pypi updates, faster solves in rattler, and more. 🎉
 image: img/blog/2026-08-03-july-releases/banner.png
 ---
 
-The June and July 2026 releases included updates to conda, conda-build, conda-libmamba-solver, conda-pypi, constructor, menuinst, and more! 🎉 All of these have been released to both `defaults` and `conda-forge` channels.
+The June and July 2026 releases included updates to conda, conda-build, conda-libmamba-solver, conda-pypi, constructor, menuinst, rattler, and more! 🎉 All of these have been released to both `defaults` and `conda-forge` channels.
 
 <!-- truncate -->
 
@@ -35,6 +36,21 @@ conda install --name base conda=26.7.0
 - Fixes include URL-form `MatchSpec` channel identity, cleanup of failed creates, preserving environment history on rollback, and several sharded-repodata / wheel-record edge cases.
 
 Full changelog: [26.7.0](https://github.com/conda/conda/releases/tag/26.7.0)
+
+## Changes in rattler and py-rattler [0.24.0](https://github.com/conda/rattler/releases/tag/py-rattler-v0.24.0) / [0.25.0](https://github.com/conda/rattler/releases/tag/py-rattler-v0.25.0)
+
+```bash
+conda install py-rattler=0.25.0
+```
+
+- Faster solves: rattler moved to [resolvo](https://github.com/prefix-dev/resolvo) 0.11.1, which cuts the larger solve benchmarks by roughly **40%** (quetz 413 ms → 242 ms, tensorflow 283 ms → 175 ms). Every tool built on rattler gets that without changing a line. Matchspec and version parsing are faster too, which you notice when loading repodata.
+- conda packages for iOS and Android: new `ios-*`, `iossimulator-*` and `android-*` subdirs, with the minimum OS version carried as an `__ios` or `__android` virtual package. Compatibility then falls out of the solver the way `__glibc` and `__osx` already do. The subdirs and virtual packages are going through [a draft CEP](https://github.com/conda/ceps/pull/183).
+- Channel behavior: the gateway follows [CEP 42](https://conda.org/learn/ceps/cep-0042/) channel relations, so a channel like bioconda can name conda-forge as its base and asking for `bioconda` alone is enough. rattler also implements conda's **`flexible`** channel priority.
+- Working offline: an offline mode keeps the whole stack off the network, and a solve can be restricted to a set of candidates the caller supplies. Build that set from the package cache and a solve that succeeds will install without downloading anything.
+- Authentication and CLI: reading a private prefix.dev channel from CI now authenticates itself off a `WWW-Authenticate` challenge, with no per-channel configuration, and OAuth defaults to the device-code flow. New commands: `rattler exec`, `solve`, and `inject-into-prefix` / `remove-from-prefix`.
+- **py-rattler 0.24.0** brings lockfile v7 (breaking), CEP 42 channel relations, repodata revisions, `__cuda_arch`, and extras, conditionals and `flags` out of experimental. It also fixes two security advisories ([GHSA-h672-p7h7-97v9](https://github.com/conda/rattler/security/advisories/GHSA-h672-p7h7-97v9), [CVE-2026-47425](https://github.com/conda/rattler/security/advisories/GHSA-q53q-5r4j-5729)), so it is worth updating for those alone. **0.25.0** reworks the `repodata_revisions` API (breaking) and stops the metadata parsers raising when a component is simply absent.
+
+Full changelogs: [py-rattler 0.24.0](https://github.com/conda/rattler/releases/tag/py-rattler-v0.24.0), [0.25.0](https://github.com/conda/rattler/releases/tag/py-rattler-v0.25.0), and the [rattler releases](https://github.com/conda/rattler/releases) for the individual crates.
 
 ## Changes in conda-build [26.7.0](https://github.com/conda/conda-build/releases/tag/26.7.0)
 
@@ -159,12 +175,24 @@ A few more projects shipped without a deep dive here:
 Thank you to everyone who landed changes across these releases. A special welcome to contributors who contributed for the first time:
 
 - [@Adelagric](https://github.com/Adelagric) in [conda#16420](https://github.com/conda/conda/pull/16420)
+- [@agriyakhetarpal](https://github.com/agriyakhetarpal) in [rattler#2311](https://github.com/conda/rattler/pull/2311)
+- [@Ashish-Kumar-Dash](https://github.com/Ashish-Kumar-Dash) in [rattler#2610](https://github.com/conda/rattler/pull/2610)
 - [@bdice](https://github.com/bdice) in [conda#16328](https://github.com/conda/conda/pull/16328)
+- [@bltavares](https://github.com/bltavares) in [rattler#2533](https://github.com/conda/rattler/pull/2533)
 - [@carterbox](https://github.com/carterbox) in [conda#16446](https://github.com/conda/conda/pull/16446) and [conda-libmamba-solver#962](https://github.com/conda/conda-libmamba-solver/pull/962)
+- [@colobas](https://github.com/colobas) in [rattler#2548](https://github.com/conda/rattler/pull/2548)
+- [@doraem-on](https://github.com/doraem-on) in [rattler#2488](https://github.com/conda/rattler/pull/2488)
 - [@Functionhx](https://github.com/Functionhx) in [conda#16391](https://github.com/conda/conda/pull/16391)
 - [@btraven00](https://github.com/btraven00) in [conda#16266](https://github.com/conda/conda/pull/16266)
 - [@eeshsaxena](https://github.com/eeshsaxena) in [conda#16338](https://github.com/conda/conda/pull/16338)
+- [@flferretti](https://github.com/flferretti) in [rattler#2614](https://github.com/conda/rattler/pull/2614)
+- [@jirib](https://github.com/jirib) in [rattler#2524](https://github.com/conda/rattler/pull/2524)
+- [@jlmoraleshellin](https://github.com/jlmoraleshellin) in [rattler#2474](https://github.com/conda/rattler/pull/2474)
 - [@mgorny](https://github.com/mgorny) in [conda-build#6036](https://github.com/conda/conda-build/pull/6036)
+- [@nehaljwani](https://github.com/nehaljwani) in [rattler#2475](https://github.com/conda/rattler/pull/2475)
 - [@Nikil-D-Gr8](https://github.com/Nikil-D-Gr8) in [conda-build#6000](https://github.com/conda/conda-build/pull/6000)
+- [@olantwin](https://github.com/olantwin) in [rattler#2594](https://github.com/conda/rattler/pull/2594)
 - [@pb01ka](https://github.com/pb01ka) in [conda-build#5997](https://github.com/conda/conda-build/pull/5997)
 - [@pya](https://github.com/pya) in [conda-pypi#368](https://github.com/conda/conda-pypi/pull/368)
+- [@russkel](https://github.com/russkel) in [rattler#2553](https://github.com/conda/rattler/pull/2553)
+- [@ytausch](https://github.com/ytausch) in [rattler#2595](https://github.com/conda/rattler/pull/2595)
