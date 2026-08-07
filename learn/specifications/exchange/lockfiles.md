@@ -16,3 +16,12 @@ Some preliminary information can be found at:
 
 [Text spec files](text-spec.md) can be used as a minimal lockfile too.
 :::
+
+
+:::note[See also]
+
+[Text spec input files](./text-spec.md)
+
+## History
+
+_TBD_.

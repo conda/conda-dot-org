@@ -12,3 +12,7 @@ Some preliminary information can be found at:
 
 It will cover the details of `.tar.bz2` and `.conda` file formats.
 :::
+
+## History
+
+_TBD_.

@@ -10,3 +10,7 @@ Some preliminary information can be found at:
 
 - https://github.com/conda/ceps/pull/103
 :::
+
+## History
+
+TBD.
