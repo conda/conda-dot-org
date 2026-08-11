@@ -68,6 +68,15 @@ repos:
         entry: bin/image-credit
         language: python
         files: ^blog/
+      - id: fill-missing-banners
+        name: Generate missing blog banners
+        entry: node bin/banner/banner.js fill-missing
+        language: node
+        language_version: 24.0.0
+        # Local hooks have no package.json; these are the runtime deps
+        # (also listed in bin/banner/package.json for `npm run banner`).
+        additional_dependencies: [canvas@3.2.3, commander@15.0.0]
+        files: ^blog/.*\.mdx?$
   - repo: meta
     # see https://pre-commit.com/#meta-hooks
     hooks:
