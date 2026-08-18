@@ -17,6 +17,7 @@
 
 - [ ] If I have added a new page to `learn/` or `community/`, I have added it to the corresponding `_sidebar.json` file?
 
+
 <!-- Just as a reminder, everyone in all conda org spaces (including PRs)
      must follow the Conda Org Code of Conduct (link below).
 
