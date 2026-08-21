@@ -60,7 +60,11 @@ popd
 # Teams
 shopt -s nullglob
 mkdir -p "${HERE}/../community/teams"
-rm -rf "${HERE}/../community/teams/*.yml" "${HERE}/../community/teams/*.yaml" || true
+rm -rf \
+    "${HERE}/../community/teams/*.yml" \
+    "${HERE}/../community/teams/*.yaml" \
+    "${HERE}/../community/teams/**/*.md" \
+    || true
 pushd $(mktemp -d)
 curl -sL https://github.com/conda/governance/archive/refs/heads/fix-teams.tar.gz -o governance.tar.gz
 tar -C "${HERE}/../community/teams" -xf governance.tar.gz --strip-components 2 "governance-fix-teams/teams/"
@@ -68,9 +72,11 @@ popd
 
 pushd "${HERE}/../community/teams"
 for yaml in "${HERE}/../community/teams"/*.yml "${HERE}/../community/teams"/*.yaml; do
-    mkdir -p "$(dirname $yaml)"
+    charter="$(yq -r .charter "$yaml")"
+    [[ $(basename "$yaml") = __*__.yml ]] && rm "$yaml" && continue
+    mkdir -p "$(dirname $yaml)/$charter"
     name=$(basename $yaml)
-    python "${HERE}/../bin/render-teams.py" "$yaml" > "${name%.*}.md"
+    python "${HERE}/../bin/render-teams.py" "$yaml" > "${charter}/${name%.*}.md"
     rm "$yaml"
 done
 rm "${HERE}/../community/teams/teams.schema.json"
