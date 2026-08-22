@@ -1,4 +1,10 @@
-#! /usr/bin/env python
+#!/usr/bin/env python
+# /// script
+# requirements = [
+#   "ruamel.yaml",
+# ]
+# ///
+
 """
 This is a script to help us keep our "blog/news.json" file up to
 date. It will scan the "blog" directory, sort items by date (which

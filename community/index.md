@@ -28,7 +28,7 @@ title: Conda Community
 [conda-tools]: https://github.com/conda-tools/
 [conda]: https://github.com/conda/conda
 [conda-build]: https://github.com/conda/conda-build
-[conda-governance]: https://github.com/conda-incubator/governance
+[conda-governance]: https://github.com/conda/governance
 
 <!-- Chat services -->
 
@@ -110,9 +110,4 @@ We look forward to hearing from you and your contributions!
 
 ## Code of conduct and governance
 
-In order to ensure that everyone in our community treats each other with respect and decency,
-we have carefully crafted a code of conduct. In addition to this, we have also created a
-governance document which establishes clear rules and expectations surrounding the management
-of conda community projects and standards.
-
-Please read more about our [code of conduct and governance here][conda-governance].
+See [Code of conduct](./code-of-conduct.md) and [Governance](./governance.md).

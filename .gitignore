@@ -9,7 +9,11 @@ node_modules/
 .cache-loader
 
 # Populated at build time
+/community/code-of-conduct.md
+/community/governance.md
 /community/minutes/*.md
+/community/teams/**/*.md
+/community/teams/**/*.yml
 /learn/ceps/*.md
 
 # Misc
@@ -24,3 +28,6 @@ yarn-debug.log*
 yarn-error.log*
 
 .idea
+# pixi environments
+.pixi/*
+!.pixi/config.toml
