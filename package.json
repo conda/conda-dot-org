@@ -60,9 +60,10 @@
     ]
   },
   "engines": {
-    "node": ">=20.0"
+    "node": ">=20.9.0"
   },
   "overrides": {
+    "sharp": "^0.35.0",
     "serialize-javascript": "^7.0.5",
     "uuid": "^11.1.1"
   }
