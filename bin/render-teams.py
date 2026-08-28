@@ -53,13 +53,23 @@ This team is defined as a `{{ charter }}` charter.
 
 {%- endif %}
 ## Members
-{% for member in members %}
+{%- for member, member_data in members | items %}
+{%- if member_data is mapping and member_data.get("full_name") %}
+* [{{ member_data.get("full_name")}}](https://github.com/{{ member }})
+{%- else %}
 * [@{{ member }}](https://github.com/{{ member }})
-{%- endfor %}
-{%- if emeritus %}
+{%- endif %}{%- endfor %}
+{%- if name == 'steering-council' %}
+
+See [Emeritus members](./steering-emeritus/).
+{%- elif emeritus %}
 * Emeritus:
-{%- for member in emeritus %}
+{%- for member, member_data in emeritus | items %}
+{%- if member_data is mapping and member_data.get("full_name") %}
+  * [{{ member_data.get("full_name")}}](https://github.com/{{ member }})
+{%- else %}
   * [@{{ member }}](https://github.com/{{ member }})
+{%- endif %}
 {%- endfor %}
 {%- endif %}
 
