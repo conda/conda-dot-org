@@ -2,11 +2,11 @@
 set -euo pipefail
 
 HERE=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-
-pushd $(mktemp -d)
+workspace="$(mktemp -d)"
+pushd "$workspace"
 curl -sL https://github.com/conda/governance/archive/refs/heads/main.tar.gz -o governance.tar.gz
 # Governance
-tar -C "${HERE}/../community" -xf governance.tar.gz --strip-components 1 "governance-main/README.md"
+tar -C "${HERE}/../community" -xf "$workspace/governance.tar.gz" --strip-components 1 "governance-main/README.md"
 sed \
     -e 's/# Conda & Conda-Incubator Governance/# Governance/' \
     -e 's/CODE_OF_CONDUCT.md/code-of-conduct.md/g' \
@@ -17,7 +17,7 @@ sed \
     "${HERE}/../community/README.md" > "${HERE}/../community/governance.md"
 rm "${HERE}/../community/README.md"
 # Code of conduct
-tar -C "${HERE}/../community" -xf governance.tar.gz --strip-components 1 "governance-main/CODE_OF_CONDUCT.md"
+tar -C "${HERE}/../community" -xf "$workspace/governance.tar.gz" --strip-components 1 "governance-main/CODE_OF_CONDUCT.md"
 sed \
     -e 's/# Conda Organization Code of Conduct/# Code of conduct/' \
     "${HERE}/../community/CODE_OF_CONDUCT.md" > "${HERE}/../community/code-of-conduct.md"
@@ -25,7 +25,7 @@ rm "${HERE}/../community/CODE_OF_CONDUCT.md"
 
 # Minutes (part A)
 rm ${HERE}/../community/minutes/*.md || true
-tar -C "${HERE}/../community/minutes" -xf governance.tar.gz --strip-components 3 "governance-main/meetings/archive/"
+tar -C "${HERE}/../community/minutes" -xf "$workspace/governance.tar.gz" --strip-components 3 "governance-main/meetings/archive/"
 popd
 
 # Minutes (part B)
@@ -65,7 +65,7 @@ rm -rf \
     "${HERE}/../community/teams/*.yaml" \
     "${HERE}/../community/teams/**/*.md" \
     || true
-tar -C "${HERE}/../community/teams" -xf governance.tar.gz --strip-components 2 "governance-main/teams/"
+tar -C "${HERE}/../community/teams" -xf "$workspace/governance.tar.gz" --strip-components 2 "governance-main/teams/"
 
 pushd "${HERE}/../community/teams"
 for yaml in "${HERE}/../community/teams"/*.yml "${HERE}/../community/teams"/*.yaml; do
@@ -78,3 +78,5 @@ for yaml in "${HERE}/../community/teams"/*.yml "${HERE}/../community/teams"/*.ya
 done
 rm "${HERE}/../community/teams/teams.schema.json"
 popd
+
+rm -rf "$workspace"
