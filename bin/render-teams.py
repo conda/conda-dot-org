@@ -38,7 +38,7 @@ slug: /teams/{{ name }}
 
 :::info
 This document is a work in progress.
-Information here is provisionaland subject to change.
+Information here is provisional and subject to change.
 :::
 
 <!--
