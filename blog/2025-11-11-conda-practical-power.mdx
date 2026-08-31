@@ -113,7 +113,7 @@ The goal is interoperability between clients: lockfiles created by one tool can 
 
 - **Pixi:** [Full native support](https://docs.renovatebot.com/modules/manager/pixi/). Renovate automatically detects `pixi.toml` and `pixi.lock`, regenerating lockfiles on updates.
 
-- **Conda:** Datasource support via the [conda datasource](https://docs.renovatebot.com/modules/datasource/conda/). Teams can add custom regex patterns to their Renovate config to manage conda dependencies in `environment.yml` files (requires annotations like `# renovate: datasource=conda depName=conda-forge/numpy`). See [Anaconda's Renovate config](https://github.com/anaconda/renovate-config/blob/main/default.json) for a production-ready example of how to set this up.
+- **Conda:** Datasource support via the [conda datasource](https://docs.renovatebot.com/modules/datasource/conda/). See the [Renovate config](https://github.com/conda-incubator/renovate-config) for a examples of how to set this up via the shared config and annotations.
 
   **Important**: When Renovate updates `environment.yml`, you'll need a workflow to regenerate the lockfile using `conda-lock` or similar tools so that CI/CD picks up the resolved dependencies.
 

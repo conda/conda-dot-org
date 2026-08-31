@@ -1,0 +1,90 @@
+conda/governance:
+  # [required] community files
+  - CODE_OF_CONDUCT.md
+
+conda/infrastructure:
+  # [required] general workflows
+  - .github/workflows/cla.yml
+  - .github/workflows/update.yml
+
+  # [optional] to include repo in https://github.com/orgs/conda/projects/2
+  # - .github/workflows/issues.yml
+  # - .github/workflows/labels.yml
+  # - .github/workflows/project.yml
+
+  # [optional] stale bot workflows
+  # - .github/workflows/stale.yml
+  # - .github/workflows/lock.yml
+
+  # [optional] canary build workflow
+  # - src: templates/workflows/build.yml
+  #   dst: .github/workflows/build.yml
+  # For noarch packages, add:
+  #   with:
+  #     noarch: true
+  # For repos whose test workflow is not named "Tests", add:
+  #   with:
+  #     tests_workflow: Test
+
+  # [optional] slow test review workflow (requires durations/ from combine-durations)
+  # - src: templates/workflows/slow-tests.yml
+  #   dst: .github/workflows/slow-tests.yml
+  #   with:
+  #     epic_number: '<epic issue number>'
+  # For repos with a subset of platforms, add:
+  #   with:
+  #     epic_number: '<epic issue number>'
+  #     platforms:
+  #       - Linux
+
+  # [optional] general processes for the conda org
+  # - src: templates/HOW_WE_USE_GITHUB.md
+  #   dst: HOW_WE_USE_GITHUB.md
+
+  # [optional] standard issue templates
+  # - src: templates/issues/bug.yml
+  #   dst: .github/ISSUE_TEMPLATE/0_bug.yml
+
+  # - src: templates/issues/feature.yml
+  #   dst: .github/ISSUE_TEMPLATE/1_feature.yml
+
+  # - src: templates/issues/documentation.yml
+  #   dst: .github/ISSUE_TEMPLATE/2_documentation.yml
+
+  # - src: templates/issues/epic.yml
+  #   dst: .github/ISSUE_TEMPLATE/epic.yml
+
+  # [optional] standard PR template
+  # - src: templates/pull_requests/news_tests_docs.md
+  #   dst: .github/template-files/templates/pull_request_template_details.md
+  - src: templates/pull_requests/base.md
+    dst: .github/PULL_REQUEST_TEMPLATE.md
+
+  # [optional] dependabot
+  - src: templates/dependabot.yml
+    dst: .github/dependabot.yml
+    with:
+      github_actions: true
+      pre_commit: true
+      docs: false
+
+  # [optional] rever release files
+  # Select one of the following:
+  # conda and conda-build release file or
+  # Cadence release file
+  # - src: templates/releases/RELEASE.md
+  # On demand release file
+  # - src: templates/releases/RELEASE_ON_DEMAND.md
+  #   dst: RELEASE.md
+  #   with:
+  #     canary_channel: https://anaconda.org/conda-canary
+  #     # CalVer placeholders
+  #     placeholder: YY.MM.MICRO
+  #     placeholder_x: YY.MM.x
+  #     # SemVer placeholders
+  #     placeholder: MAJOR.MINOR.PATCH
+  #     placeholder_x: MAJOR.MINOR.x
+  # - src: templates/releases/rever.xsh
+  #   dst: rever.xsh
+  # - src: templates/releases/TEMPLATE
+  #   dst: news/TEMPLATE

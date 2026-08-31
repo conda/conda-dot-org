@@ -1,5 +1,75 @@
 [
   {
+    "title": "June and July 2026 Releases",
+    "slug": "2026-08-03-july-releases",
+    "authors": [
+      "kenodegard"
+    ],
+    "tags": [
+      "announcement",
+      "conda",
+      "conda-build",
+      "conda-libmamba-solver",
+      "conda-pypi",
+      "constructor",
+      "menuinst",
+      "rattler"
+    ],
+    "description": "June and July releases across the conda org: conda and conda-build 26.7.0, constructor 3.16, libmamba and conda-pypi updates, faster solves in rattler, and more. \ud83c\udf89\n",
+    "image": "img/blog/2026-08-03-july-releases/banner.png",
+    "date": "2026-08-03T00:00:00"
+  },
+  {
+    "title": "Bridging conda and PyPI ecosystems: Install PyPI packages with conda install",
+    "slug": "2026-06-25-bridging-conda-and-pypi-ecosystems",
+    "authors": [
+      "dashagurova"
+    ],
+    "tags": [
+      "conda",
+      "pip",
+      "PyPI",
+      "conda-pypi"
+    ],
+    "description": "conda-pypi beta enables conda CLI to install pure Python packages from PyPI natively and alongside conda packages in a single dependency solve, without a separate pip step\n",
+    "image": "img/blog/2026-06-25-bridging-conda-and-pypi-ecosystems/conda-pypi-logo.png",
+    "date": "2026-06-25T00:00:00"
+  },
+  {
+    "title": "May 2026 Releases",
+    "slug": "2026-05-20-may-releases",
+    "authors": [
+      "ryanskeith"
+    ],
+    "tags": [
+      "announcement",
+      "conda",
+      "conda-build",
+      "conda-libmamba-solver",
+      "conda-rattler-solver",
+      "conda-pypi"
+    ],
+    "description": "May releases of conda and conda-build are out\u2014native lockfiles, a snappier CLI, v1 recipe builds improvements and conda-pypi. \ud83c\udf89\n",
+    "image": "img/blog/2026-05-20-may-releases/banner.png",
+    "date": "2026-05-20T00:00:00"
+  },
+  {
+    "title": "Conda and pip are two ecosystems, not just tools",
+    "slug": "2026-05-07-conda-and-pip-ecosystems",
+    "authors": [
+      "forgottenprogramme"
+    ],
+    "tags": [
+      "conda",
+      "pip",
+      "packaging ecosystems",
+      "python packaging"
+    ],
+    "description": "`conda` and `pip` are two parallel ecosystems trying to solve different problems rather than two competing tools",
+    "image": "img/blog/2026-04-06-march-releases/banner.jpg",
+    "date": "2026-05-07T00:00:00"
+  },
+  {
     "title": "Building a Better conda CLI: A Vision",
     "slug": "2026-04-17-vision-for-conda-cli",
     "authors": [
@@ -13,72 +83,5 @@
     "image": "img/blog/2026-04-17-vision-for-conda-cli/banner.png",
     "image_credit": "<a href=\"https://unsplash.com/de/@mcnoble?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Matt Noble on Unsplash</a>",
     "date": "2026-04-17T00:00:00"
-  },
-  {
-    "title": "March 2026 Releases",
-    "slug": "2026-04-06-march-releases",
-    "authors": [
-      "kenodegard"
-    ],
-    "tags": [
-      "announcement",
-      "conda",
-      "conda-build",
-      "conda-libmamba-solver",
-      "conda-content-trust",
-      "conda-rattler-solver",
-      "conda-standalone",
-      "constructor",
-      "conda-pypi"
-    ],
-    "description": "conda 26.3.x, conda-build 26.3.0, conda-libmamba-solver 26.3.0, conda-content-trust 0.3.0, constructor 3.15.x, conda-pypi 0.5/0.6, and more have shipped! \ud83c\udf89\n",
-    "image": "img/blog/2026-04-06-march-releases/banner.jpg",
-    "date": "2026-04-06T00:00:00"
-  },
-  {
-    "title": "Standardization of the conda ecosystem",
-    "slug": "2026-03-11-conda-standards-ceps",
-    "authors": [
-      "jaimergp"
-    ],
-    "tags": [
-      "specifications",
-      "ceps"
-    ],
-    "description": "How the conda ecosystem adopted a new set of voted standards and specifications",
-    "image": "img/blog/2026-03-11-conda-standards-ceps/banner.jpg",
-    "image_credit": "Photo by <a href=\"https://unsplash.com/@alex_skobe?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Alex Skobe</a> on <a href=\"https://unsplash.com/photos/a-single-mushroom-growing-on-mossy-ground-sQwqZO9qsso?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Unsplash</a>",
-    "date": "2026-03-11T00:00:00"
-  },
-  {
-    "title": "condastats is back",
-    "slug": "condastats-is-back",
-    "authors": [
-      "jezdez"
-    ],
-    "tags": [
-      "condastats",
-      "conda-incubator",
-      "release"
-    ],
-    "description": "condastats returns after three years of silence with modern Python support, a refactored codebase, rewritten documentation, and an interactive browser demo powered by Pyodide.",
-    "image": "img/blog/2026-02-25-condastats/banner.png",
-    "date": "2026-02-25T00:00:00"
-  },
-  {
-    "title": "January 2026 Releases",
-    "slug": "2026-02-03-january-releases",
-    "authors": [
-      "kenodegard"
-    ],
-    "tags": [
-      "announcement",
-      "conda",
-      "conda-build",
-      "conda-pack"
-    ],
-    "description": "conda 26.1.0, conda-build 26.1.0, and conda-pack 0.9.1 have been released! \ud83c\udf89\n",
-    "image": "img/blog/2026-02-03-january-releases/banner.png",
-    "date": "2026-02-03T00:00:00"
   }
 ]

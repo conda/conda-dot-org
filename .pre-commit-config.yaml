@@ -1,4 +1,3 @@
----
 exclude: |
   (?x)^(
     package-lock.json|
@@ -14,6 +13,8 @@ repos:
       - id: trailing-whitespace
       # ensure syntaxes are valid
       - id: check-yaml
+        # exclude YAML fragment included by the dependabot template
+        exclude: ^\.github/template-files/templates/dependabot_extras\.yml$
       - id: check-json
       # catch git merge/rebase problems
       - id: check-merge-conflict
@@ -25,17 +26,22 @@ repos:
     hooks:
       - id: yamlfmt
         # ruamel.yaml doesn't line wrap correctly (?) so set width to 1M to avoid issues
-        args: [--mapping, '2', --offset, '2', --sequence, '4', --width, '1000000']
+        args: [--mapping=2, --offset=2, --sequence=4, --width=1000000, --implicit_start]
+        # exclude YAML fragment included by the dependabot template
+        exclude: ^\.github/template-files/templates/dependabot_extras\.yml$
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.37.1
+    rev: 0.38.0
     hooks:
       # verify github syntaxes
       - id: check-github-workflows
   - repo: https://github.com/codespell-project/codespell
     # see pyproject.toml
-    rev: v2.4.2
+    rev: v2.4.3
     hooks:
       - id: codespell
+        additional_dependencies:
+          # required to read pyproject.toml on Python < 3.11
+          - tomli
         args: [--write-changes]
   - repo: https://github.com/pre-commit/mirrors-prettier
     rev: v4.0.0-alpha.8
@@ -44,7 +50,7 @@ repos:
         types_or: [jsx, javascript]
         exclude: ^static/js/count.js$
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.15.11
+    rev: v0.16.4
     hooks:
       - id: ruff
         args: [--fix]
@@ -68,6 +74,15 @@ repos:
         entry: bin/image-credit
         language: python
         files: ^blog/
+      - id: fill-missing-banners
+        name: Generate missing blog banners
+        entry: node bin/banner/banner.js fill-missing
+        language: node
+        language_version: 24.0.0
+        # Local hooks have no package.json; these are the runtime deps
+        # (also listed in bin/banner/package.json for `npm run banner`).
+        additional_dependencies: [canvas@3.2.3, commander@15.0.0]
+        files: ^blog/.*\.mdx?$
   - repo: meta
     # see https://pre-commit.com/#meta-hooks
     hooks:

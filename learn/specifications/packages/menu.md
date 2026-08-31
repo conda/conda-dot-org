@@ -124,7 +124,7 @@ simplified overview of all possible keys and their default values:
       "activate": true,  # activate conda environment before running 'command'
       "terminal": false, # open in terminal and leave it open
       "platforms": {
-        # To create the menu item for a fiven platform, the key must be present in this
+        # To create the menu item for a given platform, the key must be present in this
         # dictionary. Presence is enough; the value can just be the empty dictionary: {}.
         "linux": {
           # See XDG Desktop standard for details
@@ -186,7 +186,7 @@ simplified overview of all possible keys and their default values:
 }
 ```
 
-Note that each `platforms` sub-dictionary (`linux`, `macos`, `win`) can override the global values
+Note that each `platforms` sub-dictionary (`linux`, `osx`, `win`) can override the global values
 of their `menu_items[*]` entry (e.g. redefining `command` to adjust the shell syntax).
 
 Each JSON file MUST be validated against its `$id` schema at build time; e.g in `conda-build`.

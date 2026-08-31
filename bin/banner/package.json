@@ -6,11 +6,10 @@
     "banner": "node -- ./banner.js"
   },
   "dependencies": {
-    "canvas": "^3.2.1",
-    "commander": "^14.0.3",
-    "trianglify": "^4.1.1"
+    "canvas": "^3.2.3",
+    "commander": "^15.0.0"
   },
   "engines": {
-    "node": ">=16.14"
+    "node": ">=22.12.0"
   }
 }
