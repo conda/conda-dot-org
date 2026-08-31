@@ -65,9 +65,7 @@ rm -rf \
     "${HERE}/../community/teams/*.yaml" \
     "${HERE}/../community/teams/**/*.md" \
     || true
-pushd $(mktemp -d)
 tar -C "${HERE}/../community/teams" -xf governance.tar.gz --strip-components 2 "governance-main/teams/"
-popd
 
 pushd "${HERE}/../community/teams"
 for yaml in "${HERE}/../community/teams"/*.yml "${HERE}/../community/teams"/*.yaml; do
