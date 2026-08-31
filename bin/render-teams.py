@@ -32,7 +32,7 @@ TEMPLATE = """\
 sidebar_position: {{ sidebar_position }}
 slug: /teams/{{ name }}
 description: |
-{{ description | indent }}
+  {{ description | indent(2) }}
 ---
 # {{ name }}
 :::info
