@@ -1,6 +1,5 @@
 [
   "index",
-  "calendar",
   "governance",
   "code-of-conduct",
   {
@@ -60,6 +59,7 @@
       }
     ]
   },
+  "calendar",
   {
     "type": "category",
     "label": "Meeting minutes",
