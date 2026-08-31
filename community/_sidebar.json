@@ -13,6 +13,7 @@
       {
         "type": "category",
         "label": "Steering council",
+        "description": "The governing body over the entire conda organization",
         "link": {
           "type": "doc",
           "id": "teams/council/steering-council"
@@ -28,6 +29,7 @@
       {
         "type": "category",
         "label": "Subteams",
+        "description": "Created by the Steering Council to manage the daily business of the organization",
         "link": {
           "type": "doc",
           "id": "teams/subteams"
@@ -36,6 +38,7 @@
           {
             "type": "category",
             "label": "Static subteams",
+            "description": "All membership decisions and non-trivial policy changes must be approved by the Steering Council",
             "link": {
               "type": "doc",
               "id": "teams/static-subteams"
@@ -50,6 +53,7 @@
           {
             "type": "category",
             "label": "Dynamic subteams",
+            "description": "Self-organizing, with respect to any additional, internal policies, procedures, and membership",
             "link": {
               "type": "doc",
               "id": "teams/dynamic-subteams"
@@ -66,6 +70,7 @@
       {
         "type": "category",
         "label": "Projects",
+        "description": "Responsible for the management of a software project consisting of one or more repositories and any software releases",
         "link": {
           "type": "doc",
           "id": "teams/project-teams"
@@ -74,6 +79,7 @@
           {
             "type": "category",
             "label": "Federated projects",
+            "description": "Projects where the development, ownership, and maintenance are controlled by a sub-team",
             "link": {
               "type": "doc",
               "id": "teams/federated-projects"
@@ -88,6 +94,7 @@
           {
             "type": "category",
             "label": "Community projects",
+            "description": "Projects where the development, ownership, and maintenance are controlled by the conda organization at large",
             "link": {
               "type": "doc",
               "id": "teams/community-projects"
@@ -102,6 +109,7 @@
           {
             "type": "category",
             "label": "Incubated projects",
+            "description": "Projects that have not moved into the main conda organization yet",
             "link": {
               "type": "doc",
               "id": "teams/incubated-projects"
