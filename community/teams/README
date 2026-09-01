@@ -1,2 +1,2 @@
-This directory is populated at build time by downloading all the minutes
+This directory is populated at build time by downloading all the YAML files
 from conda/governance. See `/bin/populate-governance`. Do not edit manually.
