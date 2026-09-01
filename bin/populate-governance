@@ -70,7 +70,7 @@ tar -C "${HERE}/../community/teams" -xf "$workspace/governance.tar.gz" --strip-c
 pushd "${HERE}/../community/teams"
 for yaml in "${HERE}/../community/teams"/*.yml "${HERE}/../community/teams"/*.yaml; do
     charter="$(yq -r .charter "$yaml")"
-    [[ $(basename "$yaml") = __*__.yml || "$charter" == "unknown" ]] && rm "$yaml" && continue
+    [[ $(basename "$yaml") = __*__.yml ]] && rm "$yaml" && continue
     mkdir -p "$(dirname $yaml)/$charter"
     name=$(basename $yaml)
     python "${HERE}/../bin/render-teams.py" "$yaml" > "${charter}/${name%.*}.md"
