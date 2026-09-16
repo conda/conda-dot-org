@@ -37,16 +37,7 @@ In all cases, the maximum length of a package name MUST NOT exceed 64 characters
 
 ## Version strings
 
-:::warning
-Version strings are pending full standardization.
-:::
-
-Version strings MUST only consist of digits, periods, lowercase ASCII letters, underscores, plus
-symbols, and exclamation marks.
-
-The maximum length of a version string MUST NOT exceed 64 characters.
-
-More information in [Versioning](./versioning.md).
+Please refer to [Versioning](./versioning.md).
 
 ## Build strings
 
