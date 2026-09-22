@@ -35,7 +35,7 @@
   padding: 4rem 6rem;
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (width <= 650px) {
   .news_container_group_not_highlighted {
     grid-template-columns: repeat(1, 1fr);
   }
@@ -62,7 +62,7 @@
   }
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (width <= 550px) {
   .info_heading h2 {
     font-size: 34px;
     line-height: 42px;

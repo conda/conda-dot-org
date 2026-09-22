@@ -59,7 +59,7 @@
   align-items: center;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (width <= 550px) {
   /* Card Title */
   .news_container_content h3 {
     font-size: 18px;
