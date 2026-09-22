@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Link from "@docusaurus/Link";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import ThemedImage from "@theme/ThemedImage";
@@ -110,6 +111,14 @@ function SupporterLogo({ name, link, light, dark, width }) {
     </Link>
   );
 }
+
+SupporterLogo.propTypes = {
+  name: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired,
+  light: PropTypes.string.isRequired,
+  dark: PropTypes.string.isRequired,
+  width: PropTypes.number.isRequired,
+};
 
 export default function Supporters() {
   return (

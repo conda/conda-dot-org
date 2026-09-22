@@ -50,11 +50,6 @@ module.exports = [
       // Docusaurus's webpack aliases (@site, @theme, @docusaurus/*) aren't resolvable by any
       // static import resolver; this rule would otherwise flag every aliased import as broken.
       "import/no-unresolved": "off",
-      // This codebase has never used PropTypes (no `prop-types` dependency, no existing
-      // annotations); enabling this would require adopting a new validation convention as a
-      // side effect of a lint version bump. Revisit separately if PropTypes (or TypeScript)
-      // is ever adopted.
-      "react/prop-types": "off",
     },
   },
 ];
