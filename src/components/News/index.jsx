@@ -7,6 +7,7 @@ export default function News() {
   const cards = NewsData.map((item, index) => {
     return (
       <NewsCard
+        key={item.slug}
         index={index}
         title={item.title}
         date={item.date}

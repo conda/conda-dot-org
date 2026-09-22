@@ -33,11 +33,10 @@ updates:
         patterns:
           - '*'
     ignore:
-      # ESLint 9 requires flat config migration and eslint-config-airbnb doesn't support it yet
+      # eslint-plugin-import, eslint-plugin-react, and eslint-plugin-jsx-a11y don't declare
+      # peer support for ESLint 10 yet (only up to ^9); bump this once they do.
       - dependency-name: eslint
-        versions: ['>=9.0.0']
-      - dependency-name: eslint-plugin-react-hooks
-        versions: ['>=5.0.0']
+        versions: ['>=10.0.0']
     cooldown:
       default-days: 7
   - package-ecosystem: npm

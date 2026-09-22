@@ -90,6 +90,27 @@ const developer = [
   },
 ];
 
+// `useBaseUrl` can't be called inside a `.map()` callback (violates the Rules of Hooks), so
+// each logo is its own component: each instance gets its own valid hook call.
+function SupporterLogo({ name, link, light, dark, width }) {
+  return (
+    <Link to={link}>
+      <div className={styles.card_wrapper}>
+        <ThemedImage
+          className={styles.image}
+          alt={`${name} logo`}
+          title={`Go to ${name}'s website`}
+          sources={{
+            light: useBaseUrl(light),
+            dark: useBaseUrl(dark),
+          }}
+          width={width}
+        />
+      </div>
+    </Link>
+  );
+}
+
 export default function Supporters() {
   return (
     <div className={[styles.supporters, styles.section_padding].join(" ")}>
@@ -136,21 +157,8 @@ export default function Supporters() {
               </h2>
             </div>
             <div className={styles.card}>
-              {financial.map(({ name, link, light, dark, width }, index) => (
-                <Link to={link} key={index}>
-                  <div className={styles.card_wrapper}>
-                    <ThemedImage
-                      className={styles.image}
-                      alt={`${name} logo`}
-                      title={`Go to ${name}'s website`}
-                      sources={{
-                        light: useBaseUrl(`${light}`),
-                        dark: useBaseUrl(`${dark}`),
-                      }}
-                      width={width}
-                    />
-                  </div>
-                </Link>
+              {financial.map((supporter) => (
+                <SupporterLogo key={supporter.link} {...supporter} />
               ))}
             </div>
           </div>
@@ -163,24 +171,9 @@ export default function Supporters() {
               </h3>
             </div>
             <div className={styles.card}>
-              {infrastructure.map(
-                ({ name, link, light, dark, width }, index) => (
-                  <Link key={index} to={link}>
-                    <div className={styles.card_wrapper}>
-                      <ThemedImage
-                        className={styles.image}
-                        alt={`${name} logo`}
-                        title={`Go to ${name}'s website`}
-                        sources={{
-                          light: useBaseUrl(`${light}`),
-                          dark: useBaseUrl(`${dark}`),
-                        }}
-                        width={width}
-                      />
-                    </div>
-                  </Link>
-                ),
-              )}
+              {infrastructure.map((supporter) => (
+                <SupporterLogo key={supporter.link} {...supporter} />
+              ))}
             </div>
           </div>
         ) : null}
@@ -192,21 +185,8 @@ export default function Supporters() {
               </h3>
             </div>
             <div className={styles.card}>
-              {developer.map(({ name, link, light, dark, width }, index) => (
-                <Link key={index} to={link}>
-                  <div className={styles.card_wrapper}>
-                    <ThemedImage
-                      className={styles.image}
-                      alt={`${name} logo`}
-                      title={`Go to ${name}'s website`}
-                      sources={{
-                        light: useBaseUrl(`${light}`),
-                        dark: useBaseUrl(`${dark}`),
-                      }}
-                      width={width}
-                    />
-                  </div>
-                </Link>
+              {developer.map((supporter) => (
+                <SupporterLogo key={supporter.link} {...supporter} />
               ))}
             </div>
           </div>
