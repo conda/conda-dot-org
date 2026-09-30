@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styles from "./styles.module.css";
 import Image from "@theme/IdealImage";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -52,3 +53,12 @@ export default function NewsCard({
     </div>
   );
 }
+
+NewsCard.propTypes = {
+  slug: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  first: PropTypes.bool,
+  date: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+};

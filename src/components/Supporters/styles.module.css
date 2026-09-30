@@ -108,7 +108,7 @@
   transform: scale(0.9);
 }
 
-@media screen and (max-width: 1050px) {
+@media screen and (width <= 1050px) {
   .section_padding {
     padding: 3rem;
   }
@@ -136,7 +136,7 @@
   }
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (width <= 650px) {
   .section_padding {
     padding: 2rem;
   }
@@ -155,7 +155,7 @@
   }
 }
 
-@media screen and (max-width: 490px) {
+@media screen and (width <= 490px) {
   .section_padding {
     padding: 1rem;
   }

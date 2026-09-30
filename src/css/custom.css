@@ -285,7 +285,7 @@ theme usage  */
   color: var(--foundation-grey-50);
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .color-table {
     width: 100%;
     margin-left: 0;
@@ -389,7 +389,7 @@ a.footer-link:hover {
   display: none;
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .desktop-only {
     display: none;
   }

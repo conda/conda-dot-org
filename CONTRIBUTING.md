@@ -221,6 +221,42 @@ new updates/additions. See something that doesn't quite look right or is not sho
 up how you expect? Be sure to check the error log in the terminal for any information
 that can help you.
 
+### Dependency overrides
+
+`package.json`'s `overrides` field forces specific transitive dependency versions past what
+their parent packages declare, because `npm audit fix` can't move a dependency outside the
+range (or exact pin) its parent specifies. Each entry exists to close a specific vulnerability
+that our own direct dependencies (Docusaurus, mermaid) haven't yet resolved upstream:
+
+- **`sharp`**: `@docusaurus/plugin-ideal-image` (via `@docusaurus/lqip-loader` and
+  `@docusaurus/responsive-loader`) otherwise selects an old, vulnerable `sharp` release line.
+  Forcing `^0.35.0` lets npm float to the latest `0.35.x` patch instead
+  ([#431](https://github.com/conda/conda-dot-org/pull/431)). Drop once those Docusaurus
+  packages bump their own `sharp` range past the vulnerable line by default (check with
+  `npm ls sharp` after removing the override).
+- **`serialize-javascript`** and **`uuid`**: `@docusaurus/bundler`'s webpack toolchain
+  (`copy-webpack-plugin`, `css-minimizer-webpack-plugin`) and `webpack-dev-server`'s `sockjs`
+  dependency pull in vulnerable release lines of these two
+  ([#430](https://github.com/conda/conda-dot-org/pull/430), fixing
+  [GHSA-5c6j-r48x-rmvq](https://github.com/advisories/GHSA-5c6j-r48x-rmvq),
+  [GHSA-qj8w-gfj5-8c6v](https://github.com/advisories/GHSA-qj8w-gfj5-8c6v), and
+  [GHSA-w5hq-g745-h8pq](https://github.com/advisories/GHSA-w5hq-g745-h8pq)). Drop once those
+  packages bump their own declared ranges past the vulnerable lines by default.
+- **`lodash-es`**: `@docusaurus/theme-mermaid` pulls in `mermaid`, which pins
+  `chevrotain: ~11.1.2`. That chevrotain release's own sub-packages (`@chevrotain/gast`,
+  `@chevrotain/cst-dts-gen`) hard-pin the exact vulnerable `lodash-es@4.17.23`
+  ([GHSA-r5fr-rjxr-66jc](https://github.com/advisories/GHSA-r5fr-rjxr-66jc),
+  [GHSA-f23m-r3pf-42rh](https://github.com/advisories/GHSA-f23m-r3pf-42rh)), an exact pin
+  `npm audit fix` cannot move. Forcing `^4.18.1` (a patch-level bump of a stable, mature
+  utility library) resolves it with no functional risk. Drop once `mermaid` bumps its
+  `chevrotain` dependency past `~11.1.2` (chevrotain 13.x already dropped the `lodash-es`
+  dependency from `@chevrotain/gast` entirely), or once a chevrotain 11.x patch release fixes
+  it directly.
+
+When adding a new override, run `npm audit` before and after to confirm it actually closes the
+finding, and note the advisory ID(s) and the upstream package that couldn't be fixed directly
+so a future contributor can tell when the override is safe to remove.
+
 ## Content contributors
 
 ### Creating a blog post
