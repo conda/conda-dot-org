@@ -30,7 +30,7 @@ repos:
         # exclude YAML fragment included by the dependabot template
         exclude: ^\.github/template-files/templates/dependabot_extras\.yml$
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.38.0
+    rev: 0.38.2
     hooks:
       # verify github syntaxes
       - id: check-github-workflows
