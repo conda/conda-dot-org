@@ -23,6 +23,22 @@ conda and conda-build 26.9.0 are out. Since our [June and July update](/blog/202
 
 ## Changes in conda [26.9.0](https://github.com/conda/conda/releases/tag/26.9.0)
 
+:::info Special Announcement
+
+We're planning a special **conda 26.10.0 release in October** to make Rattler the default solver. We used the same approach for [the switch to libmamba in 2023](/blog/2023-10-12-september-releases).
+
+In the same release, we'll start shipping the classic solver as the separate [conda-pycosat-solver](https://github.com/conda/conda-pycosat-solver) plugin. Existing `solver: classic` settings and `--solver=classic` commands will keep working. The plugin also supports the name `pycosat`.
+
+Conda 26.9 still uses libmamba by default. You can try Rattler now with `--solver=rattler`, or make it your default with:
+
+```bash
+conda config --set solver rattler
+```
+
+Libmamba will remain available. To keep using it, run `conda config --set solver libmamba`. Please report problems with Rattler in the [conda-rattler-solver issue tracker](https://github.com/conda/conda-rattler-solver/issues/new/choose).
+
+:::
+
 :::warning Special Announcement
 
 **Automatic pip installation will change in a future release.** Conda 26.9 still installs pip alongside Python by default. This behavior becomes deprecated in 27.3, and the default changes in 27.9.
