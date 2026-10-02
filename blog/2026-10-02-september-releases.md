@@ -71,8 +71,8 @@ Otherwise, install this release with:
 conda install --name base conda=26.9.0
 ```
 
-- `--exclude-newer` lets you exclude package records newer than a date or age cutoff, with channel and package overrides. Configured cutoffs also apply to `conda search`. The selected solver must support `--exclude-newer`. Conda prefers channel index timestamps, falls back to build timestamps, and leaves records without usable timestamps eligible. This is not a guaranteed delay after publication. See the [usage guide](https://docs.conda.io/projects/conda/en/26.9.x/user-guide/tasks/manage-pkgs.html#installing-packages-with-an-upload-cutoff).
-- Startup loads only the command parsers it needs. Wildcard searches on sharded channels also avoid constructing records for names that cannot match.
+- `--exclude-newer` lets you exclude package records newer than a date or age cutoff, with channel and package overrides. Use `--solver=classic` with `conda create`, `conda install`, or `conda update` in conda 26.9.0. Support in the libmamba and Rattler plugins is [still being developed](https://github.com/conda/conda/issues/15759). Configured cutoffs also apply to `conda search`. Conda prefers channel index timestamps, falls back to build timestamps, and leaves records without usable timestamps eligible. This is not a guaranteed delay after publication. See the [usage guide](https://docs.conda.io/projects/conda/en/26.9.x/user-guide/tasks/manage-pkgs.html#installing-packages-with-an-upload-cutoff).
+- Conda starts faster by loading only the command parsers it needs. Wildcard searches on sharded channels are faster too, because they skip records for package names that cannot match.
 - `conda plugins list` and `conda plugins info` show installed plugins and their metadata, including disabled plugins.
 - `conda doctor --fix` repairs missing or altered files more reliably. On macOS ARM64, code signing no longer causes false reports of altered files.
 - Replacing an existing environment with `conda env create` now requires `--yes` or the `always_yes` setting.
@@ -81,6 +81,8 @@ conda install --name base conda=26.9.0
 September is also a deprecation release. Plugin authors should import types from `conda.plugins.types` instead of `conda.plugins`. Environment files whose format cannot be detected no longer fall back automatically to the `environment.yml` reader. Select it explicitly with `--format=environment.yml` when needed. The [full release notes](https://github.com/conda/conda/releases/tag/26.9.0) list the API removals and replacements.
 
 A known issue in 26.9.0 can cause extraction to fail with `Invalid data stream` when `.conda` and `.tar.bz2` archives coexist in the cache. The [fix for the 26.9 branch](https://github.com/conda/conda/pull/16793) is merged and tracked for [26.9.1](https://github.com/conda/conda/issues/16620).
+
+Full changelog: [26.9.0](https://github.com/conda/conda/releases/tag/26.9.0)
 
 ## Changes in conda-build [26.9.0](https://github.com/conda/conda-build/releases/tag/26.9.0)
 
@@ -101,35 +103,47 @@ Full changelog: [26.9.0](https://github.com/conda/conda-build/releases/tag/26.9.
 
 ## Changes in conda-pypi [0.12.0](https://github.com/conda/conda-pypi/releases/tag/0.12.0) / [0.13.0](https://github.com/conda/conda-pypi/releases/tag/0.13.0)
 
-conda-pypi has dropped its beta label. The [installation guide](https://docs.conda.io/projects/conda/en/26.9.x/user-guide/tasks/install-packages-from-pypi.html) covers installing supported pure Python wheels through `conda install` and requires conda 26.9 or newer for that workflow.
+`conda-pypi` has dropped its beta label. The [installation guide](https://docs.conda.io/projects/conda/en/26.9.x/user-guide/tasks/install-packages-from-pypi.html) covers installing supported pure Python wheels through `conda install` and requires conda 26.9 or newer for that workflow.
 
 These releases reduce startup imports and fix dependency extras and wheel metadata when restoring environments from explicit files or lockfiles. `conda pypi convert` preserves wheel build numbers and accepts `--build-number`. Installing package specs with `conda pypi install` is pending deprecation. Editable installs remain supported.
 
+Full changelogs: [0.12.0](https://github.com/conda/conda-pypi/releases/tag/0.12.0), [0.13.0](https://github.com/conda/conda-pypi/releases/tag/0.13.0)
+
 ## Changes in constructor [3.17.0](https://github.com/conda/constructor/releases/tag/3.17.0) through [3.17.3](https://github.com/conda/constructor/releases/tag/3.17.3)
 
-constructor can build native Windows ARM64 installers. Windows installation-directory permission setup is faster, and `info.json` records more installer metadata and checksums.
+`constructor` can build native Windows ARM64 installers. Windows installation-directory permission setup is faster, and `info.json` records more installer metadata and checksums.
 
-The [3.17.1](https://github.com/conda/constructor/releases/tag/3.17.1), [3.17.2](https://github.com/conda/constructor/releases/tag/3.17.2), and [3.17.3](https://github.com/conda/constructor/releases/tag/3.17.3) patches fix Windows command lookup, MSI uninstall after package-cache cleanup, and an unintended Pydantic runtime dependency. constructor now requires conda 24.1 or newer.
+The [3.17.1](https://github.com/conda/constructor/releases/tag/3.17.1), [3.17.2](https://github.com/conda/constructor/releases/tag/3.17.2), and [3.17.3](https://github.com/conda/constructor/releases/tag/3.17.3) patches fix Windows command lookup, MSI uninstall after package-cache cleanup, and an unintended Pydantic runtime dependency. constructor now requires `conda 24.1` or newer.
+
+Full changelogs: [3.17.0](https://github.com/conda/constructor/releases/tag/3.17.0), [3.17.1](https://github.com/conda/constructor/releases/tag/3.17.1), [3.17.2](https://github.com/conda/constructor/releases/tag/3.17.2), [3.17.3](https://github.com/conda/constructor/releases/tag/3.17.3)
 
 ## Changes in conda-rattler-solver [0.2.0](https://github.com/conda/conda-rattler-solver/releases/tag/0.2.0)
 
-The Rattler solver remains an opt-in beta, now bundled with conda 26.9. It respects flexible channel priority, reads v3 records from sharded channels, and handles dependency extras. Updates avoid downgrading packages and retain installed packages that are no longer available from configured channels. `conda update --all` keeps Python within its existing major and minor version.
+The Rattler solver remains an opt-in beta, now bundled with `conda 26.9`. It respects flexible channel priority, reads v3 records from sharded channels, and handles dependency extras. Updates avoid downgrading packages and retain installed packages that are no longer available from configured channels. `conda update --all` keeps Python within its existing major and minor version.
 
-This release uses py-rattler 0.26. Its conda packages require Python 3.11 or newer. See [New features to try](https://docs.conda.io/projects/conda/en/26.9.x/new-features.html) for how to enable it.
+This release uses `py-rattler 0.26`. Its conda packages require Python 3.11 or newer. See [New features to try](https://docs.conda.io/projects/conda/en/26.9.x/new-features.html) for how to enable it.
+
+Full changelog: [0.2.0](https://github.com/conda/conda-rattler-solver/releases/tag/0.2.0)
 
 ## Changes in py-rattler [0.26.0](https://github.com/conda/rattler/releases/tag/py-rattler-v0.26.0) / [0.27.0](https://github.com/conda/rattler/releases/tag/py-rattler-v0.27.0)
 
-py-rattler 0.26 adds reverse-dependency queries, configuration-file support, and sparse reads of remote package archives. Wheels are now available for Windows ARM64 and Linux RISC-V. Version 0.27 adds optional Sigstore verification before installation and exposes the verified signing provenance to callers.
+`py-rattler 0.26` adds reverse-dependency queries, configuration-file support, and sparse reads of remote package archives. Wheels are now available for Windows ARM64 and Linux RISC-V. Version 0.27 adds optional Sigstore verification before installation and exposes the verified signing provenance to callers.
 
-Both releases include Python API changes, detailed in their release notes. conda-rattler-solver 0.2.0 requires py-rattler below 0.27, so its users should let conda select the compatible version.
+Both releases include Python API changes, detailed in their release notes. `conda-rattler-solver 0.2.0` requires `py-rattler <0.27`, so its users should let conda select the compatible version.
+
+Full changelogs: [0.26.0](https://github.com/conda/rattler/releases/tag/py-rattler-v0.26.0), [0.27.0](https://github.com/conda/rattler/releases/tag/py-rattler-v0.27.0)
 
 ## Changes in grayskull [3.2.0](https://github.com/conda/grayskull/releases/tag/v3.2.0)
 
-grayskull now generates v1 recipes by default for PyPI and CRAN packages. Use `--no-use-v1-format` if you still need a v0 `meta.yaml` recipe. This release also improves PEP 639 license metadata and Python-version handling in noarch v1 recipes.
+`grayskull` now generates v1 recipes by default for PyPI and CRAN packages. Use `--no-use-v1-format` if you still need a v0 `meta.yaml` recipe. This release also improves PEP 639 license metadata and Python-version handling in noarch v1 recipes.
+
+Full changelog: [3.2.0](https://github.com/conda/grayskull/releases/tag/v3.2.0)
 
 ## Changes in conda-spawn [0.2.0](https://github.com/conda/conda-spawn/releases/tag/0.2.0)
 
 `conda shell` is now an alias for `conda spawn`, which opens a shell in a conda environment. The release fixes activation in PowerShell sessions, ensures Fish and Xonsh activation finishes before the first prompt, and preserves login startup files and logout behavior in POSIX shells.
+
+Full changelog: [0.2.0](https://github.com/conda/conda-spawn/releases/tag/0.2.0)
 
 ## Other releases
 
@@ -139,7 +153,6 @@ grayskull now generates v1 recipes by default for PyPI and CRAN packages. Use `-
 - [conda-lockfiles 0.2.2](https://github.com/conda/conda-lockfiles/releases/tag/0.2.2) preserves explicit build numbers when exporting and reading rattler-lock v6 files.
 - [conda-recipe-manager 0.10.6](https://github.com/conda/conda-recipe-manager/releases/tag/v0.10.6) preserves Jinja templates when fixing ambiguous variables and improves duplicate-key errors.
 - [conda-pycosat-solver 0.1.0](https://github.com/conda/conda-pycosat-solver/releases/tag/0.1.0) is the first separate plugin release of the classic solver. conda 26.9 still ships its own classic solver.
-- [conda/actions 26.8.0](https://github.com/conda/actions/releases/tag/v26.8.0) through [26.9.5](https://github.com/conda/actions/releases/tag/v26.9.5) add release-preparation actions, a GitHub Releases backend for canary packages, and native Windows ARM64 canary builds.
 
 ## We ❤️ our community
 
