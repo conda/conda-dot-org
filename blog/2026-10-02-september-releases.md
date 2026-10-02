@@ -17,7 +17,7 @@ description: |
 image: img/blog/2026-10-02-september-releases/banner.png
 ---
 
-conda and conda-build 26.9.0 were released on October 1. Since our [June and July update](/blog/2026-08-03-july-releases), conda-pypi, constructor, rattler, grayskull, and several other projects have shipped releases too.
+conda and conda-build 26.9.0 are out. Since our [June and July update](/blog/2026-08-03-july-releases), conda-pypi, constructor, rattler, grayskull, and several other projects have shipped releases too.
 
 <!-- truncate -->
 
