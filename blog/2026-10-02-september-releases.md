@@ -39,11 +39,17 @@ To keep automatic installation, run `conda config --set add_pip_as_python_depend
 
 :::info Special Announcement
 
-**Native Windows ARM64 launchers are here.** Conda 26.9 uses signed ARM64 executables for Python command-line entry points in `win-arm64` environments and checks their SHA-256 hashes before installation. It also fixes a problem with [direct upgrades from defaults conda 26.7.2](https://github.com/conda/conda/pull/16777) that could leave those commands missing. conda-build 26.9 uses the published launchers when building Windows packages too.
+**Native Windows ARM64 launchers are here.** Conda 26.9 uses signed ARM64 executables for Python command-line entry points in `win-arm64` environments and checks their SHA-256 hashes before installation. It also fixes a [Windows ARM64 upgrade problem](https://github.com/conda/conda/pull/16777) that could leave those commands missing. conda-build 26.9 uses the published launchers when building Windows packages too.
 
 :::
 
-To install this conda release:
+If you already have [conda-self](https://github.com/conda/conda-self) installed, update conda with:
+
+```bash
+conda self update
+```
+
+Otherwise, install this release with:
 
 ```bash
 conda install --name base conda=26.9.0
@@ -58,9 +64,7 @@ conda install --name base conda=26.9.0
 
 September is also a deprecation release. Plugin authors should import types from `conda.plugins.types` instead of `conda.plugins`. Environment files whose format cannot be detected no longer fall back automatically to the `environment.yml` reader. Select it explicitly with `--format=environment.yml` when needed. The [full release notes](https://github.com/conda/conda/releases/tag/26.9.0) list the API removals and replacements.
 
-The intervening patch releases were [26.7.1](https://github.com/conda/conda/releases/tag/26.7.1), [26.7.2](https://github.com/conda/conda/releases/tag/26.7.2), and [26.7.3](https://github.com/conda/conda/releases/tag/26.7.3).
-
-A known issue remains in 26.9.0: the package-cache fix from 26.7.3 was omitted. If `.conda` and `.tar.bz2` archives coexist in the cache, extraction can fail with `Invalid data stream`. The [fix for the 26.9 branch](https://github.com/conda/conda/pull/16793) is merged and tracked for [26.9.1](https://github.com/conda/conda/issues/16620).
+A known issue in 26.9.0 can cause extraction to fail with `Invalid data stream` when `.conda` and `.tar.bz2` archives coexist in the cache. The [fix for the 26.9 branch](https://github.com/conda/conda/pull/16793) is merged and tracked for [26.9.1](https://github.com/conda/conda/issues/16620).
 
 ## Changes in conda-build [26.9.0](https://github.com/conda/conda-build/releases/tag/26.9.0)
 
@@ -76,8 +80,6 @@ conda install --name base conda-build=26.9.0
 - `REQUESTS_CA_BUNDLE` can be set through build variants. An unset environment variable is no longer passed to build scripts as an empty value that can break TLS clients.
 
 The recipe keys `build/missing_dso_whitelist` and `build/runpath_whitelist` are now deprecated and will be removed in 27.3. Use `build/missing_dso_allowlist` and `build/runpath_allowlist` instead.
-
-August's [26.7.1](https://github.com/conda/conda-build/releases/tag/26.7.1) also fixed multi-output script architecture selection under emulation and Windows ARM64 entry points.
 
 Full changelog: [26.9.0](https://github.com/conda/conda-build/releases/tag/26.9.0)
 
@@ -97,7 +99,7 @@ The [3.17.1](https://github.com/conda/constructor/releases/tag/3.17.1), [3.17.2]
 
 The Rattler solver remains an opt-in beta, now bundled with conda 26.9. It respects flexible channel priority, reads v3 records from sharded channels, and handles dependency extras. Updates avoid downgrading packages and retain installed packages that are no longer available from configured channels. `conda update --all` keeps Python within its existing major and minor version.
 
-This release uses py-rattler 0.26 and requires conda 26.7 or newer. Its conda packages require Python 3.11 or newer. See [New features to try](https://docs.conda.io/projects/conda/en/26.9.x/new-features.html) for how to enable it.
+This release uses py-rattler 0.26. Its conda packages require Python 3.11 or newer. See [New features to try](https://docs.conda.io/projects/conda/en/26.9.x/new-features.html) for how to enable it.
 
 ## Changes in py-rattler [0.26.0](https://github.com/conda/rattler/releases/tag/py-rattler-v0.26.0) / [0.27.0](https://github.com/conda/rattler/releases/tag/py-rattler-v0.27.0)
 
@@ -119,7 +121,6 @@ grayskull now generates v1 recipes by default for PyPI and CRAN packages. Use `-
 - [conda-index 0.13.0](https://github.com/conda/conda-index/releases/tag/0.13.0) removes the experimental label from sharded-index and database options and fixes PostgreSQL run-export handling.
 - [conda-package-handling 2.6.0](https://github.com/conda/conda-package-handling/releases/tag/2.6.0) opens each `.conda` ZIP archive only once during extraction and makes custom exceptions serializable between processes.
 - [conda-lockfiles 0.2.2](https://github.com/conda/conda-lockfiles/releases/tag/0.2.2) preserves explicit build numbers when exporting and reading rattler-lock v6 files.
-- [conda-standalone 26.7.0](https://github.com/conda/conda-standalone/releases/tag/26.7.0) updates its bundled conda and conda-libmamba-solver to 26.7.0 and fixes macOS shortcuts affected by a missing Swift library search path.
 - [conda-recipe-manager 0.10.6](https://github.com/conda/conda-recipe-manager/releases/tag/v0.10.6) preserves Jinja templates when fixing ambiguous variables and improves duplicate-key errors.
 - [conda-pycosat-solver 0.1.0](https://github.com/conda/conda-pycosat-solver/releases/tag/0.1.0) is the first separate plugin release of the classic solver. conda 26.9 still ships its own classic solver.
 - [conda/actions 26.8.0](https://github.com/conda/actions/releases/tag/v26.8.0) through [26.9.5](https://github.com/conda/actions/releases/tag/v26.9.5) add release-preparation actions, a GitHub Releases backend for canary packages, and native Windows ARM64 canary builds.
