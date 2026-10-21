@@ -35,23 +35,13 @@ pixi self-update
 pixi --version
 ```
 
-Confirm that the version is 0.82.1 or newer. To install this exact release, use [`pixi self-update --version 0.82.1`](https://pixi.prefix.dev/latest/reference/cli/pixi/self-update/).
+To install this exact release, use [`pixi self-update --version 0.82.1`](https://pixi.prefix.dev/latest/reference/cli/pixi/self-update/).
 
-If you installed Pixi through a package manager, update it through that package manager, such as `brew upgrade pixi` for Homebrew. For conda-installed copies, use the channel that provided Pixi.
+If you installed Pixi through a package manager, update it through that same package manager, such as `brew upgrade pixi` for Homebrew. For conda installations, use the environment and channel where Pixi is installed.
 
-For Anaconda main:
+Check `pixi --version` in the shell you normally use and confirm it reports 0.82.1 or newer. Update other installed copies separately.
 
-```console
-conda install --name base --override-channels --channel defaults "pixi>=0.82.1"
-```
-
-Or, for a conda-forge installation:
-
-```console
-conda install --name base --override-channels --channel conda-forge "pixi>=0.82.1"
-```
-
-Check `pixi --version` in the shell you normally use, and update other installed copies separately. Updating `certifi` and `ca-certificates` does not replace the roots compiled into an older Pixi executable.
+Standalone Pixi binaries bundle their own CA roots, so update Pixi itself. Builds from package managers may use the system or environment CA store. Update that store as needed, following the [CA instructions below](#updating-an-older-conda-installation).
 
 ## Conda 26.9.4
 
