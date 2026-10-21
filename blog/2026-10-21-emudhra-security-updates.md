@@ -6,15 +6,7 @@ tags: [announcement, conda, pixi, security]
 description: Conda 26.9.4 and Pixi 0.82.1 address the eMudhra certificate compromise. Learn how to update and check your CA packages.
 ---
 
-## Contents
-
-- [What happened?](#what-happened)
-- [Pixi 0.82.1](#pixi-0821)
-- [Conda 26.9.4](#conda-2694)
-- [Mamba](#mamba)
-- [Updating an older conda installation](#updating-an-older-conda-installation)
-- [conda-libmamba-solver and conda-pypi](#conda-libmamba-solver-and-conda-pypi)
-- [Check the package contents](#check-the-package-contents)
+Update your package manager: [Conda](#conda-2694), [Mamba](#mamba), or [Pixi](#pixi-0821).
 
 ## What happened?
 
@@ -24,26 +16,9 @@ Browsers have blocked the affected certificates, but developer tools often use t
 
 <!-- truncate -->
 
-## Pixi 0.82.1
+## Update your package manager
 
-[Pixi 0.82.1](https://github.com/prefix-dev/pixi/releases/tag/v0.82.1) is available on Anaconda main and conda-forge and includes fixes for the same incident. It updates `webpki-root-certs` to 1.0.10 and `rustls-webpki` to 0.103.16. Existing Pixi users should upgrade.
-
-If you installed Pixi with its installer, follow [Pixi's update instructions](https://pixi.prefix.dev/latest/installation/#update). Run these commands on Windows, macOS, or Linux:
-
-```console
-pixi self-update
-pixi --version
-```
-
-To install this exact release, use [`pixi self-update --version 0.82.1`](https://pixi.prefix.dev/latest/reference/cli/pixi/self-update/).
-
-If you installed Pixi through a package manager, update it through that same package manager, such as `brew upgrade pixi` for Homebrew. For conda installations, use the environment and channel where Pixi is installed.
-
-Check `pixi --version` in the shell you normally use and confirm it reports 0.82.1 or newer. Update other installed copies separately.
-
-Standalone Pixi binaries bundle their own CA roots, so update Pixi itself. Builds from package managers may use the system or environment CA store. Update that store as needed, following the [CA instructions below](#updating-an-older-conda-installation).
-
-## Conda 26.9.4
+### Conda 26.9.4
 
 Conda 26.9.4 is now available on Anaconda's main channel and conda-forge. It enforces minimum versions of the CA packages needed for this incident. See the [release ticket](https://github.com/conda/conda/issues/16880) for details.
 
@@ -62,7 +37,7 @@ The corrected CA packages are already available:
 
 See the [certifi release](https://github.com/certifi/python-certifi/releases/tag/2026.10.19) and the published CA packages for [Anaconda main](https://repo.anaconda.com/pkgs/main/linux-64/ca-certificates-2026.10.20-h06a4308_0.conda) and [conda-forge](https://conda.anaconda.org/conda-forge/noarch/ca-certificates-2026.10.19-hbd8a1cb_0.conda).
 
-## Mamba
+### Mamba
 
 Mamba users need the corrected CA bundle too. For a conda-forge installation, update `mamba`, its native `libmamba` library, and `ca-certificates` together:
 
@@ -75,6 +50,25 @@ Replace `base` if mamba is installed in another environment. If that environment
 The [conda-forge mamba and libmamba rebuilds](https://github.com/conda-forge/mamba-feedstock/pull/403) add the CA minimum to their package metadata. The package version stays the same, so check the build as well as the version in `conda list`. The explicit CA minimum in the command above also protects older mamba builds.
 
 Anaconda main provides `libmamba` and `libmambapy` for conda's solver, but does not provide the `mamba` command. Follow the [conda-libmamba-solver instructions](#conda-libmamba-solver-and-conda-pypi) for those packages.
+
+### Pixi 0.82.1
+
+[Pixi 0.82.1](https://github.com/prefix-dev/pixi/releases/tag/v0.82.1) is available on Anaconda main and conda-forge and includes fixes for the same incident. It updates `webpki-root-certs` to 1.0.10 and `rustls-webpki` to 0.103.16. Existing Pixi users should upgrade.
+
+If you installed Pixi with its installer, follow [Pixi's update instructions](https://pixi.prefix.dev/latest/installation/#update). Run these commands on Windows, macOS, or Linux:
+
+```console
+pixi self-update
+pixi --version
+```
+
+To install this exact release, use [`pixi self-update --version 0.82.1`](https://pixi.prefix.dev/latest/reference/cli/pixi/self-update/).
+
+If you installed Pixi through a package manager, update it through that same package manager, such as `brew upgrade pixi` for Homebrew. For conda installations, use the environment and channel where Pixi is installed.
+
+Check `pixi --version` in the shell you normally use and confirm it reports 0.82.1 or newer. Update other installed copies separately.
+
+Standalone Pixi binaries bundle their own CA roots, so update Pixi itself. Builds from package managers may use the system or environment CA store. Update that store as needed, following the [CA instructions below](#updating-an-older-conda-installation).
 
 ## Updating an older conda installation
 
