@@ -3,14 +3,8 @@ title: Update conda and Pixi after the eMudhra certificate compromise
 slug: 2026-10-21-emudhra-security-updates
 authors: [jezdez]
 tags: [announcement, conda, pixi, security]
-description: Update your CA packages, check their certificate contents, and prepare for conda 26.9.4 and Pixi 0.82.1.
-draft: true
+description: Conda 26.9.4 and Pixi 0.82.1 address the eMudhra certificate compromise. Learn how to update and check your CA packages.
 ---
-
-<!-- Before publication: verify the conda 26.9.4 release and conda/Pixi package
-availability on Anaconda main and conda-forge for the supported platforms.
-Then update the availability wording below, move this post into blog/, and
-remove draft: true. -->
 
 ## Contents
 
@@ -30,7 +24,7 @@ Browsers have blocked the affected certificates, but developer tools often use t
 
 ## Pixi 0.82.1
 
-[Pixi 0.82.1](https://github.com/prefix-dev/pixi/releases/tag/v0.82.1) is released upstream and includes fixes for the same incident. It updates `webpki-root-certs` to 1.0.10 and `rustls-webpki` to 0.103.16. Existing Pixi users should upgrade.
+[Pixi 0.82.1](https://github.com/prefix-dev/pixi/releases/tag/v0.82.1) is available on Anaconda main and conda-forge and includes fixes for the same incident. It updates `webpki-root-certs` to 1.0.10 and `rustls-webpki` to 0.103.16. Existing Pixi users should upgrade.
 
 If you installed Pixi with its installer, follow [Pixi's update instructions](https://pixi.prefix.dev/latest/installation/#update). Run these commands on Windows, macOS, or Linux:
 
@@ -41,9 +35,9 @@ pixi --version
 
 Confirm that the version is 0.82.1 or newer. To install this exact release, use [`pixi self-update --version 0.82.1`](https://pixi.prefix.dev/latest/reference/cli/pixi/self-update/).
 
-If you installed Pixi through a package manager, update it through that package manager, such as `brew upgrade pixi` for Homebrew. For conda-installed copies, use the channel that provided Pixi. Anaconda main and conda-forge package availability still needs verification before this announcement is published.
+If you installed Pixi through a package manager, update it through that package manager, such as `brew upgrade pixi` for Homebrew. For conda-installed copies, use the channel that provided Pixi.
 
-Once 0.82.1 is available for your platform on Anaconda main:
+For Anaconda main:
 
 ```console
 conda install --name base --override-channels --channel defaults "pixi>=0.82.1"
@@ -59,9 +53,9 @@ Check `pixi --version` in the shell you normally use, and update other installed
 
 ## Conda 26.9.4
 
-We are preparing conda 26.9.4 for Anaconda's main channel and conda-forge. It will enforce minimum versions of the CA packages needed for this incident. Follow the [release ticket](https://github.com/conda/conda/issues/16880) for publication status.
+Conda 26.9.4 is now available on Anaconda's main channel and conda-forge. It enforces minimum versions of the CA packages needed for this incident. See the [release ticket](https://github.com/conda/conda/issues/16880) for details.
 
-Once the release is available in your configured channels, update with:
+Update with:
 
 ```bash
 conda install --name base conda=26.9.4
