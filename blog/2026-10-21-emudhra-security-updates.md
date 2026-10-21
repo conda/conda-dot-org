@@ -12,6 +12,7 @@ description: Conda 26.9.4 and Pixi 0.82.1 address the eMudhra certificate compro
 - [Pixi 0.82.1](#pixi-0821)
 - [Conda 26.9.4](#conda-2694)
 - [Updating an older conda installation](#updating-an-older-conda-installation)
+- [Libmamba, mamba, and conda-pypi](#libmamba-mamba-and-conda-pypi)
 - [Check the package contents](#check-the-package-contents)
 
 ## What happened?
@@ -86,9 +87,33 @@ For Miniforge or an installation using conda-forge:
 conda install --name base --override-channels --channel conda-forge "certifi>=2026.10.19" "ca-certificates>=2026.10.19"
 ```
 
-If you must keep a particular conda version, add `conda=<your-version>` to the command. Older Python versions or package pins may prevent the update. In that case, move to a supported Python version or a current installer. Keep certificate verification enabled.
+If you must keep a particular conda version, add `conda=<your-version>` to the command. Conda-forge's corrected `certifi` package requires Python 3.11 or newer. Older Python versions or package pins may prevent the update. In that case, move to a supported Python version or a current installer. Keep certificate verification enabled.
 
-Updating base does not update every environment. Repeat the CA update for environments that run HTTPS clients, replacing `base` with the environment name. Update custom CA files and the OS trust store separately if your `ssl_verify` setting or `REQUESTS_CA_BUNDLE`, `CURL_CA_BUNDLE`, or `SSL_CERT_FILE` selects them. Pip also has its own vendored CA bundle and needs a separate update.
+Updating base does not update every environment. Repeat the CA update for environments that run HTTPS clients, replacing `base` with the environment name. Update custom CA files and the OS trust store separately if your `ssl_verify` setting or `REQUESTS_CA_BUNDLE`, `CURL_CA_BUNDLE`, `SSL_CERT_FILE`, or `SSL_CERT_DIR` selects them. Pip also has its own vendored CA bundle and needs a separate update.
+
+## Libmamba, mamba, and conda-pypi
+
+Conda's libmamba solver uses both Python and native HTTPS clients, so both CA packages need updating. For installations using `conda-libmamba-solver`, request the solver, Python bindings, and native library together with the corrected CA packages. This lets conda keep the related packages at compatible versions and builds.
+
+For Anaconda main:
+
+```console
+conda install --name base --override-channels --channel defaults conda-libmamba-solver libmambapy libmamba "certifi>=2026.10.19" "ca-certificates>=2026.10.20"
+```
+
+For conda-forge:
+
+```console
+conda install --name base --override-channels --channel conda-forge conda-libmamba-solver libmambapy libmamba "certifi>=2026.10.19" "ca-certificates>=2026.10.19"
+```
+
+If you also use conda-forge's `mamba` command, add `mamba` to that command. Anaconda main packages `libmamba` and `libmambapy`, but does not provide the `mamba` command.
+
+Rebuilt solver packages add the CA minimums to their metadata on [Anaconda main](https://github.com/AnacondaRecipes/conda-libmamba-solver-feedstock/pull/41) and [conda-forge](https://github.com/conda-forge/conda-libmamba-solver-feedstock/pull/59). The [Anaconda main libmamba rebuild](https://github.com/AnacondaRecipes/mamba-feedstock/pull/33) and [conda-forge libmamba and mamba rebuilds](https://github.com/conda-forge/mamba-feedstock/pull/403) add the corresponding `ca-certificates` minimum. These changes update package metadata, so the library version alone does not identify a corrected build.
+
+The [conda-forge repodata hotfix](https://github.com/conda-forge/conda-forge-repodata-patches-feedstock/pull/1289) also adds constraints to covered historical builds. Hotfixes affect solves that select those builds from corrected channel metadata. They do not update packages in an existing environment, and installs that bypass solving can bypass these constraints. Use the explicit CA minimums above when updating an existing installation.
+
+If you use `conda-pypi`, include `conda-pypi` in the same update command. Its package discovery uses Unearth's default HTTPX client, which uses certifi's CA bundle. The plugin therefore needs the corrected `certifi` in the environment that runs conda. Package rebuilds on [Anaconda main](https://github.com/AnacondaRecipes/conda-pypi-feedstock/pull/20) and [conda-forge](https://github.com/conda-forge/conda-pypi-feedstock/pull/74) add the same certifi minimum.
 
 ## Check the package contents
 
@@ -97,7 +122,7 @@ The following commands use the same syntax in Command Prompt, PowerShell, and PO
 First, check the installed versions and channels, find the base installation, and locate certifi's bundle:
 
 ```console
-conda list --name base --show-channel-urls "^(conda|certifi|ca-certificates)$"
+conda list --name base --show-channel-urls "^(conda|conda-libmamba-solver|libmambapy|libmamba|mamba|conda-pypi|certifi|ca-certificates)$"
 conda info --base
 conda run --name base python -m certifi
 conda run --name base openssl version
