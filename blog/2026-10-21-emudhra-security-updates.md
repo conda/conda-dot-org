@@ -11,8 +11,9 @@ description: Conda 26.9.4 and Pixi 0.82.1 address the eMudhra certificate compro
 - [What happened?](#what-happened)
 - [Pixi 0.82.1](#pixi-0821)
 - [Conda 26.9.4](#conda-2694)
+- [Mamba](#mamba)
 - [Updating an older conda installation](#updating-an-older-conda-installation)
-- [Libmamba, mamba, and conda-pypi](#libmamba-mamba-and-conda-pypi)
+- [Libmamba solver and conda-pypi](#libmamba-solver-and-conda-pypi)
 - [Check the package contents](#check-the-package-contents)
 
 ## What happened?
@@ -71,6 +72,20 @@ The corrected CA packages are already available:
 
 See the [certifi release](https://github.com/certifi/python-certifi/releases/tag/2026.10.19) and the published CA packages for [Anaconda main](https://repo.anaconda.com/pkgs/main/linux-64/ca-certificates-2026.10.20-h06a4308_0.conda) and [conda-forge](https://conda.anaconda.org/conda-forge/noarch/ca-certificates-2026.10.19-hbd8a1cb_0.conda).
 
+## Mamba
+
+Mamba users need the corrected CA bundle too. For a conda-forge installation, update `mamba`, its native `libmamba` library, and `ca-certificates` together:
+
+```console
+mamba install --name base --override-channels --channel conda-forge mamba libmamba "ca-certificates>=2026.10.19"
+```
+
+Replace `base` if mamba is installed in another environment. If that environment also contains `libmambapy`, include it in the command so the Python bindings can move with the matching native library. For mamba 1.x, also include `"certifi>=2026.10.19"` because those versions use Python HTTPS clients.
+
+The [conda-forge mamba and libmamba rebuilds](https://github.com/conda-forge/mamba-feedstock/pull/403) add the CA minimum to their package metadata. The package version stays the same, so check the build as well as the version in `conda list`. The explicit CA minimum in the command above also protects older mamba builds.
+
+Anaconda main provides `libmamba` and `libmambapy` for conda's solver, but does not provide the `mamba` command. Follow the [libmamba solver instructions](#libmamba-solver-and-conda-pypi) for those packages.
+
 ## Updating an older conda installation
 
 You can update the CA packages before upgrading conda. Use the command for the distribution you already use.
@@ -91,7 +106,7 @@ If you must keep a particular conda version, add `conda=<your-version>` to the c
 
 Updating base does not update every environment. Repeat the CA update for environments that run HTTPS clients, replacing `base` with the environment name. Update custom CA files and the OS trust store separately if your `ssl_verify` setting or `REQUESTS_CA_BUNDLE`, `CURL_CA_BUNDLE`, `SSL_CERT_FILE`, or `SSL_CERT_DIR` selects them. Pip also has its own vendored CA bundle and needs a separate update.
 
-## Libmamba, mamba, and conda-pypi
+## Libmamba solver and conda-pypi
 
 Conda's libmamba solver uses both Python and native HTTPS clients, so both CA packages need updating. For installations using `conda-libmamba-solver`, request the solver, Python bindings, and native library together with the corrected CA packages. This lets conda keep the related packages at compatible versions and builds.
 
@@ -107,9 +122,7 @@ For conda-forge:
 conda install --name base --override-channels --channel conda-forge conda-libmamba-solver libmambapy libmamba "certifi>=2026.10.19" "ca-certificates>=2026.10.19"
 ```
 
-If you also use conda-forge's `mamba` command, add `mamba` to that command. Anaconda main packages `libmamba` and `libmambapy`, but does not provide the `mamba` command.
-
-Rebuilt solver packages add the CA minimums to their metadata on [Anaconda main](https://github.com/AnacondaRecipes/conda-libmamba-solver-feedstock/pull/41) and [conda-forge](https://github.com/conda-forge/conda-libmamba-solver-feedstock/pull/59). The [Anaconda main libmamba rebuild](https://github.com/AnacondaRecipes/mamba-feedstock/pull/33) and [conda-forge libmamba and mamba rebuilds](https://github.com/conda-forge/mamba-feedstock/pull/403) add the corresponding `ca-certificates` minimum. These changes update package metadata, so the library version alone does not identify a corrected build.
+Rebuilt solver packages add the CA minimums to their metadata on [Anaconda main](https://github.com/AnacondaRecipes/conda-libmamba-solver-feedstock/pull/41) and [conda-forge](https://github.com/conda-forge/conda-libmamba-solver-feedstock/pull/59). The [Anaconda main libmamba rebuild](https://github.com/AnacondaRecipes/mamba-feedstock/pull/33) adds the corresponding `ca-certificates` minimum. These changes update package metadata, so the library version alone does not identify a corrected build.
 
 The [conda-forge repodata hotfix](https://github.com/conda-forge/conda-forge-repodata-patches-feedstock/pull/1289) also adds constraints to covered historical builds. Hotfixes affect solves that select those builds from corrected channel metadata. They do not update packages in an existing environment, and installs that bypass solving can bypass these constraints. Use the explicit CA minimums above when updating an existing installation.
 
