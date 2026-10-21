@@ -13,7 +13,7 @@ description: Conda 26.9.4 and Pixi 0.82.1 address the eMudhra certificate compro
 - [Conda 26.9.4](#conda-2694)
 - [Mamba](#mamba)
 - [Updating an older conda installation](#updating-an-older-conda-installation)
-- [Libmamba solver and conda-pypi](#libmamba-solver-and-conda-pypi)
+- [conda-libmamba-solver and conda-pypi](#conda-libmamba-solver-and-conda-pypi)
 - [Check the package contents](#check-the-package-contents)
 
 ## What happened?
@@ -84,7 +84,7 @@ Replace `base` if mamba is installed in another environment. If that environment
 
 The [conda-forge mamba and libmamba rebuilds](https://github.com/conda-forge/mamba-feedstock/pull/403) add the CA minimum to their package metadata. The package version stays the same, so check the build as well as the version in `conda list`. The explicit CA minimum in the command above also protects older mamba builds.
 
-Anaconda main provides `libmamba` and `libmambapy` for conda's solver, but does not provide the `mamba` command. Follow the [libmamba solver instructions](#libmamba-solver-and-conda-pypi) for those packages.
+Anaconda main provides `libmamba` and `libmambapy` for conda's solver, but does not provide the `mamba` command. Follow the [conda-libmamba-solver instructions](#conda-libmamba-solver-and-conda-pypi) for those packages.
 
 ## Updating an older conda installation
 
@@ -106,9 +106,9 @@ If you must keep a particular conda version, add `conda=<your-version>` to the c
 
 Updating base does not update every environment. Repeat the CA update for environments that run HTTPS clients, replacing `base` with the environment name. Update custom CA files and the OS trust store separately if your `ssl_verify` setting or `REQUESTS_CA_BUNDLE`, `CURL_CA_BUNDLE`, `SSL_CERT_FILE`, or `SSL_CERT_DIR` selects them. Pip also has its own vendored CA bundle and needs a separate update.
 
-## Libmamba solver and conda-pypi
+## conda-libmamba-solver and conda-pypi
 
-Conda's libmamba solver uses both Python and native HTTPS clients, so both CA packages need updating. For installations using `conda-libmamba-solver`, request the solver, Python bindings, and native library together with the corrected CA packages. This lets conda keep the related packages at compatible versions and builds.
+`conda-libmamba-solver` uses both Python and native HTTPS clients, so both CA packages need updating. For installations using `conda-libmamba-solver`, request the solver, Python bindings, and native library together with the corrected CA packages. This lets conda keep the related packages at compatible versions and builds.
 
 For Anaconda main:
 
