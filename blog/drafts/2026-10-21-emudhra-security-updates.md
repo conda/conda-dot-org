@@ -12,6 +12,14 @@ availability on Anaconda main and conda-forge for the supported platforms.
 Then update the availability wording below, move this post into blog/, and
 remove draft: true. -->
 
+## Contents
+
+- [What happened?](#what-happened)
+- [Pixi 0.82.1](#pixi-0821)
+- [Conda 26.9.4](#conda-2694)
+- [Updating an older conda installation](#updating-an-older-conda-installation)
+- [Check the package contents](#check-the-package-contents)
+
 ## What happened?
 
 HTTPS certificates help your package manager check that it is talking to the right server. Researchers found that eight intermediate certificates issued by eMudhra had recoverable private keys. Someone with those keys could impersonate websites and services.
@@ -19,6 +27,35 @@ HTTPS certificates help your package manager check that it is talking to the rig
 Browsers have blocked the affected certificates, but developer tools often use their own lists of trusted certificate authorities, or CAs. Those lists need updating too. Whether attackers used this weakness against non-browser clients is unknown. The [incident report](https://emudhra.we-have-a-problem.com/) explains the compromise and the response.
 
 <!-- truncate -->
+
+## Pixi 0.82.1
+
+[Pixi 0.82.1](https://github.com/prefix-dev/pixi/releases/tag/v0.82.1) is released upstream and includes fixes for the same incident. It updates `webpki-root-certs` to 1.0.10 and `rustls-webpki` to 0.103.16. Existing Pixi users should upgrade.
+
+If you installed Pixi with its installer, follow [Pixi's update instructions](https://pixi.prefix.dev/latest/installation/#update). Run these commands on Windows, macOS, or Linux:
+
+```console
+pixi self-update
+pixi --version
+```
+
+Confirm that the version is 0.82.1 or newer. To install this exact release, use [`pixi self-update --version 0.82.1`](https://pixi.prefix.dev/latest/reference/cli/pixi/self-update/).
+
+If you installed Pixi through a package manager, update it through that package manager, such as `brew upgrade pixi` for Homebrew. For conda-installed copies, use the channel that provided Pixi. Anaconda main and conda-forge package availability still needs verification before this announcement is published.
+
+Once 0.82.1 is available for your platform on Anaconda main:
+
+```console
+conda install --name base --override-channels --channel defaults "pixi>=0.82.1"
+```
+
+Or, for a conda-forge installation:
+
+```console
+conda install --name base --override-channels --channel conda-forge "pixi>=0.82.1"
+```
+
+Check `pixi --version` in the shell you normally use, and update other installed copies separately. Updating `certifi` and `ca-certificates` does not replace the roots compiled into an older Pixi executable.
 
 ## Conda 26.9.4
 
@@ -103,17 +140,3 @@ conda run --name base cph x "<package.conda>" --dest "<inspection-directory>"
 ```
 
 Repeat the offline chain checks with the extracted PEM files. Check both packages from each channel you distribute or use.
-
-## Pixi 0.82.1
-
-[Pixi 0.82.1](https://github.com/prefix-dev/pixi/releases/tag/v0.82.1) is released upstream and includes fixes for the same incident. It updates `webpki-root-certs` to 1.0.10 and `rustls-webpki` to 0.103.16. Existing Pixi users should upgrade.
-
-Anaconda main and conda-forge package availability still needs verification before this announcement is published. Once 0.82.1 is available for your platform, update a conda-installed Pixi from the channel you already use:
-
-```bash
-conda install --name base --override-channels --channel defaults "pixi>=0.82.1"
-# Or, for a conda-forge installation:
-conda install --name base --override-channels --channel conda-forge "pixi>=0.82.1"
-```
-
-Check `pixi --version` in the shell you normally use, and update other installed copies separately. Updating `certifi` and `ca-certificates` does not replace the roots compiled into an older Pixi executable.
