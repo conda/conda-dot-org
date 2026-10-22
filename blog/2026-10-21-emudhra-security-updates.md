@@ -14,7 +14,7 @@ description: Update conda, Mamba, Pixi, and CA packages after the eMudhra certif
 - [Pixi](/blog/2026-10-21-emudhra-security-updates#pixi-0821): run `pixi self-update` if you used its installer. Otherwise, update through the package manager you used.
 - [Update CA packages separately](/blog/2026-10-21-emudhra-security-updates#updating-an-older-conda-installation) if you need to keep your current conda version.
 
-Updating `base` does not update other environments or custom CA stores.
+Update conda where it is installed, usually `base`. Update CA packages separately in other environments whose applications use those bundles for HTTPS.
 
 <!-- truncate -->
 
@@ -108,7 +108,9 @@ The updated `certifi` packages require Python 3.10 or newer on Anaconda main and
 
 Anaconda main has no corrected CA packages for the retired `osx-64`, `linux-ppc64le`, and `linux-s390x` platforms. Use a distribution with corrected CA packages for your platform, or move to a supported platform.
 
-Repeat the CA update in every environment that runs HTTPS clients, replacing `base` with its name. Update custom CA files and the OS trust store separately if selected by `ssl_verify`, `REQUESTS_CA_BUNDLE`, `CURL_CA_BUNDLE`, `SSL_CERT_FILE`, or `SSL_CERT_DIR`. Pip vendors its own CA bundle and needs a separate update.
+Before running HTTPS clients that use another environment's `certifi` or `ca-certificates` bundle, repeat the CA update there, replacing `base` with its name. Updating `base` does not update those bundles.
+
+Update custom CA files and the OS trust store separately if selected by `ssl_verify`, `REQUESTS_CA_BUNDLE`, `CURL_CA_BUNDLE`, `SSL_CERT_FILE`, or `SSL_CERT_DIR`. Pip vendors its own CA bundle and needs a separate update.
 
 ## conda-libmamba-solver and conda-pypi
 
