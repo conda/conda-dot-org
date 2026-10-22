@@ -8,9 +8,9 @@ description: Update conda, Mamba, Pixi, and CA packages after the eMudhra certif
 
 ## Update now
 
-- [Conda](/blog/2026-10-21-emudhra-security-updates#conda-2694): run `conda install --name base conda=26.9.4`.
+- [Conda](/blog/2026-10-21-emudhra-security-updates#conda-2694): run `conda self update --all` if `conda-self` is installed. Otherwise, run `conda install --name base conda=26.9.4`.
 - [Mamba](/blog/2026-10-21-emudhra-security-updates#mamba): update Mamba, libmamba, and the CA packages together.
-- [Pixi](/blog/2026-10-21-emudhra-security-updates#pixi-0821): run `pixi self-update` if you used its installer. Otherwise update through the package manager you used.
+- [Pixi](/blog/2026-10-21-emudhra-security-updates#pixi-0821): run `pixi self-update` if you used its installer. Otherwise, update through the package manager you used.
 - [Update CA packages separately](/blog/2026-10-21-emudhra-security-updates#updating-an-older-conda-installation) if you need to keep your current conda version.
 
 Updating `base` does not update other environments or custom CA stores.
@@ -28,6 +28,14 @@ Browsers have blocked the affected certificates. Many developer tools use their 
 ### Conda 26.9.4
 
 Conda 26.9.4 is available on Anaconda's main channel and conda-forge. It requires the minimum CA package versions listed below. See the [release ticket](https://github.com/conda/conda/issues/16880) for details.
+
+Conda packages from Anaconda main and conda-forge include `conda-self` starting with 26.5. Use it to update conda, its plugins, and their dependencies, including the CA packages:
+
+```bash
+conda self update --all
+```
+
+If `conda-self` is unavailable, update conda directly:
 
 ```bash
 conda install --name base conda=26.9.4
@@ -50,7 +58,7 @@ mamba install --name base --override-channels --channel conda-forge mamba libmam
 
 Replace `base` with the environment where mamba is installed. Include `libmambapy` if present to keep the Python bindings and native library compatible. For mamba 1.x, also include `"certifi>=2026.10.19"` because it uses Python HTTPS clients.
 
-The [conda-forge mamba and libmamba rebuilds](https://github.com/conda-forge/mamba-feedstock/pull/403) add the CA minimum without changing the package version. Check both the version and build in `conda list`. The explicit CA minimum above also protects older mamba builds.
+The [conda-forge mamba and libmamba rebuilds](https://github.com/conda-forge/mamba-feedstock/pull/403) add the CA minimum without changing the package version. Check both the version and build with `conda list`. The explicit CA minimum above also protects older mamba builds.
 
 Anaconda main provides `libmamba` and `libmambapy` for conda's solver, but does not provide the `mamba` command. Follow the [conda-libmamba-solver instructions](#conda-libmamba-solver-and-conda-pypi) for those packages.
 
@@ -67,7 +75,13 @@ pixi --version
 
 To install this exact release, use [`pixi self-update --version 0.82.1`](https://pixi.prefix.dev/latest/reference/cli/pixi/self-update/).
 
-If you used a package manager, update Pixi through it. For example, use `brew upgrade pixi` for Homebrew. For conda, use the environment and channel where Pixi is installed.
+If you used a package manager, update Pixi through it. For example, use `brew upgrade pixi` for Homebrew. For Pixi installed from conda-forge in an environment named `my-pixi-env`:
+
+```console
+conda update --name my-pixi-env --channel conda-forge pixi
+```
+
+Replace `my-pixi-env` and `conda-forge` with the environment and channel you used to install Pixi, such as `defaults` for Anaconda main.
 
 Run `pixi --version` in your usual shell and confirm it reports 0.82.1 or newer. Update other installed copies separately.
 
