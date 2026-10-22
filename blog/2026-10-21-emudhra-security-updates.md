@@ -6,7 +6,14 @@ tags: [announcement, conda, pixi, security]
 description: Conda 26.9.4 and Pixi 0.82.1 address the eMudhra certificate compromise. Learn how to update and check your CA packages.
 ---
 
-Update your package manager: [Conda](#conda-2694), [Mamba](#mamba), or [Pixi](#pixi-0821).
+## Update now
+
+- [Conda](#conda-2694): run `conda install --name base conda=26.9.4`.
+- [Mamba](#mamba): update Mamba, libmamba, and the CA packages together.
+- [Pixi](#pixi-0821): run `pixi self-update` if you used its installer. Otherwise update through the package manager you used.
+- [Keeping an older conda](#updating-an-older-conda-installation): update the CA packages.
+
+Updating `base` does not update other environments or custom CA stores. See the instructions below.
 
 ## What happened?
 
