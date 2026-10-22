@@ -86,7 +86,9 @@ For Miniforge or an installation using conda-forge:
 conda install --name base --override-channels --channel conda-forge "certifi>=2026.10.19" "ca-certificates>=2026.10.19"
 ```
 
-If you must keep a particular conda version, add `conda=<your-version>` to the command. Conda-forge's corrected `certifi` package requires Python 3.11 or newer. Older Python versions or package pins may prevent the update. In that case, move to a supported Python version or a current installer. Keep certificate verification enabled.
+If you must keep a particular conda version, add `conda=<your-version>` to the command. The corrected `certifi` packages require Python 3.10 or newer on Anaconda main and 3.11 or newer on conda-forge. Older Python versions or package pins may prevent the update. Move to a supported Python version or a current installer if needed. Keep certificate verification enabled.
+
+Anaconda main has no corrected CA packages for the retired `osx-64`, `linux-ppc64le`, and `linux-s390x` platforms. Use a distribution that provides corrected CA packages for your platform, or move to a supported platform.
 
 Updating base does not update every environment. Repeat the CA update for environments that run HTTPS clients, replacing `base` with the environment name. Update custom CA files and the OS trust store separately if your `ssl_verify` setting or `REQUESTS_CA_BUNDLE`, `CURL_CA_BUNDLE`, `SSL_CERT_FILE`, or `SSL_CERT_DIR` selects them. Pip also has its own vendored CA bundle and needs a separate update.
 
@@ -108,9 +110,9 @@ conda install --name base --override-channels --channel conda-forge conda-libmam
 
 Rebuilt solver packages add the CA minimums to their metadata on [Anaconda main](https://github.com/AnacondaRecipes/conda-libmamba-solver-feedstock/pull/41) and [conda-forge](https://github.com/conda-forge/conda-libmamba-solver-feedstock/pull/59). The [Anaconda main libmamba rebuild](https://github.com/AnacondaRecipes/mamba-feedstock/pull/33) adds the corresponding `ca-certificates` minimum. These changes update package metadata, so the library version alone does not identify a corrected build.
 
-The [conda-forge repodata hotfix](https://github.com/conda-forge/conda-forge-repodata-patches-feedstock/pull/1289) also adds constraints to covered historical builds. Hotfixes affect solves that select those builds from corrected channel metadata. They do not update packages in an existing environment, and installs that bypass solving can bypass these constraints. Use the explicit CA minimums above when updating an existing installation.
+Repodata hotfixes are live on [Anaconda main](https://github.com/AnacondaRecipes/repodata-hotfixes/pull/353) and [conda-forge](https://github.com/conda-forge/conda-forge-repodata-patches-feedstock/pull/1289), adding CA constraints to covered historical builds. Hotfixes affect solves that select those builds from corrected channel metadata. They do not update packages in an existing environment, and installs that bypass solving can bypass these constraints. Use the explicit CA minimums above when updating an existing installation.
 
-If you use `conda-pypi`, include `conda-pypi` in the same update command. Its package discovery uses Unearth's default HTTPX client, which uses certifi's CA bundle. The plugin therefore needs the corrected `certifi` in the environment that runs conda. Package rebuilds on [Anaconda main](https://github.com/AnacondaRecipes/conda-pypi-feedstock/pull/20) and [conda-forge](https://github.com/conda-forge/conda-pypi-feedstock/pull/74) add the same certifi minimum.
+If you use `conda-pypi`, include `conda-pypi` in the same update command. Its package discovery uses Unearth's default HTTPX client, which uses certifi's CA bundle. The plugin therefore needs the corrected `certifi` in the environment that runs conda. Version 0.13.0 build 1 on [Anaconda main](https://github.com/AnacondaRecipes/conda-pypi-feedstock/pull/20) and [conda-forge](https://github.com/conda-forge/conda-pypi-feedstock/pull/74) adds the same certifi minimum. [conda-pypi 0.13.1 on PyPI](https://pypi.org/project/conda-pypi/0.13.1/) also requires the corrected certifi.
 
 ## Check the package contents
 
