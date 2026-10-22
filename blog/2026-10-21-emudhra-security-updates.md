@@ -2,6 +2,7 @@
 title: Security updates for conda, Mamba, and Pixi
 slug: 2026-10-21-emudhra-security-updates
 authors: [jezdez]
+image: img/blog/2026-10-21-emudhra-security-updates/banner.png
 tags: [announcement, conda, mamba, pixi, security]
 description: Update conda, Mamba, Pixi, and CA packages after the eMudhra certificate compromise.
 ---
