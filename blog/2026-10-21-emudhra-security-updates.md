@@ -9,7 +9,7 @@ description: Update conda, Mamba, Pixi, and CA packages after the eMudhra certif
 
 ## Update now
 
-- [Conda](/blog/2026-10-21-emudhra-security-updates#conda-2694): run `conda self update --all` if `conda-self` is installed. Otherwise, run `conda install --name base conda=26.9.4`.
+- [Conda](/blog/2026-10-21-emudhra-security-updates#conda-2694): run `conda install --name base conda=26.9.4`.
 - [Mamba](/blog/2026-10-21-emudhra-security-updates#mamba): update Mamba, libmamba, and the CA packages together.
 - [Pixi](/blog/2026-10-21-emudhra-security-updates#pixi-0821): run `pixi self-update` if you used its installer. Otherwise, update through the package manager you used.
 - [Update CA packages separately](/blog/2026-10-21-emudhra-security-updates#updating-an-older-conda-installation) if you need to keep your current conda version.
@@ -29,14 +29,6 @@ Browsers have blocked the affected certificates. Many developer tools use their 
 ### Conda 26.9.4
 
 Conda 26.9.4 is available on Anaconda's main channel and conda-forge. It requires the minimum CA package versions listed below. See the [release ticket](https://github.com/conda/conda/issues/16880) for details.
-
-Conda packages from Anaconda main and conda-forge include `conda-self` starting with 26.5. Use it to update conda, its plugins, and their dependencies, including the CA packages:
-
-```bash
-conda self update --all
-```
-
-If `conda-self` is unavailable, update conda directly:
 
 ```bash
 conda install --name base conda=26.9.4
