@@ -1,27 +1,27 @@
 ---
-title: Update conda and Pixi after the eMudhra certificate compromise
+title: Security updates for conda, Mamba, and Pixi
 slug: 2026-10-21-emudhra-security-updates
 authors: [jezdez]
-tags: [announcement, conda, pixi, security]
-description: Conda 26.9.4 and Pixi 0.82.1 address the eMudhra certificate compromise. Learn how to update and check your CA packages.
+tags: [announcement, conda, mamba, pixi, security]
+description: Update conda, Mamba, Pixi, and CA packages after the eMudhra certificate compromise.
 ---
 
 ## Update now
 
-- [Conda](#conda-2694): run `conda install --name base conda=26.9.4`.
-- [Mamba](#mamba): update Mamba, libmamba, and the CA packages together.
-- [Pixi](#pixi-0821): run `pixi self-update` if you used its installer. Otherwise update through the package manager you used.
-- [Update CA packages separately](#updating-an-older-conda-installation) if you need to keep your current conda version.
+- [Conda](/blog/2026-10-21-emudhra-security-updates#conda-2694): run `conda install --name base conda=26.9.4`.
+- [Mamba](/blog/2026-10-21-emudhra-security-updates#mamba): update Mamba, libmamba, and the CA packages together.
+- [Pixi](/blog/2026-10-21-emudhra-security-updates#pixi-0821): run `pixi self-update` if you used its installer. Otherwise update through the package manager you used.
+- [Update CA packages separately](/blog/2026-10-21-emudhra-security-updates#updating-an-older-conda-installation) if you need to keep your current conda version.
 
-Updating `base` does not update other environments or custom CA stores. See the instructions below.
+Updating `base` does not update other environments or custom CA stores.
+
+<!-- truncate -->
 
 ## What happened?
 
 HTTPS certificates help your package manager check which server it is talking to. Researchers found that eight intermediate certificates issued by eMudhra had recoverable private keys. An attacker with those keys could impersonate websites and services.
 
 Browsers have blocked the affected certificates. Many developer tools use their own certificate authority (CA) bundles and need separate updates. It is not known whether attackers exploited this weakness against non-browser clients. See the [incident report](https://emudhra.we-have-a-problem.com/) for details.
-
-<!-- truncate -->
 
 ## Update your package manager
 

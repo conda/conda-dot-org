@@ -1,6 +1,6 @@
 [
   {
-    "title": "Update conda and Pixi after the eMudhra certificate compromise",
+    "title": "Security updates for conda, Mamba, and Pixi",
     "slug": "2026-10-21-emudhra-security-updates",
     "authors": [
       "jezdez"
@@ -8,10 +8,11 @@
     "tags": [
       "announcement",
       "conda",
+      "mamba",
       "pixi",
       "security"
     ],
-    "description": "Conda 26.9.4 and Pixi 0.82.1 address the eMudhra certificate compromise. Learn how to update and check your CA packages.",
+    "description": "Update conda, Mamba, Pixi, and CA packages after the eMudhra certificate compromise.",
     "date": "2026-10-21T00:00:00"
   },
   {
