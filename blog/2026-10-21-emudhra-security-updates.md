@@ -126,6 +126,12 @@ Repodata hotfixes are live on [Anaconda main](https://github.com/AnacondaRecipes
 
 If you use `conda-pypi`, include it in the same update command. Unearth's default HTTPX client handles package discovery using certifi's CA bundle, so the plugin needs updated `certifi` in the environment that runs conda. Version 0.13.0 build 1 on [Anaconda main](https://github.com/AnacondaRecipes/conda-pypi-feedstock/pull/20) and [conda-forge](https://github.com/conda-forge/conda-pypi-feedstock/pull/74) sets this minimum. So does [conda-pypi 0.13.1 on PyPI](https://pypi.org/project/conda-pypi/0.13.1/).
 
+## py-rattler and conda-rattler-solver
+
+[py-rattler 0.28.0](https://github.com/conda/rattler/releases/tag/py-rattler-v0.28.0) updates its TLS dependencies and is available on PyPI and conda-forge. Check the release notes for breaking API changes before updating applications that use py-rattler directly.
+
+`conda-rattler-solver` 0.2.0 is incompatible with py-rattler 0.28.0. It uses conda for downloads, so follow the [conda and CA package update instructions](#conda-2694) above. Wait for a compatible solver release before upgrading its py-rattler dependency.
+
 ## Check the package contents
 
 These OpenSSL 3 commands inspect the CA bundles from either channel. They work in Command Prompt, PowerShell, and POSIX shells.
