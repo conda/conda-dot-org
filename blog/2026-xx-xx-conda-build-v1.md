@@ -150,30 +150,30 @@ The v1 path supports only a subset of conda-build's options. A validation step c
 ## Converting recipes to the v1 format
 
 If you already maintain packages using the v0 `meta.yaml` format, moving to v1 does not require rewriting the recipe from scratch. The `conda-recipe-manager` project can convert a `meta.yaml` recipe into a v1 `recipe.yaml` with:
- 
+
 ```shell
 crm convert meta.yaml > recipe.yaml
 ```
- 
+
 Here is a small before and after showing the differences most often encountered during the conversion:
- 
+
 **v0 (`meta.yaml`)**
- 
+
 ```yaml
 {% set version = "1.2.3" %}
- 
+
 package:
   name: example
   version: {{ version }}
- 
+
 source:
   url: https://example.org/example-{{ version }}.tar.gz
   sha256: 0123456789abcdef...
- 
+
 build:
   number: 0
   skip: true  # [win]
- 
+
 requirements:
   host:
     - python
@@ -182,27 +182,27 @@ requirements:
     - python
     - numpy  # [linux]
 ```
- 
+
 **v1 (`recipe.yaml`)**
- 
+
 ```yaml
 schema_version: 1
- 
+
 context:
   version: "1.2.3"
- 
+
 package:
   name: example
   version: ${{ version }}
- 
+
 source:
   url: https://example.org/example-${{ version }}.tar.gz
   sha256: 0123456789abcdef...
- 
+
 build:
   number: 0
   skip: win
- 
+
 requirements:
   host:
     - python
@@ -212,7 +212,7 @@ requirements:
     - if: linux
       then: numpy
 ```
- 
+
 The two formats differ in more than syntax, a converted recipe should be treated as a starting point and be reviewed before relying on it. Selectors and conditional dependencies need extra attention, along with anything that used Jinja logic that v1 no longer allows.
 
 Two resources are especially helpful for this review:
@@ -235,11 +235,11 @@ For more details on using v1 recipes with `conda-build`, see the [conda-build v1
 ## Conclusion
 
 The conda packaging ecosystem is gradually moving toward the v1 recipe standard.
- 
+
 By supporting v1 recipes directly in `conda-build`, package maintainers now have a more flexible migration path: recipes can be updated to the new format independently of the build tooling they use.
- 
+
 Maintainers can continue using `conda-build`, start adopting the v1 format, and benefit from the performance improvements provided by `rattler-build`.
- 
+
 For package maintainers who have spent too much time debugging builds, that can be a meaningful improvement.
 
 ---
