@@ -43,6 +43,11 @@ jaimergp:
   title: Steering council member
   url: https://github.com/jaimergp
   image_url: https://github.com/jaimergp.png
+jsmolic:
+  name: Jakov Smolić
+  title: Conda-build Maintainer
+  url: https://github.com/jsmolic
+  image_url: https://github.com/jsmolic.png
 jezdez:
   name: Jannis Leidel
   title: Steering council member
