@@ -11,6 +11,8 @@ description: conda-build can now build v1 recipes, bringing a standardized, sche
 Its user experience has suffered from design issues in the recipe format and years of accumulated technical debt.
 Recent work on `conda-build` aims to improve that experience: it now supports v1 recipes, powered by the newly available Python bindings for the `rattler-build` crates.
 
+<!-- truncate -->
+
 ## Motivation
 
 The v1 recipe format was initially introduced as part of Prefix's `rattler-build` tool as a successor to the traditional `meta.yaml` format of `conda-build` in 2022. The corresponding CEPs were approved by the conda steering council in 2023, and it got [officially supported in conda-forge in 2025](https://conda-forge.org/blog/2025/02/27/conda-forge-v1-recipe-support/).
@@ -244,4 +246,4 @@ For package maintainers who have spent too much time debugging builds, that can 
 
 ---
 
-*Funding for the [Quansight](https://www.quansight.com/) and [Prefix.dev](https://prefix.dev/) work described in this post was provided by [Anaconda](https://anaconda.org/).*
+*Funding for the [Quansight](https://www.quansight.com/) and [Prefix.dev](https://prefix.dev/) work described in this post was provided by [Anaconda](https://www.anaconda.com/).*
