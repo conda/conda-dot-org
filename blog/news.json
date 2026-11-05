@@ -1,5 +1,20 @@
 [
   {
+    "title": "Bringing v1 recipes to conda-build",
+    "slug": "2026-11-06-conda-build-v1",
+    "authors": [
+      "jsmolic",
+      "jaimergp"
+    ],
+    "image": "img/blog/2026-11-06-conda-build-v1/banner.png",
+    "tags": [
+      "announcement",
+      "conda-build"
+    ],
+    "description": "conda-build can now build v1 recipes, bringing a standardized, schema-validated recipe format to a familiar UX.",
+    "date": "2026-11-06T00:00:00"
+  },
+  {
     "title": "Security updates for conda, Mamba, and Pixi",
     "slug": "2026-10-21-emudhra-security-updates",
     "authors": [
@@ -72,20 +87,5 @@
     "description": "conda-pypi beta enables conda CLI to install pure Python packages from PyPI natively and alongside conda packages in a single dependency solve, without a separate pip step\n",
     "image": "img/blog/2026-06-25-bridging-conda-and-pypi-ecosystems/conda-pypi-logo.png",
     "date": "2026-06-25T00:00:00"
-  },
-  {
-    "title": "Bringing v1 recipes to conda-build",
-    "slug": "2026-06-11-conda-build-v1",
-    "authors": [
-      "jsmolic",
-      "jaimergp"
-    ],
-    "image": "img/blog/2026-06-11-conda-build-v1/banner.png",
-    "tags": [
-      "announcement",
-      "conda-build"
-    ],
-    "description": "conda-build can now build v1 recipes, bringing a standardized, schema-validated recipe format to a familiar UX.",
-    "date": "2026-06-11T00:00:00"
   }
 ]
