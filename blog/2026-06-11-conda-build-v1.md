@@ -1,8 +1,8 @@
 ---
 title: Bringing v1 recipes to conda-build
-slug: 2026-xx-xx-conda-build-v1
+slug: 2026-06-11-conda-build-v1
 authors: [jsmolic, jaimergp]
-image: img/blog/2026-xx-xx-conda-build-v1/banner.png
+image: img/blog/2026-06-11-conda-build-v1/banner.png
 tags: [announcement, conda-build]
 description: conda-build can now build v1 recipes, bringing a standardized, schema-validated recipe format to a familiar UX.
 ---
@@ -23,20 +23,20 @@ Recipes written in v1 format are faster to build, easier to manipulate programma
 
 Updating v0 recipes to v1 can be done with `conda-recipe-manager`, and one can also generate v1 recipes from source repositories (PyPI, CRAN, Github...) with `grayskull` and `rattler-build generate`, so... why do we need v1 support in `conda-build`?
 
-`rattler-build` does not support the v0 format, and it is unlikely it will ever do. The ecosystem is moving forward, and there are very few cases where one needs to stick to v0. However, for large collections of recipes still on v0, it might be desirable to have a single tool capable of processing both formats with the same commands.
+`rattler-build` does not support the v0 format, and it is unlikely it will ever do. The ecosystem is moving forward, and there are very few cases where one needs to stick to v0. However, for large collections of recipes still on v0, it might be desirable to have a single tool capable of processing both formats with the same CLI so existing pipelines do not need extra work.
 
 In this blog post, we explain how `conda-build` learned to process v1 recipes without sacrificing any of the existing support for v0.
 
 
 ## Bringing rattler-build to conda-build
 
-In order to bring v1 recipe format support to `conda-build`, we leveraged the Python bindings of the `rattler-build` crates, created by the [Prefix.dev](https://prefix.dev/) team in partnership with Anaconda. These are published as `py-rattler-build` in PyPI and conda-forge.
+In order to bring v1 recipe format support to `conda-build`, we leveraged the Python bindings of the `rattler-build` crates, created by the [Prefix.dev](https://prefix.dev/) team in partnership with Anaconda. These are published as [py-rattler-build](https://github.com/prefix-dev/rattler-build/tree/main/py-rattler-build) in [PyPI](https://pypi.org/project/py-rattler-build/) and [conda-forge](https://github.com/conda-forge/py-rattler-build-feedstock).
 
 This decision is backed by the desire to preserve the existing `conda-build` UX. The integration is done entirely within the existing `conda-build` subcommands (`build`, `render`, `debug`), and respects all the sensible CLI flags that are already familiar to end users.
 
 When `conda-build` is invoked, it determines the recipe format being used and dispatches the build to the appropriate backend.
 
-![Recipe format detection routes builds to the appropriate backend](pathname:///img/blog/2026-xx-xx-conda-build-v1/conda-build-recipe-dispatch.svg)
+![Recipe format detection routes builds to the appropriate backend](pathname:///img/blog/2026-06-11-conda-build-v1/conda-build-recipe-dispatch.svg)
 
 While `py-rattler-build` provides Python APIs for parsing, rendering, building, and testing, a fully integrated UX also involves recognizing and routing the different settings options. `conda-build` monitors and translates CLI flags, environment variables, and relevant keys in configuration files to their `rattler-build` counterparts when available, erroring out otherwise.
 
@@ -59,13 +59,13 @@ Support also extends beyond package builds, as v1 recipes now work with the `con
 3. **Build each variant.** `run_build()` on a rendered variant builds it and returns a `BuildResult` with the package name, version, build time and the packages produced.
 4. **Test the package.** `Package.from_file()` loads a built `.conda` file, and `run_tests()` runs the tests shipped with it. This also works on the `.conda` archives.
 
-<img src="/img/blog/2026-xx-xx-conda-build-v1/py-rattler-build-workflow.svg" alt="The py-rattler-build workflow: load, render, build, and test a recipe" style="display: block; width: 50%; height: auto; margin-left: auto; margin-right: auto;" />
+<img src="/img/blog/2026-06-11-conda-build-v1/py-rattler-build-workflow.svg" alt="The py-rattler-build workflow: load, render, build, and test a recipe" style="display: block; width: 50%; height: auto; margin-left: auto; margin-right: auto;" />
 
 ## Configuration details
 
-`conda-build` builds its configuration from conda's context (`.condarc` files, environment variables and command-line arguments) and its own `Config` object. For v1 recipes, the compatibility layer in `conda_build/_rattler_build/compat.py` reads that same configuration and hands the relevant parts to `py-rattler-build`. The `rattler-build` side doesn't take a unique configuration object. Different settings go to different places:
+`conda-build` builds its configuration from `conda`'s `context` object (populated from `.condarc` files, `CONDA_*` environment variables, and command-line arguments) and its own `Config` object. For v1 recipes, the compatibility layer in `conda_build/_rattler_build/compat.py` reads that same configuration and hands the relevant parts to `py-rattler-build`. The `rattler-build` side doesn't take a unique configuration object. Different settings go to different places:
 
-![Configuration values routed to the appropriate rattler-build configuration](pathname:///img/blog/2026-xx-xx-conda-build-v1/conda-build-config-routing.svg)
+![Configuration values routed to the appropriate rattler-build configuration](pathname:///img/blog/2026-06-11-conda-build-v1/conda-build-config-routing.svg)
 
 The `VariantConfig` is built only from variant files. Everything else goes into the render configuration, the tool configuration, or the build call itself.
 
@@ -95,7 +95,7 @@ else:
 - **`conda_build_config.yaml` (v0 format):** `rattler-build` itself parses this file with `VariantConfig.from_conda_build_config()`. Selectors such as `# [linux]` need to know the platform, so conda-build supplies the build and host platforms from its own configuration.
 - **Any other file name (v1 format):** the file is read as plain YAML with `VariantConfig.from_file()`. This is the case for `variants.yaml`.
 
-Because the format is decided by file name, a v0-style file with a different name is read as v1 and may fail to load ([#6170](https://github.com/conda/conda-build/issues/6170)).
+Because the format is decided by file name, a v0-style file with a different name is read as v1 and may fail to load ([conda/conda-build#6170](https://github.com/conda/conda-build/issues/6170)).
 
 If a Jinja variable in the recipe is undefined during rendering, the error message points to missing or incorrect variant files as the likely cause.
 
@@ -147,11 +147,11 @@ The v1 path supports only a subset of conda-build's options. A validation step c
         MY_VARIANT: ${{ my_variant }}
   ```
 
-- **Variant key names:** variant keys are matched against requirement names, and names containing `.` or `-` have known edge cases ([#6200](https://github.com/conda/conda-build/issues/6200)).
+- **Variant key names:** variant keys are matched against requirement names, and names containing `.` or `-` have known edge cases ([conda/conda-build#6200](https://github.com/conda/conda-build/issues/6200)).
 
 ## Converting recipes to the v1 format
 
-If you already maintain packages using the v0 `meta.yaml` format, moving to v1 does not require rewriting the recipe from scratch. The `conda-recipe-manager` project can convert a `meta.yaml` recipe into a v1 `recipe.yaml` with:
+If you already maintain packages using the v0 `meta.yaml` format, moving to v1 does not require rewriting the recipe from scratch. The [conda-recipe-manager](https://github.com/conda/conda-recipe-manager) project can convert a `meta.yaml` recipe into a v1 `recipe.yaml` with:
 
 ```shell
 crm convert meta.yaml > recipe.yaml
