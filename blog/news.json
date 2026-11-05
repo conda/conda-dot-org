@@ -74,21 +74,18 @@
     "date": "2026-06-25T00:00:00"
   },
   {
-    "title": "May 2026 Releases",
-    "slug": "2026-05-20-may-releases",
+    "title": "Bringing v1 recipes to conda-build",
+    "slug": "2026-06-11-conda-build-v1",
     "authors": [
-      "ryanskeith"
+      "jsmolic",
+      "jaimergp"
     ],
+    "image": "img/blog/2026-06-11-conda-build-v1/banner.png",
     "tags": [
       "announcement",
-      "conda",
-      "conda-build",
-      "conda-libmamba-solver",
-      "conda-rattler-solver",
-      "conda-pypi"
+      "conda-build"
     ],
-    "description": "May releases of conda and conda-build are out\u2014native lockfiles, a snappier CLI, v1 recipe builds improvements and conda-pypi. \ud83c\udf89\n",
-    "image": "img/blog/2026-05-20-may-releases/banner.png",
-    "date": "2026-05-20T00:00:00"
+    "description": "conda-build can now build v1 recipes, bringing a standardized, schema-validated recipe format to a familiar UX.",
+    "date": "2026-06-11T00:00:00"
   }
 ]
