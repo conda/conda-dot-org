@@ -2,7 +2,8 @@
 title: Bringing v1 recipes to conda-build
 slug: 2026-11-06-conda-build-v1
 authors: [jsmolic, jaimergp]
-image: img/blog/2026-11-06-conda-build-v1/banner.png
+image: img/blog/2026-11-06-conda-build-v1/banner.jpg
+image_credit: Photo by <a href="https://unsplash.com/@ugmonk?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Jeff Sheldon</a> on <a href="https://unsplash.com/photos/closeup-photo-of-turned-on-ipad-with-rack-on-table-6MT4_Ut8a3Y">Unsplash</a>
 tags: [announcement, conda-build]
 description: conda-build can now build v1 recipes, bringing a standardized, schema-validated recipe format to a familiar UX.
 ---
