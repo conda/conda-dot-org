@@ -89,6 +89,30 @@ flowchart TD
 
 </div>
 
+The snippet below shows these steps:
+
+```python
+
+from rattler_build import Package, Stage0Recipe, VariantConfig
+
+# 1. Load the recipe file
+recipe = Stage0Recipe.from_file("recipe.yaml")
+
+# 2. Render it into variants
+variants = recipe.render(VariantConfig({"python": ["3.13", "3.14"]}))
+
+for variant in variants:
+    # 3. Build each variant
+    result = variant.run_build(channels=["conda-forge"])
+
+    # 4. Test the package
+    pkg = Package.from_file(result.packages[0])
+    pkg.run_tests(channel=["conda-forge"])
+
+# Testing also works on any existing .conda archive
+Package.from_file("numpy-2.5.4-py315h11958a5_0.conda").run_tests(channel=["conda-forge"])
+```
+
 ## Configuration details
 
 `conda-build` builds its configuration from `conda`'s `context` object (populated from `.condarc` files, `CONDA_*` environment variables, and command-line arguments) and its own `Config` object. For v1 recipes, the compatibility layer in `conda_build/_rattler_build/compat.py` reads that same configuration and hands the relevant parts to `py-rattler-build`. The `rattler-build` side doesn't take a unique configuration object. Different settings go to different places:
