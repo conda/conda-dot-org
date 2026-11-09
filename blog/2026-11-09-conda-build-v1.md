@@ -92,7 +92,6 @@ flowchart TD
 The snippet below shows these steps:
 
 ```python
-
 from rattler_build import Package, Stage0Recipe, VariantConfig
 
 # 1. Load the recipe file
@@ -187,14 +186,14 @@ Channel priority is simplified to what `rattler-build` supports: it is `strict` 
 
 The remaining command-line options are translated as follows:
 
-| conda-build | Passed to `py-rattler-build` as |
-| --- | --- |
-| `--output-folder` (default: the build root) | `output_dir` |
-| `--set-build-id` | `no_build_id` (inverted) |
-| `--include-recipe` | `no_include_recipe` (inverted) |
-| `--conda-pkg-format` | `package_format` (`conda` for the v2 format, otherwise `.tar.bz2`) |
-| `--extra-meta` | `extra_context` of the render configuration |
-| `--quiet` | whether `py-rattler-build` log messages are shown |
+| conda-build                                 | Passed to `py-rattler-build` as                                    |
+| ------------------------------------------- | ------------------------------------------------------------------ |
+| `--output-folder` (default: the build root) | `output_dir`                                                       |
+| `--set-build-id`                            | `no_build_id` (inverted)                                           |
+| `--include-recipe`                          | `no_include_recipe` (inverted)                                     |
+| `--conda-pkg-format`                        | `package_format` (`conda` for the v2 format, otherwise `.tar.bz2`) |
+| `--extra-meta`                              | `extra_context` of the render configuration                        |
+| `--quiet`                                   | whether `py-rattler-build` log messages are shown                  |
 
 
 Some behavior stays in conda-build. Running tests is handled by conda-build rather than by `rattler-build`, so `--no-test` and `--build-only` simply skip that step. Uploads to anaconda.org use conda-build's existing upload logic and are skipped for `--build-only` and `--post`.
