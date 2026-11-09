@@ -1,5 +1,21 @@
 [
   {
+    "title": "Bringing v1 recipes to conda-build",
+    "slug": "2026-11-09-conda-build-v1",
+    "authors": [
+      "jsmolic",
+      "jaimergp"
+    ],
+    "image": "img/blog/2026-11-09-conda-build-v1/banner.jpg",
+    "image_credit": "Photo by <a href=\"https://unsplash.com/@ugmonk?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Jeff Sheldon</a> on <a href=\"https://unsplash.com/photos/closeup-photo-of-turned-on-ipad-with-rack-on-table-6MT4_Ut8a3Y\">Unsplash</a>",
+    "tags": [
+      "announcement",
+      "conda-build"
+    ],
+    "description": "conda-build can now build v1 recipes, bringing a standardized, schema-validated recipe format to a familiar UX.",
+    "date": "2026-11-09T00:00:00"
+  },
+  {
     "title": "Security updates for conda, Mamba, and Pixi",
     "slug": "2026-10-21-emudhra-security-updates",
     "authors": [
@@ -72,23 +88,5 @@
     "description": "conda-pypi beta enables conda CLI to install pure Python packages from PyPI natively and alongside conda packages in a single dependency solve, without a separate pip step\n",
     "image": "img/blog/2026-06-25-bridging-conda-and-pypi-ecosystems/conda-pypi-logo.png",
     "date": "2026-06-25T00:00:00"
-  },
-  {
-    "title": "May 2026 Releases",
-    "slug": "2026-05-20-may-releases",
-    "authors": [
-      "ryanskeith"
-    ],
-    "tags": [
-      "announcement",
-      "conda",
-      "conda-build",
-      "conda-libmamba-solver",
-      "conda-rattler-solver",
-      "conda-pypi"
-    ],
-    "description": "May releases of conda and conda-build are out\u2014native lockfiles, a snappier CLI, v1 recipe builds improvements and conda-pypi. \ud83c\udf89\n",
-    "image": "img/blog/2026-05-20-may-releases/banner.png",
-    "date": "2026-05-20T00:00:00"
   }
 ]
