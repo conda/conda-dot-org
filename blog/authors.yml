@@ -48,6 +48,11 @@ jezdez:
   title: Steering council member
   url: https://github.com/jezdez
   image_url: https://github.com/jezdez.png
+jsmolic:
+  name: Jakov Smolić
+  title: Conda-build Maintainer
+  url: https://github.com/jsmolic
+  image_url: https://github.com/jsmolic.png
 kenodegard:
   name: Ken Odegard
   title: Conda Maintainer
