@@ -1,5 +1,23 @@
 [
   {
+    "title": "October 2026 Releases",
+    "slug": "2026-11-10-october-releases",
+    "authors": [
+      "kenodegard"
+    ],
+    "tags": [
+      "announcement",
+      "conda",
+      "conda-rattler-solver",
+      "conda-pycosat-solver",
+      "conda-libmamba-solver",
+      "rattler"
+    ],
+    "description": "conda 26.10.0 makes Rattler the default solver, ships the classic solver as conda-pycosat-solver, and updates libmamba and py-rattler.\n",
+    "image": "img/blog/2026-11-10-october-releases/banner.png",
+    "date": "2026-11-10T00:00:00"
+  },
+  {
     "title": "Bringing v1 recipes to conda-build",
     "slug": "2026-11-09-conda-build-v1",
     "authors": [
@@ -72,21 +90,5 @@
     "description": "June and July releases across the conda org: conda and conda-build 26.7.0, constructor 3.16, libmamba and conda-pypi updates, faster solves in rattler, and more. \ud83c\udf89\n",
     "image": "img/blog/2026-08-03-july-releases/banner.png",
     "date": "2026-08-03T00:00:00"
-  },
-  {
-    "title": "Bridging conda and PyPI ecosystems: Install PyPI packages with conda install",
-    "slug": "2026-06-25-bridging-conda-and-pypi-ecosystems",
-    "authors": [
-      "dashagurova"
-    ],
-    "tags": [
-      "conda",
-      "pip",
-      "PyPI",
-      "conda-pypi"
-    ],
-    "description": "conda-pypi beta enables conda CLI to install pure Python packages from PyPI natively and alongside conda packages in a single dependency solve, without a separate pip step\n",
-    "image": "img/blog/2026-06-25-bridging-conda-and-pypi-ecosystems/conda-pypi-logo.png",
-    "date": "2026-06-25T00:00:00"
   }
 ]
