@@ -1,7 +1,7 @@
 [
   {
     "title": "October 2026 Releases",
-    "slug": "2026-11-09-october-releases",
+    "slug": "2026-11-10-october-releases",
     "authors": [
       "kenodegard"
     ],
@@ -14,8 +14,8 @@
       "rattler"
     ],
     "description": "conda 26.10.0 makes Rattler the default solver, ships the classic solver as conda-pycosat-solver, and updates libmamba and py-rattler.\n",
-    "image": "img/blog/2026-11-09-october-releases/banner.png",
-    "date": "2026-11-09T00:00:00"
+    "image": "img/blog/2026-11-10-october-releases/banner.png",
+    "date": "2026-11-10T00:00:00"
   },
   {
     "title": "Security updates for conda, Mamba, and Pixi",

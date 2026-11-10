@@ -1,6 +1,6 @@
 ---
 title: October 2026 Releases
-slug: 2026-11-09-october-releases
+slug: 2026-11-10-october-releases
 authors: [kenodegard]
 tags:
   - announcement
@@ -11,7 +11,7 @@ tags:
   - rattler
 description: |
   conda 26.10.0 makes Rattler the default solver, ships the classic solver as conda-pycosat-solver, and updates libmamba and py-rattler.
-image: img/blog/2026-11-09-october-releases/banner.png
+image: img/blog/2026-11-10-october-releases/banner.png
 ---
 
 The October 2026 release cycle is here, headlined by **conda 26.10.0**, the special release that makes **Rattler** the default solver. The classic solver now ships as the separate **conda-pycosat-solver** plugin, **libmamba** remains available as an alternative, and the solver plugins and **py-rattler** received matching updates.
