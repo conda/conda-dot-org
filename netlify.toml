@@ -1,2 +1,7 @@
 [build]
 command = 'curl -fsSL https://pixi.sh/install.sh | PIXI_HOME=~/.pixi sh && ~/.pixi/bin/pixi run build'
+
+[[redirects]]
+from = "/learn/specifications/installation/installed-records"
+to = "/learn/specifications/installation/environments#installed-package-records"
+status = 301

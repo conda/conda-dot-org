@@ -18,9 +18,9 @@ The command used to create that environment MAY be recorded in `conda-meta/histo
 
 For each package to be installed, conda clients:
 
-1. SHOULD download or copy the artifact to the cache location using the "filenames" syntax described in [CEP 26](./cep-0026.md).
+1. SHOULD download or copy the artifact to the cache location using the "filenames" syntax described in [CEP 26](../../ceps/cep-0026.md).
 2. SHOULD, if available, verify the integrity of the artifact with its checksum (`sha256` is preferred over `md5`).
-3. MUST extract and aggregate the artifact to a central location. The extracted directory SHOULD be named as a distribution string (without subdir), as described in [CEP 26](./cep-0026.md).
+3. MUST extract and aggregate the artifact to a central location. The extracted directory SHOULD be named as a distribution string (without subdir), as described in [CEP 26](../../ceps/cep-0026.md).
 4. SHOULD write an `./info/repodata_record.json` file in the extracted directory, whose contents MUST be populated with one of:
    - The `RepodataRecord` information available in the lockfile, if relevant.
    - The `RepodataRecord` information available in the repodata source, if relevant.
@@ -33,21 +33,23 @@ Once extracted, the packages MUST be installed in the target prefix `$CONDA_PREF
    - For non-`noarch: python` packages, place the contents of the artifact into `$CONDA_PREFIX`.
      - If the file contains a prefix placeholder, replace it with the value of `$CONDA_PREFIX` and copy the file.
      - Otherwise, place the file in `$CONDA_PREFIX`, as instructed by the `paths.json` metadata. Tools MAY offer settings to override this operation (e.g. prefer copies to hardlinks).
-   - `noarch: python` packages follow some extra rules. In particular, they no longer follow a 1:1 correspondence between the path in the artifact and the linked path in `$CONDA_PREFIX`. The target path depends on variables like the Python version, OS and Python ABI modes. Details are discussed in [CEP 17](./cep-0017.md) and [CEP 20](./cep-0020.md).
+   - `noarch: python` packages follow some extra rules. In particular, they no longer follow a 1:1 correspondence between the path in the artifact and the linked path in `$CONDA_PREFIX`. The target path depends on variables like the Python version, OS and Python ABI modes. Details are discussed in [CEP 17](../../ceps/cep-0017.md) and [CEP 20](../../ceps/cep-0020.md).
 3. Handle the [`./Menu/*.json` documents](./menu.md).
 4. Execute the relevant `post-link` scripts.
-5. Record the package metadata at `$CONDA_PREFIX/conda-meta/{name}-{version}-{build}.json`, as instructed above.
+5. Record the package metadata at `$CONDA_PREFIX/conda-meta/{name}-{version}-{build}.json`, as described in [Installed package records](./environments.md#installed-package-records).
 
 While linking paths into their targets, the conda client MAY run into clobbering conflicts (two or more packages wanting to write to the same path). Tools SHOULD at least warn the user about the conflicts and provide ways to handle the situation.
+
+Pre- and post-link/unlink scripts MUST follow the [script runtime requirements](../packages/contents.md#pre--and-post-linkunlink-scripts). Execution SHOULD be performed in topological order.
 
 ### Removing a package
 
 Removing a package from the environment SHOULD follow these instructions:
 
-1. Execute the relevant `pre-unlink` scripts.
+1. MUST execute the relevant `pre-unlink` scripts.
 2. Remove all the files recorded in its `conda-meta/*.json` file (under `paths_data`).
 3. Handle the [`./Menu/*.json` documents](./menu.md).
-4. Legacy only. Execute the relevant `post-unlink` scripts.
+4. MAY execute deprecated `post-unlink` scripts.
 5. Remove its `conda-meta/*.json` record.
 6. If there were clobbering conflicts, restore the relevant path from the clobbered sources.
 
@@ -61,7 +63,7 @@ Environment management tools SHOULD implement a mechanism to _activate_ an envir
 
 Given a target environment located at `$CONDA_PREFIX`, the activation logic MUST involve the following tasks:
 
-- Temporarily modifying the `PATH` environment variable to include directories that usually contain executables, as discussed in [CEP 34](./cep-0034.md):
+- Temporarily modifying the `PATH` environment variable to include directories that usually contain executables, as discussed in [CEP 34](../../ceps/cep-0034.md):
   - On Unix systems, it MUST include `$CONDA_PREFIX/bin`.
   - On Windows systems, it MUST include (in this order):
     - `$CONDA_PREFIX`.
@@ -71,11 +73,19 @@ Given a target environment located at `$CONDA_PREFIX`, the activation logic MUST
     - `$CONDA_PREFIX/Library/bin`.
     - `$CONDA_PREFIX/Scripts`.
     - `$CONDA_PREFIX/bin`.
-- Running the scripts contained in the `$CONDA_PREFIX/etc/conda/activate.d` directories section.
+- Handling the environment variables and scripts in `$CONDA_PREFIX/etc/conda/`, as described below.
 
-For deactivation, the effects of the actions above MUST be reverted: `PATH` MUST be restored to its initial value, and the scripts in `$CONDA_PREFIX/etc/conda/deactivate.d` MUST be run.
+For deactivation, the effects of the actions above MUST be reverted.
+
+The following files and directories MUST be handled by the conda client:
+
+- `$CONDA_PREFIX/etc/conda/env_vars.d/`: Directory containing JSON documents, each providing a dictionary that maps strings to strings, which are understood as environment variables. The JSON documents SHOULD be loaded alphabetically, with later documents overriding earlier ones. These environment variables SHOULD be exported on environment activation, and unset on deactivation. When both `env_vars.d/` and [`conda-meta/state`](./environments.md#conda-metastate) are present, the latter is loaded last and can override the previously defined variables.
+- `$CONDA_PREFIX/etc/conda/activate.d/`: Directory containing shell scripts. They SHOULD be executed on environment activation, in alphabetical order.
+- `$CONDA_PREFIX/etc/conda/deactivate.d/`: Directory containing shell scripts. They SHOULD be executed on environment deactivation, in reverse alphabetical order.
+
+Alphabetical order MUST be understood as the ascending lexicographical order provided by Unicode Code Point comparisons, just like Python would sort such a list.
 
 ## History
 
-- 2026-06-18: [CEP 34](/learn/ceps/cep-0034) was updated to reflect the requirement to run link and activation scripts.
+- 2026-06-11: [CEP 34](/learn/ceps/cep-0034) made `pre-link`, `post-link`, and `pre-unlink` script execution mandatory.
 - 2026-03-04: [CEP 32](/learn/ceps/cep-0032) standardized environment lifecycle.

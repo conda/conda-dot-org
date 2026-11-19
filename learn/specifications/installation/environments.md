@@ -39,7 +39,7 @@ It SHOULD record the operations performed during the lifetime of the environment
 # (update|remove|neutered) specs: ['spec1', 'spec2', 'spec3', 'spec4']
 ```
 
-#### `./conda-meta/{name}-{version}-{build-string}.json`
+#### `./conda-meta/{name}-{version}-{build-string}.json` {#installed-package-records}
 
 Required.
 
@@ -47,25 +47,25 @@ This document serves as a manifest of all the files that each installed package 
 
 It MUST be a JSON document that ships a dictionary conforming to this schema:
 
-- `arch: str | None`. Deprecated, as defined in [CEP 34](./cep-0034.md).
-- `build: str`. Build string, as defined in [CEP 34](./cep-0034.md).
-- `build_number: int`. Build number, as defined in [CEP 34](./cep-0034.md).
-- `channel: str`: URL to source channel, without subdir, as defined in [CEP 26](./cep-0026.md).
-- `constrains: list[str]`. Runtime constraints, as defined in [CEP 34](./cep-0034.md).
-- `depends: list[str]`. Runtime requirements, as defined in [CEP 34](./cep-0034.md).
+- `arch: str | None`. Deprecated, as defined in [CEP 34](../../ceps/cep-0034.md).
+- `build: str`. Build string, as defined in [CEP 34](../../ceps/cep-0034.md).
+- `build_number: int`. Build number, as defined in [CEP 34](../../ceps/cep-0034.md).
+- `channel: str`: URL to source channel, without subdir, as defined in [CEP 26](../../ceps/cep-0026.md).
+- `constrains: list[str]`. Runtime constraints, as defined in [CEP 34](../../ceps/cep-0034.md).
+- `depends: list[str]`. Runtime requirements, as defined in [CEP 34](../../ceps/cep-0034.md).
 - `extracted_package_dir: str`: Absolute path to extracted contents of the artifact.
 - `files: list[str]`: list of installed paths that are owned by this artifact, relative to `$CONDA_PREFIX`, forward-slash normalized. It MUST include files that were not initially part of the package but were generated during the installation process (e.g. `*.pyc` bytecode files).
-- `fn: str`. Filename of compressed artifact, as defined in [CEP 26](./cep-0026.md).
-- `license: str`. SPDX license expression, as defined in [CEP 34](./cep-0034.md).
+- `fn: str`. Filename of compressed artifact, as defined in [CEP 26](../../ceps/cep-0026.md).
+- `license: str`. SPDX license expression, as defined in [CEP 34](../../ceps/cep-0034.md).
 - `link: dict[str, Any]`: How the package was linked into the prefix. It MUST only allow two keys:
   - `source: str`: The path of the extracted package directory.
   - `type: Literal[1, 2, 3, 4]`: Type of linkage (1 = hardlink, 2 = softlink, 3 = copy, 4 = directory).
-- `md5: str`: Hexadecimal string of MD5 hash, as defined in [CEP 34](./cep-0034.md).
-- `name: str`: Lowercase name of the package, as defined in [CEP 26](./cep-0026.md).
-- `noarch: Literal['generic', 'python']`: Optional. Noarch type, as defined in [CEP 34](./cep-0034.md).
+- `md5: str`: Hexadecimal string of MD5 hash, as defined in [CEP 34](../../ceps/cep-0034.md).
+- `name: str`: Lowercase name of the package, as defined in [CEP 26](../../ceps/cep-0026.md).
+- `noarch: Literal['generic', 'python']`: Optional. Noarch type, as defined in [CEP 34](../../ceps/cep-0034.md).
 - `package_tarball_full_path: str`: Absolute path to downloaded artifact (compressed).
 - `paths_data: dict[str, Any]`: Metadata about the artifact installed contents, which includes the artifact distributed files, and the generated files at install time. It MUST be a mapping with two keys:
-  - `paths: list[dict[str, Any]]`: Information about installed files. Extends [CEP 34](./cep-0034.md)'s `paths.json` with some extra details:
+  - `paths: list[dict[str, Any]]`: Information about installed files. Extends [CEP 34](../../ceps/cep-0034.md)'s `paths.json` with some extra details:
     - `_path: str`: Relative path of file within `$CONDA_PREFIX`, forward-slash normalized.
     - `file_mode: Literal['text', 'binary']`: Optional, defaults to `text`. How to perform prefix replacement.
     - `no_link: bool`: Optional, defaults to `false`. Whether to force copy or allow link.
@@ -75,17 +75,17 @@ It MUST be a JSON document that ships a dictionary conforming to this schema:
     - `sha256_in_prefix: str`: Optional if generated. 64-char hex string corresponding to the SHA256 checksum of the file as installed in the target prefix. This MAY be different from `sha256` due to prefix replacement.
     - `size_in_bytes: int`: Optional if generated. Size of file, in bytes.
   - `paths_version: int`: Version of this schema. Currently, `1`.
-- `platform: str | None`. Deprecated, as defined in [CEP 34](./cep-0034.md).
-- `requested_spec: str`: Deprecated, use `requested_specs` instead. `MatchSpec` string (as defined in [CEP 29](./cep-0029.md)) that led to choosing this package.
-- `requested_specs: list[str]`: List of `MatchSpec` strings (as defined in [CEP 29](./cep-0029.md)) that led to choosing this package.
-- `sha256: str`: Hexadecimal string of SHA256 hash, as defined in [CEP 34](./cep-0034.md).
-- `size: int`: Size, in bytes, of compressed artifact, as defined in [CEP 34](./cep-0034.md).
-- `subdir: str`: Subdir string, as defined in [CEP 34](./cep-0034.md).
-- `timestamp: int`: Moment the package build started, as defined in [CEP 34](./cep-0034.md).
-- `url: str`: Direct URL to download the artifact. It SHOULD be the result of joining the `channel` URL plus `subdir` (or its `base_url` field as defined in [CEP 15](./cep-0015.md)) plus the `fn` field.
-- `version: str`: Package version, as defined in [CEP 33](./cep-0033.md).
+- `platform: str | None`. Deprecated, as defined in [CEP 34](../../ceps/cep-0034.md).
+- `requested_spec: str`: Deprecated, use `requested_specs` instead. `MatchSpec` string (as defined in [CEP 29](../../ceps/cep-0029.md)) that led to choosing this package.
+- `requested_specs: list[str]`: List of `MatchSpec` strings (as defined in [CEP 29](../../ceps/cep-0029.md)) that led to choosing this package.
+- `sha256: str`: Hexadecimal string of SHA256 hash, as defined in [CEP 34](../../ceps/cep-0034.md).
+- `size: int`: Size, in bytes, of compressed artifact, as defined in [CEP 34](../../ceps/cep-0034.md).
+- `subdir: str`: Subdir string, as defined in [CEP 34](../../ceps/cep-0034.md).
+- `timestamp: int`: Moment the package build started, as defined in [CEP 34](../../ceps/cep-0034.md).
+- `url: str`: Direct URL to download the artifact. It SHOULD be the result of joining the `channel` URL plus `subdir` (or its `base_url` field as defined in [CEP 15](../../ceps/cep-0015.md)) plus the `fn` field.
+- `version: str`: Package version, as defined in [CEP 33](../../ceps/cep-0033.md).
 
-The fields above that also appear in [CEP 34](./cep-0034.md)'s `info/index.json` MUST match the relevant fields in the most up-to-date repodata information available for the package at install time (`depends` and `constrains` are of particular importance due to repodata patching).
+The fields above that also appear in [CEP 34](../../ceps/cep-0034.md)'s `info/index.json` MUST match the relevant fields in the most up-to-date repodata information available for the package at install time (`depends` and `constrains` are of particular importance due to repodata patching).
 This is generally the channel's `repodata.json`, but it MAY also be an alternative source like the serialized metadata in a lockfile. The package's `info/index.json` SHOULD be used as a fallback if no other sources are available.
 
 Additional keys MAY be present in the file and MUST be ignored if not recognized.
@@ -94,7 +94,7 @@ Additional keys MAY be present in the file and MUST be ignored if not recognized
 
 Optional.
 
-Empty file or JSON document that MUST follow [CEP 22](./cep-0022.md).
+Empty file or JSON document that MUST follow [CEP 22](../../ceps/cep-0022.md).
 
 #### `./conda-meta/state`
 
