@@ -58,8 +58,6 @@ The build string MUST be `0`.
 
 If the `CONDA_OVERRIDE_CUDA` environment variable is set to a non-empty value that can be parsed as a version string, the `__cuda` virtual package MUST be exposed with that version.
 
-#### `__cuda_arch`
-
 #### `__glibc`
 
 This virtual package MUST NOT be present if the target platform is not `linux-*`.
