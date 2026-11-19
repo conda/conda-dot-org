@@ -25,7 +25,7 @@ If present, this JSON document MUST be served at the root of the conda channel (
   - `post_link: bool`. Required. Whether the packages feature post-link scripts.
   - `pre_link: bool`. Required. Whether the packages feature pre-link scripts.
   - `pre_unlink: bool`. Required. Whether the packages feature pre-unlink scripts.
-  - `run_exports: dict[str, dict]`. Required. Mapping of versions to their `run_exports` metadata. See [CEP 12](./cep-0012.md) for the valid keys.
+  - `run_exports: dict[str, dict]`. Required. Mapping of versions to their `run_exports` metadata. See [CEP 12](/learn/ceps/cep-0012) for the valid keys.
   - `source_url: str | list[str]`. Optional. URL (or URLs) of the sources that were fetched to build the package.
   - `subdirs: list[str]`. Required. Channel subdirectories under which this package is available.
   - `summary: str`. Optional. Short description of the project.
