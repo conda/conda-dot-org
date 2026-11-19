@@ -47,8 +47,8 @@ Pre- and post-link/unlink scripts MUST follow the [script runtime requirements](
 Removing a package from the environment SHOULD follow these instructions:
 
 1. MUST execute the relevant `pre-unlink` scripts.
-2. Remove all the files recorded in its `conda-meta/*.json` file (under `paths_data`).
-3. Handle the [`./Menu/*.json` documents](./menu.md).
+2. Handle the [`./Menu/*.json` documents](./menu.md).
+3. Remove all the files recorded in its `conda-meta/*.json` file (under `paths_data`).
 4. MAY execute deprecated `post-unlink` scripts.
 5. Remove its `conda-meta/*.json` record.
 6. If there were clobbering conflicts, restore the relevant path from the clobbered sources.

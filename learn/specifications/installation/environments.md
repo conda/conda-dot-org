@@ -110,6 +110,15 @@ The rest of the environment directory is generally populated by the contents of 
 
 Packages MAY include files in some special paths that conda clients need to handle in a specific way. Refer to [Lifecycle](./lifecycle.md) for more details.
 
+### Top-level `condarc` files
+
+Environments MAY include files in these locations which affect the behavior of the conda client performing operations on this environment. The following locations are recognized as valid configuration sources.
+
+- `./.condarc`
+- `./condarc`
+- `./condarc.d/*.yml`
+- `./condarc.d/*.yaml`
+
 ## History
 
 - 2026-03-04: [CEP 32](/learn/ceps/cep-0032) standardized environment contents.
