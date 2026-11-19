@@ -87,7 +87,7 @@ repos:
         name: All specifications pages must have a history section
         language: pygrep
         files: ^learn/specifications/.*\.md$
-        entry: '## History'
+        entry: ^## History$
         args: [--negate]
   - repo: meta
     # see https://pre-commit.com/#meta-hooks
