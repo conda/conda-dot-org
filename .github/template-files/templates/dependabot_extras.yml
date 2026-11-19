@@ -1,0 +1,25 @@
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      npm:
+        patterns:
+          - '*'
+    ignore:
+      # eslint-plugin-import, eslint-plugin-react, and eslint-plugin-jsx-a11y don't declare
+      # peer support for ESLint 10 yet (only up to ^9); bump this once they do.
+      - dependency-name: eslint
+        versions: ['>=10.0.0']
+    cooldown:
+      default-days: 7
+  - package-ecosystem: npm
+    directory: /bin/banner
+    schedule:
+      interval: monthly
+    groups:
+      npm-banner:
+        patterns:
+          - '*'
+    cooldown:
+      default-days: 7

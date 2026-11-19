@@ -84,7 +84,7 @@
   display: none;
 }
 
-@media screen and (max-width: 1050px) {
+@media screen and (width <= 1050px) {
   .header {
     flex-direction: column;
   }
@@ -107,7 +107,7 @@
   }
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (width <= 650px) {
   .header h1 {
     font-size: 48px;
     line-height: 60px;
@@ -132,7 +132,7 @@
   }
 }
 
-@media screen and (max-width: 490px) {
+@media screen and (width <= 490px) {
   .header h1 {
     font-size: 36px;
     line-height: 48px;

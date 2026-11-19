@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import BrowserOnly from "@docusaurus/BrowserOnly";
 
 /**
@@ -52,3 +53,10 @@ export default function Plot({ data, layout, config, style, ...rest }) {
     </BrowserOnly>
   );
 }
+
+Plot.propTypes = {
+  data: PropTypes.array.isRequired,
+  layout: PropTypes.object,
+  config: PropTypes.object,
+  style: PropTypes.object,
+};

@@ -6,7 +6,6 @@ import Info from "../components/Info";
 import Features from "../components/Features";
 import News from "../components/News";
 import Supporters from "@site/src/components/Supporters";
-import styles from "./index.module.css";
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();

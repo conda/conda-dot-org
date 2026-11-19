@@ -5,7 +5,7 @@ HERE=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 rm "${HERE}/../learn/ceps/*.md" || mkdir -p "${HERE}/../learn/ceps/"
 pushd $(mktemp -d)
-curl -L https://github.com/conda/ceps/archive/main.tar.gz -o ceps.tar.gz
+curl -sL https://github.com/conda/ceps/archive/main.tar.gz -o ceps.tar.gz
 tar -xf ceps.tar.gz
 cd ceps-main
 for f in cep-*.md; do

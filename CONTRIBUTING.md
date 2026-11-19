@@ -221,6 +221,42 @@ new updates/additions. See something that doesn't quite look right or is not sho
 up how you expect? Be sure to check the error log in the terminal for any information
 that can help you.
 
+### Dependency overrides
+
+`package.json`'s `overrides` field forces specific transitive dependency versions past what
+their parent packages declare, because `npm audit fix` can't move a dependency outside the
+range (or exact pin) its parent specifies. Each entry exists to close a specific vulnerability
+that our own direct dependencies (Docusaurus, mermaid) haven't yet resolved upstream:
+
+- **`sharp`**: `@docusaurus/plugin-ideal-image` (via `@docusaurus/lqip-loader` and
+  `@docusaurus/responsive-loader`) otherwise selects an old, vulnerable `sharp` release line.
+  Forcing `^0.35.0` lets npm float to the latest `0.35.x` patch instead
+  ([#431](https://github.com/conda/conda-dot-org/pull/431)). Drop once those Docusaurus
+  packages bump their own `sharp` range past the vulnerable line by default (check with
+  `npm ls sharp` after removing the override).
+- **`serialize-javascript`** and **`uuid`**: `@docusaurus/bundler`'s webpack toolchain
+  (`copy-webpack-plugin`, `css-minimizer-webpack-plugin`) and `webpack-dev-server`'s `sockjs`
+  dependency pull in vulnerable release lines of these two
+  ([#430](https://github.com/conda/conda-dot-org/pull/430), fixing
+  [GHSA-5c6j-r48x-rmvq](https://github.com/advisories/GHSA-5c6j-r48x-rmvq),
+  [GHSA-qj8w-gfj5-8c6v](https://github.com/advisories/GHSA-qj8w-gfj5-8c6v), and
+  [GHSA-w5hq-g745-h8pq](https://github.com/advisories/GHSA-w5hq-g745-h8pq)). Drop once those
+  packages bump their own declared ranges past the vulnerable lines by default.
+- **`lodash-es`**: `@docusaurus/theme-mermaid` pulls in `mermaid`, which pins
+  `chevrotain: ~11.1.2`. That chevrotain release's own sub-packages (`@chevrotain/gast`,
+  `@chevrotain/cst-dts-gen`) hard-pin the exact vulnerable `lodash-es@4.17.23`
+  ([GHSA-r5fr-rjxr-66jc](https://github.com/advisories/GHSA-r5fr-rjxr-66jc),
+  [GHSA-f23m-r3pf-42rh](https://github.com/advisories/GHSA-f23m-r3pf-42rh)), an exact pin
+  `npm audit fix` cannot move. Forcing `^4.18.1` (a patch-level bump of a stable, mature
+  utility library) resolves it with no functional risk. Drop once `mermaid` bumps its
+  `chevrotain` dependency past `~11.1.2` (chevrotain 13.x already dropped the `lodash-es`
+  dependency from `@chevrotain/gast` entirely), or once a chevrotain 11.x patch release fixes
+  it directly.
+
+When adding a new override, run `npm audit` before and after to confirm it actually closes the
+finding, and note the advisory ID(s) and the upstream package that couldn't be fixed directly
+so a future contributor can tell when the override is safe to remove.
+
 ## Content contributors
 
 ### Creating a blog post
@@ -302,23 +338,62 @@ This will automatically add a banner image to the top of the blog post and optio
 #### Auto-generated banners
 
 Sometimes coming up with an engaging and relevant banner image is hard (if not impossible).
+As an alternative, `npm run banner` generates a randomized color-mosaic background
+(a flat grid of colored squares) overlaid with the conda C logo.
 
-As an alternative we offer the ability to generate randomized banners overlaid with the conda C logo:
+Two background styles are available via `--style`:
+
+- `random` — each cell picks its own hue/lightness independently
+- `smooth` — cell colors are bilinear-interpolated from a coarse control grid
+  (gentler, heightmap-like gradients)
+- `auto` (default) — picks `random` or `smooth` at random each run
+
+Examples (`random` then `smooth`):
+
+<img src="static/img/banner-examples/random.png" width=300 />
+<img src="static/img/banner-examples/smooth.png" width=300 />
+
+##### Generating a banner manually
 
 ```bash
 $ npm run banner -- --output static/img/blog/<post>/banner.png
+$ npm run banner -- --output static/img/blog/<post>/banner.png --style smooth
+$ npm run banner -- --output static/img/blog/<post>/banner.png --input static/img/some-other-icon.png
 ```
 
-<!-- prettier-ignore-start -->
-> [!NOTE]
-> `canvas` isn't compiled for `macOS-arm64`; navigate to the following page for compiling instructions:
-> https://www.npmjs.com/package/canvas#compiling
-<!-- prettier-ignore-end -->
+Then point the post's frontmatter at that file:
 
-This will produce banners like the following:
+```yaml
+---
+image: img/blog/<post>/banner.png
+---
+```
 
-<img src="static/img/blog/2023-10-12-september-releases/banner.jpg" width=300 />
-<img src="static/img/blog/2023-07-28-july-releases/banner.jpg" width=300 />
+Requires Node ≥22.12 (the banner tool's own `package.json` installs its
+dependencies under `bin/banner/` when you run `npm run banner`).
+
+##### Pre-commit: fill in missing banners
+
+A local pre-commit hook (`fill-missing-banners`) runs on staged `blog/*.md`
+/ `blog/*.mdx` files and calls `node bin/banner/banner.js fill-missing` (with
+`canvas` / `commander` installed into the hook's own Node 24 env). It looks for
+a frontmatter `image:` key whose target file is missing on disk:
+
+- `image: img/blog/<post>/banner.png` set but the file is absent → generates it
+- `image:` present but blank → derives `img/blog/<slug>/banner.png` from the
+  post filename, generates the file, and fills in the frontmatter line
+- no `image:` key at all → left alone (many posts intentionally have none)
+
+Like `prettier` / `end-of-file-fixer`, the hook exits non-zero when it
+generates something so you can review the new banner (and any frontmatter
+edit) before committing again. Re-running is a no-op once the file exists.
+
+You can also run the same scan by hand:
+
+```bash
+$ npm run banner -- fill-missing                  # whole blog/
+$ npm run banner -- fill-missing blog/some-post.md
+```
 
 ## Technical contributors
 
