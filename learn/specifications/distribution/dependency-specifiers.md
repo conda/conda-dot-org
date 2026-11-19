@@ -8,7 +8,7 @@ The `MatchSpec` query syntax is a mini-language designed to select individual en
 
 ## Specification
 
-`MatchSpec` strings provide a compact method to query collections of conda artifacts (e.g. in a conda channel, or in an installed environment) by matching `str` and `int` fields on package records (see [CEP 34: `./info/index.json`](./cep-0034.md) and [CEP 36: Package Record Metadata](./cep-0036.md)). Note that fields using other types, like `list[str]` (`depends`, `constrains`, etc.), cannot be matched by this syntax.
+`MatchSpec` strings provide a compact method to query collections of conda artifacts (e.g. in a conda channel, or in an installed environment) by matching `str` and `int` fields on package records (see [CEP 34: `./info/index.json`](/learn/ceps/cep-0034) and [CEP 36: Package Record Metadata](/learn/ceps/cep-0036)). Note that fields using other types, like `list[str]` (`depends`, `constrains`, etc.), cannot be matched by this syntax.
 
 ### Syntax
 
@@ -62,7 +62,7 @@ Matching expressions that target string fields MUST be interpreted using these c
 
 Channel fields MUST be matched with the same rules as strings.
 
-The value of a channel expression MUST allow both names and full URLs. When a name is used (as per [CEP 26](./cep-0026.md)), it MUST be promoted to its corresponding fully qualified URL before comparison.
+The value of a channel expression MUST allow both names and full URLs. When a name is used (as per [CEP 26](/learn/ceps/cep-0026)), it MUST be promoted to its corresponding fully qualified URL before comparison.
 
 #### Version matching
 
@@ -77,7 +77,7 @@ A version specifier MUST consist of one or more _version clauses_, separated by 
 
 A _version clause_ consists of either:
 
-- A single version literal (as defined in [CEP 33](./cep-0033.md)).
+- A single version literal (as defined in [CEP 33](/learn/ceps/cep-0033)).
 - An operator plus a single version literal.
 - A single version literal containing one or more globs (`*`).
 - A single glob (`*`).
@@ -92,7 +92,7 @@ Each version clause MUST be described by one of these types:
 - Exact equality, expressed as a version literal prefixed by the double-equals string `==`, MUST be interpreted as normalized version literal equality.
 - Fuzzy equality, expressed as either a version literal prefixed by one `=` symbol, or a version literal trailed by `.*` or `*`. After removing the leading `=` character and appending a `.*` suffix, comparison is only truthy when all the version segments before the glob match are equal.
 - Exclusion, expressed as a version literal or a version literal augmented with globs, prefixed by the string `!=`, MUST be interpreted as a negated fuzzy equality.
-- Ordered comparison, with the implied ordering described in [CEP 33](./cep-0033.md):
+- Ordered comparison, with the implied ordering described in [CEP 33](/learn/ceps/cep-0033):
   - Exclusive ordered comparison, expressed as a version literal prefixed by `<` or `>`, MUST be interpreted as "smaller than" and "greater than", respectively, as per their position in the version ordering scheme.
   - Inclusive ordered comparison, expressed as a version literal prefixed by one of these strings: `<=`, `>=`, MUST be interpreted as "smaller than" and "greater than", but they will also match as normalized version literal equality.
 - Semver-like comparisons, expressed as a version literal prefixed by the `~=` string, MUST be interpreted as greater than or equal to the version literal while also matching a fuzzy equality test for the version literal sans its last segment (e.g. `~=0.5.3` expands to `>=0.5.3,0.5.*`). This operator is considered deprecated, and its expanded alternative SHOULD be used instead.
