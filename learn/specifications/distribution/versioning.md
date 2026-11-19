@@ -63,5 +63,5 @@ The resulting list of components MUST be compared as follows:
 
 ## History
 
-- 2026-03-04: Version literals are their ordering are standardized by [CEP 33](/learn/ceps/cep-0033).
+- 2026-03-04: Version literals and their ordering are standardized by [CEP 33](/learn/ceps/cep-0033).
 - 2025-05-07: Version literals are minimally defined by [CEP 26](/learn/ceps/cep-0026).
