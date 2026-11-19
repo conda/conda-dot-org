@@ -187,4 +187,4 @@ This file MAY be written at extraction time by conda client tools. It MUST NOT b
 
 ## History
 
-- 2026-03-04: The `info/` metadata directory is standardized by [CEP 33](/learn/ceps/cep-0033).
+- 2026-03-04: The `info/` metadata directory is standardized by [CEP 34](/learn/ceps/cep-0034).
