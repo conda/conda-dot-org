@@ -83,6 +83,12 @@ repos:
         # (also listed in bin/banner/package.json for `npm run banner`).
         additional_dependencies: [canvas@3.2.3, commander@15.0.0]
         files: ^blog/.*\.mdx?$
+      - id: specifications-history
+        name: All specifications pages must have a history section
+        language: pygrep
+        files: ^learn/specifications/.*\.md$
+        entry: ^## History$
+        args: [--negate]
   - repo: meta
     # see https://pre-commit.com/#meta-hooks
     hooks:
