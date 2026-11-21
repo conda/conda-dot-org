@@ -2,7 +2,7 @@
 sidebar_position: 0
 ---
 
-# Environment
+# Environments
 
 This document describes the structure of a conda environment.
 
