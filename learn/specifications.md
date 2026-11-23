@@ -53,7 +53,8 @@ More specifically, violations of a MUST or MUST NOT rule MUST result in an error
 ## Package Installation Metadata
 
 - [The conda environment structure](./specifications/installation/environments.md) _(status: in progress)_
-- [Recording installed packages](./specifications/installation/installed-records.md) _(status: in progress)_
+- [Recording installed packages](./specifications/installation/environments.md#installed-package-records) _(status: in progress)_
+- [Environment lifecycle](./specifications/installation/lifecycle.md) _(status: in progress)_
 - [Processing `Menu/*.json` items](./specifications/installation/menu.md) _(status: ready)_
 
 ## Package Building
